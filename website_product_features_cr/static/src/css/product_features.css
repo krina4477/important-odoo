@@ -1,0 +1,11 @@
+.hover-row:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease-in-out;
+}
+.card {
+    border-radius: 12px;
+}
+.card-header h5 {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}

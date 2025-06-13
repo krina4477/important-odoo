@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="res_config_setting_inherit" model="ir.ui.view">
+        <field name="name">view.model.tree inherited</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='languages_setting_container']" position="after">
+                <div id="Send Coupon Code Using Mail">
+                    <block title="Send Coupon Code" name="send_mailsetting_container">
+                        <div>
+                            <field name="is_send_mail" class="w-auto ps-1 fw-bold"/>
+                            <label for="is_send_mail" string="Send Coupon Code"/>
+                        </div>
+                    </block>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_setting_inherit_website" model="ir.ui.view">
+        <field name="name">view.model.website.inherited</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='website_info_settings']" position="after">
+                <block title="Customer Signup Program" name="signup_program_block">
+                    <div>
+                        <field name="signup_program_id" force_save="1"/>
+                    </div>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="inherit_loyalty_card" model="ir.ui.view">
+        <field name="name">loyalty card inherit</field>
+        <field name="model">loyalty.card</field>
+        <field name="inherit_id" ref="loyalty.loyalty_card_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//group[1]" position="after">
+                <group>
+                    <field name="is_show_coupon_details"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

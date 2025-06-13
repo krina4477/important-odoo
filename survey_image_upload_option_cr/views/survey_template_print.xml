@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="survey_print_file_upload_answer" inherit_id="survey.survey_page_print">
+        <xpath expr="//div[contains(@class, 'js_question-wrapper')]" position="inside">
+            <t t-if="question.question_type == 'file_upload' and answer_lines">
+                <div class="container-fluid mt-4">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                        <t t-foreach="answer_lines" t-as="line">
+                            <t t-if="line.file_upload or line.attachment_ids">
+                                <t t-set="attachments" t-value="line.attachment_ids or []" />
+                                <t t-foreach="attachments or [None]" t-as="attachment">
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body text-center d-flex flex-column">
+                                                <!-- Image Display -->
+                                                <img t-attf-src="/web/image/ir.attachment/{{attachment.id}}/datas" 
+                                                     t-if="attachment"
+                                                     alt="Uploaded Image"
+                                                     class="img-fluid rounded mb-2"
+                                                     style="width: 100%; height: auto;" />
+                                                <img t-attf-src="'data:image/png;base64,%s' % line.file_upload"
+                                                     t-if="not attachment and line.file_upload"
+                                                     alt="Uploaded Image"
+                                                     class="img-fluid rounded mb-2"
+                                                     style="width: 100%; height: auto;" />
+                                                
+                                                <!-- Full Image Name Display -->
+                                                <div class="small fw-bold mb-2 text-wrap text-break">
+                                                    <t t-esc="attachment.name if attachment else line.multi_image_ids.name or 'Uploaded File'" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

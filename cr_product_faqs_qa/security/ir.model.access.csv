@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cr_product_faqs_qa.access_question_answer,access_question_answer,cr_product_faqs_qa.model_question_answer,base.group_user,1,1,1,1
+cr_product_faqs_qa.access_answer_answer,access_answer_answer,cr_product_faqs_qa.model_answer_answer,base.group_user,1,1,1,1
+cr_product_faqs_qa.access_product_faq,access_product_faq,cr_product_faqs_qa.model_product_faq,base.group_user,1,1,1,1

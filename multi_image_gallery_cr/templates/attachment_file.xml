@@ -1,0 +1,75 @@
+<odoo>
+
+    <template id="carousel_product_indicators_inherit" inherit_id="website_sale.carousel_product_indicators">
+        <xpath expr="//ol" position="inside">
+            <t t-if="product_variant.sudo().product_3d_image_ids">
+                <li class="align-top position-relative" data-bs-toggle="modal" data-bs-target="#product3DModal">
+                    <div class="o_image_64_cover d-flex justify-content-center align-items-center bg-dark text-white"
+                    style="width: 64px; height: 64px; font-size: 14px;">
+                        <img src="/multi_image_gallery_cr/static/img/360-view.png" class="img o_image_64_cover" alt="cus2.webp" loading="lazy"/>
+                    </div>
+                </li>
+            </t>
+        </xpath>
+    </template>
+    
+    <!-- <template id="carousel_product_indicators_360_inherit"
+        inherit_id="website_sale.carousel_product_indicators">
+        <xpath expr="//ol" position="inside">
+            <li class="align-top position-relative view-3d-modal"
+                data-bs-toggle="modal"
+                data-bs-target="#product3DModal"
+                t-on-click="() => this._bind3DButtonClick()">
+                <div
+                    class="o_image_64_cover text-center bg-light d-flex align-items-center justify-content-center"
+                    style="width: 64px; height: 64px; border: 1px solid #ccc;">
+                    <span class="fa fa-sync fa-2x" title="View 360°"></span>
+                </div>
+            </li>
+        </xpath>
+    </template> -->
+
+    <template id="product_attachment_files" inherit_id="website_sale.shop_product_carousel">
+        <xpath expr="//div[hasclass('carousel-inner')]" position="inside">
+            <t t-name="multi_image_gallery_cr.attachment_modal_template">
+                <!-- <button
+                    id="view-3d-button"
+                    style="background-color: #714B67;"
+                    class="position-absolute bottom-0 start-50 translate-middle text-white bg-opacity-50 px-3 py-2
+    rounded">
+                    View 3D Product
+                </button> -->
+
+                <div class="modal fade fullscreen-modal" id="product3DModal" tabindex="-1" aria-labelledby="product3DModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">3D Viewer</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="product-3d-container">
+                          <!-- JS will inject model-viewer here -->
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- <div class="modal fade" id="product3DModal" tabindex="-1"
+                    aria-labelledby="product3DModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content" style="background-color: #fff;">
+                            <div class="modal-header border-0">
+                                <h5 class="modal-title" id="product3DModalLabel">3D Viewer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0" id="product-3d-container">
+                                <p>Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

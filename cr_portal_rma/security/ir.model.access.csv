@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_order_return,access.order.return,model_order_return,base.group_user,1,1,1,1
-access_order_return_line,access.order.return.line,model_order_return_line,base.group_user,1,1,1,1

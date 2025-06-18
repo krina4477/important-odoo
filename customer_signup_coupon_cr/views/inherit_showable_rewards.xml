@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<odoo>
-    <template id="inherit_showable_rewards" name="Loyalty, coupon, gift card" inherit_id="website_sale_loyalty.modify_code_form">
-        <xpath expr="//t[@t-as='coupon_reward']//form[@name='claim_reward']//div[@class='alert alert-success text-start mt16']" position="attributes">
-            <attribute name="t-if">coupon.is_show_coupon_details != True</attribute>
-        </xpath>
-    </template>
-</odoo>

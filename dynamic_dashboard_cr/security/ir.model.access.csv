@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-dynamic_dashboard_cr.access_dashboard_item,access_dashboard_item,dynamic_dashboard_cr.model_dashboard_item,,1,1,1,1
-dynamic_dashboard_cr.access_dashboard_section,access_dashboard_section,dynamic_dashboard_cr.model_dashboard_section,,1,1,1,1

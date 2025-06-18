@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="shop_inherit_page" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_detail_main']" position="after">
+            <div class="qa-wrapper">
+                <div t-if="product.sudo().que_ans_ids or uid" class="container mt-5">
+                    <hr class="mb-4"/>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 class="text-primary mb-4">Questions &amp; Answers</h3>
+                        </div>
+                        <div class="row col-6"> 
+                            <div class="col-10">
+                                <input type="text" id="qaSearch" placeholder="Search Q&amp;A..." class="form-control mb-3"/>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-outline-primary" id="searchInQA">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <t t-set="qa_count" t-value="0"/>
+                    <t t-set="qa_show" t-value="2"/>
+                    <t t-if="product.sudo().que_ans_ids" t-foreach="product.sudo().que_ans_ids.filtered('is_published')" t-as="qa">
+                        <t t-set="qa_count" t-value="qa_count + 1"/>
+                        <div t-attf-class="qa-item #{'d-none' if qa_count > qa_show else ''}">
+                            <div class="border p-2 mb-2">
+                                <div class="mb-2">
+                                    <strong>Q: </strong>
+                                    <strong class="qa-question">
+                                        <span t-esc="qa.question" />
+                                    </strong>
+                                    <br />
+                                    <div t-if="qa.answer_ids" class="qa-body">
+                                        <strong>A: </strong>
+                                        <span t-esc="qa.answer_ids[:1].name" />
+                                        <br />
+                                        <t t-if="uid == qa.answer_ids[:1].user_id.id">
+                                            <span style="font-size: small; font-weight: 500;">You</span>
+                                        </t>
+                                        <t t-else="">
+                                            <span style="font-size: small; font-weight: 500;" t-esc="qa.answer_ids[:1].user_id.name"/>
+                                        </t>                                            
+                                    </div>
+                                </div>
+                                <span class="align-top position-relative text-primary"
+                                    t-att-data-bs-target="'#readGiveAnsModal-' + str(qa.id)"
+                                    data-bs-toggle="modal">
+                                    Read other answers
+                                    <!-- read &amp; give answers -->
+                                </span>
+                        
+                                <div class="modal fade" t-att-id="'readGiveAnsModal-' + str(qa.id)"
+                                    tabindex="-1"
+                                    aria-labelledby="readGiveAnsModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="readGiveAnsModalLabel">Q: <t t-esc="qa.question"/></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <t t-foreach="qa.answer_ids" t-as="ans">
+                                                        <strong>A: </strong>
+                                                        <span t-esc="ans.name" />
+                                                        <br />
+                                                        <t t-if="uid == ans.user_id.id">
+                                                            <span style="font-size: small; font-weight: 500;">You</span>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span style="font-size: small; font-weight: 500;" t-esc="ans.user_id.name"/>
+                                                        </t>     
+                                                        <br />
+                                                    </t>
+                                                </div>
+                        
+                                                <form method="POST" t-att-action="'/submit/answer/%d' % qa.id">
+                                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                    <div class="form-group">
+                                                        <label for="answerTextarea">Your Answer</label>
+                                                        <textarea class="form-control" name="answer" rows="4" required="1"></textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </t>
+                    <t t-if="not product.sudo().que_ans_ids and uid">
+                        <h4>Be the first to ask about this product</h4>
+                    </t>
+                    <div t-if="qa_count > qa_show" class="text-center mt-3">
+                        <button class="btn btn-outline-primary" id="loadMoreBtn" data-expanded="false">Load More</button>
+                    </div>                    
+                    
+                    <!-- Question Form -->
+                    <form t-if="uid" t-attf-action="/submit/question/{{ product.id }}" method="POST" class="mt-3">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <div class="form-group">
+                            <label>Ask a question</label>
+                            <textarea name="question" class="form-control" required="1"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+                <div t-if="product.sudo().faqs_ids" class="container mt-5">
+                    <hr class="mb-4"/>
+                    <div class="col-6">
+                        <h3 class="text-primary mb-4">Frequently Asked Questions</h3>
+                    </div>
+                    <t t-set="fa_count" t-value="0"/>
+                    <t t-set="fa_show" t-value="2"/>
+                    <div class="accordion" id="faqAccordion">
+                        <t t-if="product.sudo().faqs_ids" t-foreach="product.sudo().faqs_ids.filtered('is_published')" t-as="fa">
+                            <div t-attf-class="accordion-item faq-item">
+                                <h2 class="accordion-header" t-attf-id="heading#{fa.id}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" t-attf-data-bs-target="#collapse#{fa.id}" aria-expanded="false" t-attf-aria-controls="collapse#{fa.id}">
+                                        <strong><t t-esc="fa.question"/></strong>
+                                    </button>
+                                </h2>
+                                <div t-attf-id="collapse#{fa.id}" class="accordion-collapse collapse" t-attf-aria-labelledby="heading#{fa.id}" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <span t-esc="fa.answer"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

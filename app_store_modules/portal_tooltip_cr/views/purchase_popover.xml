@@ -1,0 +1,227 @@
+<odoo>
+    <template id="purchase_popover" inherit_id="purchase.portal_my_purchase_orders">
+        <xpath expr="//t[@t-as='order']//tr//td//a[@t-att-href='order.get_portal_url()']" position="attributes">
+            <attribute name="class">pop</attribute>
+        </xpath>
+
+        <xpath expr="//a[@t-att-href='order.get_portal_url()']" position="after">
+            <div class="popover-hidden-content" style="display: none;">
+                <div class="popover-scroll">
+                    <div style="text-align:center; font-weight:bold; font-size:10px; margin-bottom:5px;">
+                        <t t-esc="order.name" />
+                    </div>
+
+                    <table class="popover-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">Products</th>
+                                <th style="width: 10%;">Qty</th>
+                                <th style="width: 15%;">Unit Price</th>
+                                <th style="width: 10%;">Tax</th>
+                                <th style="width: 15%;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="order.order_line" t-as="line">
+                                <tr>
+                                    <td><t t-esc="line.product_id.display_name" /></td>
+                                    <td><t t-esc="line.product_uom_qty" /></td>
+                                    <td>
+                                        <t t-if="line.currency_id.position == 'after'">
+                                            <t t-esc="'%.2f' % line.price_unit" />
+                                            <t t-esc="line.currency_id.symbol" />
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="line.currency_id.symbol" />
+                                            <t t-esc="'%.2f' % line.price_unit" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.taxes_id">
+                                            <t t-foreach="line.taxes_id" t-as="tax">
+                                                <t t-esc="tax.amount" />%
+                                            </t>
+                                        </t>
+                                        <t t-else="">0%</t>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.currency_id.position == 'after'">
+                                            <t t-esc="'%.2f' % line.price_subtotal"/>
+                                            <t t-esc="line.currency_id.symbol"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="line.currency_id.symbol"/>
+                                            <t t-esc="'%.2f' % line.price_subtotal"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <table class="popover-summary">
+                        <tr>
+                            <td>Untaxed Amount</td>
+                            <td>
+                                <t t-if="order.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % order.amount_untaxed" />
+                                    <t t-esc="order.currency_id.symbol" />
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="order.currency_id.symbol" />
+                                    <t t-esc="'%.2f' % order.amount_untaxed" />
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Tax <t t-if="line.taxes_id">
+                                    <t t-foreach="line.taxes_id" t-as="tax">
+                                        <t t-esc="tax.amount" />%
+                                    </t>
+                                </t>
+                                <t t-else="">0%</t>
+                            </td>
+                            <td>
+                                <t t-if="order.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % order.amount_tax" />
+                                    <t t-esc="order.currency_id.symbol" />
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="order.currency_id.symbol" />
+                                    <t t-esc="'%.2f' % order.amount_tax" />
+                                </t>
+                            </td>
+                        </tr>
+                        <tr class="total">
+                            <td>Total</td>
+                            <td>
+                                <t t-if="order.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % order.amount_total" />
+                                    <t t-esc="order.currency_id.symbol" />
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="order.currency_id.symbol" />
+                                    <t t-esc="'%.2f' % order.amount_total" />
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="rfq_popover" inherit_id="purchase.portal_my_purchase_rfqs">
+        <xpath expr="//t[@t-as='rfq']//tr//td//a[@t-att-href='rfq.get_portal_url()']" position="attributes">
+            <attribute name="class">pop</attribute>
+        </xpath>
+
+        <xpath expr="//a[@t-att-href='rfq.get_portal_url()']" position="after">
+            <div class="popover-hidden-content" style="display: none;">
+                <div class="popover-scroll">
+                    <div style="text-align:center; font-weight:bold; font-size:10px; margin-bottom:5px;">
+                        <t t-esc="rfq.name" />
+                    </div>
+
+                    <table class="popover-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">Products</th>
+                                <th style="width: 10%;">Qty</th>
+                                <th style="width: 15%;">Unit Price</th>
+                                <th style="width: 10%;">Tax</th>
+                                <th style="width: 15%;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="rfq.order_line" t-as="line">
+                                <tr>
+                                    <td><t t-esc="line.product_id.display_name" /></td>
+                                    <td><t t-esc="line.product_uom_qty" /></td>
+                                    <td>
+                                        <t t-if="line.currency_id.position == 'after'">
+                                            <t t-esc="'%.2f' % line.price_unit" />
+                                            <t t-esc="line.currency_id.symbol" />
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="line.currency_id.symbol" />
+                                            <t t-esc="'%.2f' % line.price_unit" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.taxes_id">
+                                            <t t-foreach="line.taxes_id" t-as="tax">
+                                                <t t-esc="tax.amount" />%
+                                            </t>
+                                        </t>
+                                        <t t-else="">0%</t>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.currency_id.position == 'after'">
+                                            <t t-esc="'%.2f' % line.price_subtotal"/>
+                                            <t t-esc="line.currency_id.symbol"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="line.currency_id.symbol"/>
+                                            <t t-esc="'%.2f' % line.price_subtotal"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <table class="popover-summary">
+                        <tr>
+                            <td>Untaxed Amount</td>
+                            <td>
+                                <t t-if="rfq.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % rfq.amount_untaxed" />
+                                    <t t-esc="rfq.currency_id.symbol" />
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="rfq.currency_id.symbol" />
+                                    <t t-esc="'%.2f' % rfq.amount_untaxed" />
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Tax <t t-if="line.taxes_id">
+                                    <t t-foreach="line.taxes_id" t-as="tax">
+                                        <t t-esc="tax.amount" />%
+                                    </t>
+                                </t>
+                                <t t-else="">0%</t>
+                            </td>
+                            <td>
+                                <t t-if="rfq.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % rfq.amount_tax" />
+                                    <t t-esc="rfq.currency_id.symbol" />
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="rfq.currency_id.symbol" />
+                                    <t t-esc="'%.2f' % rfq.amount_tax" />
+                                </t>
+                            </td>
+                        </tr>
+                        <tr class="total">
+                            <td>Total</td>
+                            <td>
+                                <t t-if="rfq.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % rfq.amount_total" />
+                                    <t t-esc="rfq.currency_id.symbol" />
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="rfq.currency_id.symbol" />
+                                    <t t-esc="'%.2f' % rfq.amount_total" />
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

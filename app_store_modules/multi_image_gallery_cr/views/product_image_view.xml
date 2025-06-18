@@ -1,0 +1,37 @@
+<odoo>
+    <record id="product_template_3d_form_view" model="ir.ui.view">
+        <field name="name">product.product.form.3d.media</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='sales']/group[@name='sale']/group[@name='product_template_images']"
+                position="inside">
+                <field name="product_3d_image_ids" mode="kanban" nolabel="1"
+                    class="o_website_sale_image_list"
+                    context="{'default_name': name}"
+                    add-label="Add 3D Media">
+                    <kanban>
+                        <templates>
+                            <t t-name="kanban-box">
+                                <div class="o_kanban_record">
+                                    <field name="name" />
+                                    <field name="prod_3d_img" widget="binary" />
+                                    <field name="prod_3d_img_filename" />
+                                </div>..
+                            </t>
+                        </templates>
+                    </kanban>
+                    <form>
+                        <group>
+                            <field name="name" />
+                            <field name="prod_3d_img" filename="prod_3d_img_filename" />
+                            <field name="prod_3d_img_filename" />
+                        </group>
+                    </form>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

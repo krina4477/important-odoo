@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_feature_value_list" model="ir.ui.view">
+        <field name="name">feature.value.list</field>
+        <field name="model">feature.value</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="feature_id" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_feature_value_form" model="ir.ui.view">
+        <field name="name">feature.value.form</field>
+        <field name="model">feature.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="feature_id"/>
+                        </group>
+                    </group>
+                </sheet>                    
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_feature_value" model="ir.actions.act_window">
+        <field name="name">Feature Values</field>
+        <field name="res_model">feature.value</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem
+        id="submenu_feature_value"
+        name="Features Values"
+        action="action_feature_value"
+        parent="stock.menu_product_in_config_stock"
+        sequence="6" />
+</odoo>

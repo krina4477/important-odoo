@@ -1,0 +1,110 @@
+<odoo>
+    <template id="account_popover" inherit_id="account.portal_my_invoices">
+        <xpath expr="//t[@t-as='invoice_data']//tr//td//a[@t-att-href='invoice.get_portal_url()']" position="attributes">
+            <attribute name="class">pop</attribute>
+        </xpath>
+
+        <xpath expr="//t[@t-as='invoice_data']//tr//td//a[@t-att-href='invoice.get_portal_url()']" position="after">
+            <div class="popover-hidden-content" style="display: none;">
+                <div class="popover-scroll">
+                    <table class="popover-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">Products</th>
+                                <th style="width: 10%;">Qty</th>
+                                <th style="width: 20%;">Unit Price</th>
+                                <th style="width: 10%;">Tax</th>
+                                <th style="width: 20%;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="invoice.invoice_line_ids" t-as="line">
+                                <tr>
+                                    <td><t t-esc="line.product_id.display_name"/></td>
+                                    <td><t t-esc="line.quantity"/></td>
+                                    <td>
+                                        <t t-if="line.currency_id.position == 'after'">
+                                            <t t-esc="'%.2f' % line.price_unit"/>
+                                            <t t-esc="line.currency_id.symbol"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="line.currency_id.symbol"/>
+                                            <t t-esc="'%.2f' % line.price_unit"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.tax_ids">
+                                            <t t-foreach="line.tax_ids" t-as="tax">
+                                                <t t-esc="tax.amount"/>%
+                                            </t>
+                                        </t>
+                                        <t t-else="">0%</t>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.currency_id.position == 'after'">
+                                            <t t-esc="'%.2f' % line.price_subtotal"/>
+                                            <t t-esc="line.currency_id.symbol"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="line.currency_id.symbol"/>
+                                            <t t-esc="'%.2f' % line.price_subtotal"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <table class="popover-summary">
+                        <tr>
+                            <td>Untaxed Amount</td>
+                            <td>
+                                <t t-if="invoice.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % invoice.amount_untaxed"/>
+                                    <t t-esc="invoice.currency_id.symbol"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="invoice.currency_id.symbol"/>
+                                    <t t-esc="'%.2f' % invoice.amount_untaxed"/>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Tax <t t-if="line.tax_ids">
+                                    <t t-foreach="line.tax_ids" t-as="tax">
+                                        <t t-esc="tax.amount"/>%
+                                    </t>
+                                </t>
+                                <t t-else="">0%</t>
+                            </td>
+                            <td>
+                                <t t-if="invoice.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % invoice.amount_tax"/>
+                                    <t t-esc="invoice.currency_id.symbol"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="invoice.currency_id.symbol"/>
+                                    <t t-esc="'%.2f' % invoice.amount_tax"/>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr class="total">
+                            <td>Total</td>
+                            <td>
+                                <t t-if="invoice.currency_id.position == 'after'">
+                                    <t t-esc="'%.2f' % invoice.amount_total"/>
+                                    <t t-esc="invoice.currency_id.symbol"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="invoice.currency_id.symbol"/>
+                                    <t t-esc="'%.2f' % invoice.amount_total"/>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

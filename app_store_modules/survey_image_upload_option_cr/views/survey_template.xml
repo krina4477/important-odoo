@@ -1,0 +1,33 @@
+<odoo>
+    <template id="question_upload_file" name="Question: Image Upload">
+        <div class="mb-3 multi_image">
+            <input type="hidden"
+                name="question_id"
+                t-att-value="question.id" />
+
+            <input type="file"
+                id="image_upload_option"
+                name="file_upload"
+                data-question-type="file"
+                accept="image/*"
+                t-att-multiple="question.multi_upload and 'multiple' or None"
+                class="form-control" />
+
+            <div id="file-preview-list" class="mt-3 d-flex flex-wrap gap-3" style="width: 104%;"></div>
+        </div>
+
+        <span id="upload-limit" t-att-data-limit-mb="question.upload_mb_limit or 0.0"
+            style="display: none;">
+        </span>
+
+        
+    </template>
+
+    <template id="inherit_survey_question" name="Question Container"
+              inherit_id="survey.question_container">
+        <xpath expr="//div" position="inside">
+            <t t-if="question.question_type == 'file_upload'"
+               t-call="survey_image_upload_option_cr.question_upload_file" />
+        </xpath>
+    </template>
+</odoo>

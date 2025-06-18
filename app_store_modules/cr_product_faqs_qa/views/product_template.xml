@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_inherit" model="ir.ui.view">
+        <field name="name">product.template.view.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="variants" string="Questions &amp; Answers">
+                    <field name="que_ans_ids" mode="list">
+                        <list string="Question and Answer" editable="bottom">
+                            <field name="question"/>
+                            <field name="answer_ids" widget="many2many_tags"/>
+                            <field name="product_id"/>
+                            <field name="user_id"/>
+                            <field name="is_published"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="faqs" string="Product FAQs">
+                    <field name="faqs_ids" mode="list">
+                        <list string="Product FAQs" editable="bottom">
+                            <field name="question"/>
+                            <field name="answer"/>
+                            <field name="product_id"/>
+                            <field name="user_id"/>
+                            <field name="is_published"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

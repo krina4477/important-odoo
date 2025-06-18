@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+multi_image_gallery_cr.access_product_3d_image,access_product_3d_image,multi_image_gallery_cr.model_product_3d_image,,1,1,1,1

@@ -1,0 +1,88 @@
+<odoo>
+    <template id="portal_my_home_return_products" name="Portal layout : return product entries" inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'return_product'" t-attf-class="breadcrumb-item #{'active ' if not return_product else ''}">
+                <a t-if="return_product" t-attf-href="/my/return_products?{{ keep_query() }}">Return products</a>
+                <t t-else="">Return products</t>
+            </li>
+            <li t-if="return_product" class="breadcrumb-item active">
+                <t t-out="return_product.name" t-if="return_product.name != '/'"/>
+                <t t-else=""><em>Draft Request</em></t>
+            </li>
+        </xpath>
+    </template>
+    <template id="portal_my_home_return_products" name="Return Products" inherit_id="portal.portal_my_home" customize_show="True" priority="31">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_client_category_enable" t-value="True"/>
+        </xpath>
+        <div id="portal_client_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/account/static/src/img/Bill.svg'"/>
+                <t t-set="title">Return Products</t>
+                <t t-set="url" t-value="'/my/return_products?filterby=all'"/>
+                <t t-set="text">Follow your returned good requests</t>
+                <t t-set="placeholder_count" t-value="'return_products_count'"/>
+            </t>
+        </div>
+    </template>
+
+    <template id="portal_my_return_orders" name="My Return Orders">
+      <t t-call="portal.portal_layout">
+        <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+        <t t-call="portal.portal_searchbar">
+            <t t-set="title">Return Requests</t>
+        </t>
+        <t t-if="not return_product">
+            <p class="alert alert-warning">There are currently no return requests for your account.</p>
+        </t>
+        <t t-if="return_product" t-call="portal.portal_table">
+            <thead>
+                <tr class="active">
+                    <th name="document_number">Document #</th>
+                    <th name="document_date">Request Date</th>
+<!--                    <th name="due_date" class='d-none d-md-table-cell'>Due Date</th>-->
+<!--                    <th name="amount_due" class="text-end pe-3">Amount Due</th>-->
+                    <th name="status">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="return_product" t-as="return_order">
+                    <tr>
+                        <td>
+                            <a t-att-href="return_order.get_portal_url()" t-att-title="return_order.name">
+                                <t t-out="return_order.name" t-if="return_order.name != '/'"/>
+                                <em t-else="">Draft Document</em>
+                            </a>
+                        </td>
+                        <td><span t-field="return_order.request_date"/></td>
+<!--                        <td class='d-none d-md-table-cell'-->
+<!--                            t-att-class="'text-danger' if invoice.invoice_date_due and invoice.invoice_date_due &lt; datetime.date.today() and invoice.payment_state in ['not_paid', 'partial'] else ''">-->
+<!--                            <span t-field="invoice.invoice_date_due"/>-->
+<!--                        </td>-->
+<!--                        <td class="text-end pe-3"><span t-out="-invoice.amount_residual if invoice.move_type == 'out_refund' else invoice.amount_residual" t-options='{"widget": "monetary", "display_currency": invoice.currency_id}'/></td>-->
+                        <td name="return_order_status">
+                            <t t-if="return_order.state == 'draft'" name="return_status_draft">
+                                <span class="badge rounded-pill text-bg-warning">
+                                    <i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"/>
+                                </span>
+                            </t>
+                            <t t-if="return_order.state == 'confirmed'" name="return_status_confirm">
+                                <span class="badge rounded-pill text-bg-success">
+                                    <i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"/>
+                                </span>
+                            </t>
+                            <t t-if="return_order.state == 'done'" name="return_status_done">
+                                <span class="badge rounded-pill text-bg-success">
+                                    <i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"/>
+                                </span>
+                            </t>
+
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </t>
+      </t>
+    </template>
+</odoo>

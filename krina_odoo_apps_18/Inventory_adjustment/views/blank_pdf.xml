@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="blank_pdf_report" name="Blank Page">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h3>
+
+                </h3>
+            </div>
+        </t>
+    </template>
+
+    <record id="action_report_Pdf" model="ir.actions.report">
+       <field name="name">My PDF</field>
+       <field name="model">inventory.adjustment.report.wizard</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">Inventory_adjustment.blank_pdf_report</field>
+       <field name="report_file">Inventory_adjustment.blank_pdf_report</field>
+       <field name="print_report_name">'Name</field>
+       <field name="binding_model_id" eval= "False"/>
+       <field name="binding_type">report</field>
+   </record>
+</odoo>

@@ -1,0 +1,87 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="cr_portal_rma.order_return_tree_view">
+      <field name="name">order.return.tree.view</field>
+      <field name="model">order.return</field>
+      <field name="arch" type="xml">
+        <list>
+            <field name="name"/>
+            <field name="partner_id"/>
+            <field name="picking_id"/>
+            <field name="request_date"/>
+            <field name="state" decoration-success="state == 'done'" decoration-info="state == 'draft'" decoration-primary="state == 'confirmed'" widget="badge"/>
+        </list>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cr_portal_rma.order_return_form_view">
+      <field name="name">order.return.form.view</field>
+      <field name="model">order.return</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+            <button type="object" name="test_confirm" string="Confirm" class="btn btn-primary" invisible="state != 'draft'" confirm="Are sure to confirm?"/>
+          </header>
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="action_view_so" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="sale_order_count == 0">
+                    <field name="sale_order_count" widget="statinfo" string="Sale Order"/>
+                </button>
+                <button name="action_view_delivery" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="delivery_order_count == 0">
+                    <field name="delivery_order_count" widget="statinfo" string="Delivery Order"/>
+                </button>
+                <button name="action_view_return" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="return_order_count == 0">
+                    <field name="return_order_count" widget="statinfo" string="Return Order"/>
+                </button>
+            </div>
+            <div class="oe_title">
+                <h1>
+                    <field name="name" readonly="1"/>
+                </h1>
+            </div>
+            <group>
+              <group>
+                  <field name="partner_id"/>
+<!--                  <field name="picking_id"/>-->
+              </group>
+              <group>
+                <field name="request_date"/>
+<!--                <field name="return_picking_id" invisible="state == 'draft'"/>-->
+<!--                <field name="website_order_id"/>-->
+              </group>
+            </group>
+            <notebook>
+              <page string="Return Orders Lines" name="return_order_lines">
+                  <field name="order_return_lines" widget="sol_o2m" mode="list,kanban">
+                    <list string="Return Orders Lines">
+                      <field name="product_id" string="Product" widget="sol_product_many2one"/>
+                      <field name="name" widget="sol_text" optional="show"/>
+                      <field name="qty"/>
+                      <field name="price_unit"/>
+                      <field name="uom_id"/>
+                      <field name="tax_id" widget="many2many_tags"/>
+                      <field name="price_subtotal" string="Amount"/>
+                      <field name="state" string="state"/>
+<!--                      <field name="move_id"/>-->
+                    </list>
+                  </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="cr_portal_rma.order_return_action">
+      <field name="name">Returned Orders</field>
+      <field name="res_model">order.return</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Return Orders Request" id="cr_portal_rma.menu_1_list" parent="website_sale.menu_orders"
+              action="cr_portal_rma.order_return_action"/>
+  </data>
+</odoo>

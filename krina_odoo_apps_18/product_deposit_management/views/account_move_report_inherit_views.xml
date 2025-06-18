@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <template id="report_invoice_document_inherited" inherit_id="account.report_invoice_document">
+            <xpath expr="//tbody[@class='invoice_tbody']/t[@t-set='lines']" position="attributes">
+                <attribute name="t-value">o.invoice_line_ids.sorted(key=lambda l: -l.sequence)</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>

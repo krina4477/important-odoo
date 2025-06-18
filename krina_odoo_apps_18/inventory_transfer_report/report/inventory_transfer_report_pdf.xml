@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_transfer_custom" model="report.paperformat">
+        <field name="name">A4 Landscape</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">9</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">14</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_transfer_pdf_report" model="ir.actions.report">
+        <field name="name">Inventory Transfer Report PDF</field>
+        <field name="model">report.inventory.transfer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_transfer_report.transfer_pdf_report</field>
+        <field name="report_file">inventory_transfer_report.transfer_pdf_report</field>
+        <field name="binding_model_id" ref="model_report_inventory_transfer"/>
+        <field name="paperformat_id" ref="inventory_transfer_report.paperformat_transfer_custom"/>
+<!--        <field name="print_report_name">-->
+<!--            'Inventory Transfer Report - %s to %s' % (object.start_date.strftime('%Y-%m-%d') if object.start_date-->
+<!--            else '', object.end_date.strftime('%Y-%m-%d') if object.end_date else '')-->
+<!--        </field>-->
+        <field name="binding_type">report</field>
+    </record>
+
+<!--    <template id="report_inventory_transfer">-->
+<!--        <t t-call="web.basic_layout">-->
+<!--            <div class="page">-->
+<!--                <div class="text-center">-->
+<!--                    <p style="font-size: 30px; font-weight: bold">Inventory Transfer Report</p>-->
+<!--                </div>-->
+<!--                <div style="border-top: 2px solid #000; margin: 20px 0;"></div>-->
+<!--                <div class="mt-3" style="font-size: 20px;">-->
+<!--                    <p>-->
+<!--                        <strong>Company :</strong>-->
+<!--                        <t t-esc="doc.company_id.name"/>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <strong>Report Type :</strong>-->
+<!--                        <t t-esc="dict(doc.fields_get(['report_name'])['report_name']['selection']).get(doc.report_name)"/>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <strong>Start Date :</strong>-->
+<!--                        <t t-esc="doc.start_date"/>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <strong>End Date :</strong>-->
+<!--                        <t t-esc="doc.end_date"/>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <strong>Source Location :</strong>-->
+<!--                        <t t-esc="doc.location_id.display_name"/>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <strong>Destination Location :</strong>-->
+<!--                        <t t-esc="doc.location_dest_id.display_name"/>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </t>-->
+<!--    </template>-->
+
+<!--    <template id="report_inventory_transfer">-->
+<!--        <t t-call="web.external_layout">-->
+<!--            <div class="page">-->
+
+<!--                &lt;!&ndash; Logo and Company Info &ndash;&gt;-->
+<!--                <div style="display: flex; align-items: center; margin-bottom: 10px;">-->
+<!--&lt;!&ndash;                    <div style="flex: 1;">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <img src="/your_module_name/static/src/img/logo.png" alt="Your logo" style="width: 100px;"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    <div style="flex: 3; text-align: center;">-->
+<!--                        <p style="font-size: 20px; font-weight: bold;">Kolao Retail Global(level-1)</p>-->
+<!--                        <p>Laos</p>-->
+<!--                        <p>-->
+<!--                            <strong>Company :</strong>-->
+<!--                            Kolao Retail Global(level-1)-->
+<!--                        </p>-->
+<!--                        <p>-->
+<!--                            <strong>From</strong>-->
+<!--                            <t t-esc="doc.start_date"/>-->
+<!--                            <strong>to</strong>-->
+<!--                            <t t-esc="doc.end_date"/>-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Table Content &ndash;&gt;-->
+<!--                <table style="width: 100%; border-collapse: collapse; font-size: 12px;" border="1">-->
+<!--                    <thead style="background-color: #d9d9d9;">-->
+<!--                        <tr>-->
+<!--                            <th>No</th>-->
+<!--                            <th>Store Code</th>-->
+<!--                            <th>Div Name</th>-->
+<!--                            <th>Dept Name</th>-->
+<!--                            <th>Sub Dept Name</th>-->
+<!--                            <th>Class Name</th>-->
+<!--                            <th>Product ID</th>-->
+<!--                            <th>Barcode</th>-->
+<!--                            <th>Description</th>-->
+<!--                            <th>Description (Eng.)</th>-->
+<!--                            <th>Stock Qty</th>-->
+<!--                            <th>Stock Amount</th>-->
+<!--                            <th>Type</th>-->
+<!--                            <th>Status</th>-->
+<!--                        </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                        <t t-foreach="doc.line_ids" t-as="line" t-index="idx">-->
+<!--                            <tr>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="idx + 1"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.store_code"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.div_name"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.dept_name"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.sub_dept_name"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.class_name"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.product_id"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.barcode"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.description"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.description_eng"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.stock_qty"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.stock_amount"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.type"/>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <t t-esc="line.status"/>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </t>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+
+<!--            </div>-->
+<!--        </t>-->
+<!--    </template>-->
+
+    <template id="report_inventory_transfer">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+
+                    <!-- Company Header Section -->
+                    <div class="text-center" style="margin-bottom: 20px;">
+                        <t t-if="docs.company_ids">
+                            <t t-foreach="docs.company_ids" t-as="company">
+                                <h3>
+                                    Company:
+                                    <t t-esc="company.name"/>
+                                </h3>
+                            </t>
+                        </t>
+
+                        <!--                        <h3>-->
+<!--                            Company :-->
+<!--&lt;!&ndash;                            <t t-esc="docs.company_id.name if docs.company_id else ''"/>&ndash;&gt;-->
+<!--                        </h3>-->
+                        <p>
+                            <strong>From</strong>
+                            <t t-esc="docs.start_date.strftime('%Y-%m-%d') if docs.start_date else ''"/>
+                            <strong>to</strong>
+                            <t t-esc="docs.end_date.strftime('%Y-%m-%d') if docs.end_date else ''"/>
+                        </p>
+                    </div>
+
+                    <table style="width:100%; border-collapse: collapse; border: 1px solid black; "
+                           class="table table-bordered">
+                        <thead>
+                            <tr style="font-weight: bold; background-color: #D3D3D3; white-space: nowrap;">
+                                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">
+                                    No
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">
+                                    Original Store
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Transfer No.
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Transfer Date
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Destination Store
+                                </th>
+                                <!--                                        <th style="border-collapse: collapse; border: 1px solid black;">Store code-->
+                                <!--                                        </th>-->
+                                <th style="border-collapse: collapse; border: 1px solid black;">Product ID
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Barcode</th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Description
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Qty
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Cost By Unit
+                                </th>
+                                <th style="border-collapse: collapse; border: 1px solid black;">Amount
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--                                    <t t-set="index" t-value="0"/>-->
+                            <!--                                    <t t-foreach="cg[1].items()" t-as="category">-->
+                            <!--                                        <t t-foreach="category[1]" t-as="product">-->
+                            <!--                                            <tr>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black; text-align: center;">-->
+                            <!--                                                    <t t-esc="index + 1"/>-->
+                            <!--                                                    <t t-set="index" t-value="index + 1"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['div_name'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['dept_name'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['sub_dept_name'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['store_code'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['product_id'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['barcode'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['product_name'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['cogs'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['stock_qty'] or ''"/>-->
+                            <!--                                                </td>-->
+                            <!--                                                <td style="border-collapse: collapse; border: 1px solid black;">-->
+                            <!--                                                    <t t-esc="product['stock_amount']"/>-->
+                            <!--                                                </td>-->
+                            <!--                                            </tr>-->
+                            <!--                                        </t>-->
+                            <!--                                    </t>-->
+                        </tbody>
+                    </table>
+                    <!--                        </t>-->
+                    <!--                        <t t-else="">-->
+                    <!--                            <p>No Negative Products Found For This Company.</p>-->
+                    <!--                        </t>-->
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!--    <template id="transfer_pdf_report">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="doc">-->
+<!--                <t t-call="inventory_transfer_report.report_inventory_transfer">-->
+<!--                    <t t-set="doc" t-value="doc"/>-->
+<!--                    <t t-set="datetime" t-value="datetime.datetime"/>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+    <template id="transfer_pdf_report">
+        <t t-call="web.html_container">
+            <t t-call="inventory_transfer_report.report_inventory_transfer"/>
+        </t>
+    </template>
+
+</odoo>

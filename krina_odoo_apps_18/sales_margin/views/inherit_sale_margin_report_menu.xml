@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem name="Sale Margin Report"
+              id="print_sale_margin"
+              parent="sale.menu_sale_report"
+              action="sale_margin_wizard"
+              sequence="41"/>
+</odoo>

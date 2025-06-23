@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_salemargin" model="ir.actions.report">
+            <field name="name">Sale Margin Report</field>
+            <field name="model">sale.margin.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">sales_margin.report_salemargin</field>
+            <field name="report_file">sales_margin.report_salemargin</field>
+            <field name="print_report_name">'Sale Margin Report'</field>
+            <field name="binding_model_id" ref="model_sale_margin_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

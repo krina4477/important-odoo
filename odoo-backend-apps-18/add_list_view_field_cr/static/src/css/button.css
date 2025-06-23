@@ -1,0 +1,18 @@
+.o_Add_field{
+    color: white !important;
+    border-radius: 25px;
+    background: #7C7BAD;
+    padding: 5px;
+    width: 100px;
+    font-size: medium;
+}
+.input_field_select{
+    width: 94%;
+    margin-left: 10px;
+    height: 20px;
+}
+.o_Add_field{
+    padding-top: 0px;
+    margin-left: -10px;
+    padding-bottom: 2px;
+}

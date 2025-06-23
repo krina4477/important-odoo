@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="find_record_with_same_value_cr.DuplicateRecordPopOver">
+        <div>
+            <table class="showDuplicateRecord" style="width: 100%;">
+                <tbody>
+                    <t t-if="props.popup.length > 0">
+                        <t t-foreach="props.popup" t-as="rec" t-key="rec">
+                            <span class="link_button">
+                                <button class="action_redirect_view">Found <t t-esc="rec['length_rec']"/> Records.</button>
+                            </span>
+                            <tr>
+                                <t t-foreach="rec['table_header']" t-as="header" t-key="header">
+                                    <th class="table_header">
+                                        <strong>
+                                            <span t-esc="header"/>
+                                        </strong><br/>
+                                    </th>
+                                </t>
+                            </tr>
+                            <t t-set="count" t-value="1"/>
+                            <t t-foreach="rec['table_body']" t-as="body" t-key="body">
+                                <t t-if="count &lt; 6">
+                                    <tr>
+                                        <t t-foreach="body" t-as="td" t-key="td">
+                                            <td class="body_data"><strong><span t-esc="td"/></strong>
+                                                <br/></td>
+                                        </t>
+                                    </tr>
+                                    <t t-set="count" t-value="count+1"/>
+                                </t>
+                            </t>
+
+                        </t>
+                    </t>
+                    <t t-else="">
+                        <tr>
+                            <p>Record Not Found.</p>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </t>
+
+</templates>

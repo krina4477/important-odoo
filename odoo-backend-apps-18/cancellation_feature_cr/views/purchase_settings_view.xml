@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_po_res_config_settings" model="ir.ui.view">
+        <field name="name">view.po.res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='matrix_setting_container']" position="after">
+                <h2 groups="cancellation_feature_cr.group_cancellation_purchase_orders">Purchase Order Cancel Configuration</h2>
+                <div class="row mt16 o_settings_container" id="so_cancel_setting_container" groups="cancellation_feature_cr.group_cancellation_purchase_orders">
+                    <div class="col-12 col-lg-6 o_setting_box" id="cancel_purchase_order_option"
+                         title="Cancel Purchase order with different ways">
+                        <div class="o_setting_right_pane">
+                            <label for="po_cancel_type"/>
+                            <div class="text-muted">
+                                If you cancel a purchase order from button then these 3 cancellation options are effected.
+                                If you are going to cancel from action menu ,In that case Cancellation process will work based on your selected choice of action menu.
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="po_cancel_type" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container" id="so_cancel_other_setting_container" groups="cancellation_feature_cr.group_cancellation_purchase_orders">
+                    <div class="col-12 col-lg-6 o_setting_box" id="so_cancel_do_setting_container">
+                        <div class="o_setting_left_pane">
+                            <field name="cancel_receipt_order"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="cancel_receipt_order"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="so_cancel_invoice_setting_container">
+                        <div class="o_setting_left_pane">
+                            <field name="cancel_bill_payment"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="cancel_bill_payment"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

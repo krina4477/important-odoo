@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="payment_acquirer_securionpay" model="payment.provider">
+            <field name="name">Securionpay</field>
+            <field name="image_128" type="base64" file="payment_securionpay_cr/static/src/img/icon.png"/>
+            <field name="code">securionpay</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="redirect_form_view_id" ref="securionpay_acquirer_button"/>
+            <field name="pre_msg"><![CDATA[<p>You will be prompt with Securionpay Payment page for payment information.</p>]]></field>
+            <field name="securionpay_publishable_key">dummy</field>
+            <field name="securionpay_secret_key">dummy</field>
+            <field name="payment_method_ids"
+                   eval="[Command.set([ref('payment_securionpay_cr.payment_method_securionpay')])]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="daily_task_update_to_manager" model="mail.template">
+            <field name="name">Task Updates</field>
+            <field name="subject">Task Updates !</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+                    <p>Task Update Reminder.!</p>
+                    <p>Please find task updates with status :</p>
+                    <table class="table table-sm">
+                            <tr>
+                                <th><strong>Name</strong></th>
+                                <th><strong>Project</strong></th>
+                                <th><strong>Customer</strong></th>
+                                <th><strong>Assigned To</strong></th>
+                                <th><strong>Status</strong></th>
+                            </tr>
+                            <tr t-foreach="object.get_task_details(ctx['user_id'])" t-as="task">
+                                <td><span t-field="task.name"/></td>
+                                <td><span t-field="task.project_id.name"/></td>
+                                <td><span t-field="task.partner_id.name"/></td>
+                                <td><span t-field="task.user_ids"/></td>
+                                <td><span t-field="task.stage_id.name"/></td>
+                            </tr>
+                        </table>
+                   <br/>
+                    Best Wishes,
+                    <p><t t-out="object.company_id.name or ''"/></p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

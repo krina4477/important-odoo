@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="web.DomainSelectorDialog" t-inherit-mode="extension" owl="1">
+        <xpath expr="//Dialog//button[@t-on-click='onDiscard']"
+               position="after">
+            <button type="button"
+                    class="btn btn-secondary o_add_condition"
+                    t-on-click="onApply_Custom">
+                <i class="fa fa-check-square-o"/>
+                <t>Add Filter</t>
+            </button>
+        </xpath>
+    </t>
+</templates>

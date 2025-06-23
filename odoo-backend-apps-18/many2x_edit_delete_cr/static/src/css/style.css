@@ -1,0 +1,14 @@
+.m2o_delete{
+    cursor:pointer;
+    margin-right:5px;
+    margin-top:3px;
+    color:red;
+}
+
+.m2o_edit{
+    cursor:pointer;
+    margin-right:20px;
+    margin-top:3px;
+    color:#000000;
+}
+

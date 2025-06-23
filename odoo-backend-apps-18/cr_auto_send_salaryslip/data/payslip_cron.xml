@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.cron" forcecreate="True" id="ir_cron_employee_payslip">
+        <field name="name">Send : Employee Payslip</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="state">code</field>
+        <field name="code">model.send_employee_payslip_cron()</field>
+        <field name="active" eval="True"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_type">months</field>
+        <field name="interval_number">1</field>
+        <field name="nextcall" eval="(DateTime.now().replace(day=10,hour=2, minute=0)).strftime('%Y-%m-%d %H:%M:%S')"/>
+<!--        <field name="numbercall">-1</field>-->
+<!--        <field name="doall" eval="False"/>-->
+    </record>
+<!--    <record forcecreate="True" id="ir_cron_employee_payslip" model="ir.cron">-->
+<!--        <field name="name">Send : Employee Payslip</field>-->
+<!--        <field name="model_id" ref="model_hr_employee"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">model.send_employee_payslip_cron()</field>-->
+<!--        <field name="active"  eval="True" />-->
+<!--        <field name="user_id" ref="base.user_root"/>-->
+<!--        <field name="interval_type">months</field>-->
+<!--        <field name="interval_number">1</field>-->
+<!--        <field name="numbercall">-1</field>-->
+<!--        <field name="doall" eval="False"/>-->
+<!--        <field name="nextcall" eval="(DateTime.now().replace(day=10,hour=2, minute=0)).strftime('%Y-%m-%d %H:%M:%S')"/>-->
+<!--        <field name="numbercall">-1</field>-->
+<!--        <field eval="False" name="doall"/>-->
+<!--    </record>-->
+</odoo>

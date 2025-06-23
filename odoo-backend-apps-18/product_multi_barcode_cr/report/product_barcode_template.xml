@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--	<template id="product_barcode_details">-->
+<!--	   	<t t-call="web.html_container">-->
+<!--	        <t t-call="web.external_layout">-->
+<!--				<div class="page">-->
+<!--	                <t t-foreach="docs" t-as="product">-->
+<!--	                	<t t-foreach="length.get(str(product.id))" t-as="p">-->
+<!--	                		<div style="width: 32%; display: inline-table; height: 10rem;">-->
+<!--				                <table class="table table-bordered mb-0" style="border: 2px solid black;">-->
+<!--				                    <tr>-->
+<!--				                        <th class="table-active text-left" style="height: 6rem;">-->
+<!--				                            <strong t-field="product.display_name"/>-->
+<!--				                        </th>-->
+<!--				                    </tr>-->
+<!--				                    <tr>-->
+<!--				                        <td class="text-center align-middle" style="height: 6rem;">-->
+<!--				                            <t t-if="product.barcode">-->
+<!--				                                <img alt="Barcode" t-if="len(product.barcode) == 13" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(product.barcode or ''), 600, 150)" style="width:80%;height:4rem;"/>-->
+<!--				                                <img alt="Barcode" t-elif="len(product.barcode) == 8" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(product.barcode or ''), 600, 150)" style="width:80%;height:4rem;"/>-->
+<!--				                                <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(product.barcode or ''), 600, 150)" style="width:100%;height:4rem"/>-->
+<!--				                                <span t-field="product.barcode"/>-->
+<!--				                            </t>-->
+<!--				                            <t t-else=""><span class="text-muted">No barcode available</span></t>-->
+<!--				                        </td>-->
+<!--				                    </tr>-->
+<!--				                </table>-->
+<!--				            </div>-->
+<!--				        </t>-->
+<!--				    </t>-->
+<!--		    	</div>-->
+<!--		    </t>-->
+<!--		</t>-->
+<!--    </template>-->
+	<template id="product_barcode_details">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<t t-foreach="docs" t-as="product">
+						<t t-foreach="length.get(str(product.id))" t-as="p">
+							<div style="width: 30%; display: inline-block; margin: 1%; vertical-align: top; text-align: center; height: auto;">
+								<table style="border: 1px solid black; width: 100%; height: 150px;">
+									<tr>
+										<td style="font-weight: bold; text-align: center; padding: 5px; font-size: 14px; border-bottom: 1px solid black; background-color: #f2f2f2">
+											<strong t-field="product.display_name"/>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; padding: 10px;">
+											<t t-if="product.barcode">
+												<img alt="Barcode"
+													 t-if="len(product.barcode) == 13"
+													 t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(product.barcode or ''), 400, 100)"
+													 style="width: 100%; height: 50px;"/>
+												<img alt="Barcode"
+													 t-elif="len(product.barcode) == 8"
+													 t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(product.barcode or ''), 400, 100)"
+													 style="width: 100%; height: 50px;"/>
+												<img alt="Barcode"
+													 t-else=""
+													 t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(product.barcode or ''), 400, 100)"
+													 style="width: 100%; height: 50px;"/>
+												<span t-field="product.barcode"
+													  style="font-size: 12px; display: block; margin-top: 5px;"/>
+											</t>
+											<t t-else="">
+												<span class="text-muted" style="font-size: 12px;">No barcode available
+												</span>
+											</t>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</t>
+					</t>
+				</div>
+			</t>
+		</t>
+	</template>
+
+</odoo>

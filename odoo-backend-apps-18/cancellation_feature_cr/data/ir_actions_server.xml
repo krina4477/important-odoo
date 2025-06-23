@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+<!--        SALE ORDER SERVER ACTIONS-->
+        <record id="action_server_sale_cancel" model="ir.actions.server">
+            <field name="name">Sale Order Cancel</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order" />
+            <field name="binding_model_id" ref="model_sale_order" />
+            <field name="state">code</field>
+            <field name="code">records.so_cancel_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_sale_orders'))]"/>
+        </record>
+        <record id="action_server_sale_draft_cancel" model="ir.actions.server">
+            <field name="name">Sale Order Cancel &amp; Draft </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order" />
+            <field name="binding_model_id" ref="model_sale_order" />
+            <field name="state">code</field>
+            <field name="code">records.so_cancel_draft_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_sale_orders'))]"/>
+        </record>
+        <record id="action_server_sale_delete_cancel" model="ir.actions.server">
+            <field name="name">Sale Order Cancel &amp; Delete </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order" />
+            <field name="binding_model_id" ref="model_sale_order" />
+            <field name="state">code</field>
+            <field name="code">action = records.so_cancel_delete_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_sale_orders'))]"/>
+        </record>
+<!--        PURCHASE ORDER SERVER ACTIONS-->
+        <record id="action_server_purchase_cancel" model="ir.actions.server">
+            <field name="name">Purchase Order Cancel</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_purchase_order" />
+            <field name="binding_model_id" ref="model_purchase_order" />
+            <field name="state">code</field>
+            <field name="code">records.po_cancel_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_purchase_orders'))]"/>
+        </record>
+        <record id="action_server_purchase_draft_cancel" model="ir.actions.server">
+            <field name="name">Purchase Order Cancel &amp; Draft </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_purchase_order" />
+            <field name="binding_model_id" ref="model_purchase_order" />
+            <field name="state">code</field>
+            <field name="code">records.po_cancel_draft_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_purchase_orders'))]"/>
+        </record>
+        <record id="action_server_purchase_delete_cancel" model="ir.actions.server">
+            <field name="name">Purchase Order Cancel &amp; Delete </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_purchase_order" />
+            <field name="binding_model_id" ref="model_purchase_order" />
+            <field name="state">code</field>
+            <field name="code">action = records.po_cancel_delete_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_purchase_orders'))]"/>
+        </record>
+<!--        INVENTORY SERVER ACTIONS-->
+        <record id="action_server_stock_cancel" model="ir.actions.server">
+            <field name="name">Stock Form Cancel</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_stock_picking" />
+            <field name="binding_model_id" ref="model_stock_picking" />
+            <field name="state">code</field>
+            <field name="code">records.stock_picking_cancel_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_inventory_orders'))]"/>
+        </record>
+        <record id="action_server_stock_draft_cancel" model="ir.actions.server">
+            <field name="name">Stock Form Cancel &amp; Draft </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_stock_picking" />
+            <field name="binding_model_id" ref="model_stock_picking" />
+            <field name="state">code</field>
+            <field name="code">records.stock_picking_cancel_draft_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_inventory_orders'))]"/>
+        </record>
+        <record id="action_server_picking_delete_cancel" model="ir.actions.server">
+            <field name="name">Stock Form Cancel &amp; Delete </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_stock_picking" />
+            <field name="binding_model_id" ref="model_stock_picking" />
+            <field name="state">code</field>
+            <field name="code">action = records.stock_picking_cancel_delete_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_inventory_orders'))]"/>
+        </record>
+        <!--        STOCK MOVE SERVER ACTIONS-->
+        <record id="action_server_stockmove_cancel" model="ir.actions.server">
+            <field name="name">Stock Move Cancel</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_stock_move" />
+            <field name="binding_model_id" ref="model_stock_move" />
+            <field name="state">code</field>
+            <field name="code">records.stock_move_cancel_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_inventory_orders'))]"/>
+        </record>
+        <record id="action_server_stockmove_draft_cancel" model="ir.actions.server">
+            <field name="name">Stock Move Cancel &amp; Draft </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_stock_move" />
+            <field name="binding_model_id" ref="model_stock_move" />
+            <field name="state">code</field>
+            <field name="code">records.stock_move_cancel_draft_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_inventory_orders'))]"/>
+        </record>
+        <record id="action_server_stockmove_delete_cancel" model="ir.actions.server">
+            <field name="name">Stock Move Cancel &amp; Delete </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_stock_move" />
+            <field name="binding_model_id" ref="model_stock_move" />
+            <field name="state">code</field>
+            <field name="code">action = records.stock_move_cancel_delete_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_inventory_orders'))]"/>
+        </record>
+        <!--        INVOICE ACCOUNT MOVE SERVER ACTIONS-->
+        <record id="action_server_invoice_cancel" model="ir.actions.server">
+            <field name="name">Invoice Cancel</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_move" />
+            <field name="binding_model_id" ref="model_account_move" />
+            <field name="state">code</field>
+            <field name="code">records.account_move_cancel_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_invoice_orders'))]"/>
+        </record>
+        <record id="action_server_invoice_draft_cancel" model="ir.actions.server">
+            <field name="name">Invoice Cancel &amp; Draft </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_move" />
+            <field name="binding_model_id" ref="model_account_move" />
+            <field name="state">code</field>
+            <field name="code">records.account_move_cancel_draft_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_invoice_orders'))]"/>
+        </record>
+        <record id="action_server_invoice_delete_cancel" model="ir.actions.server">
+            <field name="name">Invoice Cancel &amp; Delete </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_move" />
+            <field name="binding_model_id" ref="model_account_move" />
+            <field name="state">code</field>
+            <field name="code">action = records.account_move_cancel_delete_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_invoice_orders'))]"/>
+        </record>
+        <!--        INVOICE ACCOUNT PAYMENT SERVER ACTIONS-->
+        <record id="action_server_invoice_payment_cancel" model="ir.actions.server">
+            <field name="name">Payment Cancel</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_payment" />
+            <field name="binding_model_id" ref="model_account_payment" />
+            <field name="state">code</field>
+            <field name="code">records.account_payment_cancel_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_invoice_orders'))]"/>
+        </record>
+        <record id="action_server_invoice_payment_draft_cancel" model="ir.actions.server">
+            <field name="name">Payment Cancel &amp; Draft </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_payment" />
+            <field name="binding_model_id" ref="model_account_payment" />
+            <field name="state">code</field>
+            <field name="code">records.account_payment_cancel_draft_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_invoice_orders'))]"/>
+        </record>
+        <record id="action_server_invoice_payment_delete_cancel" model="ir.actions.server">
+            <field name="name">Payment Cancel &amp; Delete </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_payment" />
+            <field name="binding_model_id" ref="model_account_payment" />
+            <field name="state">code</field>
+            <field name="code">action = records.account_payment_cancel_delete_server_action_method()</field>
+            <field name="groups_id" eval="[(4,ref('cancellation_feature_cr.group_cancellation_invoice_orders'))]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="web.ListRenderer" t-inherit-mode="extension">
+        <xpath expr="//Dropdown/t[@t-set-slot='content']" position="inside">
+            <div class="dropdown-divider"/>
+            <div class="add_new_fields_div">
+                <DropdownItem closingMode="'none'" onSelected="() => this.onSelectedAddNewField()" class="'dropdown-item-studio'">
+                    <i class="fa fa-plus fa-fw me-2"/>
+                    <span>Add New Fields</span>
+                </DropdownItem>
+                <div class="field-selector d-none" style="overflow-y: auto;"></div>
+                <DropdownItem closingMode="'none'" onSelected="() => this._onAddField(this)">
+                    <i class="d-none o_Add_field"><span style="padding: 2px;">Add Selected Fields</span></i>
+                </DropdownItem>
+            </div>
+        </xpath>
+    </t>
+</templates>

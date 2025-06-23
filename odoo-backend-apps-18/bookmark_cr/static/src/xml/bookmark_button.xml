@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template for Add Button On Activity Menu -->
+<templates xml:space="preserve">
+    <t t-inherit="mail.ActivityMenu" t-inherit-mode="extension">
+        <xpath expr="//Dropdown[1]" position="after">
+            <Dropdown position="'bottom-end'" menuClass="discussSystray.menuClass">
+                <t>
+                    <i class="fa fa-lg fa-bookmark" role="img" aria-label="My Bookmarks" t-on-click="_onBookmarkClick" />
+                </t>
+            </Dropdown>
+        </xpath>
+    </t>
+</templates>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--&lt;!&ndash; Template for Add Button On Activity Menu &ndash;&gt;-->
+<!--<templates xml:space="preserve">-->
+<!--    <t t-inherit="mail.ActivityMenu" t-inherit-mode="extension">-->
+<!--        <xpath expr="//Dropdown[1]" position="after">-->
+<!--            <Dropdown position="'bottom-end'" menuClass="discussSystray.menuClass">-->
+<!--                <t t-set-slot="toggler">-->
+<!--                    <i class="fa fa-lg fa-bookmark" role="img" aria-label="My Bookmarks" t-on-click="_onBookmarkClick" />-->
+<!--                </t>-->
+<!--            </Dropdown>-->
+<!--        </xpath>-->
+<!--    </t>-->
+<!--</templates>-->
+

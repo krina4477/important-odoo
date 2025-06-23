@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="one_to_many_widget_cr.One2manyTemplateCustom" t-inherit="web.X2ManyField">
+        <xpath expr="//div[hasclass('o_x2m_control_panel')]" position="after">
+            <button type="button" t-on-click="() => this.export_to_excel('excel')" class="btn oe_stat_button" string="Download">
+                <span id="button_export_excel" class="btn btn-fill-primary mb-3"><i class="fa fa-arrow-down"/></span>
+            </button>
+        </xpath>
+    </t>
+</templates>

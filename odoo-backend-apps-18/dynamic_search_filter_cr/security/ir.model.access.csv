@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+dynamic_search_filter_cr.access_dynamic_filter_model,access_dynamic_filter_model,dynamic_search_filter_cr.model_dynamic_filter_model,base.group_user,1,1,1,1

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="compare_record_cr_form_view" model="ir.ui.view">
+        <field name="name">compare.record.cr.form.view</field>
+        <field name="model">wiz.compare.record</field>
+        <field name="arch" type="xml">
+            <form string="Compare Record">
+                <sheet>
+                    <field name="compare_record_ids" nolabel="1">
+                        <list editable="bottom">
+                            <field name="check_field" />
+                            <field name="old_value" />
+                            <field name="new_value" />
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button string="Cancel" class="oe_highlight" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wiz_compare_record_cr_action" model="ir.actions.act_window">
+        <field name="name">Compare Record</field>
+        <field name="res_model">wiz.compare.record</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

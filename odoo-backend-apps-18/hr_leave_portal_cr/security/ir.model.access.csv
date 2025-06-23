@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_leave,hr.leave.portal,model_hr_leave,base.group_portal,1,0,0,0
+
+access_mail_activity_portal,mail.activity,mail.model_mail_activity,base.group_portal,1,0,0,0
+access_mail_activity_type_portal,mail.activity.type,mail.model_mail_activity_type,base.group_portal,1,0,0,0
+access_calendar_event_portal,calendar.event,calendar.model_calendar_event,base.group_portal,1,0,1,0
+access_calendar_attendee_portal,calendar.attendee,calendar.model_calendar_attendee,base.group_portal,1,0,1,0

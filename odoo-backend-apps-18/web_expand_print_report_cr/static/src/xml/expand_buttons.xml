@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+	<t t-name="web_expand_print_report_cr.ExpandButtons" t-inherit="web.ListView" t-inherit-mode="extension">
+		<xpath expr="//button[hasclass('o_list_button_add')]" position="after">
+			<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split fa fa-arrows-alt oe_group_by_expand_buttons o_hidden" data-bs-toggle="dropdown" aria-expanded="false" data-hotkey="c">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <button type="button" id="oe_group_by_expand" class="btn btn-link dropdown-item" t-on-click="expandAllGroups" title="Expand">
+                    Expand
+                </button>
+                <button type="button" id="oe_group_by_collapse" class="btn btn-link dropdown-item" t-on-click="collapseAllGroups" title="Collapse">
+                    Collapse
+                </button>
+            </ul>
+        </xpath>
+    </t>
+
+	<t t-name="web_expand_print_report_cr.PdfExcelReportButtons" t-inherit="web.ListView" t-inherit-mode="extension">
+		<xpath expr="//button[hasclass('o_list_button_add')]" position="after">
+			<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split fa fa-file" data-bs-toggle="dropdown" aria-expanded="false" >
+                    <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <button type="button" id="button_export_pdf" class="btn btn-link dropdown-item" title="PDF" t-on-click="onClickPrintReport"  href="javascript:void(0)">
+                    PDF
+                </button>
+                <button type="button" id="button_export_excel" class="btn btn-link dropdown-item" title="Excel" t-on-click="onClickPrintReport"  href="javascript:void(0)">
+                    Excel
+                </button>
+            </ul>
+        </xpath>
+    </t>
+</templates>

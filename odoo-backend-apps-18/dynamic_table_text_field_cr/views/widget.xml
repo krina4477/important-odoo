@@ -1,0 +1,23 @@
+<odoo>
+
+   <record id="dyanamic_widget_view" model="ir.ui.view">
+    <field name="name">dynamic.widget.view.form</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view"/>
+    <field name="arch" type="xml">
+
+        <xpath expr="//page[@name='general_information']" position="after">
+            <page name="description_web" string="Description Website">
+                <group>
+                    <field name="x_website_description" widget="dynamic_table"/>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</odoo>
+
+
+
+

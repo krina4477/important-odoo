@@ -1,0 +1,50 @@
+
+#text_table thead th {
+    color: #fff;
+    background-color: #71639e;
+    border-color: #71639e;
+    border-bottom: 0;
+}
+#text_table thead th:not(.text_table_thead_th) {
+    border-left: 1.5px solid #fdfdfd;
+}
+#text_table thead th a{
+    color: #fff !important;
+}
+#text_table thead .text_table_thead_th{
+
+}
+
+#text_table .fa.fa-trash {
+    font-size: 20px;
+}
+#text_table .span_trash {
+    float: right;
+}
+
+#text_table .t_all_th{
+    position: relative;
+}
+#text_table .t_all_th .close{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    z-index: 100;
+    cursor: pointer;
+    color: #ffffff;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

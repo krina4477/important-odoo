@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record model="res.groups" id="group_remove_post_entry">
+            <field name="name">Delete Posted Journal Entries</field>
+        </record>
+        <record model="res.groups" id="group_remove_post_entry_tree">
+            <field name="name">Delete Posted Journal Entries from List View </field>
+        </record>
+    </data>
+</odoo>

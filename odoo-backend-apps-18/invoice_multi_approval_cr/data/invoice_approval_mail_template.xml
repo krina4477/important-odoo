@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Mail template are declared in a NOUPDATE block
+        so users can freely customize/delete them -->
+    <data>
+        <record id="invoice_approval_email_template" model="mail.template">
+            <field name="name">Invoice Approval: Send by email</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="subject">{{ object.company_id.name }} Invoice (Ref {{ object.name or 'n/a' }})</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear
+                        <t t-if="ctx.get('authority_users', '')">
+                            <t t-out="ctx.get('authority_users', '')"></t>,
+                        </t>
+                        <br /><br />
+                        Here is request for invoice approval
+                        <t t-if="object.name">
+                            invoice <strong t-out="object.name or ''">INV/2021/05/0005</strong>
+                        </t>
+                        <t t-else="">
+                            invoice
+                        </t>
+                        <t t-if="object.invoice_origin">
+                            (with reference: <t t-out="object.invoice_origin or ''">SUB003</t>)
+                        </t>
+
+                        amounting in <strong t-out="format_amount(object.amount_total, object.currency_id) or ''">$ 143,750.00</strong>
+                        <br /><br />
+                        The Invoice is confirmed by
+                        <t t-if="ctx.get('system_user', '')">
+                            <b><t t-out="ctx.get('system_user', '')"></t></b>,
+                        </t>
+                        <t t-if="ctx.get('default_move_type') == 'out_invoice'">
+                            <a class="btn btn-secondary" t-attf-href="{{ object.get_base_url() }}/web#id={{ object.id }}&amp;menu_id={{ctx.get('invoice_menu')}}&amp;cids={{ object.company_id.id }}&amp;action={{ctx.get('customer_invoice_action')}}&amp;model=account.move&amp;view_type=form">View Invoice</a>
+                        </t>
+                        <t t-else="">
+                            <a class="btn btn-secondary" t-attf-href="{{ object.get_base_url() }}/web#id={{ object.id }}&amp;menu_id={{ctx.get('invoice_menu')}}&amp;cids={{ object.company_id.id }}&amp;action={{ctx.get('vendor_invoice_action')}}&amp;model=account.move&amp;view_type=form">View Invoice</a>
+                        </t>
+                        <br/><br/>
+                        Thank You.
+                    </p>
+                </div>
+            </field>
+            <field name="report_template_ids" eval="[(4, ref('account.account_invoices'))]"/>
+            <field name="display_name">Invoice_{{ (object.name or '').replace('/','_') }}{{ object.state == 'draft' and '_draft' or '' }}</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

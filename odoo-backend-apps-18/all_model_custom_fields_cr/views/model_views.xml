@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_model_fields_new_tree" model="ir.ui.view">
+            <field name="name">ir.model.fields.new.tree</field>
+            <field name="model">ir.model.fields</field>
+            <field name="arch" type="xml">
+                <list string="Fields" editable="top" duplicate="false" create="false" delete="1">
+                    <field name="name" readonly="1"/>
+                    <field name="field_description" readonly="0"/>
+                    <field name="model_id" readonly="1"/>
+                    <field name="ttype" readonly="1"/>
+                    <field name="state" readonly="1"/>
+                    <field name="index" readonly="0"/>
+                    <field name="store" readonly="0"/>
+                    <field name="translate" readonly="0"/>
+                    <field name="readonly" readonly="0"/>
+                    <field name="required" readonly="0"/>
+                    <field name="copied" readonly="0"/>
+                    <field name="relation" readonly="1"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_new_fields_new" model="ir.actions.act_window">
+            <field name="name">Custom Fields</field>
+            <field name="res_model">ir.model.fields</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="ir_model_fields_new_tree"/>
+            <field name="domain">[('is_custom_field', '=', True)]</field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem name="Custom Fields"
+            id="menu_custom_fields_new"
+            groups="all_model_custom_fields_cr.group_global_custom_field"
+            sequence="77"/>
+
+        <menuitem name="Custom Fields"
+                  id="menu_new_fields"
+                  sequence="4"
+                  parent="menu_custom_fields_new"
+                  action="action_new_fields_new"
+                  groups="all_model_custom_fields_cr.group_global_custom_field"/>
+    </data>
+</odoo>

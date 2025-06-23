@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_daily_task_update_to_manager" model="ir.cron">
+        <field name="name">Daily Task Update to Manager</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="model_id" ref="model_res_users"/>
+        <field name="code">model._daily_task_update()</field>
+        <field name="state">code</field>
+    </record>
+</odoo>

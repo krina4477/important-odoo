@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="create_custom_tab_form" model="ir.ui.view">
+            <field name="name">create.custom.tab.form</field>
+            <field name="model">create.custom.tab</field>
+            <field name="arch" type="xml">
+                <form string="Custom Tabs">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="model_id" required="1" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="left_field_ids" widget="many2many_tags" domain="[('is_custom_field', '=', True), ('model_id', '=', model_id), ('id', 'not in', right_field_ids)]" options="{'no_quick_create': True}"/>
+                                <field name="right_field_ids" widget="many2many_tags" domain="[('is_custom_field', '=', True), ('model_id', '=', model_id), ('id', 'not in', left_field_ids)]" options="{'no_quick_create': True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="create_custom_tab_tree" model="ir.ui.view">
+            <field name="name">create.custom.tab.tree</field>
+            <field name="model">create.custom.tab</field>
+            <field name="arch" type="xml">
+                <list string="Custom Tabs" editable="top" duplicate="false" create="false" delete="1">
+                    <field name="name"/>
+                    <field name="model_id" readonly="1"/>
+                    <field name="xml_id" readonly="1"/>
+                    <field name="current_xml_id" readonly="1"/>
+                    <field name="left_field_ids" widget="many2many_tags" domain="[('is_custom_field', '=', True), ('model_id', '=', model_id), ('id', 'not in', right_field_ids)]"/>
+                    <field name="right_field_ids" widget="many2many_tags" domain="[('is_custom_field', '=', True), ('model_id', '=', model_id), ('id', 'not in', left_field_ids)]"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="create_custom_tab_search" model="ir.ui.view">
+            <field name="name">create.custom.tab.search</field>
+            <field name="model">create.custom.tab</field>
+            <field name="arch" type="xml">
+                <search string="Tabs">
+                    <field name="name" string="Name"/>
+                    <field name="model_id" string="Model"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Model" name="group_by_object" domain="[]" context="{'group_by':'model_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_create_custom_tab" model="ir.actions.act_window">
+            <field name="name">Custom Tabs</field>
+            <field name="res_model">create.custom.tab</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="create_custom_tab_tree"/>
+            <field name="domain">[('is_custom_tab', '=', True)]</field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem name="Custom Tabs"
+                  id="menu_new_tabs"
+                  sequence="8"
+                  parent="all_model_custom_fields_cr.menu_custom_fields_new"
+                  action="action_create_custom_tab"
+                  groups="all_model_custom_fields_cr.group_global_custom_field"/>
+    </data>
+</odoo>

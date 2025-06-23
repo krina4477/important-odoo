@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="acquirer_form_securionpay" model="ir.ui.view">
+        <field name="name">payment.acquirer.form.inherit</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr='//group[@name="provider_credentials"]' position='after'>
+                <group invisible="code != 'securionpay'">
+                    <field name="securionpay_publishable_key" password="True" force_save="True"/>
+                    <field name="securionpay_secret_key" password="True" force_save="True"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

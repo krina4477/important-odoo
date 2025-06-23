@@ -1,0 +1,2 @@
+# The officially supported versions of the following packages are their
+pay_ccavenue == 0.1.6

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_dynamic_date_filter_tree" model="ir.ui.view">
+        <field name="name">dynamic.date.filter.tree</field>
+        <field name="model">dynamic.date.filter</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <list string="Dynamic Date Filter">
+                <field name="name"/>
+                <field name="model_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dynamic_date_filter_form" model="ir.ui.view">
+        <field name="name">dynamic.date.filter.form</field>
+        <field name="model">dynamic.date.filter</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Dynamic Date Filter">
+                <header>
+                    <button name="confirm_filter" string="Confirm" type="object" invisible="state != 'draft'" class="oe_highlight"/>
+                    <button name="remove_filter" string="Remove" type="object" invisible="state != 'confirm'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name" readonly="state == 'confirm'"/></h1>
+                    <group>
+                        <group>
+                            <field name="model_id" readonly="state == 'confirm'"/>
+                            <field name="ir_model_fields_id" domain="[('model_id', '=', model_id), ('ttype', 'in', ['date', 'datetime'])]" readonly="state == 'confirm'" invisible="model_id == False" options='{"no_open": True, "no_create": True}'/>
+                        </group>
+                        <group>
+                            <field name="new_view_id" domain="[('model', '=', model_name),('type','=','search')]" readonly="state == 'confirm'" invisible="model_id == False" options='{"no_open": True, "no_create": True}'/>
+                            <field name="model_name" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Filters">
+                        <group>
+                            <field name="today" readonly="state == 'confirm'"/>
+                            <field name="month" readonly="state == 'confirm'"/>
+                            <field name="year" readonly="state == 'confirm'"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dynamic_date_filter_search" model="ir.ui.view">
+        <field name="name">dynamic.date.filter.search</field>
+        <field name="model">dynamic.date.filter</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <search string="Dynamic Date Filter">
+                <field name="model_id"/>
+                <newline/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_dynamic_date_filter_view">
+        <field name="name">Dynamic Date Filters</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dynamic.date.filter</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_dynamic_date_filter_search"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record model="ir.actions.act_window.view" id="act_open_dynamic_date_filter_view_form">
+        <field name="act_window_id" ref="act_open_dynamic_date_filter_view"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_dynamic_date_filter_form"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="act_open_dynamic_date_filter_view_tree">
+        <field name="act_window_id" ref="act_open_dynamic_date_filter_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_dynamic_date_filter_tree"/>
+    </record>
+
+
+    <menuitem id="dynamic_date_filter_menu_base" name="Dynamic Date Filter"
+              parent="base.menu_administration" sequence="30"
+              groups="base.group_no_one"/>
+
+    <menuitem id="dynamic_date_filter_menu" name="Dynamic Date Filter"
+              parent="dynamic_date_filter_menu_base" sequence="30"
+              action="act_open_dynamic_date_filter_view" groups="base.group_no_one"/>
+
+</odoo>

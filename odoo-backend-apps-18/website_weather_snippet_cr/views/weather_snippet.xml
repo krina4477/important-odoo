@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_weather_snippet" name="Weather">
+        <section class="s_weather_snippet pt8 pb8">
+            <div class="row row_weather_snippet">
+                <div class="offset-lg-1 col-lg-10 pt8 pb8 weather_body">
+                    <a class="weatherwidget-io a_weather_snippet" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-list-id="0" data-theme="original" data-days="7" data-mode="Both" data-icons="Iconvault" data-font="Arial" style="pointer-events: none;">NEW YORK WEATHER</a>
+                </div>
+                <script id="weatherwidget-io-js" src="/website_weather_snippet_cr/static/src/js/widget.js"></script>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_weather_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='Box']" position="before">
+            <div data-js="s_weather_snippet" data-selector=".s_weather_snippet">
+                <we-select string="Select Location" data-attribute-name="listId"></we-select>
+
+                <we-select string="Font">
+                    <we-button data-font="Arial" data-name="arial_font_opt">Arial</we-button>
+                    <we-button data-font="Arial Black" data-name="arial_black_font_opt">Arial Black</we-button>
+                    <we-button data-font="Arial Narrow" data-name="arial_narrow_font_opt">Arial Narrow</we-button>
+                    <we-button data-font="Arial Rounded MT Bold" data-name="arial_rounded_font_opt">Arial Rounded MT Bold</we-button>
+                    <we-button data-font="Arimo" data-name="arimo_font_opt">Arimo</we-button>
+                    <we-button data-font="Consolas" data-name="consolas_font_opt">Consolas</we-button>
+                    <we-button data-font="Courier New" data-name="courier_new_font_opt">Courier New</we-button>
+                    <we-button data-font="Fira Sans" data-name="fira_sans_font_opt">Fira Sans</we-button>
+                    <we-button data-font="Georgia" data-name="georgia_font_opt">Georgia</we-button>
+                    <we-button data-font="Helvetica" data-name="helvetica_font_opt">Helvetica</we-button>
+                    <we-button data-font="Jura" data-name="jura_font_opt">Jura</we-button>
+                    <we-button data-font="Monaco" data-name="monaco_font_opt">Monaco</we-button>
+                    <we-button data-font="Noto Sans" data-name="noto_sans_font_opt">Noto Sans</we-button>
+                    <we-button data-font="Noto Serif" data-name="noto_serif_font_opt">Noto Serif</we-button>
+                    <we-button data-font="Open Sans" data-name="open_sans_font_opt">Open Sans</we-button>
+                    <we-button data-font="Open Sans Condensed" data-name="open_sans_condensed_font_opt">Open Sans Condensed</we-button>
+                    <we-button data-font="Palatino" data-name="palatino_font_opt">Palatino</we-button>
+                    <we-button data-font="Play" data-name="play_font_opt">Play</we-button>
+                    <we-button data-font="Roboto" data-name="roboto_font_opt">Roboto</we-button>
+                    <we-button data-font="Roboto Slab" data-name="roboto_slab_font_opt">Roboto Slab</we-button>
+                    <we-button data-font="Tahoma" data-name="tahoma_font_opt">Tahoma</we-button>
+                    <we-button data-font="Times New Roman" data-name="times_new_roman_font_opt">Times New Roman</we-button>
+                    <we-button data-font="Tinos" data-name="tinos_font_opt">Tinos</we-button>
+                    <we-button data-font="Trebuchet MS" data-name="trebuchet_ms_font_opt">Trebuchet MS</we-button>
+                    <we-button data-font="Ubuntu" data-name="ubuntu_font_opt">Ubuntu</we-button>
+                    <we-button data-font="Verdana" data-name="verdana_font_opt">Verdana</we-button>
+                </we-select>
+
+                <we-select string="Icon Set">
+                    <we-button data-icons="Iconvault">Iconvault</we-button>
+                    <we-button data-icons="Climacons">Climacons</we-button>
+                    <we-button data-icons="Climacons Animated">Climacons Animated</we-button>
+                </we-select>
+
+                <we-select string="Current / Forecast">
+                    <we-button data-mode="Current">Current</we-button>
+                    <we-button data-mode="Forecast">Forecast</we-button>
+                    <we-button data-mode="Both">Both</we-button>
+                </we-select>
+
+                <we-select string="Forecast Days">
+                    <we-button data-days="7">7</we-button>
+                    <we-button data-days="5">5</we-button>
+                    <we-button data-days="3">3</we-button>
+                </we-select>
+
+                <we-select string="Theme Type">
+                    <we-button data-theme="original">Original</we-button>
+                    <we-button data-theme="pure">Pure</we-button>
+                    <we-button data-theme="orange">Orange</we-button>
+                    <we-button data-theme="gray">Gray</we-button>
+                    <we-button data-theme="dark">Dark</we-button>
+                    <we-button data-theme="desert">Desert</we-button>
+                    <we-button data-theme="grass">Grass</we-button>
+                    <we-button data-theme="tile_wood">Tile Wood</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="snippets" inherit_id="website.snippets" name="e-commerce snippets">
+        <xpath expr="//t[@t-snippet='website.s_snippet_group']" position="before">
+            <t t-snippet="website_weather_snippet_cr.s_weather_snippet" t-thumbnail="/website/static/src/img/snippets_thumbs/s_banner.svg">
+            </t>
+        </xpath>
+    </template>
+</odoo>

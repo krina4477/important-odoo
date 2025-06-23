@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="bookmark_tree" model="ir.ui.view">
+            <field name="name">bookmark.bookmark.list</field>
+            <field name="model">bookmark.bookmark</field>
+            <field name="arch" type="xml">
+                <list string="Bookmark">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="user_id"/>
+                    <field name="record_name"/>
+                    <button name="open_form_view" type="object" string="View"
+                        class="oe_highlight"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="bookmark_form" model="ir.ui.view">
+            <field name="name">bookmark.bookmark.form</field>
+            <field name="model">bookmark.bookmark</field>
+            <field name="arch" type="xml">
+                <form string="Bookmark">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="model"/>
+                            </group>
+                            <group>
+                                <field name="record_id"/>
+                                <field name="record_reference" widget="reference"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bookmark_search" model="ir.ui.view">
+            <field name="name">bookmark.bookmark.search</field>
+            <field name="model">bookmark.bookmark</field>
+            <field name="arch" type="xml">
+                <search string="Invoices Analysis">
+                    <group expand="1" string="Group By">
+                        <filter string="Model" name='model' context="{'group_by':'model_id'}"/>
+                        <filter string="User" name='user_id' context="{'group_by':'user_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_bookmark_record" model="ir.actions.act_window">
+            <field name="name">Bookmark records</field>
+            <field name="res_model">bookmark.bookmark</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="_report_partner">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="customer_report_cr.report_external_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-9">
+                                <h3><span t-field="doc.name"/></h3>
+                                <t t-if="doc.company_type == 'person'">
+                                    <strong>Related Company : </strong><span t-field="doc.parent_id.name"/>
+                                <br/></t>
+                            </div>
+                            <div class="col-3">
+                                <img class="img img-responsive pull-right" t-attf-src="data:image/*;base64,{{doc.image_1920}}" style="height: 70px;"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <t t-if="doc.company_type == 'person'">
+                                    <strong>Address Type : </strong><span t-field="doc.type"/>
+                                <br/></t>
+                                <strong>Addess :</strong><br/>
+                                <t t-if="doc.street">
+                                    <span t-field="doc.street"/>
+                                <br/></t>
+                                <t t-if="doc.street2">
+                                    <span t-field="doc.street2"/>
+                                <br/></t>
+                                <t t-if="doc.city or doc.state_id or doc.zip">
+                                    <span t-field="doc.city"/>, <span t-field="doc.state_id.name"/>, <span t-field="doc.zip"/>
+                                <br/></t>
+                                <t t-if="doc.country_id">
+                                    <span t-field="doc.country_id.name"/>
+                                </t><br/><br/>
+                                <t t-if="doc.vat">
+                                    <strong>Tax ID : </strong><span t-field="doc.vat"/>
+                                <br/></t>
+                            </div>
+                            <div class="col-6">
+                                <t t-if="doc.company_type == 'person' and doc.function">
+                                    <strong>Job Position : </strong><span t-field="doc.function"/>
+                                <br/></t>
+                                <t t-if="doc.phone">
+                                    <strong>Phone : </strong><span t-field="doc.phone"/>
+                                <br/></t>
+                                <t t-if="doc.mobile">
+                                    <strong>Mobile : </strong><span t-field="doc.mobile"/>
+                                <br/></t>
+                                <t t-if="doc.email">
+                                    <strong>Email : </strong><span t-field="doc.email"/>
+                                <br/></t>
+                                <t t-if="doc.website">
+                                    <strong>Website Link : </strong><span t-field="doc.website"/>
+                                <br/></t>
+                                <t t-if="doc.company_type == 'person' and doc.title">
+                                    <strong>Title : </strong><span t-field="doc.title"/>
+                                <br/></t>
+                                <t t-if="doc.category_id">
+                                    <strong>Tags : </strong><span t-field="doc.category_id"/>
+                                <br/></t>
+                            </div>
+                        </div>
+                        <br/>
+                        <t t-if="doc.child_ids">
+                            <h3>Contacts &amp; Addesses :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Address Type</th>
+                                        <th>Contact Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th>Title</th>
+                                        <th>Job Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="doc.child_ids" t-as="child">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="child.type"/></td>
+                                            <td><span t-field="child.name"/></td>
+                                            <td><span t-field="child.email"/></td>
+                                            <td><span t-field="child.mobile"/></td>
+                                            <td><span t-field="child.title"/></td>
+                                            <td><span t-field="child.function"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <t t-if="doc.user_id or doc.property_payment_term_id">
+                                    <h4>Sales :</h4>
+                                    <t t-if="doc.user_id">
+                                        <strong>Salesperson : </strong><span t-field="doc.user_id"/>
+                                    <br/></t>
+<!--                                    <t t-if="doc.team_id">-->
+<!--                                        <strong>Sales Team : </strong><span t-field="doc.team_id"/>-->
+<!--                                    <br/></t>-->
+                                    <t t-if="doc.property_payment_term_id">
+                                        <strong>Payment Terms: </strong><span t-field="doc.property_payment_term_id"/>
+                                    <br/></t>
+                                    <br/>
+                                </t>
+                                <t t-if="doc.property_account_position_id">
+                                    <h4>Fiscal Information :</h4>
+                                    <t t-if="doc.property_account_position_id">
+                                        <strong>Fiscal Position: </strong><span t-field="doc.property_account_position_id"/>
+                                    <br/></t>
+                                </t>
+                            </div>
+                            <div class="col-6">
+                                <t t-if="doc.property_supplier_payment_term_id or doc.property_outbound_payment_method_line_id or doc.receipt_reminder_email">
+                                    <h4>Purchase :</h4>
+                                    <t t-if="doc.property_supplier_payment_term_id">
+                                        <strong>Payment Terms : </strong><span t-field="doc.property_supplier_payment_term_id"/>
+                                    <br/></t>
+                                    <t t-if="doc.property_outbound_payment_method_line_id">
+                                        <strong>Payment Method : </strong><span t-field="doc.property_outbound_payment_method_line_id"/>
+                                    <br/></t>
+                                    <t t-if="doc.receipt_reminder_email and doc.reminder_date_before_receipt">
+                                        <strong>Receipt Reminder : </strong><span t-field="doc.reminder_date_before_receipt"/>
+                                    <br/></t>
+                                    <br/>
+                                </t>
+                                <t t-if="doc.ref or doc.company_id or doc.industry_id">
+                                    <h4>Misc :</h4>
+                                    <t t-if="doc.ref">
+                                        <strong>Reference : </strong><span t-field="doc.ref"/>
+                                    <br/></t>
+                                    <t t-if="doc.company_id">
+                                        <strong>Company : </strong><span t-field="doc.company_id"/>
+                                    <br/></t>
+                                    <t t-if="doc.industry_id">
+                                        <strong>Industry : </strong><span t-field="doc.industry_id"/>
+                                    <br/></t>
+                                </t>
+                            </div>
+                        </div>
+                        <br/>
+                        <t t-if="doc.bank_ids">
+                            <h3>Bank Accounts :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Bank</th>
+                                        <th>Account Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="doc.bank_ids" t-as="bank">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="bank.bank_id"/></td>
+                                            <td><span t-field="bank.acc_number"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-if="doc.property_account_receivable_id or doc.property_account_payable_id">
+                            <h4>Accounting Entries :</h4>
+                            <t t-if="doc.property_account_receivable_id">
+                                <strong>Account Receivable :</strong> <span t-esc="doc.property_account_receivable_id.code"/> <span t-esc="doc.property_account_receivable_id.name"/><br/>
+                            </t>
+                            <t t-if="doc.property_account_payable_id">
+                                <strong>Account Payable :</strong> <span t-esc="doc.property_account_payable_id.code"/> <span t-esc="doc.property_account_payable_id.name"/>
+                            </t>
+                            <br/>
+                            <br/>
+                        </t>
+                        <t t-if="doc.sale_order_ids">
+                            <h3>Sales Order :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Number</th>
+                                        <th>Order Date</th>
+                                        <th>Salesperson</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="doc.sale_order_ids" t-as="sale">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="sale.name"/></td>
+                                            <td><span t-field="sale.date_order"/></td>
+                                            <td><span t-field="sale.user_id"/></td>
+                                            <td><span t-field="sale.amount_total"/></td>
+                                            <td><span t-field="sale.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="partner" t-value="request.env['res.partner'].search([('parent_id','=',doc.id)])"/>
+                        <t t-set="sale_order" t-value="request.env['sale.order'].search([('partner_id','in',partner.ids)])"/>
+                        <t t-if="sale_order">
+                            <h3>Contact's Sales Order :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Name</th>
+                                        <th>Number</th>
+                                        <th>Order Date</th>
+                                        <th>Salesperson</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="sale_order" t-as="sale">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="sale.partner_id.name"/></td>
+                                            <td><span t-field="sale.name"/></td>
+                                            <td><span t-field="sale.date_order"/></td>
+                                            <td><span t-field="sale.user_id"/></td>
+                                            <td><span t-field="sale.amount_total"/></td>
+                                            <td><span t-field="sale.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-if="doc.task_ids">
+                            <h3>Task :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Title</th>
+                                        <th>Project</th>
+                                        <th>Assigned to</th>
+                                        <th>Tags</th>
+                                        <th>Stage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="doc.task_ids" t-as="task">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="task.name"/></td>
+                                            <td><span t-field="task.project_id.name"/></td>
+                                            <td><span t-field="task.user_ids"/></td>
+                                            <td><span t-field="task.tag_ids"/></td>
+                                            <td><span t-field="task.stage_id"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="child_task" t-value="request.env['project.task'].search([('partner_id','in',partner.ids)])"/>
+                        <t t-if="child_task">
+                            <h3>Contact's Task :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Project</th>
+                                        <th>Assigned to</th>
+                                        <th>Tags</th>
+                                        <th>Stage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="child_task" t-as="task">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="task.partner_id.name"/></td>
+                                            <td><span t-field="task.name"/></td>
+                                            <td><span t-field="task.project_id.name"/></td>
+                                            <td><span t-field="task.user_id"/></td>
+                                            <td><span t-field="task.tag_ids"/></td>
+                                            <td><span t-field="task.stage_id"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="purchase_order" t-value="request.env['purchase.order'].search([('partner_id','=',doc.id)])"/>
+                        <t t-if="purchase_order">
+                            <h3>Purchase Order :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Number</th>
+                                        <th>Order Deadline</th>
+                                        <th>Confirmation Date</th>
+                                        <th>Purchase Representative</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="purchase_order" t-as="purchase">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="purchase.name"/></td>
+                                            <td><span t-field="purchase.date_order"/></td>
+                                            <td><span t-field="purchase.date_approve"/></td>
+                                            <td><span t-field="purchase.user_id"/></td>
+                                            <td><span t-field="purchase.amount_total"/></td>
+                                            <td><span t-field="purchase.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="child_purchase_order" t-value="request.env['purchase.order'].search([('partner_id','in',partner.ids)])"/>
+                        <t t-if="child_purchase_order">
+                            <h3>Contact's Purchase Order :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Name</th>
+                                        <th>Number</th>
+                                        <th>Order Deadline</th>
+                                        <th>Confirmation Date</th>
+                                        <th>Purchase Representative</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="child_purchase_order" t-as="purchase">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="purchase.partner_id.name"/></td>
+                                            <td><span t-field="purchase.name"/></td>
+                                            <td><span t-field="purchase.date_order"/></td>
+                                            <td><span t-field="purchase.date_approve"/></td>
+                                            <td><span t-field="purchase.user_id"/></td>
+                                            <td><span t-field="purchase.amount_total"/></td>
+                                            <td><span t-field="purchase.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="invoice" t-value="request.env['account.move'].search([('partner_id','=',doc.id),('move_type','in',['out_invoice','out_refund'])])"/>
+                        <t t-if="invoice">
+                            <h3>Invoice :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Number</th>
+                                        <th>Invoice Date</th>
+                                        <th>Due Date</th>
+                                        <th>Salesperson</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="invoice" t-as="invoice">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="invoice.name"/></td>
+                                            <td><span t-field="invoice.invoice_date"/></td>
+                                            <td><span t-field="invoice.invoice_date_due"/></td>
+                                            <td><span t-field="invoice.user_id"/></td>
+                                            <td><span t-field="invoice.amount_total_signed"/></td>
+                                            <td><span t-field="invoice.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="child_invoice" t-value="request.env['account.move'].search([('partner_id','in',partner.ids),('move_type','in',['out_invoice','out_refund'])])"/>
+                        <t t-if="child_invoice">
+                            <h3>Contact's Invoice :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Name</th>
+                                        <th>Number</th>
+                                        <th>Invoice Date</th>
+                                        <th>Due Date</th>
+                                        <th>Salesperson</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="child_invoice" t-as="invoice">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="invoice.partner_id.name"/></td>
+                                            <td><span t-field="invoice.name"/></td>
+                                            <td><span t-field="invoice.invoice_date"/></td>
+                                            <td><span t-field="invoice.invoice_date_due"/></td>
+                                            <td><span t-field="invoice.user_id"/></td>
+                                            <td><span t-field="invoice.amount_total_signed"/></td>
+                                            <td><span t-field="invoice.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-set="bill" t-value="request.env['account.move'].search([('partner_id','=',doc.id),('move_type','in',['in_invoice','in_refund'])])"/>
+                        <t t-if="bill">
+                            <h3>Vendor Bills :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Number</th>
+                                        <th>Bill Date</th>
+                                        <th>Due Date</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="bill" t-as="invoice">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="invoice.name"/></td>
+                                            <td><span t-field="invoice.invoice_date"/></td>
+                                            <td><span t-field="invoice.invoice_date_due"/></td>
+                                            <td><span t-field="invoice.amount_total_signed"/></td>
+                                            <td><span t-field="invoice.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <t t-set="child_bill" t-value="request.env['account.move'].search([('partner_id','in',partner.ids),('move_type','in',['in_invoice','in_refund'])])"/>
+
+                        <t t-if="child_bill">
+                            <h3>Contact's Vendor Bills :</h3>
+                            <table class="table table-borderless">
+                                <thead style="border-bottom: 1px solid black;">
+                                    <tr>
+                                        <th>Nr.</th>
+                                        <th>Name</th>
+                                        <th>Number</th>
+                                        <th>Bill Date</th>
+                                        <th>Due Date</th>
+                                        <th>Total</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sr" t-value="1"/>
+                                    <t t-foreach="child_bill" t-as="invoice">
+                                        <tr>
+                                            <td><span t-esc="sr"/></td>
+                                            <td><span t-field="invoice.partner_id.name"/></td>
+                                            <td><span t-field="invoice.name"/></td>
+                                            <td><span t-field="invoice.invoice_date"/></td>
+                                            <td><span t-field="invoice.invoice_date_due"/></td>
+                                            <td><span t-field="invoice.amount_total_signed"/></td>
+                                            <td><span t-field="invoice.state"/></td>
+                                        </tr>
+                                        <t t-set="sr" t-value="sr+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-if="doc.comment">
+                            <h4>Intarnal Note : </h4>
+                            <p><span t-field="doc.comment"/></p>
+                        </t>
+                        <t t-if="doc.sale_warn_msg">
+                            <h4>Warning on the Sales Order : </h4>
+                            <p><span t-field="doc.sale_warn_msg"/></p>
+                        </t>
+                        <t t-if="doc.purchase_warn_msg">
+                            <h4>Warning on the Purchase Order : </h4>
+                            <p><span t-field="doc.purchase_warn_msg"/></p>
+                        </t>
+                        <t t-if="doc.invoice_warn_msg">
+                            <h4>Warning on the Invoice : </h4>
+                            <p><span t-field="doc.invoice_warn_msg"/></p>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

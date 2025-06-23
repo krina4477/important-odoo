@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data>
+            <record id="employee_user_id_attribute" model="ir.ui.view">
+                <field name="name">employee.user.id.attribute</field>
+                <field name="model">hr.employee</field>
+                <field name="inherit_id" ref="hr.view_employee_form"/>
+                <field name="arch" type="xml">
+
+                    <xpath expr="//sheet/notebook/page[@name='hr_settings']/group[1]/group[@name='active_group']/div[@class='o_row']/field[@name='user_id']" position="attributes">
+                        <attribute name="domain">[('company_ids', 'in', company_id)]</attribute>
+                    </xpath>
+
+                </field>
+            </record>
+        </data>
+
+</odoo>

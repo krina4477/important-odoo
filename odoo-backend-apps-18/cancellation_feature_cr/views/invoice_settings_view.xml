@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_invoice_res_config_settings" model="ir.ui.view">
+        <field name="name">view.invoice.res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pay_invoice_online_setting_container']" position="after">
+                <h2 groups="cancellation_feature_cr.group_cancellation_invoice_orders">Invoice Cancel Configuration</h2>
+                <div class="row mt16 o_settings_container" id="invoice_cancel_other_setting_container"
+                     groups="cancellation_feature_cr.group_cancellation_invoice_orders">
+                    <div class="col-12 col-lg-6 o_setting_box" id="cancel_invoice_picking_option"
+                         title="Cancel Invoices with different ways">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="invoice_cancel_type"/>
+                            <div class="text-muted">
+                                These 3 cancellation option are related with ( Cancel Invoice ) Button.
+                                this options will affect only the 'POSTED' state of invoice.
+                                If you are going to cancel from action menu ,In that case Cancellation process will work
+                                based on your selected choice of action menu.
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="invoice_cancel_type" class="o_light_label" widget="radio"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="show_purchase_receipts">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="payment_cancel_type"/>
+                            <div class="text-muted">
+                                These 3 cancellation option are related with ( Cancel Payment ) Button.
+                                this options will affect only the 'POSTED' state of payment.
+                                If you are going to cancel from action menu ,In that case Cancellation process will work
+                                based on your selected choice of action menu.
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="payment_cancel_type" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="text.table.td.delete">
+
+         <div t-name="text.table.td.delete">
+            <div><span t-esc="title"/></div>
+        </div>
+    </t>
+
+    <t t-name="text.table.td.add" t-att-class="props.class" >
+    <Dialog>
+        <t t-set-slot="header">
+            <h3>Add Column</h3>
+            <button type="button" class="btn-close" t-on-click="props.close"  aria-label="Close" tabindex="-1"></button>
+        </t>
+
+        <div>
+            <b>Column Name :</b>
+        </div>
+
+        <div>
+            <input type="text" id="col_name" name="col_name" class="column_sequence_input"/>
+        </div>
+        <br/>
+
+        <div><b>Column Type :</b></div>
+        <div class="form-check o_radio_item">
+            <input name="col_type" type="radio" class="form-check-input o_radio_input" checked="true" value="text" id="self_text"/>
+            <label class="form-check-label o_form_label" for="self_text">Text</label>
+        </div>
+
+        <div class="form-check o_radio_item">
+            <input name="col_type" type="radio" class="form-check-input o_radio_input" value="email" id="self_email"/>
+            <label class="form-check-label o_form_label" for="self_email">Email</label>
+        </div>
+
+        <div class="form-check o_radio_item">
+            <input name="col_type" type="radio" class="form-check-input o_radio_input" value="tel" id="self_tel"/>
+            <label class="form-check-label o_form_label" for="self_tel">Tel</label>
+        </div>
+
+        <div class="form-check o_radio_item">
+            <input name="col_type" type="radio" class="form-check-input o_radio_input" value="number" id="self_number"/>
+            <label class="form-check-label o_form_label" for="self_number">Number</label>
+        </div>
+
+        <div class="form-check o_radio_item">
+            <input name="col_type" type="radio" class="form-check-input o_radio_input" value="checkbox" id="self_checkbox"/>
+            <label class="form-check-label o_form_label" for="self_checkbox">Checkbox</label>
+        </div>
+
+        <div class="form-check o_radio_item">
+            <input name="col_type" type="radio" class="form-check-input o_radio_input" value="date" id="self_date"/>
+            <label class="form-check-label o_form_label" for="self_date">Date</label>
+        </div>
+
+        <t t-set-slot="footer">
+            <button type="button" t-on-click="add_button"  class="btn btn-primary" ><span>Add</span></button>
+            <button type="button"  t-on-click="props.close" class="btn btn-secondary"><span>Close</span></button>
+
+       </t>
+
+    </Dialog>
+    </t>
+</templates>

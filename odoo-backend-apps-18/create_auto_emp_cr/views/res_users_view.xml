@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_auto_create_emp_view_base" model="ir.ui.view">
+        <field name="name">res.users.auto.create.emp.base</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                <group><field name="employee_id" /></group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_auto_create_emp_view" model="ir.ui.view">
+        <field name="name">res.users.auto.create.emp</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="hr.res_users_view_form"/>
+        <field name="arch" type="xml">
+            <field name="employee_id" position="replace"/>
+        </field>
+    </record>
+
+</odoo>

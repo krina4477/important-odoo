@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="new_leave_web_page" t-name="NewLeavePage">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <!--Simple Design of Create Expense Form-->
+                        <form method="POST" action="/leave/apply" enctype="multipart/form-data" class="form">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-lg-6 col-md-8 col-sm-12">
+                                    <div class="border border-dark rounded m-2 p-2">
+                                        <div class="row">
+                                            <div class="col-12 mt-2 mb-2">
+                                                <label for="holiday_status_ids" class="control-label">
+                                                    <strong>Time Off Type:</strong>
+                                                </label>
+                                                <select name="holiday_status_id" class="form-control link-style mt-2"
+                                                        id="holiday_status_id">
+                                                    <option value=""/>
+                                                    <t t-foreach="holiday_status_ids" t-as="holiday_status_id">
+                                                        <option t-att-value="holiday_status_id.id"
+                                                                t-att-data-id="holiday_status_id.request_unit">
+                                                            <t t-out="holiday_status_id.name"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mt-2 mb-2">
+                                                <label for="employee_id" class="control-label">
+                                                    <strong>Employee:</strong>
+                                                </label>
+                                                <select name="employee_id" class="form-control link-style mt-2">
+                                                    <option t-esc="employee_id.name" t-att-value="employee_id.id"/>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mt-2 mb-2">
+                                                <label for="manager_id" class="control-label">
+                                                    <strong>Manager:</strong>
+                                                </label>
+                                                <t t-if="manager_id">
+                                                    <select name="manager_id" class="form-control link-style mt-2">
+                                                        <option t-esc="manager_id.name"
+                                                                t-att-value="manager_id.id"/>
+                                                    </select>
+                                                </t>
+                                                <t t-else="">
+                                                    <select name="manager_id" class="form-control link-style mt-2">
+                                                        <option/>
+                                                    </select>
+                                                </t>
+                                            </div>
+                                            <div class="col-md-6 date_from">
+                                                <label for="date_from" class="control-label mt-2 mb-2">
+                                                    <strong>Start Date:</strong>
+                                                </label>
+                                                <input type="date" name="date_from"
+                                                       id="date_from" class="form-control date"/>
+                                            </div>
+                                            <div class="col-md-6 date_to">
+                                                <label for="date_to" class="control-label mt-2 mb-2">
+                                                    <strong>End Date:</strong>
+                                                </label>
+                                                <input type="date" name="date_to"
+                                                       id="date_to" class="form-control date"/>
+                                            </div>
+
+                                            <div class="col-md-6 request_date_from_period d-none">
+                                                <label class="control-label my-2">
+                                                    <strong>Slot:</strong>
+                                                </label>
+                                                <select name="request_date_from_period"
+                                                        class="form-control link-style">
+                                                    <option value="am">Morning</option>
+                                                    <option value="pm">Afternoon</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-6 my-2 custom_show_field d-none">
+                                                <label class='text-muted'>
+                                                    <input type="checkbox" id='request_unit_half' value="1"
+                                                           class="mr8 custom_show_input" name="request_unit_half"/>
+                                                    <strong>Half Day:</strong>
+                                                </label>
+
+                                            </div>
+
+                                            <div class="col-6 my-2 custom_show_field d-none">
+                                                <label class='text-muted'>
+                                                    <input type="checkbox" id='request_unit_hours' value="1"
+                                                           class="mr8 custom_show_input" name="request_unit_hours"/>
+                                                    <strong>Custom Hours:</strong>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-6 request_time_from_to d-none">
+                                                <label for="time_from" class="control-label my-2">
+                                                    <strong>From:</strong>
+                                                </label>
+                                                <select name="request_from" id="request_from"
+                                                        class="form-control link-style">
+                                                    <option value=""></option>
+                                                    <option value="0">12:00 AM</option>
+                                                    <option value="0.5">12:30 AM</option>
+                                                    <option value="1">1:00 AM</option>
+                                                    <option value="1.5">1:30 AM</option>
+                                                    <option value="2">2:00 AM</option>
+                                                    <option value="2.5">2:30 AM</option>
+                                                    <option value="3">3:00 AM</option>
+                                                    <option value="3.5">3:30 AM</option>
+                                                    <option value="4">4:00 AM</option>
+                                                    <option value="4.5">4:30 AM</option>
+                                                    <option value="5">5:00 AM</option>
+                                                    <option value="5.5">5:30 AM</option>
+                                                    <option value="6">6:00 AM</option>
+                                                    <option value="6.5">6:30 AM</option>
+                                                    <option value="7">7:00 AM</option>
+                                                    <option value="7.5">7:30 AM</option>
+                                                    <option value="8">8:00 AM</option>
+                                                    <option value="8.5">8:30 AM</option>
+                                                    <option value="9">9:00 AM</option>
+                                                    <option value="9.5">9:30 AM</option>
+                                                    <option value="10">10:00 AM</option>
+                                                    <option value="10.5">10:30 AM</option>
+                                                    <option value="11">11:00 AM</option>
+                                                    <option value="11.5">11:30 AM</option>
+                                                    <option value="12">12:00 PM</option>
+                                                    <option value="12.5">12:30 PM</option>
+                                                    <option value="13">1:00 PM</option>
+                                                    <option value="13.5">1:30 PM</option>
+                                                    <option value="14">2:00 PM</option>
+                                                    <option value="14.5">2:30 PM</option>
+                                                    <option value="15">3:00 PM</option>
+                                                    <option value="15.5">3:30 PM</option>
+                                                    <option value="16">4:00 PM</option>
+                                                    <option value="16.5">4:30 PM</option>
+                                                    <option value="17">5:00 PM</option>
+                                                    <option value="17.5">5:30 PM</option>
+                                                    <option value="18">6:00 PM</option>
+                                                    <option value="18.5">6:30 PM</option>
+                                                    <option value="19">7:00 PM</option>
+                                                    <option value="19.5">7:30 PM</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-6 request_time_from_to d-none">
+                                                <label for="time_to" class="control-label my-2">
+                                                    <strong>To:</strong>
+                                                </label>
+                                                <select name="request_to" id="request_to"
+                                                        class="form-control link-style">
+                                                    <option value=""></option>
+                                                    <option value="0">12:00 AM</option>
+                                                    <option value="0.5">12:30 AM</option>
+                                                    <option value="1">1:00 AM</option>
+                                                    <option value="1.5">1:30 AM</option>
+                                                    <option value="2">2:00 AM</option>
+                                                    <option value="2.5">2:30 AM</option>
+                                                    <option value="3">3:00 AM</option>
+                                                    <option value="3.5">3:30 AM</option>
+                                                    <option value="4">4:00 AM</option>
+                                                    <option value="4.5">4:30 AM</option>
+                                                    <option value="5">5:00 AM</option>
+                                                    <option value="5.5">5:30 AM</option>
+                                                    <option value="6">6:00 AM</option>
+                                                    <option value="6.5">6:30 AM</option>
+                                                    <option value="7">7:00 AM</option>
+                                                    <option value="7.5">7:30 AM</option>
+                                                    <option value="8">8:00 AM</option>
+                                                    <option value="8.5">8:30 AM</option>
+                                                    <option value="9">9:00 AM</option>
+                                                    <option value="9.5">9:30 AM</option>
+                                                    <option value="10">10:00 AM</option>
+                                                    <option value="10.5">10:30 AM</option>
+                                                    <option value="11">11:00 AM</option>
+                                                    <option value="11.5">11:30 AM</option>
+                                                    <option value="12">12:00 PM</option>
+                                                    <option value="12.5">12:30 PM</option>
+                                                    <option value="13">1:00 PM</option>
+                                                    <option value="13.5">1:30 PM</option>
+                                                    <option value="14">2:00 PM</option>
+                                                    <option value="14.5">2:30 PM</option>
+                                                    <option value="15">3:00 PM</option>
+                                                    <option value="15.5">3:30 PM</option>
+                                                    <option value="16">4:00 PM</option>
+                                                    <option value="16.5">4:30 PM</option>
+                                                    <option value="17">5:00 PM</option>
+                                                    <option value="17.5">5:30 PM</option>
+                                                    <option value="18">6:00 PM</option>
+                                                    <option value="18.5">6:30 PM</option>
+                                                    <option value="19">7:00 PM</option>
+                                                    <option value="19.5">7:30 PM</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                <strong>Duration :</strong>
+                                                <span class="duration_input_class">1 Day</span>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group mt-2 mb-2">
+                                                    <label for="name" class="control-label mt-2">
+                                                        <strong>Description:</strong>
+                                                    </label>
+                                                    <input type="text" name="name" t-att-value="name" id="name"
+                                                           class="form-control mt-2" autofocus="autofocus"
+                                                           autocapitalize="off" required="required"
+                                                           placeholder="Add a description..."/>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-12">
+                                                <strong>Supporting Documents:</strong>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12"
+                                                 style="text-align:center;">
+                                                <input type="file" name="attachment" id="attachment"/>
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <div class="text-left">
+                                                    <button type="submit" class="btn btn-primary" id="apply_button">
+                                                        Apply
+                                                    </button>
+                                                    <a class="btn btn-secondary" href="/my/leaves">Back</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="hr_leave_portal_content" name="Leave Portal Content">
+
+        <input class="leave_list_class" type="hidden" name="leave_list" t-att-value="leave_list"
+               t-att-data-id="leave_list.id"/>
+        <!-- Intro -->
+        <div id="introduction" t-attf-class="pb-2 pt-3 #{'card-header bg-white' if report_type == 'html' else ''}">
+            <h3 class="my-0">
+                <t t-esc="leave_list.name"/>
+            </h3>
+        </div>
+        <div t-attf-class="#{'card-body' if report_type == 'html' else ''}">
+            <!-- Informations -->
+            <div id="informations">
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <strong>Employee :</strong>
+                        <span t-field="leave_list.employee_id"/>
+                        <br/>
+                        <br/>
+                        <strong class="mt-3">Start Date :</strong>
+                        <span t-field="leave_list.date_from"/>
+                        <br/>
+                        <br/>
+                        <strong class="mt-3">Duration :</strong>
+                        <t t-if="leave_list.number_of_days">
+                            <span t-field="leave_list.number_of_days"/> Days
+                        </t>
+                        (
+                        <span t-field="leave_list.duration_display"/>
+                        )
+                    </div>
+                    <div class="mb-3 col-4">
+                        <strong>Manager :</strong>
+                        <span t-field="leave_list.manager_id"/>
+                        <br/>
+                        <br/>
+                        <strong class="mt-3">End Date :</strong>
+                        <span t-field="leave_list.date_to"/>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <strong>State :</strong>
+                        <t t-if="leave_list.state == 'draft'">
+                            <span t-field="leave_list.state" class="badge rounded-pill text-bg-info"/>
+                        </t>
+                        <t t-if="leave_list.state == 'confirm'">
+                            <span t-field="leave_list.state" class="badge rounded-pill text-bg-warning"/>
+                        </t>
+                        <t t-if="leave_list.state == 'refuse'">
+                            <span t-field="leave_list.state" class="badge rounded-pill text-bg-danger"/>
+                        </t>
+                        <t t-if="leave_list.state == 'validate1'">
+                            <span t-field="leave_list.state" class="badge rounded-pill text-bg-primary"/>
+                        </t>
+                        <t t-if="leave_list.state == 'validate'">
+                            <span t-field="leave_list.state" class="badge rounded-pill text-bg-success"/>
+                        </t>
+                        <br/>
+                        <br/>
+                        <strong class="mt-3">Time Off Type :</strong>
+                        <span t-field="leave_list.holiday_status_id"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="leave_list_custom_portal_template" name="Leave Order Portal Template"
+              inherit_id="portal.portal_sidebar" primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="replace">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/my/leaves'"/>
+                </t>
+            </t>
+            <div id="xqa" class="col-12 col-lg justify-content-end">
+                <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}" id="portal_price_content">
+                    <div t-call="hr_leave_portal_cr.hr_leave_portal_content"/>
+                </div>
+                <div id="pricelist_order_communication" class="mt-4">
+                    <h3>History</h3>
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="leave_list"/>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_leave_apply_show" name="Portal layout : leave menu entries"
+              inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'leaves_page'"
+                t-attf-class="breadcrumb-item #{'active ' if not leaves_page else ''}">
+                <a t-if="leaves_page" href="/my/expense?{{ keep_query() }}">My Leaves</a>
+                <t t-else="">My Leaves</t>
+            </li>
+
+            <li t-if="page_name == 'leaves_page'">
+                <a href="/new_leave" class="btn btn-sm btn-primary" style="margin-left:25px;">Apply Leave
+                </a>
+            </li>
+
+            <li t-if="page_name == 'leave_list_detail'"
+                t-attf-class="breadcrumb-item #{'active ' if not leave_list else ''}">
+                <a t-if="leave_list" href="/my/leaves?{{ keep_query() }}">My Leaves</a>
+                <t t-else="">Leave</t>
+            </li>
+
+            <li t-if="page_name == 'leave_list_detail'"
+                t-attf-class="breadcrumb-item #{'active ' if not leave_list else ''}">
+                <t t-if="leave_list">
+                    <t t-esc="leave_list.name"/>
+                </t>
+                <t t-else="">Leave</t>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_leave_template" name="My Leave List">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Leave Details</t>
+            </t>
+
+            <t t-if="not leave_allocations">
+                <p>There are currently no leave allocations for your account.</p>
+            </t>
+            <t t-if="leave_allocations" t-call="portal.portal_table">
+                <p>Balanced Leave Allocation</p>
+                <thead>
+                    <tr class="active">
+                        <th>Time Off Type</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="leave_allocations" t-as="allocation">
+                        <tr>
+                            <td style="display:none;">
+                                <span t-field="allocation.id"/>
+                            </td>
+                            <td>
+                                <span t-field="allocation.holiday_status_id"/>
+                            </td>
+                            <td>
+                                <span t-field="allocation.date_from"/>
+                            </td>
+                            <td>
+                                <span t-field="allocation.date_to"/>
+                            </td>
+                            <td>
+                                <span t-field="allocation.duration_display"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+
+            <hr color="green" size="8px"/>
+
+            <t t-if="not leave_total">
+                <p>There are currently no leave applied for your account.</p>
+            </t>
+            <t t-if="leave_total" t-call="portal.portal_table">
+                <p>Applied Leave Summery</p>
+                <thead>
+                    <tr class="active">
+                        <th>Time Off Type</th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="leave_total" t-as="leave">
+                        <tr>
+                            <td style="display:none;">
+                                <span t-field="leave.id"/>
+                            </td>
+                            <td>
+                                <a t-att-href="leave.access_url">
+                                    <t t-esc="leave.holiday_status_id.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <span t-field="leave.name"/>
+                            </td>
+                            <td>
+                                <span t-field="leave.date_from"/>
+                            </td>
+                            <td>
+                                <span t-field="leave.date_to"/>
+                            </td>
+                            <td>
+                                <span t-field="leave.duration_display"/>
+                            </td>
+
+                            <!--Expense Status-->
+                            <td class="tx_status text-center">
+                                <t t-if="leave.state == 'draft'">
+                                    <span t-field="leave.state" class="badge rounded-pill text-bg-info"/>
+                                </t>
+                                <t t-if="leave.state == 'confirm'">
+                                    <span t-field="leave.state" class="badge rounded-pill text-bg-warning"/>
+                                </t>
+                                <t t-if="leave.state == 'refuse'">
+                                    <span t-field="leave.state" class="badge rounded-pill text-bg-danger"/>
+                                </t>
+                                <t t-if="leave.state == 'validate1'">
+                                    <span t-field="leave.state" class="badge rounded-pill text-bg-primary"/>
+                                </t>
+                                <t t-if="leave.state == 'validate'">
+                                    <span t-field="leave.state" class="badge rounded-pill text-bg-success"/>
+                                </t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_home_leave_apply_show" name="Show Leave" customize_show="True"
+              inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/hr_leave_portal_cr/static/src/img/Bill.svg'"/>
+                <t t-set="title">E.S.S</t>
+                <t t-set="url" t-value="'/my/leaves'"/>
+                <t t-set="text">Employee Self Service</t>
+                <t t-set="placeholder_count" t-value="'leave_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

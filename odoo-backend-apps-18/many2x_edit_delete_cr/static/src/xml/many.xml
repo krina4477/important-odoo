@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="analytic.AutoComplete" t-inherit="web.AutoComplete" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-if='displayOptions']" position="replace">
+            <t t-if="displayOptions">
+                <ul class="o-autocomplete--dropdown-menu ui-widget show"
+                    t-att-class="ulDropdownClass"
+                    t-on-mousedown.prevent="" t-ref="sourcesList">
+                    <t t-foreach="sources" t-as="source" t-key="source.id">
+                        <t t-if="source.isLoading">
+                            <li class="ui-menu-item"
+                                t-att-class="{
+                                    'o-autocomplete--dropdown-item': props.dropdown,
+                                    'd-block': !props.dropdown
+                                }">
+                                <a href="#" class="dropdown-item ui-menu-item-wrapper">
+                                    <i class="fa fa-spin fa-circle-o-notch" /> <t t-esc="source.placeholder" />
+                                </a>
+                            </li>
+                        </t>
+                        <t t-else="">
+
+                            <t t-foreach="source.options" t-as="option" t-key="option.id">
+                                <li class="o-autocomplete--dropdown-item ui-menu-item d-block"
+                                    t-att-class="option.classList"
+                                    t-on-mouseenter="() => this.onOptionMouseEnter([source_index, option_index])"
+                                    t-on-mouseleave="() => this.onOptionMouseLeave([source_index, option_index])"
+                                    t-on-click="() => this.onOptionClick([source_index, option_index])"
+                                >
+                                    <div style="display:flex;">
+                                        <span href="#" class="dropdown-item ui-menu-item-wrapper text-truncate" t-att-class="{ 'ui-state-active': isActiveSourceOption([source_index, option_index]) }" >
+                                            <t t-if="source.optionTemplate">
+                                                <t t-call="{{ source.optionTemplate }}" />
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="option.label" />
+                                            </t>
+                                        </span>
+
+                                        <t t-if="option.label != 'Search More...' and option.label != 'Start typing...'" >
+                                            <t t-if="option.canEdit">
+                                                    <span class="fa fa-pencil m2o_edit" title="Edit" t-on-click="() => this.OneditBtnClick(option)"></span>
+                                            </t>
+                                            <t t-if="option.canDelete">
+                                                    <span class="fa fa-trash m2o_delete" title="Delete" t-on-click="() => this.OndeleteBtnClick(option)"></span>
+                                            </t>
+                                        </t>
+                                    </div>
+
+                                </li>
+                            </t>
+                        </t>
+                    </t>
+                </ul>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="delete_button" t-inherit="web.SelectCreateDialog" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('o_select_button')]" position="after">
+           <button class="btn btn-danger o_delete_button" t-on-click="() => this.OndeleteRecord(state.resIds)">DELETE</button>
+        </xpath>
+    </t>
+    <t t-name="many2many_tags_inherit" t-inherit="web.Many2ManyTagsField" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_field_many2many_selection')]" position="replace">
+           <div t-if="showM2OSelectionField" class="o_field_many2many_selection d-inline-flex w-100" t-ref="autoComplete">
+                <Many2XAutocomplete
+                    id="props.id"
+                    placeholder="tags.length ? '' : props.placeholder"
+                    resModel="relation"
+                    autoSelect="true"
+                    fieldString="string"
+                    activeActions="activeActions"
+                    update="update"
+                    quickCreate="activeActions.create ? quickCreate : null"
+                    context="props.context"
+                    getDomain.bind="getDomain"
+                    isToMany="true"
+                    nameCreateField="props.nameCreateField"
+                    noSearchMore="props.noSearchMore"
+                    canEdit="props.canEdit"
+                    canDelete="props.canDelete" />
+            </div>
+        </xpath>
+    </t>
+</templates>

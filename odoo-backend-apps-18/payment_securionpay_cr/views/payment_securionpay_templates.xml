@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="securionpay_acquirer_button">
+            <form t-att-action="api_url" method="post">
+                <script type="text/javascript" src="https://securionpay.com/checkout.js"></script>
+                <input type="hidden" name="key" t-att-value="key"/>
+                <input type="hidden" name="checkout_request" t-att-value="checkout_request"/>
+                <input type="hidden" name="company" t-att-value="company"/>
+                <input type="hidden" name="description" t-att-value="description"/>
+                <input type="hidden" name='return_url' t-att-value='returndata'/>
+                <input type="hidden" name="email" t-att-value="email"/>
+                <input type="hidden" name="image" t-att-value="image"/>
+                <input type="hidden" name="reference" t-att-value="reference"/>
+                <input type="hidden" name="so_id" t-att-value="so_id"/>
+                <input type="hidden" name="partner_id" t-att-value="partner_id"/>
+                <input type="hidden" name="currency_id" t-att-value="currency_id"/>
+                <input type="hidden" name="amount" t-att-value="amount"/>
+                <input type="hidden" name="landing_route" t-att-value="returndata"/>
+                <input name="provider_id" t-att-value="provider_id"/>
+                <input id="acquirer_securionpay" type='hidden' name="acquirer" t-att-value="acquirer_id"/>
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            </form>
+        </template>
+        <template id="payment_inherit" inherit_id="website_sale.payment">
+            <xpath expr="//div[@id='address_on_payment']" position="after">
+                <div class="securionpay_loading" style="display: none;">
+                    <div style="position: fixed; top: calc(50% - 26px); left: calc(50% - 26px); z-index: 999;"
+                         class="text-center">
+                        <i class="fa fa-spinner fa-spin mb16 text-white-75 fa-4x"/>
+                        <p style="color: #ffffff; font-size: 20px;">Loading...</p>
+                    </div>
+                </div>
+                <style>
+                    .securionpay_loading {
+                        background-color: rgba(0, 0, 0, 0.5);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index:9999;
+                        }
+                </style>
+            </xpath>
+        </template>
+        <template id="frontend_layout" name="Main Frontend Layout" inherit_id="web.frontend_layout">
+            <xpath expr="//header" position="inside">
+                <script type="text/javascript" src="https://securionpay.com/checkout.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

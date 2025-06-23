@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="web.SelectMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[1]" position="after">
+             <span>
+                 <input type="checkbox" class="o_import_update_option" t-on-click="FileUploadData" />
+                  Update if exist
+             </span>
+        </xpath>
+    </t>
+</templates>

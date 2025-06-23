@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="approval_config_form" model="ir.ui.view">
+        <field name="name">approval.config.form</field>
+        <field name="model">approval.config</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_ids" widget="many2many_tags"/>
+                            <field name="product_ids" widget="many2many_tags"/>
+                            <field name="product_categ_ids" widget="many2many_tags"/>
+                            <field name="partner_ids" widget="many2many_tags"/>
+                            <field name="price_range"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="approval_config_tree" model="ir.ui.view">
+        <field name="name">approval.config.tree</field>
+        <field name="model">approval.config</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="product_ids" widget="many2many_tags"/>
+                <field name="product_categ_ids" widget="many2many_tags"/>
+                <field name="partner_ids" widget="many2many_tags"/>
+                <field name="price_range"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_approval_config" model="ir.actions.act_window">
+        <field name="name">Invoice Approval Configuration</field>
+        <field name="res_model">approval.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="menu_main_approval_configuration"
+        name="Approvals"
+        parent="account.menu_finance_configuration"
+        sequence="80"
+        groups="base.group_no_one"/>
+        
+    <menuitem action="action_approval_config" 
+        id="menu_action_approval_config" 
+        parent="invoice_multi_approval_cr.menu_main_approval_configuration" 
+        sequence="81">
+
+    </menuitem>
+
+</odoo>

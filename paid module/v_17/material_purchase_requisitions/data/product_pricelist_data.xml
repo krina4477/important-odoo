@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_price_list_sabic_restoration_project" model="product.pricelist">
+            <field name="name">SABIC (Sale requisition)</field>
+        </record>
+
+
+    </data>
+</odoo>

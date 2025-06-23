@@ -1,0 +1,12 @@
+"id","name","comment"
+"salesperson_see_own_contacts.res_group_access_own_contacts","Access To Own Contacts Only","User in this group have READ & WRITE access to the contacts:
+
+1. Which the user created in Odoo
+2. Which the user has been assigned as the ""salesperson"" for that contact
+3. Which is a NON private contact
+4. Which the user  is a follower of that contact
+5. Which the contact is a 'child' of another contact which the user is following
+6. Which  the user is a 'parent of' the contact
+7. Which is a 'child of' the user's  'parent' contact
+"
+"salesperson_see_own_contacts.res_group_access_all_contacts","Access To All Contacts","User in this group have READ access to all contacts in Odoo (Admin is in this group by default)"

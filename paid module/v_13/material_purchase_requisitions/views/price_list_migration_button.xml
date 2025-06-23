@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="price_list_migration_button" model="ir.ui.view">
+            <field name="name">Migration button view for price list</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+<!--                     <button name="migration_product_price_list" type="object" string="Migration"/>-->
+<!--                     <button name="delete_repeated_product" type="object" string="Delete repeated product"/>-->
+                     <button name="adding_income_account" type="object" string="Invoice policy"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

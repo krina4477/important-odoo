@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_requisition_form_view" model="ir.ui.view">
+            <field name="name">sale.requisition.form.view</field>
+            <field name="model">sale.requisition</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="draft_to_first_approve" type="object" string="Confirm" states="draft"
+                                class="btn-primary"
+                                />
+
+                        <button name="first_approve_to_second_approve" type="object" string="Approve" states="first_approve" groups="material_purchase_requisitions.group_purchase_requisition_department"
+                                class="btn-primary"
+                                />
+
+                        <button name="approve_and_create_sale_order" type="object" string="Approve &amp; Create SO" states="second_approve" groups="material_purchase_requisitions.group_purchase_requisition_department"
+                                class="btn-primary"
+                                />
+
+                        <button name="action_cancel" type="object" states="draft" string="Cancel"
+                                groups="base.group_user"/>
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,first_approve,second_approve,done" string="confirm"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="material_purchase_requisitions.group_purchase_requisition_department">
+                            <button type="object" name="action_view_quotation_created" class="oe_stat_button" icon="fa-file" attrs="{'invisible': [('quotation_count', '=', 0)]}">
+                                <field name="quotation_count" widget="statinfo" string="Quotation" />
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name"/>
+                                    <br/>
+                                </h1>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="project_id"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                       options="{'no_open': True, 'no_create_edit': True}"
+                                       required="1"/>
+                                <field name="analytic_account_ids" invisible="1"/>
+                                <field name="task_id"  domain="[('project_id','=',project_id)]"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                       options="{'no_open': True, 'no_create_edit': True}"
+                                       required="1"/>
+                                <field name="partner_id" options="{'no_open': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </group>
+                            <group>
+                                <field name="analytic_account_id" options="{'no_open': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '!=', 'draft')]}" domain="[('id', 'in', analytic_account_ids)]"/>
+                                <field name="request_date" readonly="1" string="Requisition Date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sale requisition lines">
+                                <field name="requisition_line_ids" required="1" attrs="{'readonly': [('state', '=', 'done')]}">
+                                    <tree>
+                                        <field name="is_section" invisible="1"/>
+                                        <field name="name" attrs="{'invisible': [('is_section', '=', False)], 'required': [('is_section', '=', True)]}"/>
+                                        <field name="product_id" options="{'no_open': True, 'no_create_edit': True}" attrs="{'invisible': [('is_section', '=', True)], 'required': [('is_section', '=', False)]}"/>
+                                        <field name="quantity" attrs="{'invisible': [('is_section', '=', True)], 'required': [('is_section', '=', False)]}"/>
+                                        <field name="remarks" attrs="{'invisible': [('is_section', '=', True)], 'required': [('is_section', '=', False)]}"/>
+                                        <field name="sabic_quantity" attrs="{'invisible': [('is_section', '=', True)], 'required': [('is_section', '=', False)]}"/>
+                                        <field name="employee_quantity" attrs="{'invisible': [('is_section', '=', True)], 'required': [('is_section', '=', False)]}"/>
+                                    </tree>
+                                    <form string="Sale requisition">
+                                        <group>
+                                            <group>
+                                                <field name="is_section"/>
+                                                <field name="name" attrs="{'invisible': [('is_section', '=', False)], 'required': [('is_section', '=', True)]}"/>
+                                                <field name="product_id" options="{'no_open': True, 'no_create_edit': True}" attrs="{'invisible': [('is_section', '=', True)], 'required': [('is_section', '=', False)]}"/>
+                                                <field name="quantity" attrs="{'invisible': [('is_section', '=', True)]}" string="Total Qty"/>
+                                            </group>
+                                            <group>
+                                                <field name="remarks" attrs="{'invisible': [('is_section', '=', True)]}"/>
+                                                <field name="sabic_quantity" attrs="{'invisible': [('is_section', '=', True)]}"/>
+                                                <field name="employee_quantity" attrs="{'invisible': [('is_section', '=', True)]}"/>
+                                            </group>
+                                        </group>
+                                     </form>
+                                </field>
+                            </page>
+                            <page string="Extra info">
+                                <group>
+                                    <group attrs="{'readonly': [('state', '=', 'done')]}">
+                                        <field name="address"/>
+                                        <field name="sap_location"/>
+                                        <field name="occupant_name"/>
+                                        <field name="id_number"/>
+                                        <field name="check_out_date"/>
+                                    </group>
+                                    <group attrs="{'readonly': [('state', '=', 'done')]}">
+                                        <field name="status"/>
+                                        <field name="unit_type"/>
+                                        <field name="unit_category"/>
+                                        <field name="flat_rate"/>
+                                        <field name="reference_no"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Other Information">
+                                <group attrs="{'readonly': [('state', '=', 'done')]}">
+                                    <field name="create_date" readonly="1"/>
+                                    <field name="sla_state" readonly="1"/>
+                                    <field name="number_of_hours" readonly="1"/>
+
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="sale_requisition_tree_view" model="ir.ui.view">
+            <field name="name">sale.requisition.view.tree</field>
+            <field name="model">sale.requisition</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state=='done'"  decoration-info="sla_state == 'day_three' and state not in ['done', 'cancel','reject']" decoration-warning="sla_state == 'day_four' and state not in ['done', 'cancel','reject']" decoration-danger="sla_state == 'more_then_four_days' and state not in ['done', 'cancel','reject']">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="project_id"/>
+                    <field name="request_date"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                    <field name="sla_state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_sale_requisition">
+            <field name="name">Sale requisitions</field>
+            <field name="res_model">sale.requisition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_action_sale_requisition" name="Sale requisitions"
+                          parent="menu_item_purchase_requisition" action="action_sale_requisition"/>
+
+    </data>
+</odoo>

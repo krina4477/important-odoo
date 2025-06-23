@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="report_sabic_sale_order"
+            model="sale.order"
+            string="Sale order (SABIC)"
+            report_type="qweb-pdf"
+            name="material_purchase_requisitions.sale_requisition"
+            file="material_purchase_requisitions.sale_requisition"
+        />
+
+        <template id="sale_requisition">
+            <t t-call="web.html_container">
+               <t t-foreach="docs" t-as="doc">
+                   <t t-call="web.external_layout">
+                        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+
+                       <table class="table table-sm o_main_table">
+                           <thead>
+                               <tr class="font-weight-bold border-black">
+                                  <td class="text-center" colspan="4">
+                                      Affiliate name: <span t-field="doc.sale_requisition_id.analytic_account_id.name"/>
+                                  </td>
+                               </tr>
+                           </thead>
+                           <tbody class="sale_tbody">
+                               <tr class="bg-200 font-weight-bold border-black">
+                                   <td class="text-left"> Address: </td>
+                                   <td class="text-left"> <span t-field="doc.sale_requisition_id.address"/></td>
+                                   <td class="text-left"> Status: </td>
+                                   <td class="text-left"> <span t-field="doc.sale_requisition_id.status"/></td>
+                               </tr>
+                               <tr class="bg-200 font-weight-bold border-black">
+                                   <td class="text-left"> SAP Location: </td>
+                                   <td class="text-left"> <span t-field="doc.sale_requisition_id.sap_location"/></td>
+                                   <td class="text-left"> Unit Type: </td>
+                                   <td class="text-left"> <span t-field="doc.sale_requisition_id.unit_type"/></td>
+                               </tr>
+                               <tr class="bg-200 font-weight-bold border-black">
+                                   <td> Occupant Name: </td>
+                                   <td> <span t-field="doc.sale_requisition_id.occupant_name"/> </td>
+                                   <td> Unit Category: </td>
+                                   <td> <span t-field="doc.sale_requisition_id.unit_category"/> </td>
+                               </tr>
+                               <tr class="bg-200 font-weight-bold border-black">
+                                   <td> ID Number: </td>
+                                   <td> <span t-field="doc.sale_requisition_id.id_number"/> </td>
+                                   <td> Flat Rate: </td>
+                                   <td> <span t-field="doc.sale_requisition_id.flat_rate.name"/> </td>
+                               </tr>
+                               <tr class="bg-200 font-weight-bold border-black">
+                                   <td> Check Out Date: </td>
+                                   <td> <span t-field="doc.sale_requisition_id.check_out_date"/> </td>
+                                   <td> Reference No: </td>
+                                   <td> <span t-field="doc.sale_requisition_id.reference_no"/> </td>
+                               </tr>
+                               <tr class="font-weight-bold border-black">
+                                  <td class="text-center" colspan="4">
+                                       Below is the list of material that will be used for the above mention house for restoration works for your review and approval.
+                                   </td>
+                               </tr>
+                           </tbody>
+                       </table>
+
+
+                        <div class="page">
+                            <div class="oe_structure"/>
+
+                            <h2 class="mt16">
+                                <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                                    <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                                    <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                                </t>
+                                <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                                    <span>Pro-Forma Invoice # </span>
+                                </t>
+                                <span t-field="doc.name"/>
+                            </h2>
+
+<!--                            <div class="row mt32 mb32" id="informations">-->
+<!--                                <div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">-->
+<!--                                    <strong>Your Reference:</strong>-->
+<!--                                    <p class="m-0" t-field="doc.client_order_ref"/>-->
+<!--                                </div>-->
+<!--                                <div t-if="doc.date_order and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">-->
+<!--                                    <strong>Order Date:</strong>-->
+<!--                                    <p class="m-0" t-field="doc.date_order"/>-->
+<!--                                </div>-->
+<!--                                <div t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto mw-100 mb-2">-->
+<!--                                    <strong>Quotation Date:</strong>-->
+<!--                                    <p class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}'/>-->
+<!--                                </div>-->
+<!--                                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2" name="expiration_date">-->
+<!--                                    <strong>Expiration:</strong>-->
+<!--                                    <p class="m-0" t-field="doc.validity_date"/>-->
+<!--                                </div>-->
+<!--                                <div t-if="doc.user_id.name" class="col-auto mw-100 mb-2">-->
+<!--                                    <strong>Salesperson:</strong>-->
+<!--                                    <p class="m-0" t-field="doc.user_id"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <!-- Is there a discount on at least one line? -->
+                            <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
+
+                            <table class="table table-sm o_main_table">
+                                <thead>
+                                    <tr>
+                                        <th name="th_sn" class="text-center">SN</th>
+                                        <th name="th_material_description" class="text-center">Material description</th>
+                                        <th name="th_remarks" class="text-center">Remarks</th>
+                                        <th name="th_sabic_quantity" class="text-center">SABIC</th>
+                                        <th name="th_employee_quantity" class="text-center">Employee</th>
+                                        <th name="th_unit" class="text-center">Unit</th>
+                                        <th name="th_unit_price" class="text-center">Unit price</th>
+                                        <th name="th_sabic_price" class="text-center">SABIC</th>
+                                        <th name="th_employee_price" class="text-center">Employee</th>
+                                        <th name="th_received_by" class="text-center">Rcvd by</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+
+                                    <t t-set="current_subtotal" t-value="0"/>
+
+                                    <t t-set="counter" t-value="0"/>
+                                    <t t-set="flat_rate_handling_cleaning_fees" t-value="0"/>
+                                    <t t-set="flat_rate_amount" t-value="0"/>
+                                    <t t-set="subtotal_sabic_price" t-value="0"/>
+                                    <t t-set="handling_fees_amount" t-value="0"/>
+
+                                    <t t-foreach="doc.order_line" t-as="line">
+                                        <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                            <t t-if="not line.display_type">
+                                                <t t-if="line.product_id.id not in [env.ref('material_purchase_requisitions.flat_rate_product_sabic').id,
+                                              env.ref('material_purchase_requisitions.handling_fees_product_sabic').id]">
+                                                    <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"/>
+
+                                                    <t t-set="counter" t-value="counter + 1"/>
+                                                    <td name="td_sn"><span t-esc="counter"/></td>
+                                                    <td name="td_material_description"><span t-field="line.product_id.name"/></td>
+                                                    <td name="td_remarks" class="text-right">
+                                                        <span t-field="line.sale_requisition_line_id.remarks"/>
+                                                    </td>
+                                                    <td name="td_sabic_quantity">
+                                                        <span t-field="line.sale_requisition_line_id.sabic_quantity"/>
+                                                    </td>
+                                                    <td name="td_employee_quantity">
+                                                        <span t-field="line.sale_requisition_line_id.employee_quantity"/>
+                                                    </td>
+                                                    <td name="td_uom">
+                                                        <span t-field="line.product_uom"/>
+                                                    </td>
+                                                    <td name="td_priceunit">
+                                                        <span t-field="line.price_unit"/>
+                                                    </td>
+                                                    <td name="td_sabic_price">
+                                                        <t t-set="sabic_price" t-value="line.price_unit * line.sale_requisition_line_id.sabic_quantity"/>
+                                                        <t t-set="subtotal_sabic_price" t-value="round(subtotal_sabic_price + sabic_price, 2)"/>
+                                                        <span t-esc="sabic_price"/>
+                                                    </td>
+                                                    <td name="td_employee_price">
+                                                        <t t-set="employee_price" t-value="line.price_unit * line.sale_requisition_line_id.employee_quantity"/>
+                                                        <span t-esc="employee_price"/>
+                                                    </td>
+                                                    <td name="td_received_by">
+
+                                                    </td>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-if="line.product_id.id == env.ref('material_purchase_requisitions.flat_rate_product_sabic').id">
+                                                        <t t-set="flat_rate_amount" t-value="line.price_unit"/>
+                                                    </t>
+                                                    <t t-if="line.product_id.id == env.ref('material_purchase_requisitions.handling_fees_product_sabic').id">
+                                                        <t t-set="handling_fees_amount" t-value="line.price_unit"/>
+                                                    </t>
+                                                    <t t-set="flat_rate_handling_cleaning_fees" t-value="flat_rate_handling_cleaning_fees + line.price_unit"/>
+                                                </t>
+                                            </t>
+                                            <t t-if="line.display_type == 'line_section'">
+                                                <t t-set="counter" t-value="0"/>
+                                                <td name="td_section_line" colspan="99">
+                                                    <span t-field="line.name"/>
+                                                </td>
+                                                <t t-set="current_section" t-value="line"/>
+                                                <t t-set="current_subtotal" t-value="0"/>
+                                            </t>
+                                            <t t-if="line.display_type == 'line_note'">
+                                                <td name="td_note_line" colspan="99">
+                                                    <span t-field="line.name"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+
+                                        <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section')">
+                                            <tr class="is-subtotal text-right">
+                                                <td name="td_section_subtotal" colspan="99">
+                                                    <strong class="mr16">Total</strong>
+                                                    <span
+                                                        t-esc="current_subtotal"
+                                                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                                    />
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <t t-set="amount_untaxed_without_flat_rate_handling_cleaning_fees" t-value="doc.amount_untaxed - flat_rate_handling_cleaning_fees"/>
+                            <div class="clearfix" name="so_total_summary">
+                                <div id="total" class="row" name="total">
+                                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                                        <table class="table table-sm">
+                                            <tr>
+                                                <td class="text-right"/>
+                                                <td class="text-right">
+                                                    SABIC
+                                                </td>
+                                                <td class="text-right">
+                                                    EMPLOYEE
+                                                </td>
+                                                <td class="text-right">
+                                                    TOTAL
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td  name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
+                                                <td class="text-right">
+                                                    <span t-esc="subtotal_sabic_price"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <t t-set="employee_subtotal_price" t-value="round(amount_untaxed_without_flat_rate_handling_cleaning_fees - subtotal_sabic_price, 2)"/>
+                                                    <span t-esc="employee_subtotal_price"/>
+                                                </td>
+                                                <td name="td_amount_untaxed" class="text-right">
+                                                    <span t-esc="round(amount_untaxed_without_flat_rate_handling_cleaning_fees, 2)"/>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-black" style="">
+                                                <td name="td_amount_handling_fees"><strong>03% Material Handling</strong></td>
+                                                <td name="td_amount_untaxed_handling_fees" class="text-right">
+                                                    <span t-esc="round((subtotal_sabic_price * 3)/100, 2)"/>
+                                                </td>
+                                                <td name="td_amount_untaxed_handling_fees" class="text-right">
+                                                    <span t-esc="round((employee_subtotal_price * 3)/100, 2)"/>
+
+                                                </td>
+                                                <td name="td_amount_untaxed_handling_fees" class="text-right">
+                                                    <span t-esc="round(handling_fees_amount, 2)"/>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-black" style="border-bottom: 1px solid;">
+                                                <td name="td_amount_flat_rate"><strong>Flat rate</strong></td>
+                                                <td name="td_amount_untaxed_flat_rate" class="text-right">
+                                                    <span t-esc="flat_rate_amount"/>
+                                                </td>
+                                                <td name="td_amount_untaxed_flat_rate" class="text-right">
+
+                                                </td>
+                                                <td name="td_amount_untaxed_flat_rate" class="text-right">
+                                                    <span t-esc="flat_rate_amount"/>
+                                                </td>
+                                            </tr>
+
+                                            <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
+                                                <tr style="">
+                                                    <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                                        <td name="td_amount_by_group_label_3">
+                                                            <span t-esc="amount_by_group[0]"/>
+                                                            <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/></span>
+                                                        </td>
+                                                        <td name="td_amount_by_group_3" class="text-right o_price_total">
+                                                            <span t-esc="amount_by_group[1]"
+                                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-else ="">
+                                                        <td name="td_amount_by_group_label">
+                                                            <span t-esc="amount_by_group[0]"/>
+                                                        </td>
+                                                        <td name="td_amount_by_group" class="text-right o_price_total">
+                                                            <span t-esc="amount_by_group[1]"
+                                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                        </td>
+                                                    </t>
+                                                </tr>
+                                            </t>
+                                            <tr class="border-black o_total">
+                                                <td name="td_amount_total_label"><strong>Total</strong></td>
+                                                <td name="td_amount_total" class="text-right">
+                                                    <span t-field="doc.amount_total"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">
+                                <div class="offset-8">
+                                    <strong>Signature</strong>
+                                </div>
+                                <div class="offset-8">
+                                    <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                                </div>
+                                <div class="offset-8 text-center">
+                                    <p t-field="doc.signed_by"/>
+                                </div>
+                            </div>
+
+                            <div class="oe_structure"/>
+
+                            <p t-field="doc.note" />
+                            <p t-if="doc.payment_term_id.note">
+                                <span t-field="doc.payment_term_id.note"/>
+                            </p>
+                            <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.sudo().note">
+                                <strong>Fiscal Position Remark:</strong>
+                                <span t-field="doc.fiscal_position_id.sudo().note"/>
+                            </p>
+                        </div>
+                    </t>
+               </t>
+           </t>
+        </template>
+
+  </data>
+</odoo>

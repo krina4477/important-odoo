@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="flat_rate_product_sabic" model="product.product">
+            <field name="name">Flat Rate (SABIC)</field>
+            <field name="type">service</field>
+        </record>
+
+        <record id="cleaning_fees_product_sabic" model="product.product">
+            <field name="name">Cleaning fees (SABIC)</field>
+            <field name="list_price">449.0</field>
+            <field name="type">service</field>
+        </record>
+
+        <record id="steel_polish_mobi_300ml_product_sabic" model="product.product">
+            <field name="name">Steel Polish Mobi 300ML</field>
+            <field name="list_price">7.0</field>
+            <field name="type">product</field>
+        </record>
+
+         <record id="dac_disinfectant_3ltr_product_sabic" model="product.product">
+            <field name="name">DAC Disinfectant 3 LTR</field>
+            <field name="list_price">20.0</field>
+            <field name="type">product</field>
+        </record>
+
+        <record id="tide_detergent_powder_7kg_product_sabic" model="product.product">
+            <field name="name">Tide Detergent Powder 7KG</field>
+            <field name="list_price">70.0</field>
+            <field name="type">product</field>
+        </record>
+
+        <record id="flush_bowl_cleaner_product_sabic" model="product.product">
+            <field name="name">Flush Bowl Cleaner 1*12</field>
+            <field name="list_price">72.0</field>
+            <field name="type">product</field>
+        </record>
+
+        <record id="clorox_liquid_product_sabic" model="product.product">
+            <field name="name">Clorox Liquid 3.78L</field>
+            <field name="list_price">25.0</field>
+            <field name="type">product</field>
+        </record>
+
+        <record id="trash_bag_product_sabic" model="product.product">
+            <field name="name">Trash Bag</field>
+            <field name="list_price">32.0</field>
+            <field name="type">product</field>
+        </record>
+
+        <record id="handling_fees_product_sabic" model="product.product">
+            <field name="name">Handling fees (SABIC)</field>
+            <field name="type">service</field>
+            <field name="description_sale">3% of total product of service type in sale order.</field>
+        </record>
+
+    </data>
+</odoo>

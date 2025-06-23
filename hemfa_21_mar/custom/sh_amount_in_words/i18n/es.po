@@ -1,0 +1,95 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_amount_in_words
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.1alpha1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-10 13:51+0000\n"
+"PO-Revision-Date: 2020-10-10 13:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_amount_in_words
+#: model_terms:ir.ui.view,arch_db:sh_amount_in_words.sh_amount_in_words_report_account_invoice
+#: model_terms:ir.ui.view,arch_db:sh_amount_in_words.sh_amount_in_words_report_order_purchase
+#: model_terms:ir.ui.view,arch_db:sh_amount_in_words.sh_amount_in_words_report_quotation_sales
+msgid "<span><strong>Amount : </strong></span>"
+msgstr "<span><strong>Cantidad :</strong></span>"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_bank_statement_line__amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_move__amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_payment__amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_purchase_order__amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_sale_order__amount_in_words
+msgid "Amount "
+msgstr "Cantidad"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_res_currency__close_financial_text
+msgid "Close Financial Text"
+msgstr "Cerrar texto financiero"
+
+#. module: sh_amount_in_words
+#: model:ir.model,name:sh_amount_in_words.model_res_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_move__display_name
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_res_currency__display_name
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_move__id
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_purchase_order__id
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_res_currency__id
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_sale_order__id
+msgid "ID"
+msgstr "CARNÉ DE IDENTIDAD"
+
+#. module: sh_amount_in_words
+#: model:ir.model,name:sh_amount_in_words.model_account_move
+msgid "Journal Entry"
+msgstr "Entrada de diario"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_move____last_update
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_res_currency____last_update
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: sh_amount_in_words
+#: model:ir.model,name:sh_amount_in_words.model_purchase_order
+msgid "Purchase Order"
+msgstr "Orden de compra"
+
+#. module: sh_amount_in_words
+#: model:ir.model,name:sh_amount_in_words.model_sale_order
+msgid "Sales Order"
+msgstr "Órdenes de venta"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_bank_statement_line__print_to_report
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_move__print_to_report
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_account_payment__print_to_report
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_purchase_order__print_to_report
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_sale_order__print_to_report
+msgid "Show in Report"
+msgstr "Mostrar en informe"
+
+#. module: sh_amount_in_words
+#: model:ir.model.fields,field_description:sh_amount_in_words.field_res_currency__amount_separator
+msgid "Unit/Subunit Separator Text"
+msgstr "Texto del separador de unidad / subunidad"

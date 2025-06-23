@@ -1,0 +1,566 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_print_addon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-31 10:37+0000\n"
+"PO-Revision-Date: 2024-10-31 10:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "), subject to legal deductions as per the applicable legislation."
+msgstr ""
+")، وفق وسيلة الدفع التي يحددها الطرف الأول لذلك، على أن تخضع هذه القيمة "
+"لكافة الاستقطاعات القانونية وفق التشريعات النافذة."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "- Adherence to the company’s approved policies and procedures."
+msgstr "- الإلتزام بالسياسات والإجراءات المعتمدة في الشركة."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"- Any other duties required by the nature of the work without contradicting the\n"
+"                                    applicable labor and employment laws in Libya."
+msgstr ""
+"- أي التزامات أخرى تتطلبها طبيعة وظروف العمل  ولا تتعارض مع التشريعات المنظمة \n"
+"                                    للعمل والاستخدام المعمول به بالدولة الليبية."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "- Complying with occupational health and safety requirements."
+msgstr "- الالتزام بمتطلبات الصحة والسلامة المهنية."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "- Following administrative procedures related to work."
+msgstr "- مراعاة التسلسل الاداري فيما يتعلق بالمعاملات الخاصة بالعمل."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "- Informing the First Party of any changes to personal details listed."
+msgstr "- إخطار الطرف الأول بأي تغير يطرأ على بياناته الشخصية المدرجة."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"- Maintaining confidentiality of professional and company information even after the\n"
+"                                    contract ends."
+msgstr "- الحفاظ على  أسرار المهنة والعمل وحتى بعد انقضاء مدة العقد."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "- Observing work hours."
+msgstr "- المحافظة  على مواعيد العمل"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"- Performing assigned work efficiently and following the First Party’s work-related\n"
+"                                    instructions, provided they don’t conflict with the contract’s terms, the law,\n"
+"                                    ethics, or endanger themselves or others."
+msgstr ""
+"-\tأداء العمل المسند إليه بكفاءة واتقان وتنفيذ تعليمات الطرف الأول الخاصة بالعمل المتفق عليه \n"
+"                                    وأوامره فيما لايخالف شروط العقد أو القانون أو الآداب أو ما يعرضه أو ما يعرض الأخرين للخطر."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"- Preserving and exclusively using entrusted assets or items for the "
+"assigned work."
+msgstr ""
+"- المحافظة على العهدة أو الأشياء المسلمة إليه واستعمالها في العمل المكلف به "
+"فقط."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "- Upholding good conduct, respecting superiors and colleagues."
+msgstr "- حسن السيرة والسلوك واحترام رؤسائه وزملائه بالعمل."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+".\n"
+"                                In accordance with Labor Relations Law No. (12) of 2010 and its executive regulations,\n"
+"                                this contract is made between:\n"
+"                                <br/>\n"
+"                                First Party:\n"
+"                                HEMFA Consulting for Management, Finance, and Training\n"
+"                                Address: Wsaya Abdeiri, Bin Ashour, Tripoli, Libya\n"
+"                                Represented by: Mr. Mohamed Hassan Al-Senussi, General Manager\n"
+"                                Hereinafter referred to as (the First Party)."
+msgstr ""
+".\n"
+"                                وطبقاً لأحكام قانون علاقات العمل رقم (12) لسنة 2010م ولائحته التنفيذية، فقد تم إبرام هذا العقد بين كل من: \n"
+"                                <br/>\n"
+"                                أولاً: شركة هيمفا للاستشارات الإدارية  والمالية والتدريب، وعنوانها وسعاية ابديري، بن عاشور، طرابلس-ليبيا، \n"
+"                                ويمثلها في إبرام هذا العقد: السيد/ محمد حسن السنوسي بصفته المدير العام.\n"
+"                                ويشار إليها في أغراض هذا العقد (بالطرف الأول)"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"1. Working for others without written approval from the First Party, with or without\n"
+"                                    compensation, during contracted work hours."
+msgstr ""
+"1.\tالعمل لدى الغير دون موافقة كتابية من الطرف الأول سواء بمقابل أو بدونه "
+"خلال ساعات العمل المتعاقد عليها."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"2. Engaging in favoritism, abuse of position, or leveraging their role for personal\n"
+"                                    or third-party benefit."
+msgstr ""
+"2.\tإرتكاب أي فعل من أفعال الوساطة أو المحسوبية أو إستغلال الوظيفة للحصول على منفعة \n"
+"                                    أو مكاسب شخصية مباشرة أو غير مباشرة له أو لغيره."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"3. Removing or retaining any official documents without permission or taking them\n"
+"                                    from designated files without the First Party’s authorization."
+msgstr ""
+"3.\tنقل أو الاحتفاظ لنفسه بأية أوراق أو مستندات رسمية دون وجه حق أو نزع هذه المستندات \n"
+"                                    من الملفات المخصصة لها بدون إذن من الطرف الأول."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "4. Violating general safety and security procedures at the workplace."
+msgstr "4. مخالفة إجراءات وتعليمات الأمن والسلامة العامة داخل مقر العمل."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "5. Inciting or engaging in any unethical or inappropriate behavior."
+msgstr "5. التحريض على أو القيام بأفعال مخلة بالأخلاق ومنافية للآداب العامة."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>City</span>"
+msgstr "<span>المدينة</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Date of Birth</span>"
+msgstr "<span>تاريخ الميلاد</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Educational Qualification</span>"
+msgstr "<span>التخصص</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Email:</span>"
+msgstr "<span>البريد الإلكتروني:</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Field of Study</span>"
+msgstr "<span>المؤهل العلمي</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>First Party</span>"
+msgstr "<span>الطرف الاول</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Gender</span>"
+msgstr "<span>الجنس</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Graduation Date</span>"
+msgstr "<span>تاريخ التخرج</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Institution</span>"
+msgstr "<span>اسم المؤسسة العلمية</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Locality1</span>"
+msgstr "<span>المحلة</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Locality2</span>"
+msgstr "<span>أقرب نقطة دالة</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Marital Status</span>"
+msgstr "<span>الحالة الاجتماعية</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Municipality</span>"
+msgstr "<span>البلدية</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Name</span>"
+msgstr "<span>الاسم</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>National ID</span>"
+msgstr "<span>الرقم الوطني</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Phone:</span>"
+msgstr "<span>الهاتف:</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Place of Birth</span>"
+msgstr "<span>مكان الميلاد</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Position: General Manager</span>"
+msgstr "<span>الصفة: المدير العام</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Position:</span>"
+msgstr "<span>الصفة:</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Second Party</span>"
+msgstr "<span>الطرف الثاني</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "<span>Signature:</span>"
+msgstr "<span>التوقيع:</span>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"After both parties acknowledged their legal competence, they agreed to draft and\n"
+"                                document their mutual agreement to serve as a contract for all legal and legitimate\n"
+"                                purposes."
+msgstr ""
+"وبعد أن أقر الطرفان بأهليتهما فقد اتفقا على تحرير وتوثيق ما توافقا عليه ليكون عقداً يعمل به \n"
+"                                في جميع الأغراض القانونية والشرعية."
+
+#. module: hr_contract_print_addon
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_contract__amount_in_words
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_contract__amount_in_words_arabic
+msgid "Amount in Words"
+msgstr "التفقيط"
+
+#. module: hr_contract_print_addon
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee__name_ar
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee_public__name_ar
+msgid "Arabic Name"
+msgstr "الاسم بالعربي"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (1)"
+msgstr "المـــــــ(1)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (10)"
+msgstr "المـــــــ(10)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (11)"
+msgstr "المـــــــ(11)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (12)"
+msgstr "المـــــــ(12)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (2)"
+msgstr "المـــــــ(2)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (3)"
+msgstr "المـــــــ(3)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (4)"
+msgstr "المـــــــ(4)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (5)"
+msgstr "المـــــــ(5)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (6)"
+msgstr "المـــــــ(6)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (7)"
+msgstr "المـــــــ(7)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (8)"
+msgstr "المـــــــ(8)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Article (9)"
+msgstr "المـــــــ(9)ـــــــادة"
+
+#. module: hr_contract_print_addon
+#: model:ir.model,name:hr_contract_print_addon.model_hr_contract
+msgid "Contract"
+msgstr "عقد الموظف"
+
+#. module: hr_contract_print_addon
+#: model:ir.actions.report,name:hr_contract_print_addon.action_contract_print_pdf
+msgid "Contract Print PDF"
+msgstr "طباعة عقد العمل"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Date and Time 10:00 on :"
+msgstr "إنه في تمام الساعة العاشرة بتاريخ :"
+
+#. module: hr_contract_print_addon
+#: model:ir.model,name:hr_contract_print_addon.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.view_employee_form_inherit
+msgid "Employee's Arabic Name"
+msgstr "اسم الموظف باللغة العربية"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Employment Contract"
+msgstr "عقد عمل"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Field of Study:"
+msgstr "المؤهل العلمي:"
+
+#. module: hr_contract_print_addon
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee__job_grade
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee_public__job_grade
+msgid "Grade"
+msgstr "الدرجة الوظيفية"
+
+#. module: hr_contract_print_addon
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee__graduation_date
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee_public__graduation_date
+msgid "Graduation Date"
+msgstr "تاريخ التخرج"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Hereinafter referred to as (the Second Party)."
+msgstr "ويشار إليه(ـا) في أغراض هذا العقد (بالطرف الثاني)"
+
+#. module: hr_contract_print_addon
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee__institution
+#: model:ir.model.fields,field_description:hr_contract_print_addon.field_hr_employee_public__institution
+msgid "Institution"
+msgstr "اسم المؤسسة العلمية"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Mohamed Hassan Al-Senussi"
+msgstr "محمد حسن السنوسي"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Preamble"
+msgstr "تمهيد"
+
+#. module: hr_contract_print_addon
+#: model:ir.model,name:hr_contract_print_addon.model_hr_employee_public
+msgid "Public Employee"
+msgstr "موظف في القطاع العام"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Residence Address and Contact Details:"
+msgstr "عنوان الإقامة وبيانات الاتصال:"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Second Party:"
+msgstr "ثانياً: السيد(ة)"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "Signatures"
+msgstr "التوقيعات"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"Since the Second Party has the ability and willingness to work, develop themselves, and\n"
+"                                holds the necessary academic qualifications in the required field of specialization for\n"
+"                                work, meeting all the professional and technical employment standards of the First\n"
+"                                Party, the First Party agrees to utilize the services of the Second Party in their\n"
+"                                specialized field."
+msgstr ""
+"لما كان الطرف الثاني لديه القدرة والرغبة في العمل وتطوير ذاته و\n"
+"                                ومتحصل على المؤهل العلمي اللازم في مجال التخصص المطلوب \n"
+"                                للعمل، كما أنه توافرت فيه كافة المعايير والشروط الفنية للتوظيف لدى الطرف \n"
+"                                الأول، وبناءً على هذا وافق الطرف الأول بالاستفادة من خدمات الطرف الثاني \n"
+"                                في مجال تخصصه."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The First Party may not deviate from this contract’s terms or assign tasks fundamentally\n"
+"                                different from the Second Party’s position unless the Second Party agrees."
+msgstr ""
+"لا يجوز للطرف الأول أن يخرج على شروط هذا العقد أو أن يكلف الطرف الثاني بعمل يختلف جوهرياً عن الوظيفة \n"
+"                                التي يشغلها إلا في حال موافقة الطرف الثاني."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "The First Party will pay the Second Party a monthly basic salary of"
+msgstr "يدفع الطرف الأول للطرف الثاني مرتباً أساسياً شهرياً وقدره فقط"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The Second Party commits to the following duties:\n"
+"                                <br/>"
+msgstr ""
+"يلتزم الطرف الثاني بالواجبات التالية:\n"
+"                                <br/>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The Second Party is entitled to all approved benefits for the position, and will be\n"
+"                                subject to performance evaluation guidelines and incentives based on personal\n"
+"                                performance assessment reports and supervisor recommendations. The Second Party is also\n"
+"                                entitled to leave as outlined in the Labor Relations Law and its regulations."
+msgstr ""
+"يحق للطرف الثاني كل المزايا المعتمدة للوظيفة لدى الطرف الأول ، كما يخضع الطرف الثاني \n"
+"                                لضوابط تقييم الأداء المعتمدة والحوافز المتعلقة بتقييم الأداء الشخصي حسب ما ينتج عن تقارير الكفاءة الخاصة بأداءه \n"
+"                                وتوصيات رؤساءه. ويحق للطرف الثاني الإجازات المنصوص عليها في قانون علاقات العمل \n"
+"                                ولائحته التنفيذية."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The Second Party is prohibited from:\n"
+"                                <br/>"
+msgstr ""
+"يحظر على الطرف الثاني القيام بأي عمل من الأعمال المحظورة بمقتضى التشريعات النافذة وعلى وجه الخصوص مايلي:\n"
+"                                <br/>"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The Second Party is tasked with completing all duties related to the contracted position\n"
+"                                as outlined in the approved job description and commits to performing these duties with\n"
+"                                all necessary diligence and care, complying with the professional and technical\n"
+"                                standards and ensuring accuracy. The Second Party is subject to a probation period as\n"
+"                                stipulated by applicable laws."
+msgstr ""
+"يكلف الطرف الثاني بإنجاز كل الأعمال المتعلقة بالوظيفة المتعاقد عليها والمنصوص عليها حسب الوصف الوظيفي \n"
+"                                المعتمد للوظيفة، ويتعهد الطرف الثاني ببذل كل الجهد و\n"
+"                                العناية اللازمتين في إنجاز الأعمال المسندة له وفق لبنود هذا العقد، ووفقاً للمعايير المهنية\n"
+"                                والفنية ويلتزم بتوخي الدقة اللازمة في ذلك، كما يخضع الطرف الثاني لفترة التجربة \n"
+"                                المنصوص عليها في التشريعات النافذة."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The Second Party must submit original documents validating their qualifications and\n"
+"                                experience necessary for their duties, along with health fitness proof at the start of\n"
+"                                the contract and whenever requested. They also affirm the accuracy of all submitted\n"
+"                                documents and assume full legal responsibility if any are found incorrect, while\n"
+"                                confirming non-engagement with any other employer."
+msgstr ""
+"يقدم الطرف الثاني أصول المستندات الدالة على مؤهلاته وخبرته اللازمة لأداء مهام وظيفته وكذلك مايثبت لياقته الصحية عند \n"
+"                                بداية التعاقد وكلما طلب منه ذلك، ويتعهد باستيفاء كافة البيانات المطلوبة وفق تعليمات وزارة العمل والتأهيل أو الجهات ذات \n"
+"                                العلاقة، كما يقر الطرف الثاني بصحة كافة المستندات المقدمة من طرفه للتوظيف ويتحمل كافة المسؤولية القانونية في حال عدم \n"
+"                                صحة أي مستند وبيان يقدم منه بالخصوص، كما يقر بعدم عمله لدى أية جهة أخرى."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "The Second Party shall work for the First Party in the position of"
+msgstr "يلتزم الطرف الثاني بالعمل لدى الطرف الأول على وظيفة"
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The contract duration is one year, including a probationary period of thirty working\n"
+"                                days, renewable for a similar term. If either party wishes to terminate or not renew the\n"
+"                                contract, they must notify the other party in writing one month before the contract's\n"
+"                                expiry. The contract is automatically renewed upon mutual agreement of both parties."
+msgstr ""
+"تكون مدة العقد سنة واحدة، تتضمن فترة تجريبية مدتها ثلاثون يوم \n"
+"                                عمل، قابلة للتجديد لفترة مماثلة. إذا رغب أحد الطرفين في إنهاء العقد أو عدم \n"
+"                                تجديده، يجب على الطرف الآخر أن يُخطره بذلك كتابياً قبل شهر من انتهاء \n"
+"                                العقد. يتجدد العقد تلقائياً في حال اتفاق الطرفين."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The parties, having agreed on this contract, shall regard the addresses provided\n"
+"                                    herein as their selected legal domicile for notifications and legal procedures.\n"
+"                                    The Second Party must notify the First Party of any address change within a week."
+msgstr ""
+"تنفيذاً لأحكام هذا العقد وما يتطلبه من إجراءات خاصة والمراسلات المتبادلة بين أطرافه والإنذارات والإعلانات القضائية وغيرها \n"
+"                                    يتخذ أطراف هذا العقد من عناوينهم الموضحة في مقدمة هذا العقد محلاً مختاراً لهم ولخلفهم، وتكون الإعلانات الموجهة لهذه \n"
+"                                    العناوين صحيحة، ويلتزم الطرف الثاني بإخطار الطرف الأول بأي تغيير يطرأ على عنوانه في بحر أسبوع من تاريخه."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"The preamble and all correspondence exchanged between the parties form an integral part\n"
+"                                of this contract."
+msgstr ""
+"يعد التمهيد السابق وجميع المراسلات المتبادلة بين الطرفين جزءاً لا يتجزأ \n"
+"                                من هذا العقد."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid ""
+"This contract consists of twelve articles and is made in three signed copies by both\n"
+"                                parties with mutual consent, free from any legal or formal defects."
+msgstr ""
+"يتكون هذا العقد من اثنتي عشر مادة وحُرِّر في ثلاث نسخ موقعة من قِبَل الطرفين"
+" بإرادة حرة خالية من العيوب الشرعية والقانونية."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "according to the authorized grading scale upon signing this contract."
+msgstr "حسب جدول الدرجات الوظيفية المعتمد عند توقيع هذا العقد."
+
+#. module: hr_contract_print_addon
+#: model_terms:ir.ui.view,arch_db:hr_contract_print_addon.contract_print_pdf
+msgid "within the grade of"
+msgstr "والتي تنتمي للدرجة الوظيفية"

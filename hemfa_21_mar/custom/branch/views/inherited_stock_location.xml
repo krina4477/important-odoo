@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_location_form_inherit_branch" model="ir.ui.view">
+            <field name="name">view.location.form.inherit.branch</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="before">
+                    <label for="branch_ids"/>
+                    <h3>
+                        <field name="available_branch_ids" invisible="1"/>
+                        <field name="branch_ids" options="{'no_create': True}" widget="many2many_tags"
+                               domain="[('id', 'in', available_branch_ids)]"/>
+                    </h3>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

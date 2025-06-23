@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_stock_quant_tree_inventory_editable_inherit_cn_dn" model="ir.ui.view">
+        <field name="name">stock.quant.inventory.tree</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="truck_id" domain="[('location_dest_id', '=', location_id), ('picking_code', 'in', ['incoming', 'internal']), ('cartoon_ids', '!=', False)]"/>
+                <field name="cartoon_id" domain="[('truck_id', '=?', truck_id)]"/>
+            </xpath>
+            <field name="lot_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_stock_quant_tree_editable">
+        <field name="name">dn.cn.stock.quant.tree.editable</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+        <field name="arch" type="xml">
+            <field name="lot_id" position="after">
+                <field name="dn_truck_id" readonly="1"/>
+                <field name="dn_cartoon_id" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.actions.server" id="action_dn_view_quants"> <!-- Menu + python -->
+        <field name="name">Inventory</field>
+        <field name="model_id" ref="model_stock_quant"/>
+        <field name="state">code</field>
+        <field name="groups_id" eval="[(4, ref('stock.group_stock_user'))]"/>
+        <field name="code">
+            action = model.with_context(
+                search_default_internal_loc=1,
+                always_show_loc=1,
+                is_cn_dn_stock=1,
+            ).action_view_quants()
+        </field>
+    </record>
+
+    <record id="cn_dn_quant_subcontracting_search_view" model="ir.ui.view">
+        <field name="name">stock.quant.subcontracting.search.inherited</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.quant_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='company']" position="after">
+                <filter string="Delivery Number" name="dn_truck_id" domain="[]" context="{'group_by': 'dn_truck_id'}"/>
+                <filter string="Carton Number" name="dn_cartoon_id" domain="[]" context="{'group_by': 'dn_cartoon_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_quant_tree_inventory_editable_inherit_dncn" model="ir.ui.view">
+        <field name="name">stock.quant.inventory.tree.editable.inherit</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lot_id']" position="after">
+                <field name="dn_truck_id" readonly="1"/>
+                <field name="dn_cartoon_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem id="menu_dn_valuation" name="DN/CN Locations"
+              parent="stock.menu_warehouse_report" sequence="150"
+              action="action_dn_view_quants" groups="stock.group_stock_multi_locations,stock.group_tracking_owner,base.group_no_one"/>
+
+</odoo>

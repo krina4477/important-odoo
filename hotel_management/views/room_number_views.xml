@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="room_number_view_tree" model="ir.ui.view">
+        <field name="name">room.number.tree</field>
+        <field name="model">room.number</field>
+        <field name="arch" type="xml">
+            <tree string="room_number">
+                <field name="room_number"/>
+                <field name="room_type_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="room_number_view_form" model="ir.ui.view">
+        <field name="name">room_number</field>
+        <field name="model">room.number</field>
+        <field name="arch" type="xml">
+            <form string="room number">
+                <sheet>
+                    <group>
+                        <field name="room_number"/>
+                        <field name="room_type_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="room_number_action" model="ir.actions.act_window">
+        <field name="name">Room Number</field>
+        <field name="res_model">room.number</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="room_number_root"
+            name="Room"
+            parent="hotel_management_main"
+            action="room_number_action"
+            sequence="2"/>
+
+    <menuitem
+            id="room_number_first"
+            name="Room Number"
+            parent="room_number_root"
+            action="room_number_action"
+            sequence="3"/>
+
+    <menuitem
+            id="room_number_second"
+            name="Room Types"
+            parent="room_number_root"
+            action="room_types_action"
+            sequence="4"/>
+
+</odoo>

@@ -1,0 +1,22 @@
+<odoo>
+    <!-- Expense Submitter Group -->
+    <record id="group_expense_submitter" model="res.groups">
+        <field name="name">Expense Submitter</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+        <field name="comment">Group for users who can submit expenses</field>
+    </record>
+
+    <!-- Expense Approver Group -->
+    <record id="group_expense_approver" model="res.groups">
+        <field name="name">Expense Approver</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+        <field name="comment">Group for users who can approve expenses</field>
+    </record>
+
+    <!-- Expense Manager Group -->
+    <record id="group_expense_manager" model="res.groups">
+        <field name="name">Expense Manager</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+        <field name="comment">Group for users who can manage and confirm expenses</field>
+    </record>
+</odoo>

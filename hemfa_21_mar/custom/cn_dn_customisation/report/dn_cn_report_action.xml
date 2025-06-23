@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_dn_cn" model="ir.actions.report">
+            <field name="name">DN-CN Report</field>
+            <field name="model">dn.tracking.number</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cn_dn_customisation.dn_cn_report</field>
+            <field name="report_file">cn_dn_customisation.dn_cn_report</field>
+            <field name="print_report_name">'DN-CN %s' % (object.picking_code)</field>
+            <field name="binding_model_id" ref="cn_dn_customisation.model_dn_tracking_number"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="report_cn" model="ir.actions.report">
+            <field name="name">CN Report</field>
+            <field name="model">cn.tracking.number</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cn_dn_customisation.report_cn_template</field>
+            <field name="report_file">cn_dn_customisation.report_cn_template</field>
+            <field name="print_report_name">'Report for %s' % (object.name)</field>
+            <field name="binding_model_id" ref="cn_dn_customisation.model_cn_tracking_number"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

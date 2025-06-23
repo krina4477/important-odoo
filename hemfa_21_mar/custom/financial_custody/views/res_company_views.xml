@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_res_company_form_inherit" model="ir.ui.view">
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <!-- Add the new tab after the General Information tab -->
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Custody Configuration">
+                    <group>
+                        <field name="custody_account_id" string="Custody Account"/>
+                        <field name="custody_account_temp_id" string="Custody Account Temporary"/>
+                        <!-- Add the percentage sign as part of the field's string label -->
+                        <field name="custody_recompensation_percentage" string="Custody Recompensation Percentage (%)"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

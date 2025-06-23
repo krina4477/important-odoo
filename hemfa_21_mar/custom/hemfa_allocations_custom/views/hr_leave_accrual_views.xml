@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <record id="hr_accrual_plan_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.accrual.plan.view.form.inherit</field>
+        <field name="model">hr.leave.accrual.plan</field>
+        <field name="inherit_id" ref="hr_holidays.hr_accrual_plan_view_form"/>
+        <field name="arch" type="xml">
+            <field name="time_off_type_id" position="after">
+                <field name="employee_level"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

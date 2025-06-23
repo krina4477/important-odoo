@@ -1,0 +1,26 @@
+<odoo>
+    <!-- Cash Request Subtypes -->
+    <record id="mt_cash_request_submitted" model="mail.message.subtype">
+        <field name="name">Cash Request Submitted</field>
+        <field name="res_model">financial.custody.request</field>
+        <field name="default" eval="True"/>
+    </record>
+
+    <record id="mt_cash_request_approved" model="mail.message.subtype">
+        <field name="name">Cash Request Approved</field>
+        <field name="res_model">financial.custody.request</field>
+        <field name="default" eval="True"/>
+    </record>
+
+    <record id="mt_cash_request_declined" model="mail.message.subtype">
+        <field name="name">Cash Request Declined</field>
+        <field name="res_model">financial.custody.request</field>
+        <field name="default" eval="True"/>
+    </record>
+
+    <record id="mt_cash_request_cancelled" model="mail.message.subtype">
+        <field name="name">Cash Request Cancelled</field>
+        <field name="res_model">financial.custody.request</field>
+        <field name="default" eval="True"/>
+    </record>
+</odoo>

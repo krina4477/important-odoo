@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_picking_form_custom" model="ir.ui.view">
+        <field name="name">stock.picking.form.custom</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- Locate 'quantity_done' and insert the custom field after it -->
+            <xpath expr="//field[@name='quantity_done']" position="after">
+                <field name="qty_diff" string="Difference" sortable="True"
+                    decoration-success="qty_diff &gt; 0"
+                    decoration-danger="qty_diff &lt; 0"/>
+            </xpath>
+
+            <!-- Add Export Button in the Header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_export_qty_diff"
+                        string="Export Differences"
+                        type="object"
+                        class="oe_highlight"
+                        icon="fa-download"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

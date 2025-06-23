@@ -1,0 +1,7 @@
+<odoo>
+    <!-- Root Menu -->
+    <menuitem id="menu_financial_custody_root" name="Financial Custody" sequence="10"/>
+
+    <!-- Cash Requests Menu -->
+    <menuitem id="menu_cash_requests" name="Cash Requests" parent="menu_financial_custody_root" action="action_cash_requests"/>
+</odoo>

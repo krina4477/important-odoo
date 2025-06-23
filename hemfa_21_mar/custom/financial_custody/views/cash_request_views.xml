@@ -1,0 +1,223 @@
+<odoo>
+    <!-- Cash Request Form View -->
+    <record id="view_cash_request_form" model="ir.ui.view">
+        <field name="name">cash.request.form</field>
+        <field name="model">financial.custody.request</field>
+        <field name="arch" type="xml">
+            <form string="Cash Request">
+                <header>
+                     <field name="payment_ids" invisible="1"/>
+                     <field name="requested_amount" string="Requested Amount" invisible="1"/>
+                     <field name="linked_request_count" invisible="1"/>
+                     <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,declined,cancelled,cashed,expense_report,reconciled"/>
+                     <!-- Action Buttons -->
+                     <button name="action_submit" type="object" string="Submit" class="btn-primary" states="draft" groups="financial_custody.group_cash_request_user,financial_custody.group_cash_request_approver,financial_custody.group_cash_request_manager"/>
+                     <button name="action_approve" type="object" string="Approve" class="btn-success" states="submitted" groups="financial_custody.group_cash_request_manager,financial_custody.group_cash_request_approver"/>
+                     <button name="action_decline" type="object" string="Decline" class="btn-danger" states="submitted" groups="financial_custody.group_cash_request_manager,financial_custody.group_cash_request_approver"/>
+                     <button name="action_cashed" type="object" string="Cashed" class="btn-info" states="approved" groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+                     <button name="action_cancel" type="object" string="Cancel" class="btn-warning" states="submitted,approved" groups="financial_custody.group_cash_request_manager,financial_custody.group_cash_request_approver,financial_custody.group_treasury"/>
+                     <button name="action_reset_to_draft_cashed" type="object" string="Reset to Draft (Cashed)" class="btn-secondary"
+                         states="cashed" groups="financial_custody.group_cash_request_manager"/>
+                     <button name="action_reset_to_draft_reconciled" type="object" string="Reset to Draft (Reconciled)" class="btn-secondary"
+                         states="reconciled" groups="financial_custody.group_cash_request_manager"/>
+                     <button name="action_reset_payments_to_draft" type="object" string="Reset Payments to Draft"
+                         class="btn-secondary" states="reconciled" groups="financial_custody.group_cash_request_manager"/>
+                     <button name="action_submit_expense_report" type="object" string="Submit Expense Report" class="btn-primary" states="cashed" groups="financial_custody.group_cash_request_manager,financial_custody.group_cash_request_user" attrs="{'invisible': [('state', '!=', 'cashed')]}"/>
+                     <button name="action_reconcile" type="object" string="Reconcile" class="btn-primary"
+                      states="expense_report" groups="financial_custody.group_cash_request_manager"/>
+                     <button name="action_undo_submit" type="object" string="Undo Submit" class="btn-secondary" states="expense_report" groups="financial_custody.group_cash_request_manager"/>
+                     <button name="%(action_report_cash_request)d" string="Print Report" type="action" class="btn-primary"/>
+                </header>
+                <sheet>
+                       
+                            <div name="button_box" >
+                                <button name="action_view_journal_entry" type="object" class="oe_stat_button" icon="fa-external-link" string="Cashed Journal Entry"
+                                        attrs="{'invisible': [('move_id', '=', False)]}" groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+                                <button name="action_view_reconcile_journal_entry" type="object" class="oe_stat_button" icon="fa-external-link" string="View Reconcile Journal Entry,financial_custody.group_treasury"
+                                        attrs="{'invisible': [('reconcile_move_id', '=', False)]}" groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+                                <button name="action_view_payment" type="object" class="oe_stat_button" icon="fa-money" attrs="{'invisible': [('payment_count', '=', 0)]}">
+                                       <field name="payment_count" widget="statinfo" string="Payments"/>
+                                </button>
+                                <button name="show_linked_requests" type="object" class="oe_stat_button" icon="fa-link" string="Show Related Cash Requests"
+                                        attrs="{'invisible': [('linked_request_count', '=', 0)]}" groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+                            </div>
+                       
+                        <div class="total_spent_box" style="display: flex; justify-content: center; gap: 23px; margin-top: 10px;" readonly="1" attrs="{'invisible': [('state', 'not in', ['cashed', 'expense_report', 'reconciled'])]}">
+                            <!-- Display Requested Amount -->
+                            <div style="font-size: 16px; padding: 5px; border: 2px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+                               <strong>Requested Amount:</strong> <field name="amount_req" readonly="1"/>
+                            </div>
+
+                            <!-- Display Total Spent -->
+                            <div style="font-size: 16px; padding: 5px; border: 2px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+                               <strong>Total Spent:</strong> <field name="total_spent" />
+                            </div>
+
+                            <!-- Display Custody Difference -->
+                            <div style="font-size: 16px; padding: 5px; border: 2px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+                               <strong>Custody Difference:</strong> <field name="custody_difference" />
+                            </div>
+
+                            <!-- Display remaining_amount_to_pay -->
+                            <div style="font-size: 16px; padding: 5px; border: 2px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+                                <strong>Amount To Pay:</strong> <field name="remaining_amount_to_pay" />
+                            </div>
+
+                            <!-- Display remaining_amount_to_receive -->
+                            <div style="font-size: 16px; padding: 5px; border: 2px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+                                <strong>Amount To Receive:</strong> <field name="remaining_amount_to_receive" />
+                            </div>
+                        </div>
+                    
+                    <notebook>
+                        <!-- Main Info Tab -->
+                        <page string="Main Info">
+                            <group>
+                                <field name="custody_type" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="name" readonly="1"/>
+                                <field name="employee_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="previous_remaining_amount" readonly="1" string="Previous Custody Remaining Amount" attrs="{'invisible': [('custody_type', '!=', 'permanent')]}"/>
+                                <field name="amount" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="description" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="custody_account_id" readonly="1"/>
+                                <field name="journal_id" attrs="{'readonly': [('state', '!=', 'approved')]}"/>
+                                <field name="move_id" invisible="1"/>
+                                <field name="reconcile_move_id" invisible="1"/>
+                            </group>
+                        </page>
+
+                        <!-- Date Info Tab -->
+                        <page string="Date Info">
+                            <group>
+                                <field name="date_request" readonly="1"/>
+                                <field name="requested_by_user" readonly="1"/>
+                                <field name="date_approve" readonly="1"/>
+                                <field name="approved_by_user" readonly="1"/>
+                                <field name="date_cashed" readonly="1"/>
+                                <field name="cashed_by_user" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <!-- Expense Report Tab -->
+                        <page string="Expense Report" attrs="{'invisible': [('state', 'not in', ['cashed', 'expense_report', 'reconciled'])]}">
+                            <group>
+                                <!-- Single expense_line_ids field set to read-only based on state -->
+                                <field name="expense_line_ids"
+                                    domain="[('expense_account_id.account_type', 'in', ['expense', 'cost_of_revenue', 'depreciation'])]"
+                                    widget="one2many"
+                                    options="{'mode': 'tree', 'no_create': False, 'no_quick_create': False}"
+                                    attrs="{'readonly': [('state', 'in', ['reconciled', 'expense_report'])]}">
+                                    <tree editable="bottom">
+                                        <field name="expense_account_id" domain="[('account_type', 'in', ['expense', 'cost_of_revenue', 'depreciation'])]" options="{'no_create': True}"/>
+                                        <field name="partner_id" options="{'no_create': True}"/>
+                                        <field name="reference"/>
+                                        <field name="analytic_distribution" widget="analytic_distribution"/>
+                                        <field name="amount"/>
+                                    </tree>
+                                </field>
+                                
+                                <!-- Total Amount after Expense Lines -->
+                                <field name="total_expense" string="Total Expense Amount" readonly="1"/>
+                            </group>
+                        </page>
+                        <!-- Purchase Tab -->
+                        <page string="Purchase" attrs="{'invisible': [('state', 'not in', ['cashed', 'expense_report', 'reconciled'])]}">
+                            <group>
+                                <field name="purchase_line_ids" widget="one2many" options="{'mode': 'tree', 'no_create': False, 'no_quick_create': False}" attrs="{'readonly': [('state', 'in', ['reconciled', 'expense_report'])]}">
+                                    <tree editable="bottom">
+                                        <field name="bill_id" options="{'no_create': True}"/>
+                                        <field name="partner_id" readonly="1"/> <!-- Vendor field (partner) -->
+                                        <field name="purchase_id" readonly="1"/> <!-- PO Number field -->
+                                        <field name="total_amount" readonly="1"/>
+                                        <field name="amount_due" readonly="1"/>
+                                        <field name="amount_to_pay"/>
+                                    </tree>
+                                </field>
+                                <field name="total_purchase_payment" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <!-- Custody Difference Settlement Tab -->
+                        <page string="Custody Difference Settlement" attrs="{'invisible': [('state', 'not in', ['cashed', 'expense_report', 'reconciled'])]}">
+
+                            <group>
+                                 <field name="amount_req" readonly="1"/>
+                                 <field name="total_spent" readonly="1"/>
+                                 <field name="custody_difference" readonly="1"/>
+                                 <field name="remaining_amount_to_pay" string="Remaining Amount to Pay" readonly="1"/>
+                                 <field name="remaining_amount_to_receive" string="Remaining Amount to Receive" readonly="1"/>
+
+                                 <button name="action_pay_to_employee"
+                                         type="object"
+                                         string="Pay to Employee"
+                                         attrs="{'invisible': ['|', '|', ('custody_type', '!=', 'temporary'), ('state', '!=', 'reconciled'), ('custody_difference', '&gt;=', 0)]}"
+                                         class="btn-primary"
+                                         groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+                                         
+                                         
+
+                                 <button name="action_receive_from_employee"
+                                         type="object"
+                                         string="Receive from Employee"
+                                         attrs="{'invisible': ['|', '|', ('custody_type', '!=', 'temporary'), ('state', '!=', 'reconciled'), ('custody_difference', '&lt;=', 0)]}"
+                                         class="btn-danger"
+                                         groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+
+                                 <button name="action_custody_recompensation"
+                                         type="object"
+                                         string="Custody Re-compensation"
+                                         attrs="{'invisible': ['|', ('custody_type', '!=', 'permanent'), ('state', '!=', 'reconciled')]}"
+                                         class="btn-primary"
+                                         groups="financial_custody.group_cash_request_manager,financial_custody.group_treasury"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <!-- Chatter Section for Activity and Messages -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Cash Request Tree (List) View -->
+    <record id="view_cash_request_tree" model="ir.ui.view">
+        <field name="name">cash.request.tree</field>
+        <field name="model">financial.custody.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/> <!-- Shows sequence number -->
+                <field name="employee_id"/>
+                <field name="amount"/>
+                <field name="description"/>
+                <field name="state"/>
+                <field name="total_expense" string="Total Expense Amount" readonly="1"/>
+                <field name="total_purchase_payment" readonly="1" />
+                <field name="total_spent" readonly="1" string="Total Spent"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action Definition for Cash Requests -->
+    <record id="action_cash_requests" model="ir.actions.act_window">
+        <field name="name">Cash Requests</field>
+        <field name="res_model">financial.custody.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create and manage your Cash Requests here.
+            </p>
+        </field>
+    </record>
+
+    <record id="mt_cash_request_cancelled" model="mail.message.subtype">
+       <field name="name">Cash Request Cancelled</field>
+       <field name="sequence">15</field>
+       <field name="res_model">financial.custody.request</field>
+       <field name="default">True</field>
+    </record>
+</odoo>

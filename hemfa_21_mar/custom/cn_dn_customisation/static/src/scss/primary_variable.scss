@@ -1,0 +1,11 @@
+@font-face {
+   font-family: 'GT America';
+   src: url('/cn_dn_customisation/static/src/fonts/GT-America-Compressed-Medium.ttf') format('truetype');
+}
+
+$o-theme-font-configs: map-merge($o-theme-font-configs, (
+   'GT America': (
+       'family': ('GT America'),
+   ),
+));
+

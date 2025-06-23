@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Add a field sales persons in pos order form tree view-->
+    <record id="view_pos_pos_form" model="ir.ui.view">
+        <field name="name">pos.order.view.inherit.salesperson.pos.order.line</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/notebook/page/field[@name='lines']/tree/field[@name='full_product_name']"
+                   position="after">
+                <field name="user_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_pos_config_form_inherit_salesperson" model="ir.ui.view">
+        <field name="name">pos.config.form.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <h2>Salesperson</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-6 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="is_sales_person_visible"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="is_sales_person_visible"/>
+                        </div>
+                    </div>
+                </div>
+                  <div class="row mt16 o_settings_container">
+                    <div class="col-xs-6 col-md-6 o_setting_box">
+
+                        <div class="o_setting_right_pane">
+                            <label for="sales_person_selection"/>
+                            <br/>
+                            <field name="sales_person_selection" widget="radio"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

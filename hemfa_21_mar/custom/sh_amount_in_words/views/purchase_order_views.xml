@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_purchase_order_amount_in_words_view_inherit" model="ir.ui.view">
+        <field name="name">sh.purchase.order.amount.in.words.view.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notes']" position="before">
+                <field name="amount_in_words" />
+                <field name="print_to_report" />
+                <field name="sh_amount_to_word_in_upper_case" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

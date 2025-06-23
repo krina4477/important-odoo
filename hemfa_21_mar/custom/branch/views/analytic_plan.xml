@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_account_analytic_plan_form_inherit_branch" model="ir.ui.view">
+        <field name="name">view.account.analytic.plan.form.inherit.branch</field>
+        <field name="model">account.analytic.plan</field>
+        <field name="inherit_id" ref="analytic.account_analytic_plan_form_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="parent_branch_ids" invisible="1"/>
+                <field name="branch_ids" widget="many2many_tags" domain="[('id', 'in', parent_branch_ids)]"/>
+            </field>
+        </field>
+    </record>
+
+
+      <record id="view_analytic_account_form_inherit_branch" model="ir.ui.view">
+        <field name="name">view.analytic.account.form.inherit.branch</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+        <field name="arch" type="xml">
+            <field name="currency_id" position="after">
+                <field name="parent_branch_ids" invisible="1"/>
+                <field name="branch_ids" widget="many2many_tags" domain="[('id', 'in', parent_branch_ids)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

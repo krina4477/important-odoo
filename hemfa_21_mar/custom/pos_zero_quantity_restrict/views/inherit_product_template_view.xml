@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="inherit_product_product_pos_zero_quantity_restrict" model="ir.ui.view">
+        <field name="name">inherit.product.product.pos.zero.quantity.restrict</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='barcodes']//field[@name='barcode_line_ids']//tree//field[@name='negative_qty_price']"
+                   position="after">
+                <field name="allow_negative_sale_price"/>
+            </xpath>
+
+            <xpath expr="//page[@name='barcodes']//field[@name='barcode_line_ids']//tree//field[@name='negative_qty_price']"
+                   position="attributes">
+                <attribute name="string">Allow Negative Quantity</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

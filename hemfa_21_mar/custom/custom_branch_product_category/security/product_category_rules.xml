@@ -1,0 +1,15 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Rule: Product Categories Visible by Assigned Branches -->
+        <record id="product_category_branch_rule" model="ir.rule">
+            <field name="name">Product Categories by Branch</field>
+            <field name="model_id" ref="product.model_product_category"/>
+            <field name="domain_force">[
+                '|', 
+                ('branch_ids', '=', False), 
+                ('branch_ids', 'in', user.branch_ids.ids)
+            ]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

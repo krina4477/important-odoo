@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_booking_document">
+        <t t-call="web.basic_layout">
+            <t t-set="datetime" t-value="datetime"/>
+            <div class="header" style="height:150px;">
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-3 mb4">
+                            <img src="hotel_management/static/image/hotel_image.jpeg"
+                                 style="width:200px;height:160px;"/>
+                        </div>
+                        <div style="background-color: #800080;" class="col-9">
+                            <h3 style="color:white; padding-top:10px;" class="text-right">
+                                <strong>The Plaza Hotel</strong>
+                            </h3>
+                            <h5 style="color:white;" class="text-right">
+                                <strong>A-310, Siddhi Vinayak Complex, Prahaladnagar</strong>
+                            </h5>
+                            <h6 style="color:white;" class="text-right">
+                                <strong>Ahmedabad, India</strong>
+                            </h6>
+                            <h6 style="color:white; padding-bottom:5px;">
+                                <strong>
+                                    <i class="fa fa-phone icon-large"></i>
+                                    +32 10 588 558
+                                    <span style="padding-left:10px" href="mailto:temp@gmail.com">
+                                        <i class="fa fa-envelope fa-fw"></i>
+                                        retail@itsrelevant.com
+                                    </span>
+                                </strong>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page" style="padding-top:15px;">
+                <div class="oe_web_ribbon_container" style="border:ridge #800080;text-align: center;">
+                    <div class="d" t-if="doc.state == 'draft'" style="padding-top:5px;">
+                        <h5>
+                            <div class="oe_web_ribbon">
+                                <strong style="color:blue;">
+                                    <i class="fa fa-clipboard"/>
+                                    <span class="bg-danger">Draft</span>
+                                </strong>
+                            </div>
+                        </h5>
+                    </div>
+                    <div class="d" t-if="doc.state == 'confirm'" style="padding-top:5px;">
+                        <h5>
+                            <div class="oe_web_ribbon">
+                                <strong style="color:green;">
+                                    <i class="fa fa-check-square"/>
+                                    <span class="bg-success">Booking Confirmed</span>
+                                </strong>
+                            </div>
+                        </h5>
+                    </div>
+                    <div class="d" t-if="doc.state == 'cancel'" style="padding-top:5px;">
+                        <h5>
+                            <div class="oe_web_ribbon">
+                                <strong style="color:red;">
+                                    <i class="fa fa-times-circle"/>
+                                    <span class="bg-danger">Booking Cancelled</span>
+                                </strong>
+                            </div>
+                        </h5>
+                    </div>
+                </div>
+                <div style="padding-top:9px;">
+                    <div style="background-color:#800080;text-align: center;">
+                        <strong>
+                            <h3>
+                                <span style="color:white; padding-left:10px;">Booking Details
+                                </span>
+                            </h3>
+                        </strong>
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px;">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.number">
+                            <strong>Booking Number :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.number"/>
+                        </t>
+                    </div>
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.check_in_date">
+                            <strong>Check In Date:</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.check_in_date"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.room_number_ids">
+                            <strong>Room Number :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.room_number_ids"/>
+                        </t>
+                    </div>
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.check_out_date">
+                            <strong>Check Out Date :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.check_out_date"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.type_ids">
+                            <strong>Room Type :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.type_ids"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:10px;">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.room_facility">
+                            <strong>Room Facility :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.room_facility"/>
+                        </t>
+                    </div>
+                </div>
+                <div style="background-color:#800080;text-align: center;">
+                    <strong>
+                        <h3>
+                            <span style="color:white;padding-left:10px;">Customer Details
+                            </span>
+                        </h3>
+                    </strong>
+                </div>
+                <div class="row" style="padding-top:10px;">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.customer_id">
+                            <i class="fa fa-user"/>
+                            <strong>Customer Name :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.customer_id"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.phone">
+                            <i class="fa fa-phone-square"/>
+                            <strong>Contact :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.phone"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.email">
+                            <i class="fa fa-envelope"/>
+                            <strong>Email :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.email"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.city">
+                            <i class="fa fa-map-marker"/>
+                            <strong>City :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.city"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto col-2 mw-100 mb-2" style="color:black;">
+                        <t t-if="doc.booking_reference">
+                            <strong>Booking Reference :</strong>
+                            <span style="color:black;" class="m-0" t-field="doc.booking_reference"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="row">
+                    <div class="col-xs-2 pull-left" style="border-top: 1.5px solid black">
+                        <small>
+                            <span>Page</span>
+                            <span class="page"/>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_booking">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="hotel_management.report_booking_document" t-lang="doc.user_id.lang">
+                    <t t-set="doc" t-value="doc"/>
+                    <t t-set="datetime" t-value="datetime.datetime"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_booking" model="ir.actions.report">
+        <field name="name">booking form</field>
+        <field name="model">booking.form</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hotel_management.report_booking</field>
+        <field name="report_file">hotel_management.report_booking</field>
+        <field name="print_report_name">(object.number)</field>
+        <field name="binding_model_id" ref="model_booking_form"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

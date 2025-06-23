@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dn_cn_report_document">
+        <t t-set="company" t-value="docs.env.company"/>
+        <t t-call="web.external_layout">
+            <div class="page">
+                <!-- <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                    <div class="o_boxed_header">
+                        <div class="row mb8">
+                            <div class="col-4 m-2">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                            </div>
+                            <div class="col-4 text-left mb4 m-2">
+                                <t t-if="company.report_header and company.report_header.strip() != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                                    <div class="mt0 h4" t-field="company.report_header"/>
+                                </t>
+                                <div name="company_address" class="float-left mb4">
+                                    <ul class="list-unstyled mr-2">
+                                        <li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/></li>
+                                        <li t-else=""><t t-esc="company.company_details"/></li>
+                                        <li t-if="forced_vat">
+                                            <t t-esc="company.country_id.vat_label or 'Tax ID'"/>:
+                                            <span t-esc="forced_vat"/>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row text-center m-2 mt-2">
+                    <strong>Packing List</strong>
+                    <span t-esc="o.name"/>
+                </div>
+                <div class="row mt-4 mb-4">
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>Date:</strong>
+                        <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d')" t-options="{'widget': 'date'}" class="m-0"/>
+                    </div>
+                </div>
+                <t t-foreach="o.cartoon_ids" t-as="line">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr >
+                                <th colspan="1" class="text-center">CrtnNo - <span t-esc="line.name"/></th>
+                                <th colspan="4" class="text-center">Qty - <span t-esc="line.available_qty"/></th>
+                            </tr>
+                            <tr>
+                                <th width="30%">Item Name</th>
+                                <th width="15%">Barcode</th>
+                                <th width="15%">Article Number</th>
+                                <th width="10%">Quantity</th>
+                                <th width="30%" class="text-center">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="line.move_line_ids" t-as="m_line">
+                                <tr>
+                                    <t t-set="d_name" t-value="m_line.product_id.display_name.replace(str('[') + str(m_line.product_id.default_code) + str(']') or '','')"/>
+                                    <td><span t-esc="d_name"/></td>
+                                    <td><span t-esc="m_line.report_barcode"/></td>
+                                    <td><span t-esc="m_line.product_id.default_code"/></td>
+                                    <td>
+                                        <span t-esc="m_line.available_cartoon_qty"/>
+                                        <span t-field="m_line.product_uom_id"/>
+                                    </td>
+                                    <td></td>
+                                </tr>
+<!--                                 <tr>
+                                    <td><b>Note</b></td>
+                                    <td colspan="3" height="70px"></td>
+                                </tr> -->
+
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="dn_cn_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="cn_dn_customisation.dn_cn_report_document"/>
+            </t>
+        </t>
+    </template>
+
+
+<!-- CN -->
+    <template id="report_cn_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <div class="row text-center m-2 mt-2">
+                        <strong>Packing List</strong>
+                        <span t-esc="doc.name"/>
+                    </div>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-auto col-3 mw-100 mb-2">
+                            <strong>Date:</strong>
+                            <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d')" t-options="{'widget': 'date'}" class="m-0"/>
+                        </div>
+                    </div>
+
+                    <t t-foreach="doc.move_line_ids" t-as="line">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr >
+                                    <th colspan="1" class="text-center">CrtnNo - <span t-esc="doc.name"/></th>
+                                    <th colspan="4" class="text-center">Qty - <span t-esc="line.qty_done"/></th>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Item Name</th>
+                                    <th width="15%">Barcode</th>
+                                    <th width="15%">Article Number</th>
+                                    <th width="10%">Quantity</th>
+                                    <th width="30%" class="text-center">Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <t t-set="d_name" t-value="line.product_id.display_name.replace(str('[') + str(line.product_id.default_code) + str(']') or '','')"/>
+                                    <td><span t-esc="d_name"/></td>
+                                    <td><span t-esc="line.report_barcode"/></td>
+                                    <td><span t-esc="line.product_id.default_code"/></td>
+                                    <td>
+                                        <span t-esc="line.available_cartoon_qty"/>
+                                        <span t-field="line.product_uom_id"/>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

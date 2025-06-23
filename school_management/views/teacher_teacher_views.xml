@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="teacher_teacher_view_tree" model="ir.ui.view">
+        <field name="name">teacher.teacher.tree</field>
+        <field name="model">teacher.teacher</field>
+        <field name="arch" type="xml">
+            <tree string="teacher_teacher">
+                <field name="contact_id"/>
+                <field name="course_ids" widget="many2many_tags"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="teacher_teacher_view_form" model="ir.ui.view">
+        <field name="name">teacher_teacher</field>
+        <field name="model">teacher.teacher</field>
+        <field name="arch" type="xml">
+            <form string="teacher_teacher">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class=" oe_stat_button" name="show_class"
+                                type="object" icon="fa-user" string="Show Class">
+                            <field name="class_count" readonly="1" widget="statinfo" string="Classes"/>
+                        </button>
+                        <button class=" oe_stat_button" name="teacher_course"
+                                type="object" icon="fa-book" string="Show Course">
+                            <field name="course_count" readonly="1" widget="statinfo" string="Courses"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="contact_id"/>
+                            <field name="class_ids" widget="many2many_tags"/>
+                            <field name="website" string="Website"/>
+                            <field name="experience"/>
+                        </group>
+                        <group>
+                            <field name="gender" widget="radio" class="oe_edit_only"
+                                   options="{'horizontal': true}"/>
+                            <field name="city" string="City"/>
+                            <field name="phone" string="Phone"/>
+                            <field name="email" string="Email"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="teacher_teacher_view_search" model="ir.ui.view">
+        <field name="name">teacher.teacher.search</field>
+        <field name="model">teacher.teacher</field>
+        <field name="arch" type="xml">
+            <search string="teacher">
+                <field name="contact_id"/>
+                <group expand="0" string="course">
+                    <filter string="course" name="course_ids" domain="[]" context="{'group_by': 'course_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="teacher_teacher_action" model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="res_model">teacher.teacher</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="context">{'search_default_course_ids': 1}</field>
+        <field name="domain">[]</field>
+    </record>
+
+</odoo>

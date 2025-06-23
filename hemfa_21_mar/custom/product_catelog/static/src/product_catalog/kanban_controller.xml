@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ProductCatalogKanbanController" t-inherit="web.KanbanView.Buttons" t-inherit-mode="primary">
+        <xpath expr="//button[hasclass('o-kanban-button-new')]" position="replace">
+            <button t-out="this.buttonString" style="background-color: #f8f9fa;border-color: #e9ecef;" type="button" class="btn btn-secondary o-kanban-button-back" t-on-click="this.backToQuotation"/>
+            <button type="button" style="background-color: #f8f9fa;border-color: #e9ecef;margin-left: 10px;" class="btn btn-secondary o-kanban-button-back" t-on-click="() => this.ClearAllOrders()">clear all lines</button>
+        </xpath>
+    </t>
+</templates>

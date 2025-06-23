@@ -1,0 +1,43 @@
+<odoo>
+    <!-- Extend stock.picking form view to add transit location and two-step transfer field -->
+    <record id="view_picking_form_two_step_transfer" model="ir.ui.view">
+        <field name="name">stock.picking.form.two.step.transfer</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- Locate the correct position, before the 'Scheduled Date' field -->
+            <xpath expr="//field[@name='scheduled_date']" position="before">
+                <group>
+                    <!-- Transit location should be invisible until two-step transfer is checked, mandatory when checked, and readonly when status is 'done' -->
+                    <field name="transit_location_id" 
+                           attrs="{
+                               'invisible': [('is_two_step_transfer', '=', False)],
+                               'required': [('is_two_step_transfer', '=', True)],
+                               'readonly': [('state', '=', 'done')]
+                           }"
+                           domain="[('usage', '=', 'transit')]"/>
+                    
+                    <!-- Two-Step Transfer should be hidden in second operation and readonly when status is 'done' -->
+                    <field name="is_two_step_transfer" 
+                           attrs="{
+                               'invisible': [('origin', '!=', False)], 
+                               'readonly': [('state', '=', 'done')]
+                           }"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add menu and action for two-step internal transfer -->
+    <record id="two_step_internal_transfer_action" model="ir.actions.act_window">
+        <field name="name">Two-Step Internal Transfers</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_two_step_transfer', '=', True)]</field>
+    </record>
+
+    <menuitem id="two_step_internal_transfer_menu"
+              name="Two-Step Internal Transfers"
+              parent="stock.menu_stock_warehouse_mgmt"
+              action="two_step_internal_transfer_action"/>
+</odoo>

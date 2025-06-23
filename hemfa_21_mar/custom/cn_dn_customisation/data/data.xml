@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sequence_delivery_note_in" model="ir.sequence">
+        <field name="name">DN Number Incomming (Delivery Note Sequence)</field>
+        <field name="code">delivery.note.sequence.in</field>
+        <field name="prefix">DN/</field>
+        <field name="prefix">DN/%(year)s/</field>
+        <field name="padding">6</field>
+    </record>
+
+    <!-- <record id="sequence_delivery_note_out" model="ir.sequence">
+        <field name="name">DN Number Outgoing (Delivery Note Sequence)</field>
+        <field name="code">delivery.note.sequence.out</field>
+        <field name="prefix">DN/OUT/</field>
+        <field name="padding">5</field>
+    </record>
+
+    <record id="sequence_delivery_note_internal" model="ir.sequence">
+        <field name="name">DN Number Internal (Delivery Note Sequence)</field>
+        <field name="code">delivery.note.sequence.internal</field>
+        <field name="prefix">DN/SELF/</field>
+        <field name="padding">5</field>
+    </record> -->
+
+    <record id="sequence_generate_cn" model="ir.sequence">
+        <field name="name">Generate CN Number</field>
+        <field name="code">generate.cn.number</field>
+        <field name="prefix">CN</field>
+        <field name="padding">4</field>
+    </record>
+
+</odoo>

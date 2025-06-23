@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_expense_submitter,access.expense.submitter,model_expense_model,group_expense_submitter,1,1,1,0
+access_expense_approver,access.expense.approver,model_expense_model,group_expense_approver,1,1,1,0
+access_expense_manager,access_expense_manager,model_expense_model,group_expense_manager,1,1,1,1
+access_expense_line_submitter,access.expense.line.submitter,model_expense_line_model,group_expense_submitter,1,1,1,0
+access_expense_line_approver,access.expense.line.approver,model_expense_line_model,group_expense_approver,1,1,1,0
+access_expense_line_manager,access.expense.line.manager,model_expense_line_model,group_expense_manager,1,1,1,1
+access_res_branch_manager,access.res.branch.manager,branch.model_res_branch,base.group_user,1,1,1,1
+access_res_branch_user,access.res.branch.user,branch.model_res_branch,base.group_user,1,0,0,0

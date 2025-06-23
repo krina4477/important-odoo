@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_sale_order_amount_in_words_view_inherit" model="ir.ui.view">
+        <field name="name">sh.sale.order.amount.in.words.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='order_lines']/group[@name='note_group']"
+                position="after">
+                <group>
+                    <field name="amount_in_words" />
+                    <field name="print_to_report" />
+                    <field name="sh_amount_to_word_in_upper_case" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

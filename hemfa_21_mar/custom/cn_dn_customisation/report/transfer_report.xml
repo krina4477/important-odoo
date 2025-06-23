@@ -1,0 +1,72 @@
+<odoo>
+	
+	<!--TRANSFER -->
+    <template id="report_transfer_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <div class="row text-center m-2 mt-2">
+                        <strong>Transfer</strong>
+                        <span t-esc="doc.name"/>
+                    </div>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-auto col-3 mw-100 mb-2">
+                            <strong>Date:</strong>
+                            <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d')" t-options="{'widget': 'date'}" class="m-0"/>
+                        </div>
+                    </div>
+
+                    <t t-foreach="doc.move_ids" t-as="line">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr >
+                                    <th class="text-center">Product - <span t-field="line.product_id"/></th>
+                                    <th class="text-center">Demand Qty - <span t-esc="line.product_uom_qty"/></th>
+                                    <th class="text-center">Done Qty - <span t-esc="line.quantity_done"/></th>
+                                </tr>
+                                <tr>
+                                    <th>Lot/Serial Number</th>
+                                    <th>Barcode</th>
+                                    <th>Carton</th>
+                                    <th>Done</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<t t-foreach="line.move_line_ids" t-as="m_line">
+	                                <tr>
+	                                    <td><span t-esc="m_line.lot_name if m_line.lot_name else m_line.lot_id.name"/></td>
+                                        <td><span t-esc="m_line.report_barcode"/></td>
+                                        <td><span t-esc="m_line.cartoon_id.name"/></td>
+	                                    <td><span t-esc="m_line.qty_done"/></td>
+	                                </tr>
+	                            </t>
+                            </tbody>
+                        </table>
+                    </t>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <strong>Signature:</strong>
+                            <div style="border: 1px solid black; width: 200px; height: 50px; margin: auto;"></div>
+                        </div>
+                        <div class="col text-center">
+                            <strong>Signature:</strong>
+                            <div style="border: 1px solid black; width: 200px; height: 50px; margin: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <record id="report_transfer" model="ir.actions.report">
+        <field name="name">DN/CN Report</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cn_dn_customisation.report_transfer_template</field>
+        <field name="report_file">cn_dn_customisation.report_transfer_template</field>
+        <field name="print_report_name">'Report for %s' % (object.name)</field>
+        <field name="binding_model_id" ref="cn_dn_customisation.model_stock_picking"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

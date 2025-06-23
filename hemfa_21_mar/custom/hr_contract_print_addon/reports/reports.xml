@@ -1,0 +1,11 @@
+<odoo>
+    <record id="action_contract_print_pdf" model="ir.actions.report">
+        <field name="name">Contract Print PDF</field>
+        <field name="model">hr.contract</field>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_contract_print_addon.contract_print_pdf</field>
+        <field name="report_file">hr_contract_print_addon.contract_print_pdf</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

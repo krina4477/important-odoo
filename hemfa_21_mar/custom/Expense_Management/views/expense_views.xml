@@ -1,0 +1,171 @@
+<odoo>
+    <!-- Expense Model Form View -->
+    <record id="view_expense_model_form" model="ir.ui.view">
+        <field name="name">expense.model.form</field>
+        <field name="model">expense.model</field>
+        <field name="arch" type="xml">
+            <form string="Expense">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,confirmed,canceled"/>
+
+                    <!-- Submit button visible only in Draft state -->
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+
+                    <!-- Approve button visible only in Submitted state for Approver or Manager -->
+                    <button name="action_approve" type="object" string="Approve" class="btn-success"
+                            attrs="{'invisible': [('state', '!=', 'submitted')]}"
+                            groups="Expense_Management.group_expense_approver,Expense_Management.group_expense_manager"/>
+
+                    <!-- Confirm button visible only in Approved state for Approver or Manager -->
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
+                            attrs="{'invisible': [('state', '!=', 'approved')]}"
+                            groups="Expense_Management.group_expense_manager"/>
+
+                    <!-- Set to Draft button visible only if the state is not Draft for Manager -->
+                    <button name="action_set_to_draft" type="object" string="Set to Draft" class="btn-secondary"
+                            attrs="{'invisible': [('state', '=', 'draft')]}"
+                            groups="Expense_Management.group_expense_manager"/>
+
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-danger"
+                            attrs="{'invisible': [('state', 'not in', ['draft', 'submitted'])]}"
+                            groups="Expense_Management.group_expense_manager"/>
+                    
+                    <!-- Journal Entry button visible only when the move_id exists -->
+                    <button name="action_view_journal_entry" type="object" string="Journal Entry" icon="fa-book"
+                            class="oe_stat_button" attrs="{'invisible': [('move_id', '=', False)]}"/>
+                    <field name="move_id" widget="statinfo" icon="fa-book" invisible="1"/>
+
+                    <!-- Print Custom Expense button always visible -->
+                    <button type="action" name="%(expense_report_custom)d" string="Print Custom Expense" class="btn-primary" icon="fa-print"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="journal_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="branch_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="currency_id" attrs="{'readonly': [('state', '!=', 'draft')]}" readonly="1" />
+                        <field name="different_currency" readonly="1" />
+                    </group>
+                    
+                    <group attrs="{'invisible': [('different_currency', '=', False)]}">
+                        <field name="exchange_rate" string="Exchange Rate" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    </group>
+
+                    <group string="Expense Lines">
+                        <field name="line_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                            <tree editable="bottom">
+                                <field name="account_id" domain="[('account_type', 'in', ['expense', 'depreciation', 'cost_of_revenue'])]"/>
+                                <field name="partner_id" domain="[('is_company', '=', True)]"/>
+                                <field name="reference"/>
+                                <field name="branch_id"/>
+                                <field name="analytic_distribution" widget="analytic_distribution"/> <!-- Include the analytics field -->
+                                <field name="amount"/>
+                            </tree>
+                        </field>
+                    </group>
+                    
+                    <!-- Moving the Total Amount field after Expense Lines -->
+                    <group>
+                        <field name="total_amount" string="Total Amount" readonly="1"/>
+                    </group>
+                </sheet>
+
+                <!-- Chatter Integration -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Expense Model Tree View -->
+    <record id="view_expense_model_tree" model="ir.ui.view">
+        <field name="name">expense.model.tree</field>
+        <field name="model">expense.model</field>
+        <field name="arch" type="xml">
+            <tree string="Expenses" decoration-info="state == 'draft'" decoration-success="state == 'confirmed'" decoration-danger="state == 'canceled'">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="journal_id"/>
+                <field name="date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban View for Expense Model -->
+    <record id="view_expense_kanban" model="ir.ui.view">
+        <field name="name">expense.model.kanban</field>
+        <field name="model">expense.model</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <field name="total_amount"/>
+                <field name="journal_id"/>
+                <field name="date"/>
+                
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong><field name="name"/></strong>
+                            <div><field name="journal_id"/></div>
+                            <div>Total: <field name="total_amount"/></div>
+                            <div><field name="date"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Graph View for Expenses -->
+    <record id="view_expense_graph" model="ir.ui.view">
+        <field name="name">expense.model.graph</field>
+        <field name="model">expense.model</field>
+        <field name="arch" type="xml">
+            <graph string="Expense Analysis" type="pie">
+                <field name="account_ids" type="row"/>
+                <field name="branch_id" type="row"/> <!-- Added branch_id for grouping -->
+                <field name="total_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View for Expenses -->
+    <record id="view_expense_pivot" model="ir.ui.view">
+        <field name="name">expense.model.pivot</field>
+        <field name="model">expense.model</field>
+        <field name="arch" type="xml">
+            <pivot string="Expense Pivot">
+                <field name="date" type="row"/>
+                <field name="journal_id" type="row"/>
+                <field name="total_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action for Opening Expense Reporting Views -->
+    <record id="action_expense_report" model="ir.actions.act_window">
+        <field name="name">Expense Reports</field>
+        <field name="res_model">expense.model</field>
+        <field name="view_mode">graph,pivot,tree,kanban</field>
+        <field name="context">{'default_group_by':'account_ids'}</field>
+    </record>
+
+    <!-- Action and Menu for Expenses -->
+    <record id="action_expense_model" model="ir.actions.act_window">
+        <field name="name">Expenses</field>
+        <field name="res_model">expense.model</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'group_by': ['state']}</field>
+    </record>
+
+    <menuitem id="menu_expense_root" name="Expenses" parent="account.menu_finance" sequence="1"/>
+    <menuitem id="menu_expense_model" name="Expenses" parent="menu_expense_root" action="action_expense_model" sequence="2"/>
+    <menuitem id="menu_expense_report_root" name="Expense Reporting" parent="menu_expense_root" sequence="3"/>
+    <menuitem id="menu_expense_report" name="Expense Reports" parent="menu_expense_report_root" action="action_expense_report" sequence="4"/>
+</odoo>

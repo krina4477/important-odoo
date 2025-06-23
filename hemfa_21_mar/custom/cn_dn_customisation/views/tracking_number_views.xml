@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dn_tracking_number_tree" model="ir.ui.view">
+        <field name="name">dn_tracking_number.tree</field>
+        <field name="model">dn.tracking.number</field>
+        <field name="arch" type="xml">
+            <tree string="Delivery Numbers">
+                <field name="name"/>
+                <field name="picking_id"/>
+                <field name="picking_code"/>
+                <field name="location_dest_id"/>
+                <field name="total_cartoons"/>
+                <field name="total_qty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="dn_tracking_number_form">
+        <field name="name">dn_tracking_number.form</field>
+        <field name="model">dn.tracking.number</field>
+        <field name="arch" type="xml">
+            <form string="Delivery Numbers">
+                <header>
+                    <button name="action_transfer_whole_dn" string="Transfer whole DN" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div name="button_box">
+                        <button type="object"
+                            name= "action_view_internal_stock_picking"
+                            class="oe_stat_button" icon="fa-truck">
+                            Receipts
+                        </button>
+                        <button type="object"
+                            name= "action_view_stock_move_lines"
+                            class="oe_stat_button" icon="fa-exchange"
+                            groups="stock.group_stock_user">
+                            Move History
+                            <!-- <div class="o_field_widget o_stat_info mr4">
+                                <span class="o_stat_text">In:</span>
+                                <span class="o_stat_text">Out:</span>
+                            </div>
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field name="nbr_moves_in"/></span>
+                                <span class="o_stat_value"><field name="nbr_moves_out"/></span>
+                            </div> -->
+                        </button>
+                    </div>
+                    <div>
+                        <h1>
+                            <field name="name" readonly="1" style="width: 100%"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="total_qty"/>
+                            <field name="total_avail_qty"/>
+                            <field name="total_cartoons"/>
+                            <label for="generate_cn"/>
+                            <div class="o_row">
+                                <field name="generate_cn"/>
+                                <button name="action_generate_cn" type="object" class="btn-primary" title="Generate Carton Numbers">
+                                    <span>Generate Carton</span>
+                                </button>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="picking_id" invisible="1"/>
+                            <field name="picking_id"/>
+                            <field name="id" invisible="1"/>
+                            <field name="operations_type_code" attrs="{'invisible': [('id', '!=', False)]}" force_save="1"/>
+                            <field name="picking_code" required="1" force_save="1" attrs="{'invisible': [('id', '=', False)]}" />
+                            <field name="location_dest_id" attrs="{'readonly': [('id', '!=', False)]}" required="1" force_save="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Carton Numbers">
+                            <field name="cartoon_ids" readonly="1">
+                                <tree string="Cartoons">
+                                    <field name="name"/>
+                                    <field name="available_qty"/>
+                                    <field name="total_qty"/>
+                                    <button name="print_cn_report" type="object" string="Print" class="btn-primary"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Products">
+                            <field name="cn_product_detail_ids">
+                                <tree string="Products">
+                                    <field name="product_id"/>
+                                    <field name="total_qty" sum="Sum of Done QTY"/>
+                                    <field name="available_qty" sum="Sum of Available QTY"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="cn_tracking_number_form">
+        <field name="name">cn.tracking.number.form</field>
+        <field name="model">cn.tracking.number</field>
+        <field name="arch" type="xml">
+            <form string="Cartoon">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="truck_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Move Lines">
+                            <field name="move_line_ids">
+                                <tree string="Move Lines">
+                                    <field name="product_id"/>
+                                    <field name="location_id"/>
+                                    <field name="location_dest_id"/>
+                                    <!-- <field name="lot_name"/> -->
+                                    <field name="lot_id"/>
+                                    <field name="qty_done"/>
+                                    <field name="available_cartoon_qty"/>
+                                    <field name="pos_qty_ordered"/>
+                                    <field name="total_available_cartoon_qty"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tracking_dn_numbers" model="ir.actions.act_window">
+        <field name="name">Delivery Numbers</field>
+        <field name="res_model">dn.tracking.number</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_dn_tracking_number" name="DN Numbers" parent="stock.menu_warehouse_config" action="cn_dn_customisation.action_tracking_dn_numbers"/>
+    <!-- groups="group_manage_dn_cn" -->
+
+</odoo>

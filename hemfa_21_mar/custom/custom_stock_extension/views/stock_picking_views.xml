@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the existing stock.picking form view -->
+        <record id="view_picking_form_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                
+                <!-- Modify the date_done field to be visible only to users in the specified group -->
+                <field name="date_done" position="attributes">
+                    <attribute name="groups">custom_stock_extension.group_date_done_visibility</attribute>
+                    <attribute name="attrs">{'readonly': [('state', '=', 'done')]}</attribute>
+                </field>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <record id="cash_request_1" model="financial.custody.request">
+        <field name="employee_id" ref="base.user_admin"/>
+        <field name="amount">500.00</field>
+        <field name="state">draft</field>
+    </record>
+</odoo>

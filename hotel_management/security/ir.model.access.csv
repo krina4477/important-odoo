@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_booking_form,access.booking.form,model_booking_form,,1,1,1,1
+access_room_number,access.room.number,model_room_number,,1,1,1,1
+access_room_types,access.room.types,model_room_types,,1,1,1,1
+access_booking_history,access.booking.history,model_booking_history,,1,1,0,1
+access_res_partner,access.res.partner,model_res_partner,,1,1,1,1
+access_confirm_report,access.confirm.report,model_confirm_report,,1,1,1,1
+

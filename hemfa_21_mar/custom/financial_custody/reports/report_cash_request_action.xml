@@ -1,0 +1,12 @@
+<odoo>
+    <!-- Report action to print the cash request -->
+    <report
+        id="action_report_cash_request"
+        model="financial.custody.request"
+        string="Cash Request Report"
+        report_type="qweb-pdf"
+        name="financial_custody.report_cash_request_template"
+        file="financial_custody.report_cash_request_template"
+        print_report_name="'Cash Request - %s' % (object.name)"
+    />
+</odoo>

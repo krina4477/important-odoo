@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="shop_template" name="Grid or List button">
+        <t t-call="website.layout">
+            <div class="d-flex justify-content-center align-items-center mb-3" style="margin: 2% auto;">
+                <div class="ms-3" style="border: 1px solid gray; border-radius: 5px; width:75%">
+                    <!-- Search Bar -->
+                    <t t-call="website.website_search_box_input">
+                        <t t-set="_form_classes"
+                           t-valuef="o_wsale_products_searchbar_form me-auto flex-grow-1 {{_form_classes}}"/>
+                        <t t-set="_submit_classes" t-valuef="btn btn-{{navClass}}"/>
+                        <t t-set="_input_classes" t-valuef="border-0 text-bg-{{navClass}}"/>
+                        <t t-set="search_type" t-valuef="products"/>
+                    </t>
+                </div>
+                <!-- Grid or List Buttons -->
+                <div>
+                    <t t-set="_activeClasses" t-valuef="layout_mode == 'list' and 'border-primary' or ''"/>
+                    <div t-attf-class="o_wsale_apply_layout btn-group ms-3 {{_classes}}"
+                         t-att-data-active-classes="_activeClasses">
+                        <input type="radio" class="btn-check" name="wsale_products_layout" id="o_wsale_apply_grid"
+                               t-att-checked="'checked' if layout_mode != 'list' else None" value="grid"/>
+                        <label t-attf-class="btn btn-{{navClass}} #{_activeClasses if layout_mode != 'list' else None} o_wsale_apply_grid"
+                               title="Grid" for="o_wsale_apply_grid">
+                            <h4>
+                                <i class="fa fa-th-large"/>
+                            </h4>
+                        </label>
+                        <input type="radio" class="btn-check" name="wsale_products_layout" id="o_wsale_apply_list"
+                               t-att-checked="'checked' if layout_mode == 'list' else None" value="list"/>
+                        <label t-attf-class="btn btn-{{navClass}} #{_activeClasses if layout_mode == 'list' else None} o_wsale_apply_list"
+                               title="List" for="o_wsale_apply_list">
+                            <h4>
+                                <i class="oi oi-view-list"/>
+                            </h4>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="container"
+                 style=" margin: 1% auto;padding-left:2%;padding-right:2%;padding-bottom:1%;">
+                <div class="row o_wsale_grid_view" t-if="layout_mode != 'list'">
+                    <t t-foreach="course" t-as="vals">
+                        <div class="col-md-4 text-center mb-2" style="padding-top: 2%;">
+                            <style>
+                                div.card {
+                                width: 340px;
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                                text-align: center;
+                                }
+                                div.card .description {
+                                background-color: #e6ecff;
+                                padding: 10px;
+                                display: none;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                border-bottom-left-radius: 4px;
+                                border-bottom-right-radius: 4px;
+                                font-size: 5px;
+                                line-height: 1.1;
+                                text-align: left; /* Align the description text to the left */
+                                }
+                                div.card:hover .description { /* Changed the hover selector */
+                                display: block;
+                                }
+                            </style>
+                            <div class="card">
+                                <a t-attf-href="/shop/product/#{vals.product_tmpl_id.id}">
+                                    <img t-att-src="'data:image/png;base64,' + vals.product_tmpl_id.image_1920.decode('utf-8')"
+                                         alt="Customer Image"
+                                         style="width: 340px; height: 200px; border: 1px solid #cccccc; border-radius: 4px; padding: 3px;"/>
+                                </a>
+                                <div class="row">
+                                    <div class="col-sm-12 mb-2">
+                                        <b>
+                                            <t t-esc="vals.product_tmpl_id.name"/>
+                                        </b>
+                                        <br/>
+                                        <t t-esc="vals.product_tmpl_id.list_price"/>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <t t-esc="vals.product_tmpl_id.description"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

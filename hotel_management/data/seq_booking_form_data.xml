@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="booking_form_seq" model="ir.sequence">
+            <field name="name">Booking Form</field>
+            <field name="code">booking.number</field>
+            <field name="prefix">Booking/</field>
+            <field name="padding">5</field>
+            <field name="implementation">standard</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+</odoo>

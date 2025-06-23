@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="booking_history_view_tree" model="ir.ui.view">
+        <field name="name">booking.history.tree</field>
+        <field name="model">booking.history</field>
+        <field name="arch" type="xml">
+            <tree string="booking_history">
+                <field name="booking_form"/>
+                <field name="booking_reference"/>
+                <field name="room_number_ids" widget="many2many_tags"/>
+                <field name="customer_id"/>
+                <field name="check_in_date"/>
+                <field name="check_out_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="booking_history_view_form" model="ir.ui.view">
+        <field name="name">booking_history</field>
+        <field name="model">booking.history</field>
+        <field name="arch" type="xml">
+            <form string="booking history">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="number" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="booking_form"/>
+                            <field name="booking_reference"/>
+                            <field name="room_number_ids" widget="many2many_tags"/>
+                            <field name="check_in_date"/>
+                            <field name="check_out_date"/>
+                            <field name="booked_with"/>
+                            <field name="booking_date"/>
+                        </group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="facility"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="booking_history_action" model="ir.actions.act_window">
+        <field name="name">Booking History</field>
+        <field name="res_model">booking.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="booking_history_root"
+            name="Booking History"
+            parent="hotel_management_main"
+            action="booking_history_action"
+            sequence="3"/>
+
+    <!--    <menuitem-->
+    <!--            id="report_date_root"-->
+    <!--            name="Report Date"-->
+    <!--            parent="hotel_management_main"-->
+    <!--            action="report_date_action"-->
+    <!--            sequence="4"/>-->
+
+
+</odoo>

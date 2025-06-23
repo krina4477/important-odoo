@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="transfer_whole_dn_form">
+        <field name="name">Transfer Whole DN.form</field>
+        <field name="model">transfer.whole.dn</field>
+        <field name="arch" type="xml">
+            <form string="Transfer Whole DN">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="dn_id"/>
+                            <field name="partner_id"/>
+                            <field name="picking_type_id"/>
+                            <field name="company_id"/>
+                            <field name="location_id"/>
+                            <field name="location_dest_id"/>
+                        </group>
+                        <group>
+                            <field name="is_two_step_transfer"/>
+                            <field name="transit_location_id" attrs="{'invisible': [('is_two_step_transfer', '=', False)], 'required': [('is_two_step_transfer', '=', True)]}" domain="[('usage', '=', 'transit')]"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_full_dn_transfer" string="Transfer" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="transfer_whole_dn_action" model="ir.actions.act_window">
+        <field name="name">Transfer Whole DN</field>
+        <field name="res_model">transfer.whole.dn</field>
+        <field name="view_mode">\form</field>
+    </record>
+
+</odoo>

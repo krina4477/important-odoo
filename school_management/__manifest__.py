@@ -1,0 +1,26 @@
+{
+    'name': 'school management',
+    'version': '16.0.1',
+    'summary': 'school management',
+    'sequence': 10,
+    'description': """
+""",
+    'category': '',
+    'website': '',
+    'depends': ['base', 'product', 'sale', 'website_sale', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/course_info_views.xml',
+        'views/student_student_views.xml',
+        'views/teacher_teacher_views.xml',
+        # 'data/seq_school_management_data.xml',
+        'views/main_template.xml',
+        'views/shop_course_template.xml',
+        'security/school_security.xml',
+        'views/class_info_views.xml',
+        'views/res_partner_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}

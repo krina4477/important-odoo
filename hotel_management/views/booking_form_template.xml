@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="booking_form_template">
+        <t t-call="website.layout">
+            <div style="text-align: center;margin : 1% auto;">
+                <t t-set="current_record_id" t-value="booking.id"/>
+                This is a preview of the customer portal.&#160;<i class="fa fa-arrow-right"/>&#160;
+                <a t-attf-href="/web#id={{ booking.id }}&amp;model=booking.form&amp;view_type=form">
+                    Back to Edit Mode
+                </a>
+            </div>
+            <div style="width:85%;justify-content : center;margin : 1% auto;">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                </t>
+            </div>
+            <div class="container" style="margin : 1% auto;">
+                <h2 style="color: white;text-shadow: 2px 2px 4px #000000; display :  flex; justify-content : center; margin : 1% auto; background-color:#dcccff; border:1px solid black;padding-bottom:3px;padding-top:3px;">
+                    Booking Form
+                </h2>
+                <div class="container" style="border:1px solid black;background-color:#eee6ff;">
+                    <!--                    <div class="col-md-12"-->
+                    <!--                         style="display: flex; justify-content: flex-end; padding-top:30px; padding-right: 17%;position:absolute">-->
+                    <!--                        <t t-if="customer.image_1920">-->
+                    <!--                            <img t-att-src="'data:image/png;base64,' + customer.image_1920.decode()"-->
+                    <!--                                 alt="Customer Image"-->
+                    <!--                                 style="width: 100px; height: 100px; border: 1px solid #cccccc; border-radius: 4px; padding: 5px;"/>-->
+                    <!--                        </t>-->
+                    <!--                    </div>-->
+                    <div class="col-md-10" style="padding-top:30px;">
+                        <div class="row">
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.number">
+                                    <ul style="color:black;">
+                                        <strong>Booking Number :</strong>
+                                        <span t-esc="booking.number"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.customer_id.name">
+                                    <ul style="color:black;">
+                                        <strong>Customer Name :</strong>
+                                        <span>
+                                            <t t-foreach="booking.customer_id" t-as="customer">
+                                                <t t-esc="customer.display_name"/>
+                                                <br/>
+                                            </t>
+                                        </span>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.check_in_date">
+                                    <ul style="color:black;">
+                                        <strong>Check-In Date :</strong>
+                                        <span t-esc="booking.check_in_date"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.check_out_date">
+                                    <ul style="color:black;">
+                                        <strong>Check-Out Date :</strong>
+                                        <span t-esc="booking.check_out_date"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.room_number_ids">
+                                    <ul style="color:black;">
+                                        <strong>Room Number :</strong>
+                                        <span t-foreach="booking.room_number_ids" t-as="room">
+                                            <t t-esc="room.room_number"/>
+                                            <t t-unless="room._is_last">,</t>
+                                        </span>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.email">
+                                    <ul style="color:black;">
+                                        <strong>Email :</strong>
+                                        <span t-esc="booking.email"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.type_ids">
+                                    <ul style="color:black;">
+                                        <strong>Room Type :</strong>
+                                        <span>
+                                            <t t-foreach="booking.type_ids" t-as="room_type">
+                                                <t t-esc="room_type.name"/>
+                                                <t t-unless="room_type._is_last">,</t>
+                                            </t>
+                                        </span>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.phone">
+                                    <ul style="color:black;">
+                                        <strong>Phone :</strong>
+                                        <span t-esc="booking.phone"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.room_facility">
+                                    <ul style="color:black;">
+                                        <strong>Room Facility :</strong>
+                                        <span t-esc="booking.room_facility"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.city">
+                                    <ul style="color:black;">
+                                        <strong>City :</strong>
+                                        <span t-esc="booking.city"/>
+                                    </ul>
+                                </t>
+                            </div>
+                            <div class="col-sm-6 mb-2">
+                                <t t-if="booking.booking_reference">
+                                    <ul style="color:black;">
+                                        <strong>Booking Reference :</strong>
+                                        <span t-esc="booking.booking_reference"/>
+                                    </ul>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mb-2" style="margin : 1% auto;padding-left:3%;padding-bottom:1%;">
+                        <t t-if="booking.state == 'draft'">
+                            <a t-attf-href="/confirm_booking/{{booking.id}}" class="btn btn-primary"
+                               style="background-color:#b999ff;border:1px solid black;">
+                                Confirm
+                            </a>
+                        </t>&#160;
+                        <t t-if="booking.state == 'draft'">
+                            <a t-attf-href="/cancel_booking/{{booking.id}}" class="btn btn-secondary"
+                               style="background-color:#cbb3ff;color:black;border:1px solid black;">
+                                Cancel
+                            </a>
+                        </t>
+                        <t t-elif="booking.state == 'confirm'">
+                            <h3 class="col-md-12" style="color: green;padding-bottom:2%;text-align: center;">This Form
+                                Has
+                                Been Confirmed.
+                            </h3>
+                        </t>
+                        <t t-else="">
+                            <h3 class="col-md-12" style="color: red;padding-bottom:2%;text-align: center;">This Form Has
+                                Been Rejected.
+                            </h3>
+                        </t>
+                    </div>
+                </div>
+                <div class="o_download_pdf btn-toolbar flex-sm-nowrap" style="margin : 1% auto;">
+                    <div class="btn-group  flex-grow-1 me-1 mb-1">
+                        <!--                        <a class="btn btn-secondary btn-block o_download_btn">-->
+                        <!--                            <i class="fa fa-download"/>-->
+                        <!--                            Download-->
+                        <!--                        </a>-->
+                        <a class="btn btn-secondary btn-block o_download_btn"
+                           t-attf-href="/customer/form/download/{{booking.id}}">
+                            <i class="fa fa-download"/>
+                            Download
+                        </a>
+                    </div>&#160;
+                    <div class="btn-group flex-grow-1 mb-1">
+                        <a class="btn btn-secondary o_print_btn o_portal_invoice_print"
+                           title="Print" t-att-href="'/print/hotel_booking/' + str(booking.id)"
+                           target="_blank">
+                            <i class="fa fa-print"/>
+                            Print
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

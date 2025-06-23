@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="student_student_view_tree" model="ir.ui.view">
+        <field name="name">student.student.tree</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <tree string="student_student">
+                <field name="contact_id"/>
+                <field name="age"/>
+                <field name="birth_date"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_student_view_form" model="ir.ui.view">
+        <field name="name">student_student</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <form string="student_student">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class=" oe_stat_button" name="action_view_sale_order"
+                                type="object" icon="fa-book" string="Show Course">
+                            <field string="Course" name="sale_order_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="contact_id" string="Name"/>
+                            <field name="age"/>
+                            <field name="class_id"/>
+                            <field name="city" string="City"/>
+                        </group>
+                        <group>
+                            <field name="birth_date"/>
+                            <field name="gender" widget="radio" class="oe_edit_only"
+                                   options="{'horizontal': true}"/>
+                            <field name="email" string="Email"/>
+                            <field name="phone" string="Phone"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="student_student_view_search" model="ir.ui.view">
+        <field name="name">student.student.search</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <search string="student student">
+                <field name="contact_id" filter_domain="['|', ('age','ilike',self), ('class_id','ilike',self)]"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="class_id"/>
+                <filter string="age > 22" name="age" domain="[('age','>',22)]"/>
+                <filter string="gender-female" name="gender" domain="[('gender','=','female')]"/>
+                <filter string="11th students" name="class_id" domain="[('class_id', 'ilike', '11th')]"/>
+                <group expand="0" string="class">
+                    <filter string="class" name="class" domain="[]" context="{'group_by': 'class_id'}"/>
+                    <filter name="date" date="birth_date" string="Birth Date" domain="[]"
+                            context="{'group_by': 'birth_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="student_student_action" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="context">{'search_default_class': 1}</field>
+        <field name="domain">[]</field>
+    </record>
+
+</odoo>

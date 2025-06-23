@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="course_info_view_tree" model="ir.ui.view">
+        <field name="name">course.info.tree</field>
+        <field name="model">course.info</field>
+        <field name="arch" type="xml">
+            <tree string="course_info">
+                <field name="product_tmpl_id"/>
+                <field name="list_price" string="Price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="course_info_view_form" model="ir.ui.view">
+        <field name="name">course_info</field>
+        <field name="model">course.info</field>
+        <field name="arch" type="xml">
+            <form string="course info">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class=" oe_stat_button" name="show_teacher"
+                                type="object" icon="fa-user" string="Show Teacher">
+                            <field name="teacher_count" readonly="1" widget="statinfo" string="Teachers"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="product_tmpl_id" string="Name"/>
+                            <field name="description" string="Description"/>
+                            <field name="teacher_ids" widget="many2many_tags"/>
+                            <field name="class_ids" string="Class" widget="many2many_tags"/>
+                            <field name="list_price" string="Price"/>
+                        </group>
+                        <group>
+                            <field name="image_1920" widget="image" string="Image"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="course_info_view_search" model="ir.ui.view">
+        <field name="name">course.info.search</field>
+        <field name="model">course.info</field>
+        <field name="arch" type="xml">
+            <search string="Course Info">
+                <field name="name"/>
+                <field name="teacher_ids"/>
+                <field name="list_price"/>
+                <filter string="list_price > 30000" name="price" domain="[('list_price','>',30000)]"/>
+                <group expand="0" string="class">
+                    <filter string="Teacher" name="teacher" domain="[]" context="{'group_by': 'teacher_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="course_info_action" model="ir.actions.act_window">
+        <field name="name">Course Info</field>
+        <field name="res_model">course.info</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="context">{'search_default_teacher': 1}</field>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem
+            id="school_management_main"
+            name="School Management"/>
+
+    <menuitem
+            id="course_info_root"
+            name="Course Info"
+            parent="school_management_main"
+            action="course_info_action"
+            sequence="1"/>
+
+    <menuitem
+            id="student_student_root"
+            name="Student"
+            parent="school_management_main"
+            action="student_student_action"
+            sequence="2"/>
+
+    <menuitem
+            id="teacher_teacher_root"
+            name="Teacher"
+            parent="school_management_main"
+            action="teacher_teacher_action"
+            sequence="3"/>
+
+
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="class_info_view_tree" model="ir.ui.view">
+        <field name="name">class.info.tree</field>
+        <field name="model">class.info</field>
+        <field name="arch" type="xml">
+            <tree string="class_info">
+                <field name="name"/>
+                <field name="teacher_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="class_info_view_form" model="ir.ui.view">
+        <field name="name">class_info</field>
+        <field name="model">class.info</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class=" oe_stat_button" name="show_student"
+                                type="object" icon="fa-user" string="Show Student">
+                            <field name="student_count" readonly="1" widget="statinfo" string="Students"/>
+                        </button>
+                        <button class=" oe_stat_button" name="teacher_show"
+                                type="object" icon="fa-user" string="Show Teachers">
+                            <field name="teacher_count" readonly="1" widget="statinfo" string="Teachers"/>
+                        </button>
+                        <button class=" oe_stat_button" name="course_show"
+                                type="object" icon="fa-book" string="Show courses">
+                            <field name="course_count" readonly="1" widget="statinfo" string="Courses"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name" required="True"/>
+                    </group>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="teacher_ids" widget="many2many_tags"/>
+                        <field name="courses_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="class_info_action" model="ir.actions.act_window">
+        <field name="name">Class Info</field>
+        <field name="res_model">class.info</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="class_info_root"
+            name="Class"
+            parent="school_management_main"
+            action="class_info_action"
+            sequence="4"/>
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sh_amount_in_words_res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">sh.res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="companies" position="after">
+                <div id="sh_amount_in_words">
+                    <h2>Amount In Words</h2>
+                    <div class="row mt16 o_settings_container" id="sh_amount_in_words_settings">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                            title="Company set Default Upper-case amount in word for orders and invoices.">
+                            <div class="o_setting_left_pane">
+                                <field name="sh_amount_to_word_in_upper_case" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="sh_amount_to_word_in_upper_case"
+                                    string="Default Upper-case amount in words" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</odoo>

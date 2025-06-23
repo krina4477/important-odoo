@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="product_stock_move_barcode_form">
+        <field name="name">Load Product In Carton</field>
+        <field name="model">product.stock.move.barcode</field>
+        <field name="arch" type="xml">
+            <form string="Load Product In Carton">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="dn_id"/>
+                            <field name="picking_id" readonly="1"/>
+                            <field name="is_load_existing_lines" attrs="{'readonly': [('is_load_existing_lines', '=', True)]}" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="is_new_cn_required"/>
+                            <field name="create_cn" attrs="{'invisible': [('is_new_cn_required', '!=', True)]}"/>
+                            <field name="to_cartoon_id" domain="[('truck_id', '=', dn_id)]" context="{'is_to_carton_filter': True}"/>
+                            <field name="_barcode_scanned"/>
+                        </group>
+                        <field name="duplicate_move_line_ids">
+                            <tree string="Products" editable="bottom">
+                                <field name="barcode_move_id" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="product_id"/>
+                                <field name="cartoon_id"/>
+                                <field name="lot_name"/>
+                                <field name="qty_done"/>
+                            </tree>
+                        </field>
+                        <field name="move_line_ids" force_save="1">
+                            <tree string="Products" editable="bottom">
+                                <field name="barcode_move_id" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="product_id"/>
+                                <field name="cartoon_id"/>
+                                <field name="lot_name"/>
+                                <field name="qty_done" force_save="1"/>
+                                <field name="sh_barcode" force_save="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="action_load_products" string="Transfer" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_stock_move_barcode_action" model="ir.actions.act_window">
+        <field name="name">Load Product In Carton</field>
+        <field name="res_model">product.stock.move.barcode</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

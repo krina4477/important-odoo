@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="course_info_seq" model="ir.sequence">
+            <field name="name">Course Info</field>
+            <field name="code">course.info</field>
+            <field name="prefix">Course/</field>
+            <field name="padding">3</field>
+            <field name="implementation">standard</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="student_seq" model="ir.sequence">
+            <field name="name">Student Info</field>
+            <field name="code">student.student</field>
+            <field name="prefix">student/</field>
+            <field name="padding">3</field>
+            <field name="implementation">standard</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="teacher_seq" model="ir.sequence">
+            <field name="name">teacher Info</field>
+            <field name="code">teacher.teacher</field>
+            <field name="prefix">teacher/</field>
+            <field name="padding">3</field>
+            <field name="implementation">standard</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="group_manage_dn_cn" model="res.groups">
+            <field name="name">Manage DN/CN Numbers</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+        <record id="group_auto_fill_cn_dn" model="res.groups">
+            <field name="name">Internal Transfer Auto Fill CN/DN</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+        <record id="group_so_auto_fill_cn_dn" model="res.groups">
+            <field name="name">Quotations Auto Fill CN/DN</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+    </data>
+</odoo>

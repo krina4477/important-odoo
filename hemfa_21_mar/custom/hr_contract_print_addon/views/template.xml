@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="contract_print_pdf">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page" style="margin-top: -10px;">
+                            <h1 style="text-align: center;">Employment Contract</h1>
+                            <p>
+                                Date and Time 10:00 on :<span t-field="o.date_start"/>.
+                                In accordance with Labor Relations Law No. (12) of 2010 and its executive regulations,
+                                this contract is made between:
+                                <br/>
+                                First Party:
+                                HEMFA Consulting for Management, Finance, and Training
+                                Address: Wsaya Abdeiri, Bin Ashour, Tripoli, Libya
+                                Represented by: Mr. Mohamed Hassan Al-Senussi, General Manager
+                                Hereinafter referred to as (the First Party).
+                            </p>
+
+                            <p style="margin-bottom: 0px;">
+                                Second Party:
+                            </p>
+                            <div class="row">
+                                <table class="table table-bordered table-sm">
+                                    <tbody style="text-align: center; border: 1pt solid black;">
+                                        <tr>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Name</span>
+                                            </th>
+                                            <td t-if="env.user.lang == 'en_US'">
+                                                <span t-field="o.employee_id.name"/>
+                                            </td>
+                                            <td t-else="">
+                                                <span t-field="o.employee_id.name_ar"/>
+                                            </td>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Gender</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.gender"/>
+                                            </td>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Marital Status</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.marital"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>National ID</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.identification_id"/>
+                                            </td>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Date of Birth</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.birthday"/>
+                                            </td>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Place of Birth</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.place_of_birth"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p style="margin-bottom: 0px;">
+                                Field of Study:
+                            </p>
+                            <div class="row">
+                                <table class="table table-bordered table-sm">
+                                    <thead style="text-align: center; border: 1pt solid black;">
+                                        <tr style="background-color: #eeeeee;">
+                                            <th>
+                                                <span>Field of Study</span>
+                                            </th>
+                                            <th>
+                                                <span>Educational Qualification</span>
+                                            </th>
+                                            <th>
+                                                <span>Institution</span>
+                                            </th>
+                                            <th>
+                                                <span>Graduation Date</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="text-align: center; border: 1pt solid black;">
+                                        <tr>
+                                            <td>
+                                                <span t-field="o.employee_id.study_field"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.employee_id.study_school"/>
+                                            </td>
+                                            <td style="color: red;">
+                                                <span t-field="o.employee_id.institution"/>
+                                            </td>
+                                            <td style="color: red;">
+                                                <span t-field="o.employee_id.graduation_date"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p style="margin-bottom: 0px;">
+                                Residence Address and Contact Details:
+                            </p>
+                            <div class="row">
+                                <table class="table table-bordered table-sm">
+                                    <thead style="text-align: center; border: 1pt solid black;">
+                                        <tr style="background-color: #eeeeee;">
+                                            <th>
+                                                <span>City</span>
+                                            </th>
+                                            <th>
+                                                <span>Municipality</span>
+                                            </th>
+                                            <th>
+                                                <span>Locality1</span>
+                                            </th>
+                                            <th>
+                                                <span>Locality2</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="text-align: center; border: 1pt solid black;">
+                                        <tr>
+                                            <td>
+                                                <span t-field="o.employee_id.address_home_id.city"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.employee_id.address_home_id.state_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.employee_id.address_home_id.street"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.employee_id.address_home_id.street2"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row" style="margin-bottom: 0px;">
+                                <table class="table table-bordered table-sm" style="margin-bottom: 0px;">
+                                    <tbody style="text-align: center; border: 1pt solid black;">
+                                        <tr>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Phone:</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.phone"/>
+                                            </td>
+                                            <th style="background-color: #eeeeee;">
+                                                <span>Email:</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.employee_id.private_email"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p style="margin-top: 0px;">
+                                Hereinafter referred to as (the Second Party).
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Preamble</h5>
+                            <p>
+                                Since the Second Party has the ability and willingness to work, develop themselves, and
+                                holds the necessary academic qualifications in the required field of specialization for
+                                work, meeting all the professional and technical employment standards of the First
+                                Party, the First Party agrees to utilize the services of the Second Party in their
+                                specialized field.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (1)</h5>
+                            <p>
+                                The preamble and all correspondence exchanged between the parties form an integral part
+                                of this contract.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (2)</h5>
+                            <p>
+                                The Second Party shall work for the First Party in the position of
+                                <span t-field="o.employee_id.job_id.name"/>
+                                within the grade of
+                                <span t-field="o.employee_id.job_grade"/>
+                                according to the authorized grading scale upon signing this contract.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (3)</h5>
+                            <p>
+                                The contract duration is one year, including a probationary period of thirty working
+                                days, renewable for a similar term. If either party wishes to terminate or not renew the
+                                contract, they must notify the other party in writing one month before the contract's
+                                expiry. The contract is automatically renewed upon mutual agreement of both parties.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (4)</h5>
+                            <p>
+                                The Second Party is tasked with completing all duties related to the contracted position
+                                as outlined in the approved job description and commits to performing these duties with
+                                all necessary diligence and care, complying with the professional and technical
+                                standards and ensuring accuracy. The Second Party is subject to a probation period as
+                                stipulated by applicable laws.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (5)</h5>
+                            <p style="margin-bottom: 0px;">
+                                The Second Party commits to the following duties:
+                                <br/>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px; margin-bottom: 0px;">
+                                    - Adherence to the company’s approved policies and procedures.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Observing work hours.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Performing assigned work efficiently and following the First Party’s work-related
+                                    instructions, provided they don’t conflict with the contract’s terms, the law,
+                                    ethics, or endanger themselves or others.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Preserving and exclusively using entrusted assets or items for the assigned work.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Maintaining confidentiality of professional and company information even after the
+                                    contract ends.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Upholding good conduct, respecting superiors and colleagues.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Complying with occupational health and safety requirements.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Following administrative procedures related to work.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    - Informing the First Party of any changes to personal details listed.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;">
+                                    - Any other duties required by the nature of the work without contradicting the
+                                    applicable labor and employment laws in Libya.
+                                </p>
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (6)</h5>
+                            <p>
+                                The First Party may not deviate from this contract’s terms or assign tasks fundamentally
+                                different from the Second Party’s position unless the Second Party agrees.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (7)</h5>
+                            <p>
+                                The First Party will pay the Second Party a monthly basic salary of
+                                <span t-if="env.user.lang == 'en_US'" t-field="o.amount_in_words"/>
+                                <span t-else="" t-field="o.amount_in_words_arabic"/>
+                                (
+                                <span t-field="o.wage"/>
+                                ), subject to legal deductions as per the applicable legislation.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (8)</h5>
+                            <p>
+                                The Second Party is entitled to all approved benefits for the position, and will be
+                                subject to performance evaluation guidelines and incentives based on personal
+                                performance assessment reports and supervisor recommendations. The Second Party is also
+                                entitled to leave as outlined in the Labor Relations Law and its regulations.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (9)</h5>
+                            <p>
+                                The Second Party must submit original documents validating their qualifications and
+                                experience necessary for their duties, along with health fitness proof at the start of
+                                the contract and whenever requested. They also affirm the accuracy of all submitted
+                                documents and assume full legal responsibility if any are found incorrect, while
+                                confirming non-engagement with any other employer.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (10)</h5>
+                            <p style="margin-bottom: 0px;">
+                                The Second Party is prohibited from:
+                                <br/>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    1. Working for others without written approval from the First Party, with or without
+                                    compensation, during contracted work hours.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    2. Engaging in favoritism, abuse of position, or leveraging their role for personal
+                                    or third-party benefit.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    3. Removing or retaining any official documents without permission or taking them
+                                    from designated files without the First Party’s authorization.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;  margin-bottom: 0px;">
+                                    4. Violating general safety and security procedures at the workplace.
+                                </p>
+                                <p style="margin-left: 20px; margin-right: 20px; margin-top: 0px;">
+                                    5. Inciting or engaging in any unethical or inappropriate behavior.
+                                </p>
+                                <p style="margin-top: 0px;">
+                                    The parties, having agreed on this contract, shall regard the addresses provided
+                                    herein as their selected legal domicile for notifications and legal procedures.
+                                    The Second Party must notify the First Party of any address change within a week.
+                                </p>
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (11)</h5>
+                            <p>
+                                After both parties acknowledged their legal competence, they agreed to draft and
+                                document their mutual agreement to serve as a contract for all legal and legitimate
+                                purposes.
+                            </p>
+
+                            <h5 style="text-align: center; font-weight: bold;">Article (12)</h5>
+                            <p>
+                                This contract consists of twelve articles and is made in three signed copies by both
+                                parties with mutual consent, free from any legal or formal defects.
+                            </p>
+
+                            <h5 style="text-align: center; margin: 0px; font-weight: bold;">Signatures</h5>
+                            <div class="row">
+                                <table class="table table-bordered table-sm">
+                                    <thead style="text-align: center; border: 1pt solid black;">
+                                        <tr style="background-color: #eeeeee;">
+                                            <th>
+                                                <span>First Party</span>
+                                            </th>
+                                            <th>
+                                                <span>Second Party</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="border: 1pt solid black;">
+                                        <tr>
+                                            <td>Mohamed Hassan Al-Senussi</td>
+                                            <td t-if="env.user.lang == 'en_US'">
+                                                <span t-field="o.employee_id.name"/>
+                                            </td>
+                                            <td t-else="">
+                                                <span t-field="o.employee_id.name_ar"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Position: General Manager</span>
+                                            </td>
+                                            <td>
+                                                <span>Position:</span>
+                                                <span t-field="o.employee_id.job_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Signature:</span>
+                                            </td>
+                                            <td>
+                                                <span>Signature:</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

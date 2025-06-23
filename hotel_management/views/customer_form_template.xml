@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="customer_form_template">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <style>
+                    .col-sm-12 input {
+                    width: 100% !important;
+                    }
+                    .bg-img {
+                    /* The image used */
+                    background-image: url('/hotel_management/static/image/h.jpg');
+                    /* Full height */
+                    height: 100%;
+                    width:98%;
+                    /* Center and scale the image nicely */
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    }
+                    .button {
+                    background-color: #006666;
+                    border: black;
+                    color: white;
+                    padding: 8px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 15px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    }
+                    .button1 {border-radius: 4px;}
+                </style>
+                <div class="bg-img" style="margin: 1% auto;">
+                    <h2 style="text-align: center;padding-top:1%;">HOTEL BOOKING FORM</h2>
+                    <div class="col-md-8" style="margin: 1% auto;padding-left:5%;padding-right:5%;padding-bottom:3%;">
+                        <form action="/customer/form/submit">
+                            <div class="row"
+                                 style="padding-left:3%;padding-right:3%;padding-top:3%;padding-bottom:3%;background: linear-gradient(to bottom right, #8c8c8c 25%, #66ccff 92%);opacity: 0.9;border:2px solid black;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name"><i class="fa fa-user"/>&#160;&#160;Name:
+                                        </label>
+                                        <input type="text" class="floatLabel form-control" name="name"
+                                               placeholder="enter your name" id="name"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="check_in_date"><i class="fa fa-calendar"/>&#160;&#160;Check In Date:
+                                        </label>
+                                        <input type="date" class="floatLabel form-control" name="check_in_date"
+                                               id="check_in_date"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="room_number_ids"><i class="fa fa-list-ol"/>&#160;&#160;Room Number:</label>
+                                        <select class="floatLabel form-control" name="room_number_id"
+                                                id="room_number_id">
+                                            <option value="">select room number</option>
+                                            <t t-foreach="room_numbers" t-as="room">
+                                                <option t-att-value="room.id">
+                                                    <t t-esc="room.room_number"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="room_facility"><i class="fa fa-home"/>&#160;&#160;Room Facility:</label>
+                                        <input type="text" class="floatLabel form-control" name="room_facility"
+                                               id="room_facility"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="booking_reference"><i class="fa fa-pencil-square-o"/>&#160;&#160;Booking Reference:</label>
+                                        <input type="text" class="floatLabel form-control" name="booking_reference"
+                                               id="booking_reference"/>
+                                    </div>
+                                    <br/>
+                                    <button type="submit" class="button button1">Book Now</button>
+                                    <button type="button" class="button button1"
+                                            onclick="window.location.href='/customer/form'">Reset
+                                    </button>
+                                    <input type="hidden" name="form_action" value="submit"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email"><i class="fa fa-envelope fa-fw"/>&#160;&#160;Email address:
+                                        </label>
+                                        <input type="email" class="floatLabel form-control" name="email"
+                                               placeholder="enter your email" id="email"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="check_out_date"><i class="fa fa-calendar"/>&#160;&#160;Check Out
+                                            Date:
+                                        </label>
+                                        <input type="date"
+                                               class="floatLabel form-control"
+                                               name="check_out_date"
+                                               id="check_out_date"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="type_ids"><i class="fa fa-bed"/>&#160;&#160;Room Type:</label>
+                                        <select class="floatLabel form-control" name="type_ids" id="type_ids">
+                                            <option value="">select room type</option>
+                                            <t t-foreach="room_types" t-as="room_type">
+                                                <option t-att-value="room_type.id">
+                                                    <t t-esc="room_type.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="name"><i class="fa fa-phone icon-large"/>&#160;&#160;Phone:</label>
+                                        <input type="text" class="floatLabel form-control" name="phone"
+                                               placeholder="enter your contact" id="phone"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="name"><i class="fa fa-building icon-large"/>&#160;&#160;City:</label>
+                                        <input type="char" class="floatLabel form-control" name="city"
+                                               placeholder="enter your city" id="city"/>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="customer_form_success_tmp" name="Customer Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="bgi-img"
+                     style="height: 100vh; display: flex; justify-content: center; align-items: center;
+                            background-image: url('/hotel_management/static/image/background.jpeg');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;">
+
+                    <div class="container"
+                         style="justify-content : center; margin : 5% auto;padding-top:4%;padding-bottom:3%;">
+                        <div class="col-md-12" style="padding-left:15%;padding-right:15%;">
+                            <div class="alert alert-success"
+                                 style="text-align: center;background-color:white;opacity: 0.9;padding-top:5%;padding-bottom:5%;border:2px solid black;">
+                                <h1><i class="fa fa-check-square-o"/>&#160;Thank You!
+                                </h1>
+                                <br/>
+                                <h5>Booking Confirmed</h5>
+                                You submitted the form successfully.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

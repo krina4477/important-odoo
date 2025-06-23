@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hotel_home_page" inherit_id="portal.portal_my_home" name="Home Page">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="after">
+            <t t-set="home_url" t-value="url_for('/hotel')"/>
+            <a t-att-href="home_url"
+               class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                <t>HotelManagement</t>
+            </a>
+        </xpath>
+    </template>
+
+    <template id="timesheet_template" inherit_id="portal.portal_breadcrumbs" name="Timesheet Template">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="request.httprequest.path == '/hotel'">
+                / Hotel Bookings
+            </li>
+            <li t-if="request.httprequest.path.startswith('/booking/')">
+                <a href="/hotel">/ Hotel Bookings /</a>
+            </li>&#160;
+            <li t-if="request.httprequest.path.startswith('/booking/')">
+                &#160;<t t-esc='booking.number'/>
+            </li>
+        </xpath>
+    </template>
+
+</odoo>

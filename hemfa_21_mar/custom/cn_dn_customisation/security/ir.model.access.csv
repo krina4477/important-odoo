@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dn_tracking_number,dn_tracking_number,model_dn_tracking_number,base.group_user,1,1,1,0
+access_cn_tracking_number,cn_tracking_number,model_cn_tracking_number,base.group_user,1,1,1,0
+access_dn_tracking_number_admin,dn_tracking_number_admin,model_dn_tracking_number,cn_dn_customisation.group_manage_dn_cn,1,1,1,1
+access_cn_tracking_number_admin,cn_tracking_number_admin,model_cn_tracking_number,cn_dn_customisation.group_manage_dn_cn,1,1,1,1
+access_cn_product_details,cn_product_details,model_cn_product_details,base.group_user,1,1,1,1
+access_transfer_whole_dn,transfer_whole_dn,model_transfer_whole_dn,base.group_user,1,1,1,1
+
+access_product_stock_move_barcode,product_stock_move_barcode,model_product_stock_move_barcode,base.group_user,1,1,1,1
+
+access_product_stock_move_line_barcode,product_stock_move_line_barcode,model_product_stock_move_line_barcode,base.group_user,1,1,1,1

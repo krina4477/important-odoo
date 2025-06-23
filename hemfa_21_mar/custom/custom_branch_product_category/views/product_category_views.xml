@@ -1,0 +1,38 @@
+<odoo>
+    <!-- Inherit the Product Category Form View -->
+    <record id="view_product_category_form_inherit" model="ir.ui.view">
+        <field name="name">product.category.form.branches</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add the Branches field -->
+            <field name="parent_id" position="before">
+                <field name="branch_ids" widget="many2many_tags" placeholder="Select Branches"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit the Product Category Tree View -->
+    <record id="view_product_category_tree_inherit" model="ir.ui.view">
+        <field name="name">product.category.tree.branches</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view"/>
+        <field name="arch" type="xml">
+            <tree string="Product Categories">
+                <field name="branch_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Inherit the Product Category Search View -->
+    <record id="view_product_category_search_inherit" model="ir.ui.view">
+        <field name="name">product.category.search.branches</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view"/>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Branch" name="branch_filter" domain="[('branch_ids', 'in', [context.get('branch_id')])]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

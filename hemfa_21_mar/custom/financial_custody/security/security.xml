@@ -1,0 +1,204 @@
+<odoo>
+    <!-- User Group for Cash Request Users -->
+    <record id="group_cash_request_user" model="res.groups">
+        <field name="name">Cash Request User</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+    </record>
+
+    <!-- User Group for Cash Request Approvers -->
+    <record id="group_cash_request_approver" model="res.groups">
+        <field name="name">Cash Request Approver</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+    </record>
+
+    <!-- User Group for Cash Request Managers -->
+    <record id="group_cash_request_manager" model="res.groups">
+        <field name="name">Cash Request Manager</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+    </record>
+
+    <!-- Treasury Group -->
+    <record id="group_treasury" model="res.groups">
+        <field name="name">Treasury</field>
+        <field name="category_id" ref="base.module_category_accounting"/>
+    </record>
+
+    <!-- Access Rule for Cash Request Users -->
+    <record id="cash_request_rule_user" model="ir.rule">
+        <field name="name">Cash Request User Rule</field>
+        <field name="model_id" ref="model_financial_custody_request"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_user'))]"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Cash Request Approvers -->
+    <record id="cash_request_rule_approver" model="ir.rule">
+        <field name="name">Cash Request Approver Rule</field>
+        <field name="model_id" ref="model_financial_custody_request"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_approver'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Cash Request Managers -->
+    <record id="cash_request_rule_manager" model="ir.rule">
+        <field name="name">Cash Request Manager Rule</field>
+        <field name="model_id" ref="model_financial_custody_request"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Users -->
+    <record id="expense_report_rule_user" model="ir.rule">
+        <field name="name">Expense Report User Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Approvers -->
+    <record id="expense_report_rule_approver" model="ir.rule">
+        <field name="name">Expense Report Approver Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_approver'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Managers -->
+    <record id="expense_report_rule_manager" model="ir.rule">
+        <field name="name">Expense Report Manager Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Line Users -->
+    <record id="expense_report_line_rule_user" model="ir.rule">
+        <field name="name">Expense Report Line User Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Line Approvers -->
+    <record id="expense_report_line_rule_approver" model="ir.rule">
+        <field name="name">Expense Report Line Approver Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_approver'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Line Managers -->
+    <record id="expense_report_line_rule_manager" model="ir.rule">
+        <field name="name">Expense Report Line Manager Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="purchase_line_rule_user" model="ir.rule">
+        <field name="name">Purchase Line User Rule</field>
+        <field name="model_id" ref="model_financial_custody_purchase_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Purchase Line Approvers -->
+    <record id="purchase_line_rule_approver" model="ir.rule">
+        <field name="name">Purchase Line Approver Rule</field>
+        <field name="model_id" ref="model_financial_custody_purchase_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_approver'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Purchase Line Managers -->
+    <record id="purchase_line_rule_manager" model="ir.rule">
+        <field name="name">Purchase Line Manager Rule</field>
+        <field name="model_id" ref="model_financial_custody_purchase_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_cash_request_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Access Rule for Cash Request (Treasury) -->
+    <record id="cash_request_rule_treasury" model="ir.rule">
+        <field name="name">Cash Request Treasury Rule</field>
+        <field name="model_id" ref="model_financial_custody_request"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_treasury'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Expense Report (Treasury) -->
+    <record id="expense_report_rule_treasury" model="ir.rule">
+        <field name="name">Expense Report Treasury Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_treasury'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Expense Report Line (Treasury) -->
+    <record id="expense_report_line_rule_treasury" model="ir.rule">
+        <field name="name">Expense Report Line Treasury Rule</field>
+        <field name="model_id" ref="model_financial_custody_expense_report_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_treasury'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Access Rule for Purchase Line (Treasury) -->
+    <record id="purchase_line_rule_treasury" model="ir.rule">
+        <field name="name">Purchase Line Treasury Rule</field>
+        <field name="model_id" ref="model_financial_custody_purchase_line"/>
+        <field name="groups" eval="[(4, ref('financial_custody.group_treasury'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+    
+</odoo>

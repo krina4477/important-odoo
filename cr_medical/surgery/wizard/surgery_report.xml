@@ -1,0 +1,52 @@
+<odoo>
+    <!--     Form view   -->
+    <record id="ipd_surgery_reports_view" model="ir.ui.view">
+        <field name="name">Surgery Report</field>
+        <field name="model">surgery.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="select_report"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                            <field name="department_ids" widget="many2many_tags"
+                                   attrs="{'invisible':[('select_report','!=','group_by_department_surgery')]}"/>
+                            <field name="doctor_ids" widget="many2many_tags"
+                                   domain=" [('is_doctor', '=', True)],[('doctor_department_id', '!=', False)]"
+                                   attrs="{'invisible':[('select_report','!=','group_by_doctor_surgery')]}"/>
+                            <!--                            <field name="select_years"-->
+                            <!--                                   attrs="{'invisible':[('select_report','!=','group_by_month_ipd')]}"/>-->
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="button_export_pdf" string="Export PDF" type="object"/>
+                        <button string="CANCEL" class="oe_link" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_report_ipd_surgery" model="ir.actions.act_window">
+        <field name="name">Surgery Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">surgery.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="view_id" ref="ipd_surgery_reports_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu item for Surgery Report -->
+    <menuitem id="cr_medical_menu_surgery_report"
+              name="Surgery Report"
+              parent="surgery.menu_surgery"
+              action="action_report_ipd_surgery"
+              active="True"
+              sequence="2"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+</odoo>

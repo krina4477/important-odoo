@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pharmacist_education_tree_view" model="ir.ui.view">
+        <field name="name">pharmacist.education.tree</field>
+        <field name="model">pharmacist.education</field>
+        <field name="arch" type="xml">
+            <tree string="Pharmacist">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pharmacist_education_form_view" model="ir.ui.view">
+        <field name="name">pharmacist.education.form</field>
+        <field name="model">pharmacist.education</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacist_education">
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pharmacist_education" model="ir.actions.act_window">
+        <field name="name">Pharmacist Education</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pharmacist.education</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Test!
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Pharmacist Education Info"
+              id="menu_pharmacist_education_details"
+              parent="pharmacy.menu_pharmacist_details_1"
+              action="action_pharmacist_education"
+              sequence="4"/>
+</odoo>
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_doctor_department_tree_view" model="ir.ui.view">
+        <field name="name">doctor.department.tree</field>
+        <field name="model">doctor.department</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Department">
+                <field name="department"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_doctor_department_form_view" model="ir.ui.view">
+        <field name="name">doctor.department.form</field>
+        <field name="model">doctor.department</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Department">
+                <sheet>
+                    <group>
+                        <field name="department" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_cr_doctor_department">
+        <field name="name">Doctor Department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doctor.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                doctor department information
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="cr_menu_doctor_department"
+              name="Doctor Department"
+              action="cr_medical_base.action_cr_doctor_department"
+              parent="cr_medical_base.cr_menu_configuration"
+              active="True"
+              sequence="3"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+
+</odoo>

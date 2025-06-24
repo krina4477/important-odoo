@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ipd_registration_form_view_inherit" model="ir.ui.view">
+        <field name="name">ipd_registration_form_view_inherit</field>
+        <field name="model">ipd.registration</field>
+        <field name="inherit_id" ref="IPD.cr_ipd_registration_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='discharge_patient']" position="after">
+                <button name="surgery" type="object" string="Surgery" class="oe_highlight"
+                        attrs="{'invisible': [('state', 'in', ['draft', 'discharge'])]}"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="show_patient_surgery"
+                        attrs="{'invisible':[('surgery_count','=', 0)]}"
+                        type="object" class="oe_stat_button" icon="fa-heart">
+                    <field name="surgery_count" widget="statinfo" string="Surgery"/>
+                </button>
+            </xpath>
+            <!--            <xpath expr="//group" position="before">-->
+            <!--                <div class="oe_button_box" name="button_box">-->
+            <!--                    <button name="show_patient_surgery"-->
+            <!--                            type="object" class="oe_stat_button" icon="fa-heart">-->
+            <!--                        <field name="surgery_count" widget="statinfo" string="Show Surgery"/>-->
+            <!--                    </button>-->
+            <!--&lt;!&ndash;                    <button name="show_patient_physiotherapy"&ndash;&gt;-->
+            <!--&lt;!&ndash;                            type="object" class="oe_stat_button" icon="fa-heartbeat">&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <field name="physiotherapy_count" widget="statinfo" string="Physiotherapy"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    </button>&ndash;&gt;-->
+            <!--                </div>-->
+            <!--            </xpath>-->
+        </field>
+    </record>
+</odoo>

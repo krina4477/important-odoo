@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!--    For Today's Diet By Department-->
+
+    <record model="ir.actions.act_window" id="action_kitchen_treeview">
+        <field name="name">Diet By Department</field>
+        <field name="res_model">kitchen.details</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('date_of_admit', '=', datetime.datetime.now())]</field>
+        <field name="view_id" ref="diet_module.kitchen_details_view_tree"/>
+        <field name="context">{'group_by': ['doctor_department_id']}</field>
+    </record>
+
+    <record model="ir.ui.view" id="new_diet_dashboard">
+        <field name="name">My Diet Dashboard</field>
+        <field name="model">board.board</field>
+        <field name="arch" type="xml">
+            <form string="My Diet Dashboard">
+                <board style="2-2">
+                    <column>
+                        <action
+                                string="Today's Diet By Department"
+                                name="%(diet_module.action_kitchen_treeview)d"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_diet_dashboard">
+        <field name="name">My Diet Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="new_diet_dashboard"/>
+    </record>
+
+    <menuitem id="cr_menu_dashboard"
+              name="Diet Dashboard"
+              action="diet_module.action_diet_dashboard"
+              parent="cr_medical_base.cr_medical_menu_root"
+              active="True"
+              groups="cr_medical_base.group_admin"
+              sequence="1"/>
+</odoo>

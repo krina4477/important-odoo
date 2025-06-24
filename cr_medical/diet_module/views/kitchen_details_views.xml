@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="kitchen_details_view_tree" model="ir.ui.view">
+        <field name="name">kitchen.details.tree</field>
+        <field name="model">kitchen.details</field>
+        <field name="arch" type="xml">
+            <tree string="kitchen details">
+                <field name="patient_id"/>
+                <field name="date_of_admit"/>
+                <field name="break_fast_ids" widget="many2many_tags" string="Breakfast"/>
+                <field name="lunch_ids" widget="many2many_tags" string="Lunch"/>
+                <field name="dinner_ids" widget="many2many_tags" string="Dinner"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="kitchen_details_view_form" model="ir.ui.view">
+        <field name="name">kitchen_details</field>
+        <field name="model">kitchen.details</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="date_of_admit"/>
+                        </group>
+                        <group>
+                            <field name="break_fast_ids" widget="many2many_tags" string="Breakfast"/>
+                            <field name="lunch_ids" widget="many2many_tags" string="Lunch"/>
+                            <field name="dinner_ids" widget="many2many_tags" string="Dinner"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="kitchen_details_view_search" model="ir.ui.view">
+        <field name="name">kitchen.details.search</field>
+        <field name="model">kitchen.details</field>
+        <field name="arch" type="xml">
+            <search string="kitchen details">
+                <field name="patient_id"/>
+                <filter string="Today's Diet" name="date_of_admit"
+                        domain="[('date_of_admit', '=', datetime.datetime.now())]"/>
+                <filter string="Yesterday's Diet" name="date_of_admit"
+                        domain="[('date_of_admit', '=', (context_today()-datetime.timedelta(days=1)).strftime('%Y-%m-%d 00:00:00'))]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cr_kitchen_details" model="ir.actions.act_window">
+        <field name="name">Kitchen Details</field>
+        <field name="res_model">kitchen.details</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem name="Kitchen"
+              id="menu_kitchen"
+              parent="diet_module.menu_diet"
+              action="action_cr_kitchen_details"
+              sequence="69"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_doctor_weeklyAvalibility_tree_view" model="ir.ui.view">
+        <field name="name">doctor.weeklyAvalibility.tree</field>
+        <field name="model">doctor.weeklyavalibility</field>
+        <field name="arch" type="xml">
+            <tree string="weeklyAvalibility">
+                <field name="available_weekdays" widget="many2many_tags"/>
+                <field name="from_time"/>
+                <field name="to_time"/>
+                <field name="totel_appointment"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_doctor_weeklyAvalibility_form_view" model="ir.ui.view">
+        <field name="name">doctor.weeklyAvalibility.form</field>
+        <field name="model">doctor.weeklyavalibility</field>
+        <field name="arch" type="xml">
+            <form string="weeklyAvalibility">
+                <sheet>
+                    <group>
+                        <field name="available_weekdays" required="True" widget="many2many_tags"/>
+                        <field name="from_time" required="True"/>
+                        <field name="to_time" required="True"/>
+                        <field name="totel_appointment" required="True"/>
+                        <field name="name" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

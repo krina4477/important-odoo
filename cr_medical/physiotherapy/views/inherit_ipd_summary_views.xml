@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ipd_summary_view_form_inherit" model="ir.ui.view">
+        <field name="name">ipd.registration.form.inherit</field>
+        <field name="model">ipd.registration</field>
+        <field name="inherit_id" ref="IPD.cr_ipd_registration_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ipd_summary_line_ids']//tree" position="inside">
+                <button name="physiotherapy" string="Physiotherapy" type="object" class="btn btn-success" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_break_fast,access.break.fast,model_break_fast,,1,1,1,1
+access_lunch_info,access.lunch.info,model_lunch_info,,1,1,1,1
+access_dinner_info,access.dinner.info,model_dinner_info,,1,1,1,1
+access_diet_plan,access.diet.plan,model_diet_plan,,1,1,1,1
+access_kitchen_details,access.kitchen.details,model_kitchen_details,,1,1,1,1
+

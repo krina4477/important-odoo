@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!--        For Doctor Speciality-->
+
+        <record id="res_partner_doctor_speciality_1" model="doctor.speciality">
+            <field name="speciality">Pediatrics</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_2" model="doctor.speciality">
+            <field name="speciality">Surgery</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_3" model="doctor.speciality">
+            <field name="speciality">Dermatology</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_4" model="doctor.speciality">
+            <field name="speciality">Neurology</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_5" model="doctor.speciality">
+            <field name="speciality">Cardiology</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_6" model="doctor.speciality">
+            <field name="speciality">Oncology</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_7" model="doctor.speciality">
+            <field name="speciality">Orthopaedics</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_8" model="doctor.speciality">
+            <field name="speciality">Urology</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_9" model="doctor.speciality">
+            <field name="speciality">Gynaecology</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_10" model="doctor.speciality">
+            <field name="speciality">Psichiatry</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_11" model="doctor.speciality">
+            <field name="speciality">diagnosing</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_12" model="doctor.speciality">
+            <field name="speciality">Osteopathy</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_13" model="doctor.speciality">
+            <field name="speciality">kidney or renal related diseases</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_14" model="doctor.speciality">
+            <field name="speciality">malignant diseases</field>
+        </record>
+
+        <record id="res_partner_doctor_speciality_15" model="doctor.speciality">
+            <field name="speciality">Physiotherapy</field>
+        </record>
+
+
+        <!--        For Doctor Degree-->
+
+        <record id="res_partner_doctor_degree_1" model="doctor.degree">
+            <field name="degree">Doctor of Medicine by research (MD(Res), DM)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_2" model="doctor.degree">
+            <field name="degree">Doctor of Philosophy (PhD, DPhil)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_3" model="doctor.degree">
+            <field name="degree">Master of Clinical Medicine (MCM)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_4" model="doctor.degree">
+            <field name="degree">Master of Medical Science (MMSc, MMedSc)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_5" model="doctor.degree">
+            <field name="degree">Master of Medicine (MM, MMed)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_6" model="doctor.degree">
+            <field name="degree">Master of Philosophy (MPhil)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_7" model="doctor.degree">
+            <field name="degree">Master of Surgery (MS, MSurg, MChir, MCh, ChM, CM)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_8" model="doctor.degree">
+            <field name="degree">Master of Science in Medicine or Surgery (MSc)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_9" model="doctor.degree">
+            <field name="degree">Doctor of Clinical Medicine (DCM)</field>
+        </record>
+
+        <record id="res_partner_doctor_degree_10" model="doctor.degree">
+            <field name="degree">Doctor of Clinical Surgery (DClinSurg)</field>
+        </record>
+
+        <!--        For Doctor Department-->
+
+        <record id="res_partner_doctor_department_1" model="doctor.department">
+            <field name="department">Radiology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_2" model="doctor.department">
+            <field name="department">Internal medicine</field>
+        </record>
+
+        <record id="res_partner_doctor_department_4" model="doctor.department">
+            <field name="department">Neurology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_5" model="doctor.department">
+            <field name="department">Ophthalmology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_6" model="doctor.department">
+            <field name="department">Otorhinolaryngology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_8" model="doctor.department">
+            <field name="department">Endocrinology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_9" model="doctor.department">
+            <field name="department">Nephrology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_10" model="doctor.department">
+            <field name="department">Dermatology</field>
+        </record>
+
+        <record id="res_partner_doctor_department_11" model="doctor.department">
+            <field name="department">Surgery</field>
+        </record>
+
+        <record id="res_partner_doctor_department_12" model="doctor.department">
+            <field name="department">Physiotherapy</field>
+        </record>
+
+
+        <!--        For Select Time-->
+
+        <record id="doctor_select_time_1" model="doctor.weeklyavalibility">
+            <field name="name">01:00 To 03:00</field>
+        </record>
+
+        <record id="doctor_select_time_2" model="doctor.weeklyavalibility">
+            <field name="name">05:00 To 07:00</field>
+        </record>
+
+
+        <!--        For Doctor Weekly Availability-->
+
+        <record id="doctor_weekly_available_1" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_2"/>
+            <field name="to_time" ref="cr_medical_base.time_4"/>
+            <field name="totel_appointment">10</field>
+            <field name="name">01:00 To 03:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_2" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_6"/>
+            <field name="to_time" ref="cr_medical_base.time_8"/>
+            <field name="totel_appointment">10</field>
+            <field name="name">05:00 To 07:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_3" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_10"/>
+            <field name="to_time" ref="cr_medical_base.time_12"/>
+            <field name="totel_appointment">10</field>
+            <field name="name">09:00 To 11:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_4" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_5"/>
+            <field name="to_time" ref="cr_medical_base.time_7"/>
+            <field name="totel_appointment">20</field>
+            <field name="name">04:00 To 06:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_5" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_4"/>
+            <field name="to_time" ref="cr_medical_base.time_7"/>
+            <field name="totel_appointment">20</field>
+            <field name="name">03:00 To 06:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_6" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_14"/>
+            <field name="to_time" ref="cr_medical_base.time_17"/>
+            <field name="totel_appointment">30</field>
+            <field name="name">13:00 To 16:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_7" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_11"/>
+            <field name="to_time" ref="cr_medical_base.time_15"/>
+            <field name="totel_appointment">10</field>
+            <field name="name">10:00 To 14:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_8" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_13"/>
+            <field name="to_time" ref="cr_medical_base.time_16"/>
+            <field name="totel_appointment">20</field>
+            <field name="name">12:00 To 15:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_9" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_2"/>
+            <field name="to_time" ref="cr_medical_base.time_5"/>
+            <field name="totel_appointment">10</field>
+            <field name="name">01:00 To 04:00</field>
+        </record>
+
+        <record id="doctor_weekly_available_10" model="doctor.weeklyavalibility">
+            <field name="available_weekdays" eval="[(6,0,[1,2,3,4,5,6])]"/>
+            <field name="from_time" ref="cr_medical_base.time_7"/>
+            <field name="to_time" ref="cr_medical_base.time_10"/>
+            <field name="totel_appointment">20</field>
+            <field name="name">06:00 To 09:00</field>
+        </record>
+
+
+        <!--        For Doctor Creation-->
+
+        <record id="res_partner_doctor_1" model="res.partner">
+            <field name="name">Edward Jenner</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_1'/>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_11')])]"/>
+            <field name="joining_date">2015-04-22</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_1')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_1')])]"/>
+            <field name="doctor_fees">500</field>
+            <field name="mobile">123685420</field>
+            <field name="email">edward.jenner@gmail.com</field>
+            <field name="total_experience">10</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Edward Jenner was a pioneering physician who is credited with developing the
+                first successful smallpox vaccine. He was born on May 17, 1749, in Berkeley, Gloucestershire, England...
+            </field>
+            <field name="work_location">Delhi</field>
+            <field name="doc_language" eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN')])]"/>
+            <field name="registration_no">DR-0001</field>
+            <field name="doctor_description">Edward Jenner is a pioneering physician who is credited with developing the
+                first successful smallpox vaccine.
+            </field>
+            <field name="working_institute">A. C. Subba Reddy Government Medical College</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/edward jenner.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/edward jenner.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_2" model="res.partner">
+            <field name="name">Elizabeth Blackwell</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_2'/>
+            <field name="joining_date">2020-02-22</field>
+            <field name="sex">female</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_11')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_4'),ref('cr_medical_base.res_partner_doctor_degree_9')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_2')])]"/>
+            <field name="doctor_fees">1000</field>
+            <field name="mobile">1232548521</field>
+            <field name="email">elizabeth.blackwell@gmail.com</field>
+            <field name="total_experience">2</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Elizabeth Blackwell was born on February 3, 1821, in Bristol, England. She was
+                the first woman to receive a medical degree in the United States, graduating from Geneva Medical
+                College...
+            </field>
+            <field name="work_location">Goa</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN'),ref('base.lang_gu_IN')])]"/>
+            <field name="registration_no">DR-0002</field>
+            <field name="doctor_description">Elizabeth Blackwell was the first woman to receive a medical degree in the
+                United States and is a trailblazer for women in medicine.
+            </field>
+            <field name="working_institute">India Institute of Medical Sciences</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/elizabeth.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/elizabeth.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_3" model="res.partner">
+            <field name="name">Daniel Hale Williams</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_11'/>
+            <field name="joining_date">2018-01-01</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_2')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_3'),ref('cr_medical_base.res_partner_doctor_degree_4'),ref('cr_medical_base.res_partner_doctor_degree_7')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_3')])]"/>
+            <field name="doctor_fees">500</field>
+            <field name="mobile">1234012458</field>
+            <field name="email">daniel.williams@gmail.com</field>
+            <field name="total_experience">8</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Daniel Hale Williams was born on January 18, 1856, in Hollidaysburg,
+                Pennsylvania. He was an African-American surgeon and one of the first physicians to perform a successful
+                open-heart surgery..Daniel Hale Williams.
+            </field>
+            <field name="work_location">Gujarat</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_hi_IN'),ref('base.lang_gu_IN'),ref('base.lang_en')])]"/>
+            <field name="registration_no">DR-0003</field>
+            <field name="doctor_description">Daniel Hale Williams was a notable surgeon who performed one of the
+                earliest successful open-heart surgeries.
+            </field>
+            <field name="working_institute">Sitaram Raju Academy of Medical</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/daniael.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/daniael.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_4" model="res.partner">
+            <field name="name">Sir Alexander Fleming</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_4'/>
+            <field name="joining_date">2018-01-01</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_4')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_2'),ref('cr_medical_base.res_partner_doctor_degree_3')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_4')])]"/>
+            <field name="doctor_fees">500</field>
+            <field name="mobile">78544</field>
+            <field name="email">sirfleming@gmail.com</field>
+            <field name="total_experience">7</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Sir Alexander Fleming was born on August 6, 1881, in Lochfield, Ayrshire,
+                Scotland. He was a Scottish bacteriologist and pharmacologist who discovered the antibiotic substance
+                penicillin...
+            </field>
+            <field name="work_location">Haryana</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN')])]"/>
+            <field name="registration_no">DR-0004</field>
+            <field name="doctor_description">Sir Alexander Fleming is renowned for his discovery of the antibiotic
+                substance penicillin, which revolutionized medicine.
+            </field>
+            <field name="working_institute">Andhra Medical College</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/alexander.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/alexander.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_5" model="res.partner">
+            <field name="name">Helen Brooke Taussig</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_5'/>
+            <field name="joining_date">2015-01-01</field>
+            <field name="sex">female</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_4')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_5'),ref('cr_medical_base.res_partner_doctor_degree_10'),ref('cr_medical_base.res_partner_doctor_degree_6')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_5')])]"/>
+            <field name="doctor_fees">1000</field>
+            <field name="mobile">178541</field>
+            <field name="email">helen@gmail.com</field>
+            <field name="total_experience">11</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Helen Brooke Taussig was born on May 24, 1898, in Cambridge, Massachusetts, USA.
+                She was a pioneering pediatric cardiologist known for her groundbreaking work in developing...
+            </field>
+            <field name="work_location">Daman and Diu</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN'),ref('base.lang_gu_IN')])]"/>
+            <field name="registration_no">DR-0005</field>
+            <field name="doctor_description">Helen Brooke Taussig was a pioneering pediatric cardiologist known for her
+                work in developing the field of congenital heart surgery.
+            </field>
+            <field name="working_institute">Apollo Institute of Medical Sciences and Research</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/helen brooke.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/helen brooke.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_6" model="res.partner">
+            <field name="name">Charles Richard Drew</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_6'/>
+            <field name="joining_date">2017-02-01</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_6')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_4'),ref('cr_medical_base.res_partner_doctor_degree_6')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_6')])]"/>
+            <field name="doctor_fees">1000</field>
+            <field name="mobile">4578966525</field>
+            <field name="email">charles.drew@gmail.com</field>
+            <field name="total_experience">5</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Charles Richard Drew was born on June 3, 1904, in Washington, D.C., USA. He was
+                an African-American surgeon, researcher, and educator who made significant contributions to blood...
+            </field>
+            <field name="work_location">Chandigarh</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_gu_IN')])]"/>
+            <field name="registration_no">DR-0006</field>
+            <field name="doctor_description">Charles Richard Drew was a prominent surgeon and researcher who made
+                significant contributions to blood transfusion and blood banking.
+            </field>
+            <field name="working_institute">Dr. P. S. Institute of Medical Sciences and Research Foundation</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/charles.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/charles.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_7" model="res.partner">
+            <field name="name">Michael Ellis DeBakey</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_12'/>
+            <field name="joining_date">2016-11-10</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_15')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_8')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_7')])]"/>
+            <field name="doctor_fees">550</field>
+            <field name="mobile">2589631478</field>
+            <field name="email">michael.debakey@gmail.com</field>
+            <field name="total_experience">1</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Michael Ellis DeBakey was born on September 7, 1908, in Lake Charles, Louisiana,
+                USA. He was a prominent cardiovascular surgeon who played a crucial role in advancing heart surgery
+                techniques...
+            </field>
+            <field name="work_location">Assam</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN')])]"/>
+            <field name="registration_no">DR-0007</field>
+            <field name="doctor_description">Michael Ellis DeBakey was a prominent cardiovascular surgeon who played a
+                crucial role in advancing heart surgery techniques.
+            </field>
+            <field name="working_institute">Fathima Institute of Medical Sciences</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/michel elis.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/michel elis.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_8" model="res.partner">
+            <field name="name">Virginia Apgar</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_8'/>
+            <field name="joining_date">2015-01-01</field>
+            <field name="sex">female</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_12')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_5'),ref('cr_medical_base.res_partner_doctor_degree_8')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_8')])]"/>
+            <field name="doctor_fees">1000</field>
+            <field name="mobile">178541</field>
+            <field name="email">virginia.apgar@gmail.com</field>
+            <field name="total_experience">4</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Virginia Apgar was born on June 7, 1909, in Westfield, New Jersey, USA. She was
+                an obstetrical anesthetist and a trailblazer in the field of maternal and neonatal care...
+            </field>
+            <field name="work_location">Punjab</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN'),ref('base.lang_gu_IN')])]"/>
+            <field name="registration_no">DR-0008</field>
+            <field name="doctor_description">Virginia Apgar was an obstetrical anesthetist who developed the Apgar
+                Score, a system used to quickly assess the health of newborns.
+            </field>
+            <field name="working_institute">Gayathri Vidya Parishad Institute of Health Care and Medical Technology
+            </field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/virginia.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/helen brooke.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_9" model="res.partner">
+            <field name="name">Georges Mathé</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_9'/>
+            <field name="joining_date">2019-01-05</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_13')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_8'),ref('cr_medical_base.res_partner_doctor_degree_9')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_9')])]"/>
+            <field name="doctor_fees">550</field>
+            <field name="mobile">8795487965</field>
+            <field name="email">Georges.Mathé@gmail.com</field>
+            <field name="total_experience">9</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Georges Mathé was born on January 9, 1922, in Paris, France. He was a pioneering
+                hematologist known for his groundbreaking work in bone marrow transplantation and immunotherapy...
+            </field>
+            <field name="work_location">Rajasthan</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en')])]"/>
+            <field name="registration_no">DR-0009</field>
+            <field name="doctor_description">Georges Mathé was a pioneering hematologist known for his groundbreaking
+                work in bone marrow transplantation and immunotherapy.
+            </field>
+            <field name="working_institute">Government Medical College</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/george mathe.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/george mathe.jpeg"/>
+        </record>
+
+        <record id="res_partner_doctor_10" model="res.partner">
+            <field name="name">Helene D. Gayle</field>
+            <field name="doctor_department_id"
+                   ref='cr_medical_base.res_partner_doctor_department_10'/>
+            <field name="joining_date">2019-05-05</field>
+            <field name="sex">female</field>
+            <field name="state">approve</field>
+            <field name="speciality_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_speciality_14')])]"/>
+            <field name="degree_ids"
+                   eval="[(6,0,[ref('cr_medical_base.res_partner_doctor_degree_4'),ref('cr_medical_base.res_partner_doctor_degree_7')])]"/>
+            <field name="weekly_avalibility_line"
+                   eval="[(6, 0, [ref('doctor_weekly_available_10')])]"/>
+            <field name="doctor_fees">1000</field>
+            <field name="mobile">2145788956</field>
+            <field name="email">helene.gayle@gmail.com</field>
+            <field name="total_experience">3</field>
+            <field name="is_doctor" eval="True"/>
+            <field name="about_doctor">Helene D. Gayle is a globally recognized public health expert who was born on
+                August 5, 1955, in Buffalo, New York, USA. She has held leadership positions in various international
+                organizations...
+            </field>
+            <field name="work_location">Sikkim</field>
+            <field name="doc_language"
+                   eval="[(6,0,[ref('base.lang_en'),ref('base.lang_hi_IN'),ref('base.lang_gu_IN')])]"/>
+            <field name="registration_no">DR-00010</field>
+            <field name="doctor_description">Helene D. Gayle is a globally recognized public health expert who has held
+                leadership positions in various international organizations.
+            </field>
+            <field name="working_institute">Great Eastern Medical School and Hospital</field>
+            <field name="image_1920" type="base64" file="cr_medical_base/static/src/img/helen.jpeg"/>
+            <field name="sign_by" type="base64" file="cr_medical_base/static/src/img/helen.jpeg"/>
+        </record>
+
+    </data>
+</odoo>

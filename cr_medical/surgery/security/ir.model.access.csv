@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+surgery.access_ipd_surgery,access_ipd_surgery,surgery.model_ipd_surgery,base.group_user,1,1,1,1
+surgery.access_surgery_type,access_surgery_type,surgery.model_surgery_type,base.group_user,1,1,1,1
+surgery.access_show_ipd_surgery,access_show_ipd_surgery,surgery.model_show_ipd_surgery,base.group_user,1,1,1,1
+surgery.access_surgery_report,access_surgery_report,surgery.model_surgery_report,base.group_user,1,1,1,1
+

@@ -1,0 +1,46 @@
+<odoo>
+
+    <record id="ipd_surgery_view_form" model="ir.ui.view">
+        <field name="name">IPD Surgery</field>
+        <field name="model">ipd.surgery</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id" readonly="True"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="surgery_date" required="True"/>
+                            <field name="surgery_id" required="True"/>
+                            <field name="doctor_id" required="True"
+                                   context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                            <field name="anesthetic_id" required="True"
+                                   context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                        </group>
+                        <group>
+                            <field name="start_time" required="True"/>
+                            <field name="end_time" required="True"/>
+                            <field name="doctor_remark"/>
+                            <field name="ot_remark"/>
+                            <field name="action"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Confirm Surgery" name="patient_surgery" type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn btn-primary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ipd_surgery" model="ir.actions.act_window">
+        <field name="name">IPD Surgery</field>
+        <field name="res_model">ipd.surgery</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="surgery.ipd_surgery_view_form"/>
+    </record>
+
+</odoo>

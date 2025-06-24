@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="auth_signup_signup_inherit" inherit_id="auth_signup.signup">
+        <xpath expr="//button[@type='submit']" position="before">
+            <label for="cars">Login As</label>
+            <select id="hospital" name="hospital_user">
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+                <option value="pharmacy">Pharmacy</option>
+                <option value="laboratory">Laboratory</option>
+                <option value="radiology">Radiology</option>
+            </select>
+        </xpath>
+    </template>
+</odoo>

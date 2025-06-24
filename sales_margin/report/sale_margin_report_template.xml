@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_salemargin_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="text-center">
+                    <p style="font-size: 30px; font-weight: bold">Sale Margin Report</p>
+                    <strong>From</strong>
+                    <span t-esc="reports['start_date']"/>
+                    <strong>To</strong>
+                    <span t-esc="reports['end_date']"/>
+                    <table class="mt-5 table table-striped">
+                        <thead class="table-dark" style="background-color: black;">
+                            <tr class="text-center text-light">
+                                <th>Sale Order</th>
+                                <th>Date</th>
+                                <th>Product Name</th>
+                                <th>Customer</th>
+                                <th>Sales Person</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Cost</th>
+                                <th>Sub Total</th>
+                                <th>Margin Amount</th>
+                                <th>Margin (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="reports['highlight_negative'] == True">
+                                <t t-if="reports['margin_nature'] == 'all'">
+                                    <tr t-foreach="records" t-as="record">
+                                        <t t-if="record.get('margin_amount') &lt; 0">
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('sale_order')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('date')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('product_name')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('customer')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('sales_person')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('quantity')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('unit_price')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('cost')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('sub_total')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('margin_amount')"/>
+                                            </td>
+                                            <td>
+                                                <span style="color:red;" t-esc="record.get('margin_percentage')"/>
+                                            </td>
+                                        </t>
+                                        <t t-if="record.get('margin_amount') &gt; 0">
+                                            <td>
+                                                <span t-esc="record.get('sale_order')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('date')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('product_name')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('customer')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('sales_person')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('quantity')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('unit_price')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('cost')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('sub_total')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('margin_amount')"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="record.get('margin_percentage')"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </t>
+                            <t t-if="reports['highlight_negative'] == False">
+                                <t t-if="reports['margin_nature'] == 'positive'">
+                                    <tr t-if="record.get('margin_amount') &gt; 0" t-foreach="records" t-as="record">
+                                        <td>
+                                            <span t-esc="record.get('sale_order')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('date')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('product_name')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('customer')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('sales_person')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('quantity')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('unit_price')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('cost')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('sub_total')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('margin_amount')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('margin_percentage')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="reports['margin_nature'] == 'negative'">
+                                    <tr t-if="record.get('margin_amount') &lt; 0" t-foreach="records" t-as="record">
+                                        <td>
+                                            <span t-esc="record.get('sale_order')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('date')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('product_name')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('customer')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('sales_person')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('quantity')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('unit_price')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('cost')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('sub_total')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('margin_amount')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('margin_percentage')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="reports['margin_nature'] == 'all'">
+                                    <tr t-foreach="records" t-as="record">
+                                        <td>
+                                            <span t-esc="record.get('sale_order')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('date')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('product_name')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('customer')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('sales_person')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('quantity')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('unit_price')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('cost')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('sub_total')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('margin_amount')"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="record.get('margin_percentage')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_salemargin">
+        <t t-call="web.html_container">
+            <t t-call="sales_margin.report_salemargin_document"/>
+        </t>
+    </template>
+</odoo>

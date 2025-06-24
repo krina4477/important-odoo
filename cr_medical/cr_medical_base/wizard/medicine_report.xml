@@ -1,0 +1,34 @@
+<odoo>
+    <!--     Form view   -->
+    <record id="medicine_stock_report_view" model="ir.ui.view">
+        <field name="name">medicine report</field>
+        <field name="model">medicine.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="button_export_pdf" string="Export PDF" type="object"/>
+                        <button string="CANCEL" class="oe_link" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="medicine_stock_repors_cr" model="ir.actions.act_window">
+        <field name="name">Medicine Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">medicine.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="view_id" ref="medicine_stock_report_view"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

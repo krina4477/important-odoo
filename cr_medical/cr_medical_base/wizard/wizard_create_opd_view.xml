@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_create_opd_form_view" model="ir.ui.view">
+        <field name="name">Create Opd</field>
+        <field name="model">wizard.create.opd</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <sheet>
+                    <group>
+                        <field name="appointment_date"/>
+                        <field name="weekdays" readonly="1"/>
+                        <field name="select_time_id" options="{'no_create':True}"/>
+                    </group>
+
+                </sheet>
+                <footer>
+                    <button name="create_opd" string="Create OPD" class="oe_link" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_create_opd" model="ir.actions.act_window">
+        <field name="name">Create Opd</field>
+        <field name="res_model">wizard.create.opd</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="cr_medical_base.wizard_create_opd_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

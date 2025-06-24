@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lunch_info_view_tree" model="ir.ui.view">
+        <field name="name">lunch.info.tree</field>
+        <field name="model">lunch.info</field>
+        <field name="arch" type="xml">
+            <tree string="lunch info">
+                <field name="name" required="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="lunch_info_view_form" model="ir.ui.view">
+        <field name="name">lunch_info</field>
+        <field name="model">lunch.info</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <group>
+                        <field name="name" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_lunch_info" model="ir.actions.act_window">
+        <field name="name">Lunch</field>
+        <field name="res_model">lunch.info</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Diet"
+              id="menu_diet"
+              parent="cr_medical_base.cr_medical_menu_root"
+              sequence="9"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="Lunch"
+              id="menu_lunch"
+              parent="diet_module.menu_diet"
+              action="action_cr_lunch_info"
+              sequence="67"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="Breakfast"
+              id="menu_breakfast"
+              parent="diet_module.menu_diet"
+              action="action_cr_break_fast_information"
+              sequence="66"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+</odoo>

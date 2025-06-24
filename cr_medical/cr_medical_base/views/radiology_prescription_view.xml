@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_radiology_prescription_tree_view" model="ir.ui.view">
+        <field name="name">radiology.prescription.tree</field>
+        <field name="model">radiology.prescription</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="opd_id"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="prescriptionDate"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_radiology_prescription_form_view" model="ir.ui.view">
+        <field name="name">radiology.prescription.form</field>
+        <field name="model">radiology.prescription</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="confirm_prescription" string="Done" type="object" class="oe_highlight"/>
+                    <button name="cancel_prescription" string="Cancel" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="done,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="opd_id"/>
+                            <field name="prescriptionDate"/>
+
+                        </group>
+                        <group>
+                            <field name="patient_id" placeholder="patient" domain="[('is_patient','=',True)]"
+                                   attrs="{'readonly': []}"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="doctor_id" placeholder="Doctor" domain="[('is_doctor','=',True)]"
+                                   attrs="{'readonly': []}"
+                                   context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                        </group>
+
+                        <group>
+                            <field name="radiology_test_id" widget="many2many_tags"/>
+                        </group>
+
+                        <group>
+                            <field name="attachment_ids" widget="many2many_binary" string="Attach a file"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_cr_radiology_prescription_information">
+        <field name="name">Prescription</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">radiology.prescription</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Radiology Prescription
+            </p>
+        </field>
+    </record>
+</odoo>
+

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--   Create Patient For Patient Information   -->
+
+        <record id="res_partner_new_patient_1" model="res.partner">
+            <field name="name">Ramani Rushik</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="sex">male</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">1998-09-09</field>
+            <field name="marital_status">single</field>
+            <field name="street">Parvat Patiya</field>
+            <field name="street2">Sitanagar Society</field>
+            <field name="city">Surat</field>
+            <field name="state">approve</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AR')]"/>
+            <field name="mobile">(870)-931-0505</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">rushik.ramani@example.com</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_2" model="res.partner">
+            <field name="name">Mitushi Ananya</field>
+            <field name="sex">female</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">1998-12-06</field>
+            <field name="marital_status">single</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_2"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_2"/>
+            <field name="state">approve</field>
+            <field name="street">Hira Nagar</field>
+            <field name="street2">Gotri</field>
+            <field name="city">Vadodara</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','SC')]"/>
+            <field name="mobile">+91 7858965845</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">mitushi.ananya@example.com</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_3" model="res.partner">
+            <field name="name">Patel Jaynil</field>
+            <field name="sex">male</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">1998-08-02</field>
+            <field name="marital_status">single</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_11"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_3"/>
+            <field name="state">approve</field>
+            <field name="street">Eden Roads</field>
+            <field name="street2">Allen Vadi</field>
+            <field name="city">London</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AZ')]"/>
+            <field name="mobile">(285) 125 69854785</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">jainil.patel@gmail.com</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_4" model="res.partner">
+            <field name="name">Chhatrala Darshan</field>
+            <field name="sex">male</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">2000-06-02</field>
+            <field name="marital_status">single</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_4"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_4"/>
+            <field name="state">approve</field>
+            <field name="street">Angan Residency</field>
+            <field name="street2">Bypass Road</field>
+            <field name="city">Junagadh</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','OR')]"/>
+            <field name="mobile">(285) 125 69854785</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">chhatrala.darshan@gmail.com</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_5" model="res.partner">
+            <field name="name">Bechara Bhargav</field>
+            <field name="sex">male</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">1998-05-02</field>
+            <field name="marital_status">married</field>
+            <field name="street">Shreenathji Society</field>
+            <field name="street2">Dungri</field>
+            <field name="city">Junagadh</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','NJ')]"/>
+            <field name="mobile">(285) 125 6985685</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_5"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_5"/>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">bechara.bhargav@gmail.com</field>
+            <field name="state">approve</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_6" model="res.partner">
+            <field name="name">Gandhi Feni</field>
+            <field name="sex">female</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">1998-08-06</field>
+            <field name="marital_status">single</field>
+            <field name="street">Nathdwara Flats</field>
+            <field name="street2">Jesus Streets</field>
+            <field name="city">Queensland</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','NC')]"/>
+            <field name="mobile">1247858965</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_6"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_6"/>
+            <field name="country_id" ref="base.au"/>
+            <field name="email">feni.gandhi@gmail.com</field>
+            <field name="state">approve</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_7" model="res.partner">
+            <field name="name">Vachhani Jay</field>
+            <field name="sex">male</field>
+            <field name="blood_group">A+</field>
+            <field name="date_of_birth">1999-10-10</field>
+            <field name="marital_status">single</field>
+            <field name="street">Vachhani Delo</field>
+            <field name="street2">Faldu Street</field>
+            <field name="city">Moti Marad</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','WV')]"/>
+            <field name="mobile">9872567810</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_12"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_7"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">vachhani.jay@gmail.com</field>
+            <field name="state">approve</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_8" model="res.partner">
+            <field name="name">Changela Vatsal</field>
+            <field name="sex">male</field>
+            <field name="blood_group">O-</field>
+            <field name="date_of_birth">1998-11-07</field>
+            <field name="marital_status">single</field>
+            <field name="street">Shree Tower Flats</field>
+            <field name="street2">Upleta</field>
+            <field name="city">Rajkot</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','FL')]"/>
+            <field name="mobile">8847854965</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_8"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_8"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">vatsal.changela@gmail.com</field>
+            <field name="state">approve</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_9" model="res.partner">
+            <field name="name">Rudakiya Parthik</field>
+            <field name="sex">male</field>
+            <field name="blood_group">B+</field>
+            <field name="date_of_birth">1990-08-06</field>
+            <field name="marital_status">married</field>
+            <field name="street">Yogi Chok</field>
+            <field name="street2">Mota Varachha</field>
+            <field name="city">Surat</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AZ')]"/>
+            <field name="mobile">7817867900</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_9"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_9"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">rudakiya.parthik@gmail.com</field>
+            <field name="state">approve</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_patient_10" model="res.partner">
+            <field name="name">Pooja Patel</field>
+            <field name="sex">female</field>
+            <field name="blood_group">AB+</field>
+            <field name="date_of_birth">1991-06-05</field>
+            <field name="marital_status">married</field>
+            <field name="street">Treasure Island</field>
+            <field name="street2">Kunal Icon Road</field>
+            <field name="city">Pune</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','NC')]"/>
+            <field name="mobile">457856982</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_10"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_10"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">pooja.patel@gmail.com</field>
+            <field name="state">approve</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

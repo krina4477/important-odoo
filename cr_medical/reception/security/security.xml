@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="reception_category_medical">
+            <field name="name">Reception</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record model="res.groups" id="group_reception">
+            <field name="name">Reception</field>
+        </record>
+
+    </data>
+</odoo>

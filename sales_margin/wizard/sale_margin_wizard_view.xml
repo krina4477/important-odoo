@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_margin_wizard_view" model="ir.ui.view">
+        <field name="name">sale.margin.wizard.form</field>
+        <field name="model">sale.margin.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date" widget="daterange" options="{'related_end_date': 'end_date'}"/>
+                        </group>
+                        <group>
+                            <field name="end_date" widget="daterange" options="{'related_start_date': 'start_date'}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="customers" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="sales_person" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="products" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="margin_nature"/>
+                    </group>
+                    <group>
+                        <field name="highlight_negative" invisible = "margin_nature != 'all'"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_margin_report" string="Print Report" type="object" class="btn-primary"/>
+<!--                    <button name="print_margin_xcel" string="Print Report Excel" type="object" class="btn-primary"/>-->
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_margin_wizard" model="ir.actions.act_window">
+        <field name="name">Sale Margin Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.margin.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

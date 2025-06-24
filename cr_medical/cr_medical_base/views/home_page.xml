@@ -1,0 +1,244 @@
+<odoo>
+    <template id="medical_homepage" inherit_id="website.homepage">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure">
+                <t t-name="website.test-info">
+                    <div id="wrap" class="oe_structure oe_empty">
+<!--                        <section class="s_text_image pt32 pb0 o_bg_img_opt_custom oe_img_bg oe_custom_bg"-->
+<!--                                 style="background-size: auto; background-position: 100% 30%; background-color: rgb(206, 222, 231); background-image:;">-->
+<!--                            <div class="container">-->
+<!--                                <div class="row align-items-center">-->
+<!--                                    <div class="col-lg-6 pt16 pb16">-->
+<!--                                        <h2></h2>-->
+<!--                                        <p>-->
+<!--                                        </p>-->
+<!--                                        <p>-->
+<!--                                            <br/>-->
+<!--                                        </p>-->
+<!--                                        <p>-->
+<!--                                        </p>-->
+<!--                                        <div class="s_btn text-left pt16 pb16">-->
+<!--                                            <a href="#" class="btn btn-outline-primary">-->
+
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </section>-->
+<!--                        <section class="s_text_image pt32 bg-300 oe_img_bg oe_custom_bg o_bg_img_opt_custom pb32"-->
+<!--                                 style="background-image: ; background-size: 40% 80%; background-position: 10% 60%;">-->
+<!--                            <div class="container">-->
+<!--                                <div class="row align-items-center">-->
+<!--                                    <div class="pt16 pb16 col-lg-6 offset-lg-6">-->
+<!--                                        <h2 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; color: rgb(170, 170, 170); font-size: 27px; padding: 0px; background-color: rgb(219, 228, 237);">-->
+
+<!--                                        </h2>-->
+<!--                                        <p>-->
+<!--                                        </p>-->
+<!--                                        <p>-->
+<!--                                            <br/>-->
+<!--                                        </p>-->
+<!--                                        <p>-->
+<!--                                        </p>-->
+<!--                                        <div class="s_btn text-left pt16 pb16"><a href="#"-->
+<!--                                                                                  class="btn btn-outline-primary o_default_snippet_text">-->
+<!--                                            </a>`-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </section>-->
+<!--                        <section class="s_text_image pt32 oe_img_bg oe_custom_bg o_bg_img_opt_custom pb0"-->
+<!--                                 style="background-color: rgb(206, 222, 231); background-image: ; background-size: 50% 80%; background-position: 100% 30%;">-->
+<!--                            <div class="container">-->
+<!--                                <div class="row align-items-center">-->
+<!--                                    <div class="col-lg-6 pt16 pb16">-->
+<!--                                        <h2>-->
+
+<!--                                        </h2>-->
+<!--                                        <p>-->
+<!--                                        </p>-->
+
+<!--                                        <p>-->
+<!--                                        </p>-->
+
+<!--                                        <p>-->
+
+<!--                                        </p>-->
+<!--                                        <div class="s_btn text-left pt16 pb16" data-name="Buttons">-->
+<!--                                            <a href="#" class="btn btn-primary o_default_snippet_text">-->
+
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </section>-->
+<!--                        <section class="pt32 pb0">-->
+<!--                            <div class="container">-->
+<!--                                <div class="row s_nb_column_fixed">-->
+<!--                                    <div class="col-lg-12 s_title pb16 pt0" style="text-align: center;">-->
+<!--                                        <h1 class="s_title_small_caps">-->
+<!--                                            <font style="color: rgb(99, 99, 99);">-->
+
+<!--                                            </font>-->
+<!--                                            <br/>-->
+<!--                                        </h1>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </section>-->
+<!--                        <section class="s_features bg-beta oe_custom_bg pb0 pt0" style="">-->
+<!--                            <div class="container">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-lg-2 pb0 pt48 text-center rounded">-->
+<!--                                        <br/>-->
+<!--                                        <img class="img-fluid o_we_custom_image padding-medium rounded rounded-circle"-->
+<!--                                             src="" data-original-title=""-->
+<!--                                             title=""-->
+<!--                                             aria-describedby="tooltip756464"/>-->
+<!--                                        <h3>-->
+<!--                                            <br/>-->
+<!--                                        </h3>-->
+<!--                                        <h3>-->
+<!--                                            <br/>-->
+<!--                                        </h3>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                        </h5>-->
+<!--                                        <p></p>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-lg-3 pb0 pt64 text-center rounded">-->
+<!--                                        <img class="img-fluid o_we_custom_image padding-medium"-->
+<!--                                             src="" data-original-title=""-->
+<!--                                             title=""-->
+<!--                                             aria-describedby="tooltip908351"/>-->
+<!--                                        <h3>-->
+<!--                                        </h3>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+
+
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+
+
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+
+<!--                                        </h5>-->
+<!--                                        <p>-->
+
+
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                    <div class="text-center pb0 col-lg-2 pt104 rounded">-->
+<!--                                        <img class="img-fluid o_we_custom_image rounded-circle padding-medium"-->
+<!--                                             src="" data-original-title=""-->
+<!--                                             title=""-->
+<!--                                             aria-describedby="tooltip764497"/>-->
+<!--                                        <h3>&amp;nbsp;</h3>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="box-sizing: border-box; margin: 0px; font-family: inherit; font-weight: 600; line-height: 1.2; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="box-sizing: border-box; margin: 0px; font-family: inherit; font-weight: 600; line-height: 1.2; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="box-sizing: border-box; margin: 0px; font-family: inherit; font-weight: 600; line-height: 1.2; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="box-sizing: border-box; margin: 0px; font-family: inherit; font-weight: 600; line-height: 1.2; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                        </h5>-->
+<!--                                        <h3>-->
+<!--                                            <div class="col-sm-2 col-xs-4"-->
+<!--                                                 style="width: 190px; -webkit-box-flex: 0; flex-basis: 16.6667%; max-width: 16.6667%; margin-bottom: 20px;"/>-->
+<!--                                        </h3>-->
+<!--                                        <p>-->
+<!--                                            <br/>-->
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                    <div class="text-center pb0 col-lg-2 pt120 rounded">-->
+<!--                                        <img class="img-fluid o_we_custom_image rounded-circle padding-medium"-->
+<!--                                             src="" data-original-title=""-->
+<!--                                             title=""-->
+<!--                                             aria-describedby="tooltip825541"/>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                        </h5>-->
+<!--                                    </div>-->
+<!--                                    <div class="text-center col-lg-3 pb0 pt64 rounded">-->
+<!--                                        <img class="img-fluid o_we_custom_image padding-medium"-->
+<!--                                             src="" data-original-title=""-->
+<!--                                             title=""-->
+<!--                                             aria-describedby="tooltip911541"/>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                            <br/>-->
+<!--                                        </h5>-->
+<!--                                        <h5 class="acr-txt"-->
+<!--                                            style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: Arial; font-weight: 600; color: rgb(34, 34, 34); font-size: 1rem; padding: 0px;">-->
+<!--                                        </h5>-->
+<!--                                        <p>-->
+<!--                                            <br/>-->
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </section>-->
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

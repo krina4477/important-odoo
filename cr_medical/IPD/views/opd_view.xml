@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_inherit_opd_1" model="ir.ui.view">
+            <field name="name">inherit.opd</field>
+            <field name="model">opd.opd</field>
+            <field name="inherit_id" ref="cr_medical_base.cr_opd_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='confirm_appointment']" position="after">
+                    <button attrs="{'invisible':[('state','in',['admitted','draft','cancel','pending',])]}"
+                            name="%(action_admit_patient)d" string="Admit Patient" type="action"
+                            class="oe_highlight" groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_inherit_opd_2" model="ir.ui.view">
+            <field name="name">inherit.follow.up.opd.opd.form</field>
+            <field name="model">opd.opd</field>
+            <field name="inherit_id" ref="cr_medical_base.cr_follow_up_opd_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button attrs="{'invisible':[('state','in',['draft','cancel','pending', 'sent'])]}"
+                            name="%(action_admit_patient)d" string="Admit Patient" type="action" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

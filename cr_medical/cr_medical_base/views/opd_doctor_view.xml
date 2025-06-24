@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_opd_tree_view" model="ir.ui.view">
+        <field name="name">opd.opd.tree</field>
+        <field name="model">opd.opd</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="patient_id"/>
+                <field name="new_patient_name"/>
+                <field name="doctor_department_id"/>
+                <field name="doctor_id"/>
+                <field name="appointment_date"/>
+                <field name="select_time_id"/>
+                <field name="weekdays"/>
+                <field name="state" statusbar_visible="draft,pending,confirm,cancel"/>
+                <button attrs="{'invisible':[('state','in',['confirm','cancel','sent'])]}" name="confirm_appointment"
+                        string="Confirm" type="object" class="oe_highlight"/>
+                <button attrs="{'invisible':[('state','in',['confirm','cancel','sent'])]}" name="reject_appointment"
+                        string="Cancel" type="object" class="oe_highlight"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

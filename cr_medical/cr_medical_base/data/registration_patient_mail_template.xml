@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="registration_patient" model="mail.template">
+            <field name="name">Registration Patient</field>
+            <field name="subject">Registration Patient</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+                        <p>Hello, ${ctx['user_name']|safe}<br />
+                        Your Confirmation Number is <b> ${ctx['confirmation_ref']|safe}</b></p>
+                    </div>
+                ]]>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+        <record id="registration_patient_and_appointment" model="mail.template">
+            <field name="name">Registration Patient And Appointment</field>
+            <field name="subject">Registration Patient And Appointment</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+                        <p>Hello, ${ctx['user_name']|safe}<br />
+                        Your Confirmation Number is <b> ${ctx['confirmation_ref']|safe}</b><br />
+                        Your Appointment Date set is <b> ${ctx['appointment_date']|safe}</b></p>
+                    </div>
+                ]]>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+    </data>
+</odoo>

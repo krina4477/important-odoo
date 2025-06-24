@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="room_form">
+            <field name="name">room_form</field>
+            <field name="model">room</field>
+            <field name="arch" type="xml">
+                <form string="Room details">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="selected,not selected"
+                               options="{'clickable': '1'}"/>
+                        <button name="disconfirm_state" type='object' string="Set Room Free" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="room_type_id" invisible="1"/>
+                            <field name="room_details"/>
+                            <field name="room_no" string="Room Number"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="room_tree">
+            <field name="name">room_tree</field>
+            <field name="model">room</field>
+            <field name="arch" type="xml">
+                <tree string="Room List">
+                    <field name="room_no"/>
+                    <field name="room_type_id"/>
+                    <field name="room_details"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_room_details">
+            <field name="name">Room Details</field>
+            <field name="res_model">room</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No roombooking found
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="IPD" id="ipd_room_details" parent="cr_medical_base.cr_medical_menu_root" active="True"
+                  sequence="4"
+                  groups="IPD.group_laboratory,cr_medical_base.group_doctor,cr_medical_base.group_admin,cr_medical_base.group_patient"/>
+        <menuitem name="Room" id="menu_ipd_room_type_details_1" parent="cr_medical_base.cr_menu_configuration"
+                  sequence="4"
+                  groups="IPD.group_laboratory,cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+        <menuitem name="Room Number"
+                  id="menu_patient_room"
+                  parent="IPD.menu_ipd_room_type_details_1"
+                  action="action_room_details"
+                  sequence="29"/>
+        <menuitem id="cr_medical_ipd_reports"
+                  name="Ipd Report"
+                  parent="IPD.ipd_room_details"
+                  active="True"
+                  action="ipd_repors_action" sequence="27"/>
+    </data>
+</odoo>

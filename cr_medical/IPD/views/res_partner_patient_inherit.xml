@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_patient_inherit_view" model="ir.ui.view">
+        <field name="name">res.partner.patient.inherit.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="cr_medical_base.cr_patient_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pharmacy_count']" position="before">
+                <field name="ipd_count" invisible="1"/>
+                <button name="open_ipd_view" type="object" class="oe_stat_button"
+                        attrs="{'invisible':[('ipd_count','=', 0)]}" icon="fa-bars">
+                    <field name="ipd_count" widget="statinfo" string="IPD"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

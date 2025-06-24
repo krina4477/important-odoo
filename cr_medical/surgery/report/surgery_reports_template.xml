@@ -1,0 +1,116 @@
+<odoo>
+    <template id="report_surgery_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Surgery Report</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From :
+                                        <t t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To :
+                                        <t t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="sequence" class="text-center">Sr.No</th>
+                                    <th name="sequence" class="text-left">IPD No</th>
+                                    <th name="Patient" class="text-left">Patient Name</th>
+                                    <th name="surgery_date" class="text-center">Surgery Date</th>
+                                    <th name="surgery_id" class="text-left">Surgery Type</th>
+                                    <th name="start_time" class="text-left">Start Time</th>
+                                    <th name="end_time" class="text-left">End Time</th>
+                                    <th name="doctor_id" class="text-left">Special Surgen</th>
+                                    <th name="state" class="text-left">Status</th>
+                                    <th name="doctor_remark" class="text-left">Doctor Remark</th>
+                                    <th name="ot_remark" class="text-left">OT Remark</th>
+                                    <th name="action" class="text-left">Action</th>
+                                    <!--                                    <th name="date" class="text-center">Admit Date</th>-->
+                                    <!--                                    <th name="department" class="text-left">Department</th>-->
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="opd_report">
+                                    <t t-set="index" t-value="0"/>
+                                    <t t-foreach="search_record" t-as="line">
+                                        <tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                            <td class="text-center" name="count" style="font-size:14px;">
+                                                <span t-esc="index"/>
+                                            </td>
+                                            <td name="Sequence" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['name']"/>
+                                            </td>
+                                            <td name="patient" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['patient_name']"/>
+                                            </td>
+
+                                            <td name="surgery_date" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line.get('surgery_date')"
+                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>
+                                            </td>
+
+                                            <td name="surgery" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['surgery_id']"/>
+                                            </td>
+                                            <td name="start_time" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line.get('start_time')"/>
+                                                <!--                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>-->
+                                            </td>
+                                            <td name="end_time" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line.get('end_time')"/>
+                                                <!--                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>-->
+                                            </td>
+                                            <td name="doctor" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['doctor_id']"/>
+                                            </td>
+                                            <td name="state" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line.get('state')"/>
+                                            </td>
+                                            <td name="doctor_remark" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line.get('doctor_remark')"/>
+                                            </td>
+                                            <td name="ot_remark" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line.get('ot_remark')"/>
+                                            </td>
+                                            <td name="action" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line.get('action')"/>
+                                            </td>
+                                            <!--                                            <td name="date" class="text-right" style="font-size:14px;">-->
+                                            <!--                                                <span t-esc="line['date_of_admit']"-->
+                                            <!--                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>-->
+                                            <!--                                            </td>-->
+
+                                            <!--                                            <td name="department" class="text-left" style="font-size:14px;">-->
+                                            <!--                                                <span t-esc="line.get('doctor_department_id')"/>-->
+                                            <!--                                            </td>-->
+                                            <!-- <td name="weekdays" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['weekdays']"/>
+                                            </td> -->
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

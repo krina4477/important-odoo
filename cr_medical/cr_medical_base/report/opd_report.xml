@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="opd_report_pivot" model="ir.ui.view">
+        <field name="name">opd.report.pivot</field>
+        <field name="model">opd.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Opd Analysis" sample="1" disable_linking="1">
+                <field name="doctor_id" type="col"/>
+                <field name="appointment_date" type="row" interval="day"/>
+                <field name="patient_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="opd_report_graph" model="ir.ui.view">
+        <field name="name">opd.report.graph</field>
+        <field name="model">opd.report</field>
+        <field name="arch" type="xml">
+            <graph string="Opd Analysis" sample="1" disable_linking="1">
+                <field name="doctor_id" type="col"/>
+                <field name="appointment_date" type="row" interval="day"/>
+                <field name="patient_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+    <record id="action_view_pivot" model="ir.actions.act_window">
+        <field name="name">Opd Analysis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">opd.report</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_medicine_department_reports" model="ir.actions.report">
+        <field name="name">Medicine reports</field>
+        <field name="model">opd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.medicine_report_department</field>
+        <field name="report_file">cr_medical_base.medicine_report_department</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_patient_count_reports" model="ir.actions.report">
+        <field name="name">Medicine reports</field>
+        <field name="model">opd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.patient_count_report_department</field>
+        <field name="report_file">cr_medical_base.patient_count_report_department</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_opd_reports" model="ir.actions.report">
+        <field name="name">Opd reports</field>
+        <field name="model">opd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.report_opd_report</field>
+        <field name="report_file">cr_medical_base.report_opd_report</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_opd_medicine_patient_reports" model="ir.actions.report">
+        <field name="name">Opd reports</field>
+        <field name="model">opd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.report_opd_medicine_patient_report</field>
+        <field name="report_file">cr_medical_base.report_opd_medicine_patient_report</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_opd_month_reports" model="ir.actions.report">
+        <field name="name">Opd reports</field>
+        <field name="model">opd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.report_opd_month_report</field>
+        <field name="report_file">cr_medical_base.report_opd_month_report</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_opd_department_reports" model="ir.actions.report">
+        <field name="name">Opd reports</field>
+        <field name="model">opd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.report_opd_department_report</field>
+        <field name="report_file">cr_medical_base.report_opd_department_report</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_medicine_stock_reports" model="ir.actions.report">
+        <field name="name">Medicine reports</field>
+        <field name="model">medicine.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cr_medical_base.report_medicine_stock_report</field>
+        <field name="report_file">cr_medical_base.report_medicine_stock_report</field>
+        <field name="binding_model_id" ref="model_opd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <menuitem name="Reporting"
+              id="menu_report_opd"
+              groups="cr_medical_base.group_admin"
+              parent="cr_medical_base.cr_medical_menu_root"
+              sequence="7"/>
+
+
+    <menuitem id="cr_medical_opd_report"
+              name="OPD Report"
+              parent="cr_medical_base.menu_report_opd"
+              active="True"
+              action="action_view_pivot"/>
+
+    <menuitem id="cr_medical_medicine_report"
+              name="Medicine stock Report"
+              parent="cr_medical_base.menu_report_opd"
+              active="True"
+              action="medicine_stock_repors_cr"
+    />
+    <menuitem id="cr_medical_opd_reports"
+              name="Opd Report"
+              parent="cr_medical_base.cr_menu_opd_patient"
+              active="True"
+              action="opd_repors_action"
+    />
+</odoo>

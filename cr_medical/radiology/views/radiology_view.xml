@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="radiology_tree_view" model="ir.ui.view">
+        <field name="name">radiology.radiology.tree</field>
+        <field name="model">radiology.radiology</field>
+        <field name="arch" type="xml">
+            <tree string="Radiology">
+                <field name="name"/>
+                <field name="radiologist_name_id"/>
+                <field name="city"/>
+                <field name="state_id"/>
+                <field name="country_id"/>
+                <field name="website"/>
+                <field name="phone"/>
+                <field name="mobile"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="radiology_form_view" model="ir.ui.view">
+        <field name="name">radiology.radiology.form</field>
+        <field name="model">radiology.radiology</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacies">
+                <!--                <header>-->
+                <!--                    <button attrs="{'invisible':[('state','in',['done'])]}" name="cancel_prescription" string="Cancel" type="object" class="oe_highlight"/>-->
+                <!--                    <button attrs="{'invisible':[('state','in',['done','cancel'])]}" name="confirm_prescription" string="Done" type="object" class="oe_highlight"/>-->
+                <!--                     <field name="state" widget="statusbar" statusbar_visible="done,cancel"/>-->
+                <!--                </header>-->
+                <sheet>
+                    <div class="oe_button_box">
+                        <button class="oe_stat_button" name="toggle_prescription_list" type="object" icon="fa-calendar">
+                            <field name="prescription_count" widget="statinfo" string="All Prescription"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_left" style="width: 500px;">
+                        <!--                        <field name="image" widget="image" class="oe_avatar"-->
+                        <!--                               options="{'preview_image': 'image_medium'}"/>-->
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" string="Radiology Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                            <field name="radiologist_name_id" placeholder="Radiologist Name"
+                                   context="{'default_is_radiologist':True}" domain="[('is_radiologist', '=', True)]"/>
+                        </div>
+                    </div>
+
+                    <group>
+                        <group>
+                            <label for="street" string="Address"/>
+                            <div>
+                                <field name="street" placeholder="Street..."/>
+                                <field name="street2"/>
+                                <div class="address_format">
+                                    <field name="city" placeholder="City" style="width: 40%"/>
+                                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%"/>
+                                </div>
+                                <field name="country_id" placeholder="Country" class="oe_no_button"/>
+                            </div>
+                            <field name="website" widget="url" placeholder="e.g. www.odoo.com"/>
+                        </group>
+
+                        <group>
+                            <field name="phone" placeholder="e.g. +079 4567890"/>
+                            <field name="mobile" placeholder="e.g. +91 1234567890"/>
+                            <field name="email" placeholder="e.g. abc@gmail.com"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="inherited_cr_radiology_prescription_tree_view" model="ir.ui.view">
+        <field name="name">radiology.prescription.inherited.tree</field>
+        <field name="model">radiology.prescription</field>
+        <field name="inherit_id" ref="cr_medical_base.cr_radiology_prescription_tree_view"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='opd_id']" position="before">
+                <field name="radiology_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherited_cr_radiology_prescription_form_view" model="ir.ui.view">
+        <field name="name">radiology.prescription.inherited.form</field>
+        <field name="model">radiology.prescription</field>
+        <field name="inherit_id" ref="cr_medical_base.cr_radiology_prescription_form_view"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='prescriptionDate']" position="after">
+                <field name="radiology_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="radiology_inherited_cr_opd_form_view" model="ir.ui.view">
+        <field name="name">radiology.inherited.opd.form</field>
+        <field name="model">opd.opd</field>
+        <field name="inherit_id" ref="cr_medical_base.cr_opd_form_view"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='radiology_test_id']" position="before">
+                <field name="radiology_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="radiology_inherited_cr_follow_up_opd_patient_form_view" model="ir.ui.view">
+        <field name="name">radiology.inherited.follow.up.opd.form</field>
+        <field name="model">opd.opd</field>
+        <field name="inherit_id" ref="cr_medical_base.cr_follow_up_opd_form_view"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='radiology_test_id']" position="before">
+                <field name="radiology_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="action_cr_radiology_information" model="ir.actions.act_window">
+        <field name="name">Radiology</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">radiology.radiology</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Radiology Test!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="cr_medical_menu_radiology" name="Radiology" parent="cr_medical_base.cr_medical_menu_root"
+              active="True"
+              sequence="7" groups="radiology.group_radiology,cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="Radiology Info" id="menu_radiology_details" parent="cr_medical_menu_radiology"
+              action="action_cr_radiology_information"
+              sequence="1"/>
+</odoo>
+

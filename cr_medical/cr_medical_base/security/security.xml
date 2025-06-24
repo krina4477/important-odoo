@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- =============================For Admin============================== -->
+
+        <record id="group_admin" model="res.groups">
+            <field name="name">Admin</field>
+        </record>
+
+        <record id="base.user_admin" model="res.users">
+            <field name="groups_id" eval="[(4,ref('cr_medical_base.group_admin'))]"/>
+        </record>
+
+        <record id="cr_medical_rule_opd_admin" model="ir.rule">
+            <field name="name">Admin Show All OPD</field>
+            <field name="model_id" ref="model_opd_opd"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record id="cr_medical_rule_pharmacy_prescription_admin" model="ir.rule">
+            <field name="name">Admin Show All Pharmacy Prescription</field>
+            <field name="model_id" ref="model_pharmacy_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record id="cr_medical_rule_laboratory_prescription_admin" model="ir.rule">
+            <field name="name">Admin Show All Laboratory Prescription</field>
+            <field name="model_id" ref="model_laboratory_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record id="cr_medical_rule_radiology_prescription_admin" model="ir.rule">
+            <field name="name">Admin Show All Radiology Prescription</field>
+            <field name="model_id" ref="model_radiology_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record id="cr_medical_patients_doctors_admin" model="ir.rule">
+            <field name="name">Admin Show All Patient and Doctor</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <!-- ========================For Patient================================== -->
+
+        <record id="group_patient" model="res.groups">
+            <field name="name">Is Patient</field>
+        </record>
+
+        <record id="cr_medical_rule_opd_patient" model="ir.rule">
+            <field name="name">Patient Show Own Opd Info</field>
+            <field name="model_id" ref="model_opd_opd"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_patient'))]"/>
+            <field name="domain_force">[('patient_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record id="cr_medical_rule_radiology_prescription_patient" model="ir.rule">
+            <field name="name">Patient Show All Radiology Prescription</field>
+            <field name="model_id" ref="model_radiology_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_patient'))]"/>
+            <field name="domain_force">[('patient_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record id="cr_medical_patients" model="ir.rule">
+            <field name="name">Patient Own Details</field>
+            <field name="model_id" ref="cr_medical_base.model_res_partner"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_patient'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+
+        <!-- ========================For Doctor===================================== -->
+
+        <record model="res.groups" id="group_doctor">
+            <field name="name">Is Doctor</field>
+        </record>
+
+        <record id="cr_medical_rule_opd_doctor" model="ir.rule">
+            <field name="name">Doctor Show Own Opd Info</field>
+            <field name="model_id" ref="model_opd_opd"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_doctor'))]"/>
+            <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record id="cr_medical_rule_pharmacy_prescription_doctor" model="ir.rule">
+            <field name="name">Doctor Show All Pharmacy Prescription</field>
+            <field name="model_id" ref="model_pharmacy_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_doctor'))]"/>
+            <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record id="cr_medical_rule_laboratory_prescription_doctor" model="ir.rule">
+            <field name="name">Doctor Show All Laboratory Prescription</field>
+            <field name="model_id" ref="model_laboratory_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_doctor'))]"/>
+            <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record id="cr_medical_rule_radiology_prescription_doctor" model="ir.rule">
+            <field name="name">Doctor Show All Radiology Prescription</field>
+            <field name="model_id" ref="model_radiology_prescription"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_doctor'))]"/>
+            <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record id="cr_medical_doctors" model="ir.rule">
+            <field name="name">Doctor Own Details</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_doctor'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PharmacyOrderRow" owl="1">
+        <div class="order-row"
+             t-att-class="{ highlight: highlighted }"
+             t-on-click="trigger('click-sale-order', props.order)">
+            <div class="col name">
+                <div>
+                    <t t-esc="name"/>
+                </div>
+            </div>
+            <div class="col date">
+                <div>
+                    <t t-esc="appointment_date"/>
+                </div>
+            </div>
+            <div class="col patient_id">
+                <div>
+                    <t t-esc="patient_id"/>
+                </div>
+            </div>
+            <div class="col doctor">
+                <div>
+                    <t t-esc="doctor_id"/>
+                </div>
+            </div>
+            <div class="col state">
+                <div>
+                    <t t-esc="state"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

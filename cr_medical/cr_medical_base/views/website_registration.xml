@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website_registration_form" model="ir.ui.view">
+        <field name="name">Website Registration</field>
+        <field name="type">qweb</field>
+        <field name="key">cr_medical_base.website_registration_form</field>
+        <field name="arch" type="xml">
+            <t name="registration" t-name="cr_medical_base.website_registration_form">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty"/>
+                    <div id="wrap" class="oe_structure oe_empty"/>
+                    <div id="wrap">
+                        <div class="oe_structure">
+                            <section class="s_features pt32 pb32">
+                                <div class="container-box">
+                                    <div class="col-lg-12 s_title pt16 pb16">
+                                        <div style="text-align: center; width: 100%;">
+                                            <legend class="control-label" align="center" style="color:#000000;">
+                                                Registration Form
+                                            </legend>
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradio" value="Patient"
+                                                       style="color:#00BFFF;">Patient
+                                                </input>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradio" value="Doctor"
+                                                       style="color:#00BFFF;">Doctor
+                                                </input>
+                                            </label>
+                                        </div>
+
+                                        <!-- ====================================== Patient Registration ==================================================-->
+
+                                        <form action="/patient-from-test" method="post"
+                                              style="max-width:700px;margin:auto;" onsubmit="return validation();">
+                                            <div class="Patient selectt">
+
+                                                <div class="row response1" id="patient_form">
+                                                    <legend class="control-label" align="center">Patient Form</legend>
+
+                                                    <div class="form-group col-md-12">
+                                                        <label for="name" class="control-label">Patient Name *</label>
+                                                        <input type="text" id="name" class="form-control"
+                                                               placeholder="Patient Name"
+                                                               name="patient name" required="required"/>
+                                                    </div>
+
+                                                    <div class="form-group col-md-12"> <!-- street!-->
+                                                        <label for="street" class="control-label">Address *
+                                                        </label>
+                                                        <input type="text" class="form-control" id='street'
+                                                               placeholder="Street1"
+                                                               name="street_name" required="required"/>
+                                                    </div>
+
+                                                    <div class="form-group col-md-12"> <!-- street2!-->
+                                                        <input type="text" class="form-control" id='street2'
+                                                               placeholder="Street2"
+                                                               name="street2_name"/>
+                                                    </div>
+
+                                                    <div class="form-group col-md-12 div_country">
+                                                        <label class="col-form-label" for="country_id">Country
+                                                        </label>
+                                                        <select id="country_id" name="country_id"
+                                                                class="form-control">
+                                                            <option value="">Country...</option>
+                                                            <t t-foreach="countries" t-as="c">
+                                                                <option t-att-value="c.id"
+                                                                        t-att-selected="c.id == (country and country.id or -1)">
+                                                                    <t t-esc="c.name"/>
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4 div_state">
+                                                        <label class="col-form-label" for="state_id">State /
+                                                            Province *
+                                                        </label>
+                                                        <select name="state_id" class="form-control "
+                                                                data-init="1" required="required">
+                                                            <option value="">State / Province...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4"> <!--city!-->
+                                                        <label class="col-form-label" for="city">City *</label>
+                                                        <input type="text" class="form-control" id='city'
+                                                               placeholder="City"
+                                                               name="city_name" required="required"/>
+                                                    </div>
+
+                                                    <div class="form-group col-md-4"> <!-- zip!-->
+                                                        <label class="col-form-label" for="pin code">PIN Code *
+                                                        </label>
+                                                        <input type="number" class="form-control" id='zip'
+                                                               placeholder="PIN Code"
+                                                               name="zip_name" required="required"
+                                                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                               maxlength="6"/>
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="date_of_birth" class="control-label">BirthDate *
+                                                        </label>
+                                                        <input type="date" id="date_of_birth" class="form-control"
+                                                               name="Patient BirthDate" onchange="comp(),validation()"
+                                                               required="required"/>
+                                                        <span id="username" class="text-danger font-weight-bold"></span>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="age" class="control-label">Age *</label>
+                                                        <input type="text" id="age" class="form-control"
+                                                               name="patient age" required="required"
+                                                               readonly="readonly"/>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="sex" class="control-label">Gender *</label>
+                                                        <select class="form-control" id="sex" name="sex"
+                                                                required="required">
+                                                            <option value="male">Male</option>
+                                                            <option value="female">Female</option>
+                                                            <option value="other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="blood_group" class="control-label">Blood Group *
+                                                        </label>
+                                                        <select class="form-control" id="blood_group"
+                                                                name="blood_group" required="required">
+                                                            <option value="A+">A+</option>
+                                                            <option value="A-">A-</option>
+                                                            <option value="AB+">B+</option>
+                                                            <option value="B-">B-</option>
+                                                            <option value="O+">O+</option>
+                                                            <option value="O-">O-</option>
+                                                            <option value="AB+">AB+</option>
+                                                            <option value="AB+">AB-</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="marital_status" class="control-label">Marital
+                                                            Status *
+                                                        </label>
+                                                        <select class="form-control" name="marital_status"
+                                                                id="marital_status" required="required">
+                                                            <option value="single">Single</option>
+                                                            <option value="married">Married</option>
+                                                            <option value="widow">Widow</option>
+                                                            <option value="divorced">Divorced</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="mobile number" class="control-label">Mobile *
+                                                        </label>
+                                                        <input type="number" id="mobile" class="form-control"
+                                                               placeholder="1234567890"
+                                                               name="mobile number" required="required"
+                                                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                               maxlength="10"/>
+
+
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="email" class="control-label">Email *</label>
+                                                        <input type="email" id="email" class="form-control"
+                                                               placeholder="abc@gmail.com"
+                                                               name="email" required="required"/>
+                                                        <!--                                                            <t t-if="'error_in_email' in request.params">-->
+                                                        <!--                                                                <div class="alert alert-danger">-->
+                                                        <!--                                                                    <strong>Wraning!</strong>-->
+                                                        <!--                                                                    Email Is Already Exist!!-->
+                                                        <!--                                                                </div>-->
+                                                        <!--                                                            </t>-->
+                                                    </div>
+
+
+                                                    <div style="margin-top:15px;  margin-left:auto; margin-right:auto;">
+                                                        <div class="button_style form-group col-md-12">
+                                                            <button class="btn btn-primary pull-left" type="submit"
+                                                                    value="submit"
+                                                                    style="background-color:gray; border-color:gray;">
+                                                                Submit
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <!-- ============================================ Doctor Registration ===================================================================-->
+
+                                        <form action="/doctor-form-test" method="post"
+                                              style="max-width:700px;margin:auto;" onsubmit="return validation1()"
+                                              enctype="multipart/form-data">
+                                            <div class="Doctor selectt">
+
+                                                <div class="row response2">
+                                                    <legend class="control-label" align="center">Doctor Form</legend>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="name" class="control-label">Doctor Name *</label>
+                                                        <input type="text" id="name" class="form-control"
+                                                               placeholder="Doctor Name"
+                                                               name="doctor_name" required="required"/>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="image" class="control-label">Doctor Image *</label>
+                                                        <input type="file" id="image" name="image" accept="image/*"/>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="name" class="control-label">Doctor Speciality *
+                                                        </label>
+                                                        <select id="speciality_ids" class="select form-control"
+                                                                multiple="multiple" name="speciality_name">
+                                                            <t t-foreach="speciality_data" t-as="speciality">
+                                                                <option t-att-value="speciality.id"
+                                                                        t-esc="speciality.speciality"
+                                                                        required="required"/>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="degree_name" class="control-label">Degree *</label>
+                                                        <select id="degree_ids" class="select form-control"
+                                                                multiple="multiple"
+                                                                name="degree_name" required="required">
+                                                            <t t-foreach="degree_data" t-as="degree">
+                                                                <option t-att-value="degree.id" t-esc="degree.degree"/>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="date_of_joining" class="control-label">Doctor
+                                                            Joining
+                                                            Date *
+                                                        </label>
+                                                        <input type="date" id="date_of_joining" class="form-control"
+                                                               name="Doctor_Joining_Date" required="required"
+                                                               onchange="validation1()"
+                                                        />
+                                                        <span id="username1"
+                                                              class="text-danger font-weight-bold"></span>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="fees" class="control-label">Fees *</label>
+                                                        <input type="text" id="fees" class="form-control"
+                                                               placeholder="Fees"
+                                                               name="doctor_fees" required="required"/>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="sex" class="control-label">Sex *</label>
+                                                        <select class="form-control" id="sex" name="sex"
+                                                                required="required">
+                                                            <option value="male">Male</option>
+                                                            <option value="female">Female</option>
+                                                            <option value="other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="licence_id" class="control-label">Licence ID *
+                                                        </label>
+                                                        <input type="text" id="licence_id" class="form-control"
+                                                               placeholder="Licence Id"
+                                                               name="licence_id" required="required"/>
+                                                    </div>
+
+                                                    <!--                                            </div>-->
+
+                                                    <div class="row form-group col-md-12">
+                                                        <legend class="control-label">Contact Information:</legend>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="working_institute" class="control-label">Working
+                                                                Institute *
+                                                            </label>
+                                                            <input type="text" id="working_institute"
+                                                                   placeholder="Working Institute"
+                                                                   class="form-control"
+                                                                   name="working_institute"
+                                                                   required="required"/>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="working_location" class="control-label">Working
+                                                                Location *
+                                                            </label>
+                                                            <input type="text" id="working_location"
+                                                                   placeholder="Working Location"
+                                                                   class="form-control"
+                                                                   name="working_location"
+                                                                   required="required"/>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="mobile" class="control-label">Mobile Number *
+                                                            </label>
+                                                            <input type="number" id="mobile1" class="form-control"
+                                                                   required="required"
+                                                                   placeholder="1234567890"
+                                                                   name="mobile"
+                                                                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                                   maxlength="10"/>
+
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="email_id" class="control-label">Email *</label>
+                                                            <input type="email" class="form-control" id="email_id"
+                                                                   required="required"
+                                                                   name="email_name" placeholder="name@domain.com"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group col-md-12">
+                                                        <legend class="control-label">Week Availability</legend>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="available_weekdays" class="control-label">
+                                                                Available
+                                                                WeekDays *
+                                                            </label>
+                                                            <select class="select form-control" id="available_weekdays"
+                                                                    name="available_weekdays_name" required="required"
+                                                                    multiple="multiple">
+                                                                <option value="Sunday">Sunday</option>
+                                                                <option value="Monday">Monday</option>
+                                                                <option value="Tuesday">Tuesday</option>
+                                                                <option value="Wednesday">Wednesday</option>
+                                                                <option value="Thursday">Thursday</option>
+                                                                <option value="Friday">Friday</option>
+                                                                <option value="Saturday">Saturday</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="totel_appointment" class="control-label">Total
+                                                                Appointment *
+                                                            </label>
+                                                            <input type="text" class="form-control"
+                                                                   id="totel_appointment"
+                                                                   placeholder="Total Appointment"
+                                                                   name="totel_appointment_name" required="required"/>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="from_time" class="control-label">From Time *
+                                                            </label>
+                                                            <input type="time" id="from_time" class="form-control"
+                                                                   name="from_time_name" required="required"/>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="to_time" class="control-label">To Time *</label>
+                                                            <input type="time" id="to_time" class="form-control"
+                                                                   name="to_time_name" required="required"/>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label for="name" class="control-label">Total Time</label>
+                                                            <input type="text" class="form-control" id="total_time_name"
+                                                                   name="total_time_name" placeholder="Total Time"
+                                                                   required="required" readonly="readonly"/>
+                                                        </div>
+                                                    </div>
+                                                    <!--                                                    <div class="button_style form-group col-md-12" align="centre" style="margin-top:15px;  margin-left:auto; margin-right:auto;">-->
+                                                    <!--                                                        <button class="btn btn-primary pull-left" type="submit" value="submit" style="background-color:gray; border-color:gray;">Submit-->
+                                                    <!--                                                        </button>-->
+                                                    <!--                                                    </div>-->
+                                                    <div style="margin-top:15px;  margin-left:auto; margin-right:auto;">
+                                                        <div class="button_style form-group col-md-12">
+                                                            <button class="btn btn-primary pull-left" type="submit"
+                                                                    value="submit"
+                                                                    style="background-color:gray; border-color:gray;">
+                                                                Submit
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <record id="website_registration_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/registration-from-info</field>
+        <field name="view_id" ref="website_registration_form"/>
+    </record>
+</odoo>

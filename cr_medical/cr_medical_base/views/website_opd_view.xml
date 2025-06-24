@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website_opd_form" model="ir.ui.view">
+        <field name="name">Website OPD</field>
+        <field name="type">qweb</field>
+        <field name="key">cr_medical_base.website_opd_form</field>
+        <field name="arch" type="xml">
+            <t name="opd" t-name="cr_medical_base.website_opd_form">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty"/>
+                    <div id="wrap" class="oe_structure oe_empty"/>
+                    <div id="wrap">
+                        <div class="oe_structure">
+                            <section class="s_features pt32 pb32">
+
+                                <div class="container-box">
+                                    <div class="col-lg-12 s_title pt16 pb16">
+                                        <div style="text-align: center; width: 100%;">
+                                            <legend align="center">Appoinments</legend>
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradio" class="static_class"
+                                                       value="ExistPatient"
+                                                       style="color:#000000;">Existing Patient
+                                                </input>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradio" class="static_class"
+                                                       value="NewPatient"
+                                                       style="color:#000000;">New Patient
+                                                </input>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ====================================== New Patient Appointment ========================================================== -->
+
+                                    <form action="/website-opd-new-test" method="post"
+                                          style="max-width:700px;margin:auto;">
+
+                                        <div class="NewPatient selectt">
+                                            <div class="row" id="new_patient">
+                                                <div class="form-group col-md-12">
+                                                    <label for="new_patient_name" class="control-label">Patient Name *
+                                                    </label>
+                                                    <input type="text" class="form-control" id='new_patient_name'
+                                                           placeholder="Patient Name"
+                                                           name="patient_name_name" required="required"/>
+                                                </div>
+                                                <div class="form-group col-md-12"> <!-- street!-->
+                                                    <label for="street" class="control-label">Address *
+                                                    </label>
+                                                    <input type="text" class="form-control" id='street'
+                                                           placeholder="Street1"
+                                                           name="street_name" required="required"/>
+                                                </div>
+                                                <div class="form-group col-md-12"> <!-- street2!-->
+                                                    <input type="text" class="form-control" id='street2'
+                                                           placeholder="Street2"
+                                                           name="street2_name"/>
+                                                </div>
+
+                                                <div class="col-md-12 div_country">
+                                                    <label class="col-form-label" for="country_id">Country
+                                                    </label>
+                                                    <select id="country_id" name="country_id"
+                                                            class="form-control">
+                                                        <option value="">Country...</option>
+                                                        <t t-foreach="res_data_country" t-as="c">
+                                                            <option t-att-value="c.id"
+                                                                    t-att-selected="c.id == (country and country.id or -1)">
+                                                                <t t-esc="c.name"/>
+                                                            </option>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4 div_state" style="margin-top: 5px;">
+                                                    <label class="col-form-label" for="state_id">State /
+                                                        Province *
+                                                    </label>
+                                                    <select name="state_id" class="form-control "
+                                                            data-init="1" required="required">
+                                                        <option value="">State / Province...</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group col-md-4" style="margin-top: 5px;"> <!--city!-->
+                                                    <label for="city" class="col-form-label">City *
+                                                    </label>
+                                                    <input type="text" class="form-control" id='city'
+                                                           placeholder="City Name"
+                                                           name="city_name" required="required"/>
+                                                </div>
+
+                                                <div class="form-group col-md-4" style="margin-top: 5px;"> <!-- zip!-->
+                                                    <label for="pin code" class="col-form-label">Zip Code *
+                                                    </label>
+                                                    <input type="number" class="form-control" id='zip'
+                                                           placeholder="Zip Code"
+                                                           name="zip_name" required="required"
+                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                           maxlength="6"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="date_of_birth" class="control-label">Date of Birth *
+                                                    </label>
+                                                    <input type="date" class="form-control" id='date_of_birth'
+                                                           name="date_of_birth_name" onchange="comp(),validation()"
+                                                           required="required"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="age" class="control-label">Age *</label>
+                                                    <input type="text" class="form-control" id='age'
+                                                           name="age_name" readonly="readonly"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="sex" class="control-label">Gender *</label>
+                                                    <select class="form-control" id="sex" name="sex"
+                                                            required="required">
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="marital_status" class="control-label">Marital
+                                                        Status *
+                                                    </label>
+                                                    <select class="form-control" name="marital_status"
+                                                            id="marital_status" required="required">
+                                                        <option value="single">Single</option>
+                                                        <option value="married">Married</option>
+                                                        <option value="widow">Widow</option>
+                                                        <option value="divorced">Divorced</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="blood_group" class="control-label">Blood Group *
+                                                    </label>
+                                                    <select class="form-control" id="blood_group"
+                                                            name="blood_group" required="required">
+                                                        <option value="A+">A+</option>
+                                                        <option value="A-">A-</option>
+                                                        <option value="AB+">B+</option>
+                                                        <option value="B-">B-</option>
+                                                        <option value="O+">O+</option>
+                                                        <option value="O-">O-</option>
+                                                        <option value="AB+">AB+</option>
+                                                        <option value="AB+">AB-</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="mobile number" class="control-label">Mobile *</label>
+                                                    <input type="number" id="mobile" class="form-control"
+                                                           placeholder="1234567890"
+                                                           name="mobile_number" required="required"
+                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                           maxlength="10"/>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="email" class="control-label">Email *</label>
+                                                    <input type="email" id="email" class="form-control"
+                                                           name="email" required="required"
+                                                           placeholder="name@domain.com"/>
+                                                </div>
+
+                                                <div class="form-group div_doctor col-md-6">
+                                                    <label for="doctor_id_new" class="control-label">Doctor *</label>
+                                                    <select id="doctor_id_new" class="form-control"
+                                                            name="doctor_id_new" required="required">
+                                                        <option value="">Doctor...</option>
+                                                        <t t-foreach="doctor_data" t-as="d1">
+                                                            <option t-att-value="d1.id">
+                                                                <t t-esc="d1.name"/>
+                                                            </option>
+                                                        </t>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="available_day_new" class="control-label">Doctor
+                                                        Available
+                                                        Day *
+                                                    </label>
+                                                    <select name="available_day_new" class="form-control"
+                                                            id="available_day_new"
+                                                            data-init="1" required="required">
+                                                        <option value="">Monday...</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="appointment_date1" class="control-label">Select
+                                                        Appointment
+                                                        Date *
+                                                    </label>
+                                                    <input type="date" class="form-control" id='appointment_date1'
+                                                           name="appointment_date_name1"
+                                                           onchange="myFunction_new()" required="required"/>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="select_time_id_new" class="control-label">Select
+                                                        Appointment
+                                                        Time *
+                                                    </label>
+                                                    <select name="select_time_id_new" id="select_time_id_new"
+                                                            class="form-control "
+                                                            data-init="1" required="required">
+                                                        <option value="">Select Time...</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group col-md-12">
+                                                    <label for="weekdays" class="control-label">WeekDay</label>
+                                                    <input type="text" class="form-control" id='weekdays1'
+                                                           name="weekdays_name" readonly="readonly"/>
+                                                </div>
+
+                                                <div style="margin-top:15px;  margin-left:auto; margin-right:auto;">
+                                                    <div class="button_style form-group col-md-12">
+                                                        <button class="btn btn-primary pull-left" align="center"
+                                                                onclick="myFunction_new()"
+                                                                style="background-color:gray; border-color:gray;">Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!-- ============================================== Existing Patient Appointment ==============================================-->
+
+                                    <form action="/website-opd-test" method="post"
+                                          style="max-width:700px;margin:auto;">
+                                        <div class="ExistPatient selectt">
+                                            <div class="row" id="appointment_detail">
+                                                <div class="form-group col-md-12">
+                                                    <label for="confirmation_ref" class="control-label">Confirmation Ref
+                                                        *
+                                                    </label>
+                                                    <input type="text" class="form-control" id='confirmation_ref'
+                                                           placeholder="Confirmation Ref"
+                                                           name="confirmation_ref" required="required"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="patient_id" class="control-label">Patient *</label>
+                                                    <select id="patient_id" class="form-control" name="patient_name"
+                                                            data-init="1" required="required">
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group div_doctor col-md-6">
+                                                    <label for="doctor_id" class="control-label">Doctor *</label>
+                                                    <select id="doctor_id" class="form-control" name="doctor_id"
+                                                            required="required">
+                                                        <option value="">Doctor...</option>
+                                                        <t t-foreach="doctor_data" t-as="d">
+                                                            <option t-att-value="d.id">
+                                                                <t t-esc="d.name"/>
+                                                            </option>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 div_days">
+                                                    <label class="control-label" for="availabel_days">Available days *
+                                                    </label>
+                                                    <select name="availabel_days" id="availabel_days"
+                                                            class="form-control "
+                                                            data-init="1" required="required">
+                                                        <option value="">Monday...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="appointment_date" class="control-label">Appointment
+                                                        Date *
+                                                    </label>
+                                                    <input type="date" class="form-control" id='appointment_date'
+                                                           name="appointment_date_name" onchange="myFunction()"
+                                                           required="required"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="weekdays" class="control-label">WeekDay *</label>
+                                                    <input type="text" class="form-control" id='weekdays'
+                                                           name="weekdays_name" readonly="readonly"
+                                                           required="required"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="select_time_id" class="control-label">Select Time *
+                                                    </label>
+                                                    <select name="select_time_id" id="select_time_id"
+                                                            class="form-control "
+                                                            data-init="1" required="required">
+                                                        <option value="">Select Time...</option>
+                                                    </select>
+                                                </div>
+                                                <div style="margin-top:15px;  margin-left:auto; margin-right:auto;">
+                                                    <div class="button_style form-group col-md-12">
+                                                        <button class="btn btn-primary pull-left" align="center"
+                                                                onclick="myFunction()"
+                                                                style="background-color:gray; border-color:gray;">Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+    <record id="website_opd_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/opd-form-info</field>
+        <field name="view_id" ref="website_opd_form"/>
+    </record>
+</odoo>

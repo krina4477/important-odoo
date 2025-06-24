@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_radiology_radiology,access_radiology_radiology,model_radiology_radiology,base.group_user,1,1,1,1
+access_radiologist_education,access_radiologist_education,model_radiologist_education,base.group_user,1,1,1,1
+
+
+access_radio_test_price,access_radio_test_price,model_radio_test_price,base.group_user,1,1,1,1
+access_patient_radio_test,access_patient_radio_test,model_patient_radio_test,base.group_user,1,1,1,1

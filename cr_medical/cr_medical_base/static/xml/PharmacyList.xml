@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PharmacyList" owl="1">
+        <div class="orders">
+            <div class="header-row" t-att-class="{ oe_hidden: env.isMobile }">
+                <div class="col name">OPD</div>
+                <div class="col date">Date</div>
+                <div class="col customer">patient</div>
+                <div class="col customer">doctor</div>
+                <div class="col customer">state</div>
+            </div>
+            <div class="order-list">
+                <t t-foreach="props.orders" t-as="order" t-key="order.id">
+                    <PharmacyOrderRow order="order" highlightedOrder="highlightedOrder"/>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>

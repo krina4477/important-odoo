@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_move_margin_total_form_inherited" model="ir.ui.view">
+            <field name="name">account.move.margin.form.inherited</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='invoice_tab']" position="inside">
+                    <group>
+                        <field style="font-size:16px; font-weight: bold;" name="total_margin" widget="monetary"
+                               groups="account.group_account_manager"/>
+                        <field style="font-size:14px;" name="total_margin_percentage"
+                               groups="account.group_account_manager"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_move_margin_total_tree_inherited" model="ir.ui.view">
+            <field name="name">account.move.margin.tree.inherited</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount_total_signed']" position="after">
+                    <field name="total_margin" string="Margin" sum="Total" optional="hide"
+                           widget="monetary" groups="account.group_account_manager"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

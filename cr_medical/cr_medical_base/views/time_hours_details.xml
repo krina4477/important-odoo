@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cr_time_hourse_tree_view" model="ir.ui.view">
+            <field name="name">time.hours.tree</field>
+            <field name="model">time.hours</field>
+            <field name="arch" type="xml">
+                <tree string="Time Hours">
+                    <field name="name"/>
+                    <field name="time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cr_time_hours_form_view" model="ir.ui.view">
+            <field name="name">time.hours.form</field>
+            <field name="model">time.hours</field>
+            <field name="arch" type="xml">
+                <form string="Time Hours">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="time"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_cr_time_hours">
+            <field name="name">Time Hours</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">time.hours</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    Time Hours Information
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cr_menu_time_hours"
+                  name="Time Hours"
+                  action="cr_medical_base.action_cr_time_hours"
+                  parent="cr_medical_base.cr_menu_configuration"
+                  active="True"
+                  groups="cr_medical_base.group_admin"
+                  sequence="2"/>
+
+    </data>
+</odoo>

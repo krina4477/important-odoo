@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website_review_form" model="ir.ui.view">
+        <field name="name">Website OPD</field>
+        <field name="type">qweb</field>
+        <field name="key">cr_medical_base.website_review_form</field>
+        <field name="arch" type="xml">
+            <t name="opd" t-name="cr_medical_base.website_review_form">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty"/>
+                    <div id="wrap" class="oe_structure oe_empty"/>
+                    <div id="wrap">
+                        <div class="oe_structure">
+                            <section class="s_features pt32 pb32">
+
+                                <div class="container-box">
+                                    <div class="col-lg-12 s_title pt16 pb16">
+                                        <div style="text-align: center; width: 100%;">
+                                            <u>
+                                                <legend align="center">Reviews</legend>
+                                            </u>
+                                            <legend align="center">Thank you for taking the time to provide your honest
+                                                feedback! I am always looking for ways to improve and your comments help
+                                                me do so.
+                                            </legend>
+                                        </div>
+                                        <div class="text-center">
+                                            Your Opd Number is
+                                            <b>
+                                                <u>
+                                                    <t t-esc="opd_name"/>
+                                                </u>
+                                            </b>
+                                        </div>
+                                        <br/>
+                                        <div class="text-center">
+                                            <table class="table table-bordered text-center"
+                                                   style="width: 50%; margin:0 auto;">
+                                                <thead>
+                                                    <tr style="font-size:15px;">
+                                                        <th name="refrence" class="text-center">Patient Name</th>
+                                                        <th name="designation" class="text-center">Doctor Name</th>
+                                                        <th name="designation" class="text-center">Appointment Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td name="date" class="text-center" style="font-size:14px;">
+                                                            <span t-esc="patient_name"/>
+                                                        </td>
+                                                        <td name="pharmacy_name" class="text-center"
+                                                            style="font-size:14px;">
+                                                            <span t-esc="doctor_name"/>
+                                                        </td>
+                                                        <td name="medicine_name" class="text-center"
+                                                            style="font-size:14px;">
+                                                            <span t-esc="Appointment_date"/>
+                                                            <span t-esc="ratings"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- ====================================== New Patient Appointment ========================================================== -->
+                                    <form action="/website-review-patient" method="post"
+                                          style="max-width:700px;margin:auto;">
+
+                                        <strong for="rating">Rate our service:</strong>
+                                        <input type="hidden" name="opd_id" t-att-value="opd_id" id="opd_id"/>
+                                        <div class="rating" style="margin: 0px; padding:12px;">
+                                            <input type="radio" name="rating" id="rating-5" value="5"/>
+                                            <label for="rating-5">&#9733;</label>
+                                            <input type="radio" name="rating" id="rating-4" value="4"/>
+                                            <label for="rating-4">&#9733;</label>
+                                            <input type="radio" name="rating" id="rating-3" value="3"/>
+                                            <label for="rating-3">&#9733;</label>
+                                            <input type="radio" name="rating" id="rating-2" value="2"/>
+                                            <label for="rating-2">&#9733;</label>
+                                            <input type="radio" name="rating" id="rating-1" value="1"/>
+                                            <label for="rating-1">&#9733;</label>
+                                        </div>
+                                        <br/>
+                                        <strong>Feedback:</strong>
+                                        <div style="margin: 0px; padding:12px;">s
+                                            <textarea name="message" rows="5" cols="100"
+                                                      placeholder="Enter your feedback"></textarea>
+                                        </div>
+                                        <input type="submit" value="submit"
+                                               style="margin-left: 16px;margin-bottom: 5px;"/>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+    <record id="website_opd_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/opd-form-info</field>
+        <field name="view_id" ref="website_review_form"/>
+    </record>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_test_price,access_lab_test_price,model_lab_test_price,base.group_user,1,1,1,1
+access_patient_lab_test,access_patient_lab_test,model_patient_lab_test,base.group_user,1,1,1,1
+access_laboratory_laboratory,access_laboratory_laboratory,model_laboratory_laboratory,,1,1,1,1
+access_pathologist_education,access_pathologist_education,model_pathologist_education,,1,1,1,1
+

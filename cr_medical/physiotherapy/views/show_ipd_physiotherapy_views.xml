@@ -1,0 +1,60 @@
+<odoo>
+    <record id="show_patient_ipd_physiotherapy_view_form" model="ir.ui.view">
+        <field name="name">Show IPD Physiotherapy</field>
+        <field name="model">show.ipd.physiotherapy</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="draft" type="object"
+                            attrs="{'invisible': [('state', 'in', ['draft', 'done', 'cancelled'])]}"
+                            string="Draft" icon="fa-star" class="oe_highlight"/>
+                    <button name="done" type="object"
+                            attrs="{'invisible': [('state', 'in', ['done','cancelled'])]}"
+                            string="Done" class="oe_highlight"/>
+                    <button name="cancelled" type="object"
+                            attrs="{'invisible': [('state', '=', 'cancelled')]}"
+                            string="Cancelled" icon="fa-pencil-square-o" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="date_of_admit"/>
+                        </group>
+                        <group>
+                            <field name="doctor_id" context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                            <field name="physiotherapy_exercise"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="show_ipd_physiotherapy_view_tree" model="ir.ui.view">
+        <field name="name">Show IPD Physiotherapy</field>
+        <field name="model">show.ipd.physiotherapy</field>
+        <field name="arch" type="xml">
+            <tree string="Ipd Surgery Information">
+                <field name="patient_id"/>
+                <field name="date_of_admit"/>
+                <field name="doctor_id"/>
+                <field name="physiotherapy_exercise"/>
+                <field name="state" widget="badge" optional="show" decoration-success="state=='done'"
+                       decoration-info="state=='draft' " decoration-danger="state=='cancelled'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ipd_physiotherapy" model="ir.actions.act_window">
+        <field name="name">Show IPD Physiotherapy</field>
+        <field name="res_model">show.ipd.physiotherapy</field>
+        <field name="view_mode">form,tree</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="physiotherapy.show_ipd_physiotherapy_view_tree"/>
+    </record>
+
+</odoo>

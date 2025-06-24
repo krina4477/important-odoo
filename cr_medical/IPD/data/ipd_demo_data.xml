@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--        For Creating Room Faclities-->
+
+        <record id="room_facility_demo_data_1" model="room.facilities">
+            <field name="name">single room is designed to meet all the basic requirements for a single patient with
+                accommodation for one attendant. These are 304 sq.ft rooms provide ample space for both the patient and
+                the attendant and are designed with large windows for natural light.
+            </field>
+        </record>
+
+        <record id="room_facility_demo_data_2" model="room.facilities">
+            <field name="name">A room assigned to two people. May have one or more beds</field>
+        </record>
+
+        <record id="room_facility_demo_data_3" model="room.facilities">
+            <field name="name">General ward is a common unit where patients who are admitted share the same room.
+            </field>
+        </record>
+
+        <record id="room_facility_demo_data_4" model="room.facilities">
+            <field name="name">Steps are taken to maintain patient privacy while allowing patients to benefit from more
+                economical tariffs and making all other amenities such as dedicated wardrobes, television, etc
+                available.
+            </field>
+        </record>
+
+        <!--            For Creating Number Of Bed-->
+
+        <record id="bed_demo_data_1" model="bed.bed">
+            <field name="name">Bed-1</field>
+        </record>
+
+        <record id="bed_demo_data_2" model="bed.bed">
+            <field name="name">Bed-2</field>
+        </record>
+
+        <record id="bed_demo_data_3" model="bed.bed">
+            <field name="name">Bed-3</field>
+        </record>
+
+        <record id="bed_demo_data_4" model="bed.bed">
+            <field name="name">Bed-4</field>
+        </record>
+
+
+        <!--            For Creating Number Of Room    -->
+
+        <record id="room_number_demo_data_1" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">101</field>
+            <field name="state">selected</field>
+        </record>
+
+        <record id="room_number_demo_data_2" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">201</field>
+        </record>
+
+        <record id="room_number_demo_data_3" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">301</field>
+        </record>
+
+        <record id="room_number_demo_data_4" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">401</field>
+        </record>
+
+        <record id="room_number_demo_data_6" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">102</field>
+        </record>
+
+        <record id="room_number_demo_data_7" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">202</field>
+        </record>
+
+        <record id="room_number_demo_data_8" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">302</field>
+        </record>
+
+        <record id="room_number_demo_data_9" model="room">
+            <field name="room_details">Test</field>
+            <field name="room_no">402</field>
+        </record>
+
+        <!--        For Creating Type Of Room-->
+
+        <record id="room_type_demo_data_1" model="room.type">
+            <field name="name">Single</field>
+            <field name="facility_ids" eval="[(6,0,[ref('room_facility_demo_data_1')])]"/>
+            <field name="room_id" eval="[(6,0,[ref('room_number_demo_data_1'),ref('room_number_demo_data_6')])]"/>
+            <field name="price">4500</field>
+            <field name="bed_ids" eval="[(6,0,[ref('bed_demo_data_1')])]"/>
+        </record>
+
+        <record id="room_type_demo_data_2" model="room.type">
+            <field name="name">Double</field>
+            <field name="price">2500</field>
+            <field name="facility_ids" eval="[(6,0,[ref('room_facility_demo_data_2')])]"/>
+            <field name="room_id" eval="[(6,0,[ref('room_number_demo_data_2'),ref('room_number_demo_data_7')])]"/>
+            <field name="bed_ids" eval="[(6,0,[ref('bed_demo_data_2')])]"/>
+        </record>
+
+        <record id="room_type_demo_data_3" model="room.type">
+            <field name="name">General</field>
+            <field name="price">1000</field>
+            <field name="room_id" eval="[(6,0,[ref('room_number_demo_data_3'),ref('room_number_demo_data_8')])]"/>
+            <field name="facility_ids" eval="[(6,0,[ref('room_facility_demo_data_3')])]"/>
+            <field name="bed_ids"
+                   eval="[(6,0,[ref('bed_demo_data_3')])]"/>
+        </record>
+
+        <record id="room_type_demo_data_4" model="room.type">
+            <field name="name">Luxury</field>
+            <field name="price">5000</field>
+            <field name="room_id" eval="[(6,0,[ref('room_number_demo_data_4'),ref('room_number_demo_data_9')])]"/>
+            <field name="facility_ids" eval="[(6,0,[ref('room_facility_demo_data_4')])]"/>
+            <field name="bed_ids"
+                   eval="[(6,0,[ref('bed_demo_data_4')])]"/>
+        </record>
+
+        <!--   For Creating Patients-->
+
+        <record id="res_partner_1" model="res.partner">
+            <field name="name">Jadav Vinay</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="date_of_birth">1998-07-22</field>
+            <field name="sex">male</field>
+            <field name="state">approve</field>
+            <field name="age">22</field>
+            <field name="blood_group">B+</field>
+            <field name="marital_status">single</field>
+            <field name="street">Parvat Patiya</field>
+            <field name="street2">Sitanagar Society</field>
+            <field name="city">Baroda</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AR')]"/>
+            <field name="mobile">9310505098</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">demo.patient@example.com</field>
+            <field name="is_patient" eval="True"/>
+        </record>
+
+        <!--        For Creating IPD Medicine-->
+
+        <record id="add_pharmacy_product_demo_data_1" model="product.product">
+            <field name="name">Supradyn</field>
+            <field name="detailed_type">product</field>
+            <field name="is_medicine">True</field>
+            <field name="manufacturing_date" eval="datetime.now() + timedelta(days=10)"/>
+            <field name="expiry_date" eval="datetime.now() + relativedelta(years=2)"/>
+            <field name="lst_price">20</field>
+            <field name="standard_price">18</field>
+        </record>
+
+        <record id="medicine_ipd_demo_1" model="product.product">
+            <field name="name">Imodium</field>
+            <field name="detailed_type">product</field>
+            <field name="lst_price">25.7</field>
+            <field name="standard_price">15.5</field>
+            <field name="is_medicine" eval="True"/>
+            <field name="manufacturing_date" eval="datetime.now() + timedelta(days=15)"/>
+            <field name="expiry_date" eval="datetime.now() + relativedelta(years=1)"/>
+        </record>
+
+        <record id="stock_inventory_demo6" model="stock.quant">
+            <field name="product_id" ref="IPD.medicine_ipd_demo_1"/>
+            <field name="inventory_quantity">400.0</field>
+        </record>
+
+        <record id="stock_inventory_demo7" model="stock.quant">
+            <field name="product_id" ref="IPD.add_pharmacy_product_demo_data_1"/>
+            <field name="inventory_quantity">400.0</field>
+        </record>
+
+        <function model="stock.quant" name="action_apply_inventory">
+            <function eval="[[('id', 'in', (ref('IPD.stock_inventory_demo6'),
+                                            ref('IPD.stock_inventory_demo7'),
+                                            ))]]" model="stock.quant" name="search"/>
+        </function>
+
+        <!--     For Creating IPD Summery -->
+
+        <record id="ipd_summary_demo_data_2" model="ipd.summary">
+            <field name="date_of_admit" eval="datetime.now() + timedelta(days=3)"/>
+            <field name="disease_indication">Fever</field>
+            <field name="medicine_detail" ref="IPD.add_pharmacy_product_demo_data_1"/>
+            <field name="morning_dose">True</field>
+            <field name="evening_dose">True</field>
+            <field name="frequency">after meal</field>
+            <field name="dose">3</field>
+            <field name="medicine_days">3</field>
+            <field name="total_tablets">15</field>
+        </record>
+
+        <record id="ipd_summary_demo_1" model="ipd.summary">
+            <field name="date_of_admit" eval="datetime.now() + timedelta(days=5)"/>
+            <field name="disease_indication">Colds and Flu</field>
+            <field name="medicine_detail" ref="IPD.medicine_ipd_demo_1"/>
+            <field name="morning_dose">True</field>
+            <field name="noon_dose">True</field>
+            <field name="night_dose">True</field>
+            <field name="dose">02</field>
+            <field name="medicine_days">10</field>
+            <field name="total_tablets">60</field>
+        </record>
+
+        <!--         For Creating IPD registration-->
+
+        <record id="ipd_registration_demo_data_1" model="ipd.registration">
+            <field name="patient_id" ref="res_partner_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>
+            <field name="date_of_admit" eval="datetime.now() + timedelta(days=3)"/>
+            <field name="select_room_type" ref="room_type_demo_data_1"/>
+            <field name="select_room_number" ref="room_number_demo_data_1"/>
+            <field name="bed_id" ref="bed_demo_data_1"/>
+            <field name="state">allocated</field>
+            <field name="ipd_summary_line_ids"
+                   eval="[(6, 0, [ref('ipd_summary_demo_1'),ref('ipd_summary_demo_data_2') ])]"/>
+        </record>
+
+        <record id="ipd_registration_demo_data_2" model="ipd.registration">
+            <field name="patient_id" ref="cr_medical_base.res_partner_new_patient_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>
+            <field name="date_of_admit" eval="datetime.now() + timedelta(days=5)"/>
+            <field name="select_room_type" ref="room_type_demo_data_2"/>
+            <field name="select_room_number" ref="room_number_demo_data_2"/>
+            <field name="bed_id" ref="bed_demo_data_2"/>
+            <field name="state">draft</field>
+            <!--            <field name="ipd_summary_line_ids"-->
+            <!--                   eval="[(6, 0, [ref('ipd_summary_demo_data_3')])]"/>-->
+        </record>
+
+    </data>
+</odoo>

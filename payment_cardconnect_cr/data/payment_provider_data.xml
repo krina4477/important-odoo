@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="payment_provider_cconnect" model="payment.provider">
+            <field name="name">CardConnect</field>
+            <field name="display_as">Credit Card (powered by CardConnect)</field>
+            <field name="image_128" type="base64" file="payment_cardconnect_cr/static/description/icon.png"/>
+            <field name="module_id" ref="base.module_payment_cardconnect_cr"/>
+            <field name="payment_icon_ids"
+                   eval="[(6, 0, [
+                       ref('payment.payment_icon_cc_bancontact'),
+                       ref('payment.payment_icon_cc_maestro'),
+                       ref('payment.payment_icon_cc_mastercard'),
+                       ref('payment.payment_icon_cc_visa'),
+                       ref('payment.payment_icon_cc_discover'),
+                       ref('payment.payment_icon_cc_diners_club_intl'),
+                       ref('payment.payment_icon_cc_jcb'),
+                       ref('payment.payment_icon_cc_unionpay'),
+                   ])]"/>
+            <field name="code">cardconnect</field>
+            <field name="inline_form_view_id" ref="cardconnect_s2s_form"/>
+            <field name="cconnect_merchant_account">dummy</field>
+            <field name="cconnect_url">boltgw.cardconnect.com:6443</field>
+            <field name="cconnect_user">testing</field>
+            <field name="cconnect_pwd">testing123</field>
+        </record>
+    </data>
+</odoo>

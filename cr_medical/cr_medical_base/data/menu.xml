@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="menu_opd" model="website.menu">
+            <field name="name">Make Appointment</field>
+            <field name="url">/opd-form-info</field>
+            <field name="parent_id" ref="website.main_menu"/>
+<!--            <field name="website_id">1</field>-->
+            <field name="sequence" type="int">75</field>
+        </record>
+
+        <record id="menu_registration" model="website.menu">
+            <field name="name">Registration</field>
+            <field name="url">/registration-from-info</field>
+            <field name="parent_id" ref="website.main_menu"/>
+<!--             <field name="website_id">1</field>-->
+            <field name="sequence" type="int">76</field>
+        </record>
+
+        <record id="menu_doctor" model="website.menu">
+            <field name="name">Doctors</field>
+            <field name="url">/doctor-info</field>
+            <field name="parent_id" ref="website.main_menu"/>
+<!--             <field name="website_id">1</field>-->
+            <field name="sequence" type="int">77</field>
+        </record>
+    </data>
+</odoo>

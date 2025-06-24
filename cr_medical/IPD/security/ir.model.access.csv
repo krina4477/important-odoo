@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_room,access_room,model_room,base.group_user,1,1,1,1
+access_room_type,access_room_type,model_room_type,base.group_user,1,1,1,1
+access_room_facilities,access_room_facilities,model_room_facilities,base.group_user,1,1,1,1
+access_ipd_registration,access_ipd_registration,model_ipd_registration,base.group_user,1,1,1,1
+access_ipd_summary,access_ipd_summary,model_ipd_summary,base.group_user,1,1,1,1
+IPD.access_number_of_beds,access_number_of_beds,IPD.model_number_of_beds,,1,1,1,1
+
+access_ipd_reports,access_ipd_reports,model_ipd_reports,,1,1,1,1
+IPD.access_bed_bed,access_bed_bed,IPD.model_bed_bed,base.group_user,1,1,1,1

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id='doctor_view_kanban' model='ir.ui.view'>
+        <field name="name">res.partner.kanban</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+
+            <kanban create="false" class="oe_background_grey o_kanban_dashboard o_emphasize_colors o_stock_kanban">
+                <xpath expr="/kanban" position="attributes">
+                    <attribute name="create">false</attribute>
+                </xpath>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                            <div>
+                                <div t-attf-class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="row">
+                                            <div class="col-6 o_kanban_primary_left">
+                                                <div class="o_primary">
+                                                    <field name="name"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 o_kanban_primary_right">
+                                                <a class="oe_kanban_stock_picking_type_list" name="get_doctor_detail"
+                                                   type="object">
+                                                    Appointments
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content">
+                                    <div class="row">
+                                        <div class="col-6 o_kanban_primary_left">
+                                            <div class="o_primary">
+                                                <field name="image_1920" widget="image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class='row'>
+                                                <div class="col-9">
+                                                    <a class="oe_kanban_stock_picking_type_list"
+                                                       name="get_state_confirm_details" type="object">
+                                                        Approved
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <field name="confirm_count"/>
+                                                </div>
+                                                <div class="col-9">
+                                                    <a class="oe_kanban_stock_picking_type_list"
+                                                       name="get_state_pending_details" type="object">
+                                                        Pending
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <field name="pending_count"/>
+                                                </div>
+                                                <div class="col-9">
+                                                    <a class="oe_kanban_stock_picking_type_list"
+                                                       name="get_state_pending_details" type="object">
+                                                        cancelled
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <field name="cancel_count"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_doctor_kanban_details">
+        <field name="name">Doctor Dashboard</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="doctor_view_kanban"/>
+        <field name="domain">[('is_doctor','=',True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Doctor not found
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Doctor Dashboard"
+              id="menu_property_dashboard_details"
+              parent="cr_medical_base.cr_menu_doctor"
+              action="action_doctor_kanban_details"
+              sequence="1"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin">
+    </menuitem>
+
+</odoo>

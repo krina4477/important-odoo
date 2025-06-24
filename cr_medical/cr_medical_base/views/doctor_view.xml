@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_doctor_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor">
+                <field name="name"/>
+                <field name="doctor_department_id"/>
+                <field name="joining_date"/>
+                <field name="sex"/>
+                <field name="doctor_fees"/>
+                <field name="registration_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_doctor_form_view" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="doctor">
+                <header>
+                    <button attrs="{'invisible':[('state','in',['pending','approve','reject'])]}"
+                            name="pending" string="Pending" type="object" class="oe_highlight"
+                            groups="cr_medical_base.group_admin"/>
+                    <button attrs="{'invisible':[('state','in',['draft','approve','reject'])]}"
+                            name="create_user_1" string="Confirm" type="object" class="oe_highlight"
+                            groups="cr_medical_base.group_admin"/>
+
+                    <button attrs="{'invisible':[('state','in',['draft','reject'])]}"
+                            name="cancel" string="Reject" type="object" class="oe_highlight"
+                            groups="cr_medical_base.group_admin,cr_medical_base.group_doctor"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,pending,approve,reject"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box">
+                        <button class="oe_stat_button" name="toggle_appointment_active" type="object"
+                                icon="fa-calendar" attrs="{'invisible':[('appointment_count','=', 0)]}">
+                            <field name="appointment_count" widget="statinfo" string="Opd"/>
+                        </button>
+
+                        <button name="doctor_open_pharmacy_view" type="object" class="oe_stat_button"
+                                icon="fa-bars" attrs="{'invisible':[('doctor_pharmacy_count','=', 0)]}">
+                            <field name="doctor_pharmacy_count" widget="statinfo" string="Pharmacy"/>
+                        </button>
+
+                        <button name="doctor_open_laboratory_view" type="object"
+                                class="oe_stat_button" icon="fa-bars"
+                                attrs="{'invisible':[('doctor_laboratory_count','=', 0)]}">
+                            <field name="doctor_laboratory_count" widget="statinfo" string="laboratory"/>
+                        </button>
+
+                        <button name="doctor_open_radiology_view" type="object" class="oe_stat_button"
+                                icon="fa-bars" attrs="{'invisible':[('doctor_radiology_count','=', 0)]}">
+                            <field name="doctor_radiology_count" widget="statinfo" string="Radiology"/>
+                        </button>
+                        <button name="doctor_open_ipd_view" type="object" class="oe_stat_button"
+                                icon="fa-bars" attrs="{'invisible':[('doctor_ipd_count','=', 0)]}">
+                            <field name="doctor_ipd_count" widget="statinfo" string="IPDs"/>
+                        </button>
+
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="dr_form_no" readonly="1"/>
+
+                        </h1>
+                    </div>
+
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Doctor Name"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" required="True"/>
+                        </h1>
+                        <field name="speciality_ids" placeholder="speciality" widget="many2many_tags"/>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="doctor_department_id" placeholder="Doctor Department" required="True"/>
+                            <field name="joining_date" required="True"/>
+                            <field name="sex" required="True"/>
+                            <field name="degree_ids" placeholder="Degrees.." widget="many2many_tags"/>
+                            <field name="about_doctor"/>
+                        </group>
+                        <group>
+                            <field name="doctor_fees" required="True"/>
+                            <field name="registration_no"/>
+                            <field name="user_id" readonly="1"/>
+                            <field name="total_experience" required="True"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="General">
+                            <group string="Contact Information" name="contact_information">
+                                <group>
+                                    <field name="working_institute"/>
+                                    <field name="mobile" required="True"/>
+                                    <field name="doctor_description"/>
+                                    <field name="doc_language" widget="many2many_tags"/>
+                                </group>
+                                <group>
+                                    <field name="work_location"/>
+                                    <field name="is_doctor" invisible="1"/>
+                                    <field name="email" required="True"/>
+                                    <field name="sign_by" required="True"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Weekly Availibility" required="True">
+                            <field name="weekly_avalibility_line" required="True">
+                                <tree string="weeklyAvalibility" editable="bottom">
+                                    <field name="available_weekdays" required="True" widget="many2many_tags"
+                                           options="{'no_create': True}"/>
+                                    <field name="from_time" required="True" options="{'no_create': True}"/>
+                                    <field name="to_time" required="True" options="{'no_create': True}"/>
+                                    <field name="totel_appointment"/>
+                                    <field name="name" readonly="1" force_save="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cr_doctor_information" model="ir.actions.act_window">
+        <field name="name">Doctor Information</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_doctor','=',True)]</field>
+        <field name="context">{'default_is_doctor':True}</field> <!-- Make it default True without show Field -->
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                     (0, 0, {'view_mode': 'tree', 'view_id': ref('cr_doctor_tree_view')}),
+                     (0, 0, {'view_mode': 'form', 'view_id': ref('cr_doctor_form_view')})]"/>
+    </record>
+
+    <menuitem id="cr_menu_doctor" name="Doctor" parent="cr_medical_base.cr_medical_menu_root" active="True" sequence="2"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem id="cr_menu_doctor_information"
+              name="Doctor Information"
+              action="cr_medical_base.action_cr_doctor_information"
+              parent="cr_medical_base.cr_menu_doctor"
+              active="True"
+              sequence="1"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sales_margin.access_sale_margin_wizard,access_sale_margin_wizard,sales_margin.model_sale_margin_wizard,base.group_user,1,1,1,1

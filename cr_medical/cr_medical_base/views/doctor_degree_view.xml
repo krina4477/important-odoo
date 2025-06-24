@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cr_doctor_degree_tree_view" model="ir.ui.view">
+            <field name="name">doctor.degree.tree</field>
+            <field name="model">doctor.degree</field>
+            <field name="arch" type="xml">
+                <tree string="Doctor Degree">
+                    <field name="degree"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cr_doctor_degree_form_view" model="ir.ui.view">
+            <field name="name">doctor.degree.form</field>
+            <field name="model">doctor.degree</field>
+            <field name="arch" type="xml">
+                <form string="Doctor degree">
+                    <sheet>
+                        <group>
+                            <field name="degree" required="True"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_cr_doctor_degree">
+            <field name="name">Doctor Degree</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">doctor.degree</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    doctor degree information
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="cr_menu_doctor_degree"
+                  name="Doctor Degree"
+                  action="cr_medical_base.action_cr_doctor_degree"
+                  parent="cr_medical_base.cr_menu_configuration"
+                  active="True"
+                  sequence="2"
+                  groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    </data>
+</odoo>

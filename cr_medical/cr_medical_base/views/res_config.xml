@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base.vat</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Medical" string="Medical"
+                     data-key="cr_medical_base">
+                    <h2>SMS Configuration</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="o_form_label">
+                                    <label for="username"/>
+                                </div>
+                                <div>
+                                    <field name="username" placeholder="Enter UserName"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="o_form_label">
+                                    <label for="sendername"/>
+                                </div>
+                                <div>
+                                    <field name="sendername" placeholder="Enter SenderName"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="o_form_label">
+                                    <label for="apikey"/>
+                                </div>
+                                <div>
+                                    <field name="apikey" placeholder="Enter APIKey"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Medical</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="pharmacy"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Pharmacy" for="pharmacy"/>
+                                <div class="text-muted">
+                                    Enable Pharmacy
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="radiology"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Radiology" for="radiology"/>
+                                <div class="text-muted">
+                                    Enable Radiology
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="laboratory"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Laboratory" for="laboratory"/>
+                                <div class="text-muted">
+                                    Enable Laboratory
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="ipd"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="IPD" for="ipd"/>
+                                <div class="text-muted">
+                                    Enable IPD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="reception"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Reception" for="reception"/>
+                                <div class="text-muted">
+                                    Enable Reception
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="surgery"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Surgery" for="surgery"/>
+                                <div class="text-muted">
+                                    Enable Surgery
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="diet_module"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Diet" for="diet_module"/>
+                                <div class="text-muted">
+                                    Enable Diet
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="physiotherapy"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Physiotherapy" for="physiotherapy"/>
+                                <div class="text-muted">
+                                    Enable Physiotherapy
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Payment</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="payment_at_reception"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Payment at Reception" for="payment_at_reception"/>
+                                <div class="text-muted">
+                                    Enable to take Payment at Reception
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="payment_at_pharmacy"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Payment at Pharmacy" for="payment_at_pharmacy"/>
+                                <div class="text-muted">
+                                    Enable to take Payment at Pharmacy
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_cr_medical_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'cr_medical_base', 'bin_size': False}</field>
+    </record>
+
+    <menuitem name="Setting"
+              id="menu_setting"
+              parent="cr_medical_base.cr_menu_configuration"
+              action="cr_medical_base.action_cr_medical_config_settings"
+              sequence="1"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+</odoo>

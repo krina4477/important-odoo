@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Local Examination -->
+
+    <record id="cr_medical_local_examination_tree_view" model="ir.ui.view">
+        <field name="name">local.examination.tree</field>
+        <field name="model">local.examination</field>
+        <field name="arch" type="xml">
+            <tree string="Local Examination">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_local_examination" model="ir.actions.act_window">
+        <field name="name">Local Examination</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">local.examination</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- System Examination -->
+
+    <record id="cr_medical_system_examination_tree_view" model="ir.ui.view">
+        <field name="name">system.examination.tree</field>
+        <field name="model">system.examination</field>
+        <field name="arch" type="xml">
+            <tree string="System Examination">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_system_examination" model="ir.actions.act_window">
+        <field name="name">System Examination</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">system.examination</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Local Examination -->
+
+    <record id="cr_medical_chief_complaints_tree_view" model="ir.ui.view">
+        <field name="name">chief.complaints.tree</field>
+        <field name="model">chief.complaints</field>
+        <field name="arch" type="xml">
+            <tree string="Chief  Complaints">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_chief_complaints" model="ir.actions.act_window">
+        <field name="name">Chief Complaints</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">chief.complaints</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="symptoms_type_tree_view" model="ir.ui.view">
+        <field name="name">symptoms.type.tree</field>
+        <field name="model">symptoms.type</field>
+        <field name="arch" type="xml">
+            <tree string="SymptomsType">
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_symptoms_type" model="ir.actions.act_window">
+        <field name="name">Symptomstype</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">symptoms.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="symptoms_time_tree_view" model="ir.ui.view">
+        <field name="name">symptoms.time.tree</field>
+        <field name="model">symptoms.time</field>
+        <field name="arch" type="xml">
+            <tree string="Symptoms Time">
+                <field name="time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_symptoms_time" model="ir.actions.act_window">
+        <field name="name">Symtoms Time</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">symptoms.time</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem name="Other"
+              id="menu_other"
+              parent="cr_medical_base.cr_menu_configuration"
+              sequence="15"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="Chief Complaints"
+              id="menu_chief_complaints"
+              parent="cr_medical_base.menu_other"
+              action="action_chief_complaints"
+              sequence="56"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="Local Examination"
+              id="menu_local_examination"
+              parent="cr_medical_base.menu_other"
+              action="action_local_examination"
+              sequence="56"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="System Examination"
+              id="menu_system_examination"
+              parent="cr_medical_base.menu_other"
+              action="action_system_examination"
+              sequence="57"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+    <menuitem name="Symptoms Type"
+              id="menu_symptoms"
+              parent="cr_medical_base.menu_other"
+              action="action_symptoms_type"
+              sequence="54"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+    <menuitem name="Symptoms Time"
+              id="menu_symptoms_time"
+              parent="cr_medical_base.menu_other"
+              action="action_symptoms_time"
+              sequence="55"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+</odoo>

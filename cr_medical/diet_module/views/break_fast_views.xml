@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="break_fast_view_tree" model="ir.ui.view">
+        <field name="name">break.fast.tree</field>
+        <field name="model">break.fast</field>
+        <field name="arch" type="xml">
+            <tree string="break_fast">
+                <field name="name" required="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="break_fast_view_form" model="ir.ui.view">
+        <field name="name">break_fast</field>
+        <field name="model">break.fast</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <group>
+                        <field name="name" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_break_fast_information" model="ir.actions.act_window">
+        <field name="name">BreakFast</field>
+        <field name="res_model">break.fast</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

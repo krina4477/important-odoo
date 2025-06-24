@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_patient_radio_test_tree_view" model="ir.ui.view">
+          <field name="name">patient.radio.test.tree.view</field>
+          <field name="model">patient.radio.test</field>
+          <field name="arch" type="xml">
+            <tree string="Patient Radio Test">
+                <field name="patient_id"/>
+                <field name="select_test_id"/>
+                <field name="radio_detail_id"/>
+                <field name="test_price"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_patient_radio_test_form_view" model="ir.ui.view">
+        <field name="name">patient.radio.test.form.view</field>
+        <field name="model">patient.radio.test</field>
+        <field name="arch" type="xml">
+            <form string="laboratory detail">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="radio_detail_id" domain="[]" context="{'form_view_ref':'laboratory.cr_radiology_form_view'}"/>
+                            <field name="patient_id"  domain="[('is_patient','=', True)]" context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="select_test_id"/>
+                            <field name="test_price"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_patient_radio_test" model="ir.actions.act_window">
+        <field name="name">Patient Radio Test</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.radio.test</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Test!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_radiology_patient_info"
+              action="action_cr_patient_radio_test"
+              parent="radiology.menu_radiologist_details_1"
+              active="True"
+              sequence="37"
+              />
+
+</odoo>

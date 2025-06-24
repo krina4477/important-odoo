@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--   Symptoms Time   -->
+
+        <record id="symptoms_time_1" model="symptoms.time">
+            <field name="time">1 Days to 2 Days</field>
+        </record>
+        <record id="symptoms_time_2" model="symptoms.time">
+            <field name="time">2 Days to 3 Days</field>
+        </record>
+        <record id="symptoms_time_3" model="symptoms.time">
+            <field name="time">3 Days to 5 Days</field>
+        </record>
+        <record id="symptoms_time_4" model="symptoms.time">
+            <field name="time">5 Days to 10 Days</field>
+        </record>
+
+        <!--   Symptoms Type   -->
+
+        <record id="symptoms_type_1" model="symptoms.type">
+            <field name="type">Increased thirst</field>
+        </record>
+        <record id="symptoms_type_2" model="symptoms.type">
+            <field name="type">Frequent urination</field>
+        </record>
+        <record id="symptoms_type_3" model="symptoms.type">
+            <field name="type">Increased hunger</field>
+        </record>
+        <record id="symptoms_type_4" model="symptoms.type">
+            <field name="type">Blurred vision</field>
+        </record>
+        <record id="symptoms_type_5" model="symptoms.type">
+            <field name="type">Slow-healing sores</field>
+        </record>
+        <record id="symptoms_type_6" model="symptoms.type">
+            <field name="type">Vometting</field>
+        </record>
+
+        <record id="symptoms_type_7" model="symptoms.type">
+            <field name="type">Increase Hungry</field>
+        </record>
+
+        <record id="symptoms_type_8" model="symptoms.type">
+            <field name="type">Dizziness</field>
+        </record>
+
+        <record model="symptoms.symptoms" id="symptoms_demo_1">
+            <field name="symptoms_time_id" ref="symptoms_time_1"/>
+            <field name="symptoms_id" eval="[(4, ref('symptoms_type_1'))]"/>
+        </record>
+
+        <record id="symptoms_demo_3" model="symptoms.symptoms">
+            <field name="symptoms_id" eval="[(4, ref('symptoms_type_3'))]"/>
+            <field name="symptoms_time_id" ref="cr_medical_base.symptoms_time_3"/>
+        </record>
+
+        <record id="symptoms_demo_2" model="symptoms.symptoms">
+            <field name="symptoms_id" eval="[(4, ref('symptoms_type_2'))]"/>
+            <field name="symptoms_time_id" ref="cr_medical_base.symptoms_time_2"/>
+        </record>
+
+    </data>
+</odoo>

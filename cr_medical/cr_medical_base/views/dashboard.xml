@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="0">
+        <record id="patient_year_dashboard" model="dashboard">
+            <field name="color">1</field>
+            <field name="color2">#F06050</field>
+            <field name="name">Total Patients of this Year</field>
+        </record>
+        <record id="patient_month_dashboard" model="dashboard">
+            <field name="color">2</field>
+            <field name="color2">#F4A460</field>
+            <field name="name">Total Patient of this Month</field>
+        </record>
+        <record id="patient_day_dashboard" model="dashboard">
+            <field name="color">3</field>
+            <field name="color2">1</field>
+            <field name="name">Total Patient of Today</field>
+        </record>
+        <record id="doctor_dashboard" model="dashboard">
+            <field name="color">4</field>
+            <field name="color2">1</field>
+            <field name="name">Total Doctor</field>
+        </record>
+        <record id="department_dashboard" model="dashboard">
+            <field name="color">5</field>
+            <field name="color2">1</field>
+            <field name="name">Total Department</field>
+        </record>
+        <record id="admit_patient_dashboard" model="dashboard">
+            <field name="color">6</field>
+            <field name="color2">1</field>
+            <field name="name">Total IPDs of this Year</field>
+        </record>
+    </data>
+
+    <record id="view_dashboard_kanban" model="ir.ui.view">
+        <field name="name">dashboard.kanban</field>
+        <field name="model">dashboard</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_emphasize_colors o_stock_kanban" create="0">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="count_patient"/>
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.color.value)}">
+                            <div>
+                                <div class="container o_kanban_card_content" t-if="!selection_mode">
+                                    <div class="col o_kanban_primary_left">
+                                        <div class="row">
+                                            <button class="btn" name="get_records" type="object">
+                                                <span style="font-weight: bolder;font-size:50px;">
+                                                    <field name="count_patient"/>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <h3>
+                                            <field name="name"/>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dashboard</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_dashboard_kanban"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_opd_treeview">
+        <field name="name">Patinet By Department</field>
+        <field name="res_model">opd.opd</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('appointment_date', '=', datetime.datetime.now())]</field>
+        <field name="view_id" ref="cr_medical_base.cr_opd_patient_dashboard_tree_view"/>
+        <field name="context">{'group_by': ['doctor_department_id']}</field>
+    </record>
+
+    <record model="ir.ui.view" id="new_dashboard">
+        <field name="name">My Dashboard</field>
+        <field name="model">board.board</field>
+        <field name="arch" type="xml">
+            <form string="My Dashboard">
+                <board style="2-2">
+                    <column>
+                        <action
+                                string="Dashboard"
+                                name="%(cr_medical_base.dashboard_action)d"/>
+                        <action
+                                string="Today's Patient By Department"
+                                name="%(cr_medical_base.action_opd_treeview)d"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_dashboard">
+        <field name="name">My Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="new_dashboard"/>
+    </record>
+
+    <menuitem id="cr_menu_dashboard"
+              name="Dashboard"
+              action="cr_medical_base.action_dashboard"
+              parent="cr_medical_base.cr_medical_menu_root"
+              active="True"
+              groups="cr_medical_base.group_admin"
+              sequence="1"/>
+</odoo>

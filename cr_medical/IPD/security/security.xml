@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="ipd_category_medical">
+            <field name="name">IPD</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record model="res.groups" id="group_laboratory">
+            <field name="name">IPD Management</field>
+        </record>
+
+        <record id="cr_medical_ipd_admin" model="ir.rule">
+            <field name="name">Admin Show All IPDs</field>
+            <field name="model_id" ref="model_ipd_registration"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record id="cr_medical_ipd_patient" model="ir.rule">
+            <field name="name">Patient Show Own IPDs</field>
+            <field name="model_id" ref="model_ipd_registration"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_patient'))]"/>
+            <field name="domain_force">[('patient_id.user_id', '=', user.id)]</field>
+        </record>
+        <record id="cr_medical_ipd_doctor" model="ir.rule">
+            <field name="name">Doctor Show Own IPDs</field>
+            <field name="model_id" ref="model_ipd_registration"/>
+            <field name="groups" eval="[(4, ref('cr_medical_base.group_doctor'))]"/>
+            <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
+        </record>
+    </data>
+</odoo>

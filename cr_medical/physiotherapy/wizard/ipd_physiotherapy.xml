@@ -1,0 +1,38 @@
+<odoo>
+    <record id="ipd_physiotherapy_view_form" model="ir.ui.view">
+        <field name="name">IPD Physiotherapy</field>
+        <field name="model">ipd.physiotherapy</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="date_of_admit"/>
+                        </group>
+                        <group>
+                            <field name="doctor_id" required="True"
+                                   context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                            <field name="physiotherapy_exercise"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Confirm Physiotherapy" name="patient_Physiotherapy" type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn btn-primary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ipd_physiotherapy" model="ir.actions.act_window">
+        <field name="name">Physiotherapy</field>
+        <field name="res_model">ipd.physiotherapy</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="physiotherapy.ipd_physiotherapy_view_form"/>
+    </record>
+
+</odoo>

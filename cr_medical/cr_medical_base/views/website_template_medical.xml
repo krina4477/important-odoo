@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Adds all assets in Odoo -->
+        <template id="assets_frontend" inherit_id="website.assets_frontend">
+
+            <xpath expr="//link[last()]" position="before">
+                <link href="/cr_medical_base/static/src/css/select2.min.css" rel="stylesheet"/>
+                <link href="/cr_medical_base/static/src/css/select-2bootstrap4.css"
+                      rel="stylesheet"/> <!-- for live demo page -->
+                <link href="/cr_medical_base/static/src/css/design.css" rel="stylesheet"/>
+                <link href="/cr_medical_base/static/src/css/radio.css" rel="stylesheet"/>
+                <link href="/cr_medical_base/static/src/css/mobile_number.css" rel="stylesheet"/>
+                <link href="/cr_medical_base/static/src/css/ratings.css" rel="stylesheet"/>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                        crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+                <script src="/cr_medical_base/static/src/js/multi.js"></script>
+                <script src="/cr_medical_base/static/src/js/days_existpatient.js"></script>
+                <script src="/cr_medical_base/static/src/js/days_newpatient.js"></script>
+                <script src="/cr_medical_base/static/src/js/selecttime_existpatient.js"></script>
+                <script src="/cr_medical_base/static/src/js/selecttime_newpatient.js"></script>
+                <script src="/cr_medical_base/static/src/js/state.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+
+
+

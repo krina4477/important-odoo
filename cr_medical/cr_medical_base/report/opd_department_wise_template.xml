@@ -1,0 +1,110 @@
+<odoo>
+    <template id="report_opd_department_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Opd Report Department Wise</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From :
+                                        <t t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To :
+                                        <t t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <!--                        <t t-if="selection_types in ['OPD','IPD']">-->
+                        <t t-foreach="record" t-as="line">
+                            <div class="font-weight-bold"
+                            >
+                                <th style="font-size:20px;">
+                                    <span t-esc="line"/>
+                                </th>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                        <th name="sr_no" class="text-center">Sr.No</th>
+                                        <th name="sequence" class="text-left">Opd No</th>
+                                        <th name="date" class="text-center">Date</th>
+                                        <th name="Patient" class="text-left">Name</th>
+                                        <th name="age" class="text-left">Age</th>
+                                        <th name="sex" class="text-left">Sex</th>
+                                        <th name="doctor" class="text-left">Doctor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div class="opd_report">
+                                        <t t-set="index" t-value="0"/>
+                                        <t t-foreach="record[line]" t-as="res">
+                                            <t t-set="rec" t-value="request.env['opd.opd'].browse([res])"/>
+                                            <tr>
+                                                <t t-set="index" t-value="index+1"/>
+                                                <td class="text-center" name="count" style="font-size:14px;">
+                                                    <span t-esc="index"/>
+                                                </td>
+                                                <td name="Sequence" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.name"/>
+                                                </td>
+                                                <td name="date" class="text-center" style="font-size:14px;">
+                                                    <span t-esc="rec.appointment_date"
+                                                          t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>
+                                                    (
+                                                    <t t-if="rec.weekdays == 'Monday'">Mon</t>
+                                                    <t t-if="rec.weekdays == 'Tuesday'">Tus</t>
+                                                    <t t-if="rec.weekdays == 'Wednesday'">Wen</t>
+                                                    <t t-if="rec.weekdays == 'Thursday'">Thu</t>
+                                                    <t t-if="rec.weekdays == 'Friday'">Fri</t>
+                                                    <t t-if="rec.weekdays == 'Friday'">Sat</t>
+                                                    <t t-if="rec.weekdays == 'Friday'">Sun</t>
+                                                    )
+                                                </td>
+                                                <td name="patient" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.patient_id.name"/>
+                                                    <span t-esc="rec.new_patient_id.name"/>
+                                                </td>
+                                                <td name="doctor" class="text-left" style="font-size:14px;">
+                                                    <t t-if="rec.patient_id.age">
+                                                        <t t-set="splited" t-value="rec.patient_id.age.split(',')"/>
+                                                        <span t-esc="splited[0]"/>
+                                                    </t>
+                                                    <t t-if="rec.new_patient_id.age">
+                                                        <t t-set="splite" t-value="rec.new_patient_id.age.split(',')"/>
+                                                        <span t-esc="splite[0]"/>
+                                                    </t>
+                                                </td>
+                                                <td name="doctor" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.patient_id.sex"/>
+                                                    <span t-esc="rec.new_patient_id.sex"/>
+                                                </td>
+                                                <td name="doctor" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.doctor_id.name"/>
+                                                </td>
+
+
+                                            </tr>
+                                        </t>
+                                        <!--                                    </t>-->
+
+                                    </div>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

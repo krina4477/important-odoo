@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_follow_up_opd_patient_tree_view" model="ir.ui.view">
+        <field name="name">follow.up.opd.opd.tree</field>
+        <field name="model">opd.opd</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_department_id"/>
+                <field name="doctor_id"/>
+                <field name="appointment_date"/>
+                <field name="select_time_id" string="Appointment Time"/>
+                <field name="weekdays"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="cr_follow_up_opd_form_view" model="ir.ui.view">
+        <field name="name">follow.up.opd.opd.form</field>
+        <field name="model">opd.opd</field>
+        <field name="arch" type="xml">
+            <form string="opd">
+                <header>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="sent"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" focus_save="1"/>
+                        </h1>
+                    </div>
+                    <!--                    <div class="oe_button_box">-->
+                    <!--                        <field name="pharmacy_count" invisible="1"/>-->
+                    <!--                        <button name="patient_pharmacy_view" type="object" class="oe_stat_button"-->
+                    <!--                                attrs="{'invisible':[('pharmacy_count','=', 0)]}" icon="fa-bars">-->
+                    <!--                            <field name="pharmacy_count" widget="statinfo" string="Pharmacy"/>-->
+                    <!--                        </button>-->
+
+                    <!--                        <field name="laboratory_count" invisible="1"/>-->
+                    <!--                        <button name="patient_laboratory_view" type="object" class="oe_stat_button"-->
+                    <!--                                attrs="{'invisible':[('laboratory_count','=', 0)]}" icon="fa-bars">-->
+                    <!--                            <field name="laboratory_count" widget="statinfo" string="Laboratory"/>-->
+                    <!--                        </button>-->
+
+                    <!--                        <field name="radiology_count" invisible="1"/>-->
+                    <!--                        <button name="patient_radiology_view" type="object" class="oe_stat_button"-->
+                    <!--                                attrs="{'invisible':[('radiology_count','=', 0)]}" icon="fa-bars">-->
+                    <!--                            <field name="radiology_count" widget="statinfo" string="Radiology"/>-->
+                    <!--                        </button>-->
+
+                    <!--                        <field name="ipd_count" invisible="1"/>-->
+                    <!--                        <button name="patient_ipd_view" type="object" class="oe_stat_button"-->
+                    <!--                                attrs="{'invisible':[('ipd_count','=', 0)]}" icon="fa-bars">-->
+                    <!--                            <field name="ipd_count" widget="statinfo" string="IPDs"/>-->
+                    <!--                        </button>-->
+                    <!--                    </div>-->
+                    <group>
+                        <group>
+                            <h2 style="color:#71639e">Patient Details</h2>
+                            <field name="name" invisible="1"/>
+                            <field name="patient_id" readonly="1"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="doctor_department_id" readonly="1"/>
+                            <field name="doctor_id" readonly="1"
+                                   context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                            <field name="appointment_date" readonly="1"/>
+                            <field name="weekdays" required="False" readonly="1" force_save="1"/>
+                        </group>
+                    </group>
+                    <group attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <group>
+                            <h2 style="color:#71639e">Examine Details</h2>
+                            <field name="chief_complaints"/>
+                            <field name="local_examination"/>
+                            <field name="system_examination"/>
+                        </group>
+                        <group>
+                            <h2 style="color:#71639e">Vital Signs</h2>
+                            <field name="pulse"/>
+                            <field name="blood_pressure"/>
+                            <field name="temp"/>
+                            <field name="weight"/>
+                            <field name="respiration"/>
+                        </group>
+                    </group>
+                    <div class="row"
+                         attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <h2 style="color:#71639e">OPD Medicine</h2>
+                    </div>
+                    <div class="row"
+                         attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <field name="medicine_line_ids">
+                            <tree editable="bottom">
+                                <field name="prescriptionDate"/>
+                                <field name="indication_id"/>
+                                <!--                                <field name="medicine_id" widget="many2many_tags"-->
+                                <!--                                       context="{'default_is_medicine':True,'default_detailed_type':'product'}"/>-->
+                                <field name="medicine_id"
+                                       context="{'default_is_medicine':True,'default_detailed_type':'product'}"/>
+                                <field name="morning_dose"/>
+                                <field name="noon_dose"/>
+                                <field name="evening_dose"/>
+                                <field name="night_dose"/>
+                                <field name="dose"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </div>
+
+                    <div class="row"
+                         attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <h2 style="color:#71639e">OPD Lab</h2>
+                    </div>
+                    <div class="row"
+                         attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <field name="lab_line_ids">
+                            <tree editable="bottom">
+                                <field name="prescriptionDate"/>
+                                <field name="laboratory_test_id" widget="many2many_tags"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </div>
+
+                    <div class="row"
+                         attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <h2 style="color:#71639e">OPD Radiology</h2>
+                    </div>
+                    <div class="row"
+                         attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <field name="radio_line_ids">
+                            <tree editable="bottom">
+                                <field name="prescriptionDate"/>
+                                <field name="radiology_test_id" widget="many2many_tags"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </div>
+
+                    <group attrs="{'readonly': [('state', 'in', ['sent'])],'invisible': [('state', 'in', ['draft','pending'])]}">
+                        <group>
+                            <field name="follow_up_date"/>
+                        </group>
+                        <group>
+                            <field name="followup_advice"/>
+                        </group>
+                    </group>
+                    <div class="text-center">
+                        <button attrs="{'invisible':[('state','in',['draft','cancel','pending','sent','admitted'])]}"
+                                name="send_appointment" string="Done" type="object" class="oe_highlight"
+                                style="width: 6pc;height: 3pc;font-size:25px;"
+                                groups="cr_medical_base.group_doctor"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

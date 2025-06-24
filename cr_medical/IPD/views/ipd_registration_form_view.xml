@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_ipd_registration_tree_view" model="ir.ui.view">
+        <field name="name">ipd.registration.tree.view</field>
+        <field name="model">ipd.registration</field>
+        <field name="arch" type="xml">
+            <tree string="ipd registration">
+                <field name="name" string="Ipd No"/>
+                <field name="patient_id"/>
+                <field name="date_of_admit"/>
+                <field name="select_room_type"/>
+                <field name="select_room_number"/>
+                <field name="doctor_department_id"/>
+                <field name="state"/>
+                <field name="bed_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_ipd_registration_form_view" model="ir.ui.view">
+        <field name="name">ipd.registration.form.view</field>
+        <field name="model">ipd.registration</field>
+        <field name="arch" type="xml">
+            <form string="ipd registration">
+                <header>
+                    <button name="treatment_progress" type='object' string="In Progress" class="oe_highlight"
+                            attrs="{'invisible':[('state','in',['in progress','allocated','discharge'])]}"/>
+                    <button name="room_allocation" type="object" string="Allocate" class="oe_highlight"
+                            attrs="{'invisible':[('state','in',['allocated','discharge'])]}"/>
+                    <button name="discharge_patient" type="object" string="Discharge" class="oe_highlight"
+
+                            attrs="{'invisible':[('state','in',['discharge'])]}"/>/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in progress,allocated,discharge"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <group>
+                        <group>
+
+                            <field name="patient_id" domain="[('is_patient','=',True)]"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}" required='True'/>
+                            <field name="doctor_department_id"/>
+                            <field name="doctor_id"
+                                   domain="[('is_doctor','=',True),('doctor_department_id', '=', doctor_department_id)]"
+                                   required='True' context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                            <field name="date_of_admit" required='True'/>
+                            <field name="select_room_type"/>
+                            <field name="bed_id"/>
+                            <field name="select_room_number"
+                                   domain="[('room_type_id','=',select_room_type),('state','=','not selected')]"/>
+                        </group>
+                        <group>
+                            <field name="attachment_ids" widget="many2many_binary" string="Attach a file"/>
+                        </group>
+                    </group>
+
+                    <notebook attrs="{'invisible':[('state','in',['draft','in progress'])]}">
+
+                        <page string="IPD Summary">
+                            <field name="ipd_summary_line_ids">
+                                <tree editable="bottom">
+                                    <field name="date_of_admit"/>
+                                    <field name="disease_indication"/>
+                                    <field name="doctor_department_id" invisible="1"/>
+                                    <field name="doctor_refer_id" domain="[('is_doctor','=',True),
+                                                                        ('doctor_department_id', '=', doctor_department_id)]"
+                                           invisible="1"/>
+                                    <field name="medicine_detail" domain="[('is_medicine','=',True)]"/>
+                                    <field name="morning_dose"/>
+                                    <field name="noon_dose"/>
+                                    <field name="evening_dose"/>
+                                    <field name="night_dose"/>
+                                    <field name="frequency"/>
+                                    <field name="dose"/>
+                                    <field name="medicine_days"/>
+                                    <field name="total_tablets"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="cr_ipd_registration_patient_form_view" model="ir.ui.view">
+        <field name="name">ipd.registration.patient.form.view</field>
+        <field name="model">ipd.registration</field>
+        <field name="arch" type="xml">
+            <form string="ipd registration">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in progress,allocated,discharge"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id" domain="[('is_patient','=',True)]"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}" required='True'
+                                   readonly="1" focus_save="1"/>
+                            <field name="date_of_admit" required='True' readonly="1" focus_save="1"/>
+                            <field name="doctor_department_id" required='True' readonly="1" focus_save="1"/>
+                            <field name="doctor_id" readonly="1" focus_save="1"
+                                   domain="[('is_doctor','=',True),('doctor_department_id', '=', doctor_department_id)]"/>
+                            <field name="select_room_type" readonly="1" focus_save="1"/>
+                            <field name="select_room_number"
+                                   domain="[('room_type_id','=',select_room_type),('state','=','not selected')]"
+                                   readonly="1" focus_save="1"/>
+                            <field name="bed_id" readonly="1" focus_save="1"/>
+                        </group>
+                        <group>
+                            <field name="attachment_ids" widget="many2many_binary" string="Attach a file" readonly="1"
+                                   focus_save="1"/>
+                        </group>
+                    </group>
+
+                    <notebook attrs="{'invisible':[('state','in',['draft','in progress'])]}">
+
+                        <page string="IPD Summary">
+                            <field name="ipd_summary_line_ids" readonly="1" focus_save="1">
+                                <tree editable="bottom">
+                                    <field name="date_of_admit"/>
+                                    <field name="disease_indication"/>
+                                    <field name="medicine_detail" domain="[('is_medicine','=',True)]"/>
+                                    <field name="doctor_department_id" invisible="1"/>
+                                    <field name="doctor_refer_id" domain="[('is_doctor','=',True),
+                                                                        ('doctor_department_id', '=', doctor_department_id)]"
+                                           invisible="1"/>
+                                    <field name="medicine_detail" domain="[('is_medicine','=',True)]"/>
+                                    <field name="morning_dose"/>
+                                    <field name="noon_dose"/>
+                                    <field name="evening_dose"/>
+                                    <field name="night_dose"/>
+                                    <field name="frequency"/>
+                                    <field name="dose"/>
+                                    <field name="medicine_days"/>
+                                    <field name="total_tablets"/>
+                                    <button name="abc" string="ABC" type="object"
+                                            class="oe_highlight"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_ipd_registration_information" model="ir.actions.act_window">
+        <field name="name">IPD Registration Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ipd.registration</field>
+        <!--    <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Test!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem name="IPDs"
+              id="menu_ipd_room_registration1"
+              parent="ipd_room_details"
+              action="action_cr_ipd_registration_information"
+              sequence="26"/>
+</odoo>

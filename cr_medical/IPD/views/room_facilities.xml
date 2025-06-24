@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="room_facilities_form">
+            <field name="name">room_facilities_form</field>
+            <field name="model">room.facilities</field>
+            <field name="arch" type="xml">
+                <form string="Room Facilities">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="room_facilities_tree">
+            <field name="name">room_facilities_tree</field>
+            <field name="model">room.facilities</field>
+            <field name="arch" type="xml">
+                <tree string="Room Facilities List">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_room_facilities">
+            <field name="name">Room Facilities</field>
+            <field name="res_model">room.facilities</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No facilities found
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Room Facilities" id="menu_ipd_room_facilities" parent="IPD.menu_ipd_room_type_details_1"
+                  action="action_room_facilities" sequence="28"/>
+
+    </data>
+</odoo>

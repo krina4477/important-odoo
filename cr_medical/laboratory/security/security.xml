@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="laboratory_category_medical">
+            <field name="name">Laboratory</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record model="res.groups" id="group_laboratory">
+            <field name="name">Laboratory Management</field>
+        </record>
+    </data>
+</odoo>

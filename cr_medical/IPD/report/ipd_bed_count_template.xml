@@ -1,0 +1,99 @@
+<odoo>
+    <template id="ipd_bed_count_report_department">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Ipd Bed Count Report</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From :
+                                        <t t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To :
+                                        <t t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="Department" class="text-left">Department</th>
+                                    <th name="Male" class="text-right">Male</th>
+                                    <th name="Female" class="text-right">Female</th>
+                                    <th name="Total" class="text-center">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="ipd_report">
+                                    <t t-set="male" t-value="0"/>
+                                    <t t-set="female" t-value="0"/>
+
+                                    <t t-set="total_value" t-value="0"/>
+                                    <t t-foreach="bed_count_dict" t-as="line">
+                                        <t t-set="row_total" t-value="0"/>
+                                        <tr>
+                                            <td class="text-left">
+                                                <span class="text-left" t-esc="line"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span class="text-right" t-esc="bed_count_dict[line].get('male', 0)"/>
+                                                <t t-set="male"
+                                                   t-value="male + bed_count_dict[line].get('male', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + bed_count_dict[line].get('male', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <span class="text-right" t-esc="bed_count_dict[line].get('female', 0)"/>
+                                                <t t-set="female"
+                                                   t-value="female + bed_count_dict[line].get('female', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + bed_count_dict[line].get('female', 0)"/>
+
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="row_total"/>
+                                            </td>
+                                            <t t-set="total_value" t-value="total_value + row_total"/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td class="text-left">
+                                            <b>Total</b>
+                                        </td>
+                                        <td class="text-right">
+                                            <b>
+                                                <t t-esc="male"/>
+                                            </b>
+                                        </td>
+                                        <td class="text-right">
+                                            <b>
+                                                <t t-esc="female"/>
+                                            </b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>
+                                                <t t-esc="total_value"/>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

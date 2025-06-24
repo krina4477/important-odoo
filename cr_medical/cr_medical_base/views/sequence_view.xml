@@ -1,0 +1,65 @@
+<odoo>
+
+    <data>
+        <record id="sequence_appointment" model="ir.sequence">
+            <field name="name">sequence_appointment</field>
+            <field name="code">Appointment_seq</field>
+            <field name="prefix">OP</field>
+            <field name="padding">4</field>
+            <field name="name"></field>
+        </record>
+    </data>
+    <data>
+        <record id="sequence_follow_appointment" model="ir.sequence">
+            <field name="name">sequence_follow_appointment</field>
+            <field name="code">Appointment_follow_seq</field>
+            <field name="prefix">FOP</field>
+            <field name="padding">4</field>
+            <field name="name"></field>
+        </record>
+    </data>
+
+
+    <data>
+        <record id="sequence_pharmacy_prescription" model="ir.sequence">
+            <field name="name">sequence_pharmacy_prescription</field>
+            <field name="code">PharmacyPrescription</field>
+            <field name="prefix">PPR</field>
+            <field name="padding">4</field>
+            <field name="name"></field>
+        </record>
+    </data>
+
+    <data>
+        <record id="sequence_laboratory_prescription" model="ir.sequence">
+            <field name="name">sequence_laboratory_prescription</field>
+            <field name="code">LaboratoryPrescription</field>
+            <field name="prefix">LPR</field>
+            <field name="padding">4</field>
+            <field name="name"></field>
+        </record>
+    </data>
+
+    <data>
+        <record id="sequence_radiology_prescription" model="ir.sequence">
+            <field name="name">sequence_radiology_prescription</field>
+            <field name="code">RadiologyPrescription</field>
+            <field name="prefix">RPR</field>
+            <field name="padding">4</field>
+            <field name="name"></field>
+        </record>
+    </data>
+
+    <data>
+        <record id="sequence_ipd" model="ir.sequence">
+            <field name="name">sequence_ipd</field>
+            <field name="code">IPDs</field>
+            <field name="prefix">IPD</field>
+            <field name="padding">4</field>
+            <field name="name"></field>
+        </record>
+    </data>
+
+</odoo>
+
+

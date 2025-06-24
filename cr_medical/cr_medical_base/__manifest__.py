@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'CR Medical',
+    'summary': 'CR Medical Base Management',
+    'version': '15.0.0.1',
+    'sequence': 1,
+    'website': 'https://www.candidroot.com/cr_medical/cr_medical_base',
+    'description': """
+
+    """,
+
+    'category': 'cr medical base',
+    'depends': ['base', 'product', 'board', 'website', 'stock', 'pos_sale', 'point_of_sale'],
+    'data': [
+
+        'security/ir.model.access.csv',
+        'security/security.xml',
+        'wizard/update_pharmacy_stock_view.xml',
+        'wizard/wizard_create_opd_view.xml',
+        # 'wizard/admit_patient_view.xml',
+        'wizard/medicine_report.xml',
+        'wizard/opd_reports.xml',
+        'views/patient_view.xml',
+
+        'views/doctor_view.xml',
+        'views/doctor_weeklyAvalibility_view.xml',
+        'views/doctor_degree_view.xml',
+        'views/doctor_speciality_view.xml',
+        'views/doctor_department_view.xml',
+
+        'views/opd_doctor_view.xml',
+        'views/opd_patient_view.xml',
+        'views/sequence_view.xml',
+        'views/patient_view.xml',
+        'views/doctor_dashboard.xml',
+        'views/pharmacy_prescription_view.xml',
+        'views/radiology_prescription_view.xml',
+        'views/laboratory_prescription_view.xml',
+        'views/other.xml',
+        'views/signup_template.xml',
+        'views/home_page.xml',
+        'views/user_portal.xml',
+        'views/thankyou_page.xml',
+        'views/website_registration.xml',
+        'views/website_opd_view.xml',
+        # 'views/website_template_medical.xml',
+        'views/website_Doctor1.xml',
+        'views/website-doctor_details.xml',
+        'views/time_hours_details.xml',
+        'data/menu.xml',
+        'report/opd_report.xml',
+        'report/opd_reports_template.xml',
+        'report/opd_report_month_template.xml',
+        'report/opd_department_wise_template.xml',
+        'report/opd_medicine_patient_template.xml',
+        'report/medicine_report_department.xml',
+        'report/ipd_patient_count_report_template.xml',
+        'report/medicine_report.xml',
+        'views/dashboard.xml',
+        'views/follow_up_opd_view.xml',
+        'views/crone.xml',
+        'views/email_template.xml',
+        'views/res_config.xml',
+        'report/prescription_report.xml',
+        'report/prescription_report_template.xml',
+        'views/inherit_product_product_view.xml',
+        'views/patient_review.xml',
+        'data/Time_and_Week_name.xml',
+        'data/Symptoms_type_and_time.xml',
+        'data/registration_patient_mail_template.xml',
+        'data/doctor_demo_data.xml',
+        'data/patient_demo_data.xml',
+        'data/opd_demo_data.xml',
+
+    ],
+    'assets': {
+        'web.assets_frontend': [
+            '/cr_medical_base/static/src/***/*'
+        ],
+        'point_of_sale.assets': [
+            'cr_medical_base/static/src/js/Pharmacy.js',
+            'cr_medical_base/static/src/js/models.js',
+            'cr_medical_base/static/src/js/PharmacyOrderFetcher.js',
+            'cr_medical_base/static/src/js/PharmacyOrderManagementScreen.js',
+            'cr_medical_base/static/src/js/PharmacyList.js',
+            'cr_medical_base/static/src/js/PharmacyOrderManagementControlPanel.js',
+            'cr_medical_base/static/src/js/PharmacyOrderRow.js',
+            'cr_medical_base/static/src/js/ratings.js'
+        ],
+        'web.assets_backend': [
+            'cr_medical_base/static/src/js/digital_sign.js',
+
+        ],
+        'web.assets_qweb': [
+            'cr_medical_base/static/xml/digital_sign.xml',
+            'cr_medical_base/static/xml/pos.xml',
+            'cr_medical_base/static/xml/PharmacyList.xml',
+            'cr_medical_base/static/xml/PharmacyOrderManagementScreen.xml',
+            'cr_medical_base/static/xml/PharmacyOrderManagementControlPanel.xml',
+            'cr_medical_base/static/xml/PharmacyOrderRow.xml'
+        ],
+    },
+    'qweb': [],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

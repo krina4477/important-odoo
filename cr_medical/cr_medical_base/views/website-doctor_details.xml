@@ -1,0 +1,137 @@
+<odoo>
+    <record id="website_doctor_details_template" model="ir.ui.view">
+        <field name="name">Website doctor details Demo</field>
+        <field name="type">qweb</field>
+        <field name="key">cr_medical_base.website_doctor_details_template</field>
+        <field name="arch" type="xml">
+            <t name="Doctor_details" t-name="cr_medical_base.website_doctor_details_template">
+                <t t-name="website.test">
+                    <t t-call="website.layout">
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div id="wrap" class="oe_structure oe_empty">
+                                <section class="s_company_team">
+                                    <div class="container">
+                                        <h1 style="text-align: center;" class="o_default_snippet_text">Meet the
+                                            Doctor
+                                            And
+                                            Book Appointment
+                                        </h1>
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 pt16 pb16">
+                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                    <div class="col-lg-3 ">
+                                                        <span t-field="data.image_1920"
+                                                              t-options="{'widget': 'image', 'resize': None if product_image_big else '150x150'}"/>
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <p class="text-muted o_default_snippet_text">
+
+                                                            <t t-esc="data.registration_no"/>
+                                                        </p>
+                                                        <p class="text-muted o_default_snippet_text">
+                                                            <h4>
+                                                                <t t-esc="data.name"/>
+                                                            </h4>
+                                                            <t t-foreach="data.speciality_ids" t-as="speciality">
+                                                                <span t-field="speciality.speciality"/>
+                                                            </t>
+                                                            <br/>
+                                                            <br/>
+                                                            <t t-esc="data.name"/>
+                                                            -
+                                                            <t t-esc="speciality.speciality"/>
+                                                            -
+                                                            <t t-foreach="data.degree_ids" t-as="deg">
+                                                                <t t-esc="deg.degree"/>|
+                                                            </t>
+                                                            <br/>
+                                                            <br/>
+                                                            <div style="border: 2px solid black;border-radius: 10px; padding: 10px; width:50%;  height: 30%; height: auto; overflow: hidden;">
+                                                                <p class="text-muted o_default_snippet_text">
+                                                                    🎓 &amp;nbsp;&amp;nbsp;
+                                                                    <b>
+                                                                        <t t-esc="data.total_experience"/>
+                                                                    </b>
+                                                                    <p style="margin-left: 35px;">Overall
+                                                                        Experience
+                                                                    </p>
+                                                                    🌐 &amp;nbsp;&amp;nbsp;
+                                                                    <b>
+                                                                        <t t-foreach="data.doc_language" t-as="lan">
+                                                                            <t t-esc="lan.name"/>|
+                                                                        </t>
+
+                                                                    </b>
+                                                                    <br/>
+                                                                    <p style="margin-left: 35px;">Language
+                                                                    </p>
+                                                                </p>
+                                                            </div>
+                                                            <br/>
+                                                            <div style="border: 2px solid black; border-radius: 10px; padding: 10px; width:50%;  height: 30%; height: auto; overflow: hidden;">
+                                                                <p class="text-muted o_default_snippet_text">
+                                                                    <b>
+                                                                        <h5>ABOUT THE DOCTOR</h5>
+                                                                    </b>
+                                                                    <t t-esc="data.about_doctor"/>
+                                                                </p>
+                                                            </div>
+                                                            <br></br>
+                                                            <div style="border: 2px solid black;border-radius: 10px; padding: 10px; width:50%;  height: 30%; height: auto; overflow: hidden;">
+                                                                <p class="text-muted o_default_snippet_text">
+                                                                    <b>
+                                                                        <h5>SPECIALIZATION</h5>
+                                                                    </b>
+                                                                    <t t-foreach="data.speciality_ids" t-as="specia">
+                                                                        🩺
+                                                                        <t t-esc="specia.speciality"/>
+                                                                        <br/>
+                                                                    </t>
+                                                                </p>
+                                                            </div>
+                                                            <br/>
+                                                            <div style="border: 2px solid black;border-radius: 10px; padding: 10px; width:50%;  height: 30%; height: auto; overflow: hidden;">
+                                                                <p class="text-muted o_default_snippet_text">
+                                                                    <b>
+                                                                        <h5>EDUCATION QUALIFIATION</h5>
+                                                                    </b>
+                                                                    <t t-foreach="data.degree_ids" t-as="deg">
+                                                                        🎓
+                                                                        <t t-esc="deg.degree"/>
+                                                                        <br/>
+                                                                    </t>
+                                                                </p>
+                                                            </div>
+                                                            <br/>
+                                                            <a href="/opd-form-info">
+                                                                <button class="btn btn-info" type="submit"
+                                                                        value="submit">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    Book
+                                                                    Appointment
+                                                                </button>
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+    <record id="website_doctor_details_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/doctor-details-info</field>
+        <field name="view_id" ref="website_doctor_details_template"/>
+    </record>
+
+
+</odoo>

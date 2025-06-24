@@ -1,0 +1,104 @@
+<!-- report_surgery_department_report.xml -->
+
+<odoo>
+    <template id="report_surgery_department_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Surgery Report Department Wise</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From:
+                                        <span t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To:
+                                        <span t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <t t-foreach="record" t-as="line">
+                            <div class="row font-weight-bold" style="font-size:20px; margin-left:5px;">
+                                <th colspan="12">
+                                    <span t-esc="line"/>
+                                </th>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                        <th name="sequence" class="text-center">Sr.No</th>
+                                        <th name="sequence" class="text-left">IPD No</th>
+                                        <th name="date" class="text-center">Admit Date</th>
+                                        <th name="Patient" class="text-left">Patient Name</th>
+                                        <th name="surgery_id" class="text-left">Surgery</th>
+                                        <th name="Patient" class="text-left">Age</th>
+                                        <th name="Patient" class="text-left">Sex</th>
+                                        <th name="doctor" class="text-left">Doctor</th>
+                                        <th name="anesthetic_id" class="text-left">Anesthetic</th>
+                                        <th name="date" class="text-right">Mobile No</th>
+                                        <th name="state" class="text-right">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div class="ipd_report">
+                                        <t t-set="index" t-value="0"/>
+                                        <t t-foreach="record[line]" t-as="res">
+                                            <t t-set="rec" t-value="request.env['show.ipd.surgery'].browse([res])"/>
+                                            <tr>
+                                                <t t-set="index" t-value="index+1"/>
+                                                <td class="text-center" name="count" style="font-size:14px;">
+                                                    <span t-esc="index"/>
+                                                </td>
+                                                <td name="Sequence" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.ipd_id.name"/>
+                                                </td>
+                                                <td name="date" class="text-center" style="font-size:14px;">
+                                                    <span t-esc="rec.ipd_id.date_of_admit"/>
+                                                </td>
+
+                                                <td name="patient" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.patient_id.name"/>
+                                                </td>
+                                                <td name="surgery_id" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.surgery_id.display_name"/>
+                                                </td>
+                                                <td name="age" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.ipd_id.patient_id.age"/>
+                                                </td>
+                                                <td name="sex" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.ipd_id.patient_id.sex"/>
+                                                </td>
+                                                <td name="doctor" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.doctor_id.name"/>
+                                                </td>
+                                                <td name="anesthetic_id" class="text-left" style="font-size:14px;">
+                                                    <span t-esc="rec.anesthetic_id.name"/>
+                                                </td>
+                                                <td name="bed" class="text-right" style="font-size:14px;">
+                                                    <span t-esc="rec.ipd_id.patient_id.mobile"/>
+                                                </td>
+                                                <td name="state" class="text-right" style="font-size:14px;">
+                                                    <span t-esc="rec.state"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </div>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

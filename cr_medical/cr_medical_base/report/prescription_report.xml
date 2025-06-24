@@ -1,0 +1,218 @@
+<odoo>
+    <template id="report_prescription">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="header">
+                        <div class="text-center" style="border-bottom: 2px solid black;">
+                            <div class="row">
+                                <div class="col-3 mb4">
+                                    <img alt="img"
+                                         src='cr_medical_base/static/src/img/hos2.png'
+                                         style="max-height:100px; max-width:90px;"/>
+                                </div>
+                                <div class="col-9">
+                                    <h4 class="text-right">
+                                        <span t-esc="doc.doctor_id.name"/>
+                                    </h4>
+                                    <h6 class="text-right">
+                                        <t t-foreach="doc.doctor_id.degree_ids" t-as="deg">
+                                            <t t-esc="deg.degree"/>
+                                        </t>
+                                    </h6>
+                                    <h6 class="text-right">
+                                        <t t-foreach="doc.doctor_id.speciality_ids" t-as="special">
+                                            <span t-esc="special.speciality"/>
+                                        </t>
+                                    </h6>
+                                    <h6 class="text-right">Reg No:
+                                        <span t-esc="doc.doctor_id.registration_no"/>
+                                    </h6>
+                                    <h5 class="text-right">
+                                        <span t-esc="doc.doctor_id.mobile"/>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article o_report_layout_standard">
+                        <t t-out="0"/>
+                    </div>
+                    <div class="footer o_standard_footer">
+                        <div class="text-left" style="border-top: 1px solid black;">
+                            ???
+                            <!--                            <div class="col-9">-->
+                            <!--                                Timing:- -->
+                            <!--                                <span t-field="doc.select_time_id.available_weekdays"/>-->
+                            <!--                                <span t-field="doc.select_time_id.from_time"/>-->
+                            <!--                                To-->
+                            <!--                                <span t-field="doc.select_time_id.to_time"/>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <strong>
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%A %d-%m-%Y %H:%M')"/>
+                        </strong>
+                    </div>
+                    <div>
+                        <strong>
+                            <t t-esc="doc.patient_id.name"/>
+                        </strong>
+                        ,
+                        <t t-esc="doc.sex"/>
+                        ,
+                        <t t-esc="doc.age"/>
+                        <br/>
+                        <t t-esc="doc.patient_id.mobile"/>
+                        <br/>
+                        <br/>
+                        <strong>Patient Address :-</strong>
+                        <t t-esc="doc.patient_id.street"/>
+                        ,
+                        <t t-esc="doc.patient_id.city"/>
+                        <strong>, Blood Group :-</strong>
+                        <t t-esc="doc.patient_id.blood_group"/>
+                        ,
+                        <br/>
+                        <strong>VITALS :-</strong> &amp;nbsp;&amp;nbsp; PULSE -
+                        <t t-esc="doc.pulse"/>
+                        | BLOOD PRESSURE -
+                        <t t-esc="doc.blood_pressure"/>
+                        | TEMPERATURE -
+                        <t t-esc="doc.temp"/>
+                        | WEIGHT -
+                        <t t-esc="doc.weight"/>
+                        <br/>
+                        <br/>
+                        <strong>SYMPTOMS:- &amp;nbsp;&amp;nbsp;
+                            <t t-foreach="doc.symptoms_line_id" t-as="symptoms">
+                                <t t-foreach="symptoms.symptoms_id" t-as="symp">
+                                    <t t-esc="symp.type"/>,
+                                </t>
+                                (<t t-esc="symptoms.symptoms_time_id.time"/>)|
+                            </t>
+                        </strong>
+                    </div>
+                    <br></br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                <th name="refrence" class="text-center">Medicine</th>
+                                <th name="designation" class="text-center">Dose</th>
+                                <th name="uom" class="text-center">Frequency</th>
+                                <th name="initial" class="text-center">Duration</th>
+                                <th name="in" class="text-center">Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.medicine_line_ids" t-as="line">
+                                <tr class="bg-200 font-weight-bold o_line_section">
+                                    <td class="text-left">
+                                        <t t-foreach="line.medicine_id" t-as="med">
+                                            <strong>
+                                                <t t-esc="med.name"/>
+                                            </strong>
+                                            <t t-foreach="med.uom_id" t-as="uom">
+                                                (<t t-esc="uom.name"/>)
+                                            </t>
+                                            <br/>
+                                            <t t-esc="med.content"/>
+                                        </t>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="line.dose"/>
+                                        <t t-esc="uom.name"></t>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-if="line.morning_dose">
+                                            <t t-esc="1"/>-
+                                        </t>
+                                        <t t-else="">
+                                            0-
+                                        </t>
+                                        <t t-if="line.noon_dose">
+                                            <t t-esc="1"/>-
+                                        </t>
+                                        <t t-else="">
+                                            0-
+                                        </t>
+                                        <t t-if="line.evening_dose">
+                                            <t t-esc="1"/>-
+                                        </t>
+                                        <t t-else="">
+                                            0-
+                                        </t>
+                                        <t t-if="line.night_dose">
+                                            <t t-esc="1"/>
+                                        </t>
+                                        <t t-else="">
+                                            0
+                                        </t>
+                                        <br/>
+                                        <t t-if="line.frequency">
+                                            After Meal
+                                        </t>
+                                        <t t-else="">
+                                            Before Meal
+                                        </t>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="line.medicine_days"/>
+                                        Days
+                                    </td>
+                                    <td class="text-center">
+                                        (
+                                        <t t-esc="line.dose "/>
+                                        <t t-esc="uom.name "/>
+                                        -
+                                        <t t-if="line.morning_dose">Morning -</t>
+                                        <t t-if="line.noon_dose">AfterNoon -</t>
+                                        <t t-if="line.evening_dose">Evening -</t>
+                                        <t t-if="line.night_dose">Night -</t>
+                                        <br/>
+                                        <t t-if="line.frequency">After Mael -</t>
+                                        <t t-else="">
+                                            Before Meal -
+                                        </t>
+                                        <t t-if="line.medicine_days">For
+                                            <t t-esc="line.medicine_days"/>
+                                            Days
+                                        </t>
+
+                                        )
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div>
+
+                        <h5>
+                            Advise:-
+                        </h5>
+                        &amp;nbsp; ◉ &amp;nbsp;
+                        <t t-esc="doc.followup_advice"></t>
+                        <br></br>
+                        <br></br>
+                        <strong>Followup Date:</strong>
+                        visit on
+                        <strong>
+                            <t t-esc="doc.follow_up_date"></t>
+                        </strong>
+                    </div>
+                    <div class="mt32 ml64 mr4" name="signature">
+                        <div class="offset-10">
+                            <img t-att-src="image_data_uri(doc.doctor_id.sign_by)"
+                                 style="max-height: 2cm; max-width: 4cm;"/>
+                        </div>
+                        <div class="offset-10 ">
+                            <p t-field="doc.doctor_id.name"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

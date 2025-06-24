@@ -1,0 +1,79 @@
+<odoo>
+    <record id="show_patient_ipd_surgery_view_form" model="ir.ui.view">
+        <field name="name">Surgeries</field>
+        <field name="model">show.ipd.surgery</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="draft" type="object"
+                            attrs="{'invisible': [('state', 'in', ['progress', 'done', 'draft'])]}"
+                            string="Draft" icon="fa-star" class="oe_highlight"/>
+                    <button name="progress" type="object"
+                            attrs="{'invisible': [('state', 'in', ['progress','done'])]}"
+                            string="In Progress" icon="fa-pencil-square-o" class="oe_highlight"/>
+                    <button name="done" type="object"
+                            attrs="{'invisible': [('state', 'in', ['done'])]}"
+                            string="Done" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="surgery_date"/>
+                            <field name="surgery_id"/>
+                            <field name="doctor_id" context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                            <field name="anesthetic_id"
+                                   context="{'form_view_ref':'cr_medical_base.cr_doctor_form_view'}"/>
+                        </group>
+                        <group>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                            <field name="doctor_remark"/>
+                            <field name="ot_remark"/>
+                            <field name="action"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="show_ipd_surgery_view_tree" model="ir.ui.view">
+        <field name="name">Surgeries</field>
+        <field name="model">show.ipd.surgery</field>
+        <field name="arch" type="xml">
+            <tree string="Ipd Surgery Information">
+                <field name="patient_id"/> <!-- Add the patient_name field to the tree view -->
+                <field name="surgery_date"/>
+                <field name="surgery_id"/>
+                <field name="doctor_id"/>
+                <field name="anesthetic_id"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="state" widget="badge" optional="show" decoration-success="state=='done'"
+                       decoration-info="state=='draft' " decoration-danger="state=='progress'"/>
+                <field name="doctor_remark"/>
+                <field name="ot_remark"/>
+                <field name="action"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_show_ipd_surgery" model="ir.actions.act_window">
+        <field name="name">Surgeries</field>
+        <field name="res_model">show.ipd.surgery</field>
+        <field name="view_mode">form,tree</field>
+        <field name="target">current</field>
+        <field name="view_id" ref="surgery.show_ipd_surgery_view_tree"/>
+    </record>
+
+    <menuitem name="Surgeries"
+              id="menu_surgeries"
+              parent="surgery.menu_surgery"
+              action="action_show_ipd_surgery"
+              sequence="1"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+</odoo>

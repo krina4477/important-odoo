@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_radio_test_price_tree_view" model="ir.ui.view">
+          <field name="name">radio.test.price.tree.view</field>
+          <field name="model">radio.test.price</field>
+          <field name="arch" type="xml">
+            <tree string="Radiology test price">
+                <field name="radio_name_id"/>
+                <field name="select_test_id"/>
+                <field name="test_price"/>
+                <field name="state" statusbar_visible="draft,confirm"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_radio_test_price_form_view" model="ir.ui.view">
+        <field name="name">radio.test.price.form.view</field>
+        <field name="model">radio.test.price</field>
+        <field name="arch" type="xml">
+            <form string="laboratory test price">
+                <header>
+                    <button attrs="{'invisible':[('state','in',['confirm'])]}" name="confirm_state" type='object' string="Confirm" class="oe_highlight"/>
+                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="radio_name_id"/>
+                            <field name="select_test_id"/>
+                            <field name="test_price"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_radio_test_price_information" model="ir.actions.act_window">
+        <field name="name">Radiology Test Price</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">radio.test.price</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Test!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_radio_test_price_info"
+              action="action_cr_radio_test_price_information"
+              parent="radiology.menu_radiologist_details_1"
+              active="True"
+              sequence="36"
+              />
+
+</odoo>

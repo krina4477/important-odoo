@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_doctor_speciality_tree_view" model="ir.ui.view">
+        <field name="name">doctor.speciality.tree</field>
+        <field name="model">doctor.speciality</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Speciality">
+                <field name="speciality"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_doctor_speciality_form_view" model="ir.ui.view">
+        <field name="name">doctor.speciality.form</field>
+        <field name="model">doctor.speciality</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Speciality">
+                <sheet>
+                    <group>
+                        <field name="speciality" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_cr_doctor_speciality">
+        <field name="name">Doctor Speciality</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doctor.speciality</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                doctor information
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="cr_menu_doctor_speciality"
+              name="Doctor Speciality"
+              action="cr_medical_base.action_cr_doctor_speciality"
+              parent="cr_medical_base.cr_menu_configuration"
+              active="True"
+              sequence="2"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+</odoo>

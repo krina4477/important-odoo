@@ -1,0 +1,218 @@
+<odoo>
+    <template id="report_ipd_month_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>IPD Month Wise Report</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Selected Year :
+                                        <t t-esc="select_years"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="Department" class="text-left">Department</th>
+                                    <th name="Jan" class="text-right">Jan</th>
+                                    <th name="Feb" class="text-right">Feb</th>
+                                    <th name="Mar" class="text-right">Mar</th>
+                                    <th name="Apr" class="text-right">Apr</th>
+                                    <th name="May" class="text-right">May</th>
+                                    <th name="Jun" class="text-right">Jun</th>
+                                    <th name="Jul" class="text-right">Jul</th>
+                                    <th name="Aug" class="text-right">Aug</th>
+                                    <th name="Sep" class="text-right">Sep</th>
+                                    <th name="Oct" class="text-right">Oct</th>
+                                    <th name="Nov" class="text-right">Nov</th>
+                                    <th name="Dec" class="text-right">Dec</th>
+                                    <th name="Total" class="text-center">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="ipd_report">
+                                    <t t-set="January" t-value="0"/>
+                                    <t t-set="February" t-value="0"/>
+                                    <t t-set="March" t-value="0"/>
+                                    <t t-set="April" t-value="0"/>
+                                    <t t-set="May" t-value="0"/>
+                                    <t t-set="June" t-value="0"/>
+                                    <t t-set="July" t-value="0"/>
+                                    <t t-set="August" t-value="0"/>
+                                    <t t-set="September" t-value="0"/>
+                                    <t t-set="October" t-value="0"/>
+                                    <t t-set="November" t-value="0"/>
+                                    <t t-set="December" t-value="0"/>
+
+                                    <t t-set="total_value" t-value="0"/>
+                                    <t t-foreach="record" t-as="line">
+                                        <t t-set="row_total" t-value="0"/>
+                                        <tr>
+                                            <td class="text-left">
+                                                <t t-esc="line"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('January', 0)"/>
+                                                <t t-set="January"
+                                                   t-value="January + record[line].get('January', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('January', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('February', 0)"/>
+                                                <t t-set="February"
+                                                   t-value="February + record[line].get('February', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('February', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('March', 0)"/>
+                                                <t t-set="March"
+                                                   t-value="March + record[line].get('March', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('March', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('April', 0)"/>
+                                                <t t-set="April"
+                                                   t-value="April + record[line].get('April', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('April', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('May', 0)"/>
+                                                <t t-set="May"
+                                                   t-value="May + record[line].get('May', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('May', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('June', 0)"/>
+                                                <t t-set="June"
+                                                   t-value="June + record[line].get('June', 0)"/>
+                                                <t t-set="row_total + record[line].get('June', 0)"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('July', 0)"/>
+                                                <t t-set="July"
+                                                   t-value="July + record[line].get('July', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('July', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('August', 0)"/>
+                                                <t t-set="August"
+                                                   t-value="August + record[line].get('August', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('August', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('September', 0)"/>
+                                                <t t-set="September"
+                                                   t-value="September + record[line].get('September', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('September', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('October', 0)"/>
+                                                <t t-set="October"
+                                                   t-value="October + record[line].get('October', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('October', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('November', 0)"/>
+                                                <t t-set="November"
+                                                   t-value="November + record[line].get('November', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('November', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('December', 0)"/>
+                                                <t t-set="December"
+                                                   t-value="December + record[line].get('December', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('December', 0)"/>
+
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="row_total"/>
+                                            </td>
+                                            <t t-set="total_value" t-value="total_value + row_total"/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td class="text-left">
+                                            Total
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="January"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="February"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="March"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="April"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="May"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="June"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="July"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="August"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="September"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="October"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="November"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="December"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="total_value"/>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

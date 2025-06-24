@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="admit_patient_form_view" model="ir.ui.view">
+        <field name="name">admit patient</field>
+        <field name="model">admit.patient</field>
+        <field name="arch" type="xml">
+            <form string="Admit Patient">
+                <sheet>
+                    <group>
+                        <field name="room_type_id" required="True"/>
+                        <field name="room_id"
+                               domain="[('room_type_id','=',room_type_id), ('state', '=', 'not selected')]"
+                               required="True"/>
+                        <field name="bed_id"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="admit_patient" string="Admit Patient" class="oe_link" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+<!--    <record id="action_admit_patient" model="ir.actions.act_window">-->
+<!--        <field name="name">admit patient</field>-->
+<!--        <field name="res_model">admit.patient</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="view_id" ref="admit_patient_form_view"/>-->
+<!--        <field name="target">new</field>-->
+<!--    </record>-->
+
+</odoo>

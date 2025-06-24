@@ -1,0 +1,127 @@
+<odoo>
+    <template id="report_ipd_medicine_patient_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Medicine Report Patient Wise</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From :
+                                        <t t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To :
+                                        <t t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="sequence" class="text-center">Sr.No</th>
+                                    <th name="date" class="text-center">Admit Date</th>
+                                    <th name="sequence" class="text-left">IPD No</th>
+                                    <th name="Patient" class="text-left">Patient Name</th>
+                                    <th name="age" class="text-left">Age</th>
+                                    <th name="sex" class="text-left">Sex</th>
+                                    <th name="department" class="text-left">Department</th>
+                                    <th name="doctor" class="text-left">Doctor</th>
+                                    <th name="doctor" class="text-left">Medicine</th>
+                                    <th name="doctor" class="text-left">dose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="ipd_report">
+                                    <t t-set="index" t-value="0"/>
+                                    <t t-foreach="search_record" t-as="line">
+                                        <tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                            <td name="count" style="font-size:14px;">
+                                                <span t-esc="index"/>
+                                            </td>
+                                            <td name="date" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['date_of_admit']"
+                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>
+                                            </td>
+                                            <td name="Sequence" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['name']"/>
+                                            </td>
+                                            <td name="patient" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['patient_id']"/>
+                                            </td>
+                                            <td name="age" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['age']"/>
+                                            </td>
+                                            <td name="sex" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['sex']"/>
+                                            </td>
+                                            <td name="department" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['doctor_department_id']"/>
+                                            </td>
+                                            <td name="doctor" class="text-right" style="font-size:14px;">
+                                                <span t-esc="line['doctor_id']"/>
+                                            </td>
+                                            <td name="doctor" class="text-left" style="font-size:14px;">
+                                                <t t-foreach="line['medicine']" t-as="med">
+                                                    <span t-esc="med[0]"/>
+                                                    <br/>
+                                                </t>
+                                            </td>
+                                            <td name="doctor" class="text-left" style="font-size:14px;">
+                                                <t t-set="zero" t-value="0"/>
+                                                <!--                                                <br/>-->
+                                                <t t-foreach="line['medicine']" t-as="med">
+                                                    <t t-if="med[1] == True">
+                                                        <span t-esc="med[5]"/>
+                                                        -
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="zero"/>
+                                                        -
+                                                    </t>
+                                                    <t t-if="med[2] == True">
+                                                        <span t-esc="med[5]"/>
+                                                        -
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="zero"/>
+                                                        -
+                                                    </t>
+                                                    <t t-if="med[3] == True">
+                                                        <span t-esc="med[5]"/>
+                                                        -
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="zero"/>
+                                                        -
+                                                    </t>
+                                                    <t t-if="med[4] == True">
+                                                        <span t-esc="med[5]"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="zero"/>
+                                                    </t>
+                                                    <br/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

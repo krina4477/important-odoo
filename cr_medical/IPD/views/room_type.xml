@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="room_type_form">
+            <field name="name">room_type_form</field>
+            <field name="model">room.type</field>
+            <field name="arch" type="xml">
+                <form string="Room Type">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="price"/>
+
+                        </group>
+                        <group>
+                            <field name="facility_ids" widget="many2many_tags"/>
+                            <field name="room_id" string="Room" widget="many2many_tags"/>
+                        </group>
+                        <group string="Bed Details">
+                            <group>
+                                <field name="no_of_bed"/>
+
+                            </group>
+                            <group>
+                                <button name="generate_bed" icon="fa-arrow-right" type="object"
+                                        class="oe_inline">
+                                    <span>
+                                        Generate Bed
+                                    </span>
+                                </button>
+                            </group>
+
+                        </group>
+                        <group>
+                            <field name="bed_ids">
+                                <tree editable="bottom">
+                                    <!-- <field name="seq"/> -->
+                                    <field name="name"/>
+                                    <field name="room_obj" invisible="1"/>
+                                    <field name="opd_id" invisible="1"/>
+                                    <field name="admit_patient_id" invisible="1"/>
+                                    <field name="occupied"/>
+                                    <field name="date" invisible="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="room_type_tree">
+            <field name="name">room_type_tree</field>
+            <field name="model">room.type</field>
+            <field name="arch" type="xml">
+                <tree string="Room Type">
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="facility_ids" widget="many2many_tags"/>
+                    <field name="room_id" widget="many2many_tags"/>
+                    <field name="bed_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="room_type_search_view">
+            <field name="name">room_type_search_view</field>
+            <field name="model">room.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group string="Group By">
+                        <filter string="Room Type" name="name" context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_room_type_details">
+            <field name="name">Room Types</field>
+            <field name="res_model">room.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No roomtype found
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem name="Room Type" id="menu_ipd_room_type_details" parent="IPD.menu_ipd_room_type_details_1"
+                  action="action_room_type_details" sequence="27"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="surgery_type_tree_view" model="ir.ui.view">
+        <field name="name">Surgery Type</field>
+        <field name="model">surgery.type</field>
+        <field name="arch" type="xml">
+            <tree string="Surgery Type">
+                <field name="surgery_type"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="surgery_type_form_view" model="ir.ui.view">
+        <field name="name">Surgery Type</field>
+        <field name="model">surgery.type</field>
+        <field name="arch" type="xml">
+            <form string="Surgery Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="surgery_type"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="surgery_type_action" model="ir.actions.act_window">
+        <field name="name">Surgery Type</field>
+        <field name="res_model">surgery.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Surgery"
+              id="menu_surgery"
+              parent="cr_medical_base.cr_medical_menu_root"
+              sequence="5"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+
+    <menuitem name="Surgery Types"
+              id="menu_surgery_types"
+              parent="surgery.menu_surgery"
+              action="surgery_type_action"
+              sequence="2"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+
+</odoo>

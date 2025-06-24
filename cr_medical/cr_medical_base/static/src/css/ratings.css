@@ -1,0 +1,23 @@
+.rating {
+  display: inline-block;
+  font-size: 40px;
+  color: #ddd;
+}
+.rating {
+    direction: rtl;
+  }
+
+.rating input[type="radio"] {
+display: none;
+}
+}
+.rating label {
+  cursor: pointer;
+  padding: 5px;
+}
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input[type="radio"]:checked ~ label {
+  color: #ffcc00;
+}
+

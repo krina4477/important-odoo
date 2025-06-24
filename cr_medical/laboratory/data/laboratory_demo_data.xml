@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--        For Creating Laboratory Test-->
+
+        <record id="laboratory_test_demo_1" model="lab.test.type">
+            <field name="test_name">Blood glucose test</field>
+        </record>
+
+        <record id="laboratory_test_demo_2" model="lab.test.type">
+            <field name="test_name">Cardiac enzymes</field>
+        </record>
+
+        <record id="laboratory_test_demo_3" model="lab.test.type">
+            <field name="test_name">C-reactive protein (CRP) blood test</field>
+        </record>
+
+        <record id="laboratory_test_demo_4" model="lab.test.type">
+            <field name="test_name">Liver function tests</field>
+        </record>
+
+        <record id="laboratory_test_demo_5" model="lab.test.type">
+            <field name="test_name">Full blood count</field>
+        </record>
+
+        <record id="lab_test_type_demo_data_1" model="lab.test.type">
+            <field name="test_name">Blood tests</field>
+        </record>
+
+        <record id="lab_test_type_demo_data_2" model="lab.test.type">
+            <field name="test_name">Urine test</field>
+        </record>
+
+        <record id="lab_test_type_demo_data_3" model="lab.test.type">
+            <field name="test_name">Tumor markers</field>
+        </record>
+
+        <!--        For Creating Pathologist Education-->
+
+        <record id="pathologist_education_demo_data1" model="pathologist.education">
+            <field name="name">Diploma in pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data2" model="pathologist.education">
+            <field name="name">Graduation in pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data3" model="pathologist.education">
+            <field name="name">Masters in pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data4" model="pathologist.education">
+            <field name="name">Ph. D in pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data_1" model="pathologist.education">
+            <field name="name">Msc.Microbiology</field>
+        </record>
+        <record id="pathologist_education_demo_data_3" model="pathologist.education">
+            <field name="name">Diploma in Clinical Pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data_4" model="pathologist.education">
+            <field name="name">Bachelor of Audiology Speech and Language Pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data_4" model="pathologist.education">
+            <field name="name">Master of Dental Surgery in Oral Pathology</field>
+        </record>
+        <record id="pathologist_education_demo_data_6" model="pathologist.education">
+            <field name="name">Doctor of Philosophy in Speech Pathology and Audiology</field>
+        </record>
+
+        <!--        For Creating Pathologist Info-->
+
+        <record id="pathologist_info_demo_data1" model="res.partner">
+            <field name="name">Harsh Patel</field>
+            <field name="pathologist_education_ids"
+                   eval="[(6,0,[ref('laboratory.pathologist_education_demo_data1'),ref('laboratory.pathologist_education_demo_data2'),ref('laboratory.pathologist_education_demo_data3'),ref('laboratory.pathologist_education_demo_data4')])]"/>
+            <field name="street">3404 gandhi Road</field>
+            <field name="city">Surat</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AZ')]"/>
+            <field name="country_id" ref="base.us"/>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_12-image.png"/>
+            <field name="date_of_birth">1998-07-22</field>
+            <field name="age">22</field>
+            <field name="sex">male</field>
+            <field name="mobile">458741256</field>
+            <field name="email">harsh@gmail.com</field>
+            <field name="zip">474015</field>
+            <field name="is_pathologist" eval="True"/>
+        </record>
+
+        <record id="pathologist_info_demo_data2" model="res.partner">
+            <field name="name">Krisha Solanki</field>
+            <field name="pathologist_education_ids"
+                   eval="[(6,0,[ref('laboratory.pathologist_education_demo_data1'),ref('laboratory.pathologist_education_demo_data2'),ref('laboratory.pathologist_education_demo_data3')])]"/>
+            <field name="street">3404 Edgewood Road</field>
+            <field name="city">Jonesboro</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','OR')]"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_12-image.png"/>
+            <field name="date_of_birth">1999-10-25</field>
+            <field name="age">22</field>
+            <field name="sex">female</field>
+            <field name="mobile">458741256</field>
+            <field name="email">krisha@gmail.com</field>
+            <field name="zip">754015</field>
+            <field name="is_pathologist" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_Green_Cross_Pathology_Laboratory" model="res.partner">
+            <field name="name">Harshil</field>
+            <field name="street">EdenWod</field>
+            <field name="street2">Aden Road</field>
+            <field name="city">Ahmedabad</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AZ')]"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="zip">387620</field>
+            <field name="email">laboratory1@gmail.com</field>
+            <field name="mobile">7359844798</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_12-image.png"/>
+            <field name="date_of_birth">1998-09-01</field>
+            <field name="sex">male</field>
+            <field name="age">25</field>
+            <field name="is_pathologist" eval="True"/>
+            <field name="pathologist_education_ids" eval="[(4, ref('laboratory.pathologist_education_demo_data_1'))]"/>
+        </record>
+
+        <!--        For Creating New laboratory-->
+
+        <record id="laboratory_demo_data" model="laboratory.laboratory">
+            <field name="name">XYZ laboratory</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="street">3404 Edgewood Road</field>
+            <field name="city">surat</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AZ')]"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="pathologist_id" ref="laboratory.pathologist_info_demo_data1"/>
+            <field name="phone">(870)-931-0505</field>
+            <field name="mobile">458741256</field>
+            <field name="email">smit@gmail.com</field>
+            <field name="website">http://www.xyzlaboratory.com</field>
+            <field name="image" type="base64" file="laboratory/static/description/images/XYZ_lab.png"/>
+        </record>
+
+        <record id="laboratory_demo_data2" model="laboratory.laboratory">
+            <field name="name">Health Services Laboratory</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="street">3404 Edgewood Road</field>
+            <field name="city">Jonesboro</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','NC')]"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="pathologist_id" ref="laboratory.pathologist_info_demo_data2"/>
+            <field name="phone">(870)-931-0505</field>
+            <field name="mobile">458741256</field>
+            <field name="email">krisha@gmail.com</field>
+            <field name="website">http://www.helthserviceslaboratory.com</field>
+            <field name="image" type="base64" file="laboratory/static/description/images/helth_lab.jpg"/>
+        </record>
+
+        <record id="laboratory_demo_data_1" model="laboratory.laboratory">
+            <field name="name">ABC laboratory</field>
+            <field name="pathologist_id" ref="res_partner_new_Green_Cross_Pathology_Laboratory"/>
+            <field name="street">Ratanakar mata Road</field>
+            <field name="street2">Dakor Road</field>
+            <field name="city">Kaapadwanj</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AZ')]"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">laboratory10@gmail.com</field>
+            <field name="mobile">9427594475</field>
+            <field name="website">http://www.abclaboratory.com</field>
+            <field name="phone">123456</field>
+            <field name="image" type="base64" file="laboratory/static/description/images/ABC_labs.jpeg"/>
+        </record>
+
+        <!--        For Creating Laboratory Test Price-->
+
+        <record id="laboratory_test_price_demo_1" model="lab.test.price">
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_demo_1"/>
+            <field name="test_price">900</field>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="laboratory_test_price_demo_2" model="lab.test.price">
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_demo_2"/>
+            <field name="test_price">1200</field>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="laboratory_test_price_demo_3" model="lab.test.price">
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_demo_3"/>
+            <field name="test_price">700</field>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="laboratory_test_price_demo_4" model="lab.test.price">
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data2"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_demo_4"/>
+            <field name="test_price">1500</field>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="laboratory_test_price_demo_5" model="lab.test.price">
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data2"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_demo_5"/>
+            <field name="test_price">1400</field>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="lab_test_price_1" model="lab.test.price">
+            <field name="test_price">500</field>
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data_1"/>
+            <field name="select_test_id" ref="laboratory.lab_test_type_demo_data_1"/>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="lab_test_price_2" model="lab.test.price">
+            <field name="test_price">600</field>
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data_1"/>
+            <field name="select_test_id" ref="laboratory.lab_test_type_demo_data_2"/>
+            <field name="state">confirm</field>
+        </record>
+
+        <record id="lab_test_price_3" model="lab.test.price">
+            <field name="test_price">700</field>
+            <field name="lab_name_id" ref="laboratory.laboratory_demo_data_1"/>
+            <field name="select_test_id" ref="laboratory.lab_test_type_demo_data_3"/>
+            <field name="state">confirm</field>
+        </record>
+
+        <!--        For Creating patient Laboratory Test-->
+
+        <record id="patient_lab_test_demo_1" model="patient.lab.test">
+            <field name="lab_detail_id" ref="laboratory.laboratory_demo_data"/>
+            <field name="patient_id" ref="cr_medical_base.set_opd_2"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_price_demo_1"/>
+            <field name="test_price">900</field>
+        </record>
+
+        <record id="Patient_lab_test_1" model="patient.lab.test">
+            <field name="lab_detail_id" ref="laboratory.laboratory_demo_data_1"/>
+            <field name="patient_id" ref="cr_medical_base.set_opd_1"/>
+            <field name="select_test_id" ref="laboratory.lab_test_price_1"/>
+            <field name="test_price">500</field>
+        </record>
+
+        <record id="Patient_lab_test_2" model="patient.lab.test">
+            <field name="lab_detail_id" ref="laboratory.laboratory_demo_data"/>
+            <field name="patient_id" ref="cr_medical_base.set_opd_2"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_price_demo_2"/>
+            <field name="test_price">1200</field>
+        </record>
+
+        <record id="Patient_lab_test_3" model="patient.lab.test">
+            <field name="lab_detail_id" ref="laboratory.laboratory_demo_data2"/>
+            <field name="patient_id" ref="cr_medical_base.res_partner_new_patient_1"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_price_demo_4"/>
+            <field name="test_price">1500</field>
+        </record>
+
+        <record id="Patient_lab_test_4" model="patient.lab.test">
+            <field name="lab_detail_id" ref="laboratory.laboratory_demo_data2"/>
+            <field name="patient_id" ref="cr_medical_base.res_partner_new_patient_1"/>
+            <field name="select_test_id" ref="laboratory.laboratory_test_price_demo_5"/>
+            <field name="test_price">1400</field>
+        </record>
+
+        <!--        For Creating OPD Lab-->
+
+        <record id="laboratory_demo_1" model="laboratory.prescription">
+            <field name="laboratory_id" ref="laboratory.laboratory_demo_data"/>
+            <field name="laboratory_test_id"
+                   eval="[(4, ref('laboratory.laboratory_test_demo_1')), (4, ref('laboratory.laboratory_test_demo_2'))]"/>
+            <field name="note">Only Fruits</field>
+            <field name="state">done</field>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_2"/>
+            <field name="patient_id" ref="cr_medical_base.set_opd_2"/>
+            <field name="opd_id" ref="cr_medical_base.set_opd_2"/>
+        </record>
+
+        <!--        For Creating OPD Lab For Existing Patient-->
+
+        <record id="laboratory_demo_2" model="laboratory.prescription">
+            <field name="laboratory_id" ref="laboratory.laboratory_demo_data2"/>
+            <field name="laboratory_test_id"
+                   eval="[(4, ref('laboratory.laboratory_test_demo_4')), (4, ref('laboratory.laboratory_test_demo_5'))]"/>
+            <field name="note">Only Fruits</field>
+            <field name="state">done</field>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_4"/>
+            <field name="patient_id" ref="cr_medical_base.res_partner_new_patient_1"/>
+            <field name="opd_id" ref="cr_medical_base.set_opd_6"/>
+        </record>
+
+        <!--        laboratory prescription-->
+
+        <record model="laboratory.prescription" id="laboratory_prescription_demo_data_1">
+            <field name="laboratory_id" ref="laboratory_demo_data_1"/>
+            <field name="laboratory_test_id" eval="[(4, ref('laboratory.lab_test_type_demo_data_1'))]"/>
+            <field name="note">Test</field>
+            <field name="state">done</field>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="patient_id" ref="cr_medical_base.set_opd_1"/>
+            <field name="opd_id" ref="cr_medical_base.set_opd_1"/>
+        </record>
+
+    </data>
+</odoo>

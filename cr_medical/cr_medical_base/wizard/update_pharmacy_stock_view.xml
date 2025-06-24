@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_update_pharmacy_stock" model="ir.ui.view">
+            <field name="name">Update Pharmacy Stock</field>
+            <field name="model">update.pharmacy.stock</field>
+            <field name="arch" type="xml">
+                <form string="Update Pharmacy Stock">
+                    <separator colspan="4" string="Update Medicine Stock"/>
+
+                    <field name="medicine_lines">
+                        <tree string="Medine" editable="bottom">
+                            <field name="product_id"/>
+                            <field name="uom_id"/>
+                            <field name="quantity"/>
+                        </tree>
+                    </field>
+                    <field name="prescription_id" invisible="1"/>
+
+                    <footer>
+                        <button name="update_stock" string="Update" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

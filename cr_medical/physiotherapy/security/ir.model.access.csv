@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+physiotherapy.access_show_ipd_physiotherapy,access_show_ipd_physiotherapy,physiotherapy.model_show_ipd_physiotherapy,base.group_user,1,1,1,1
+physiotherapy.access_ipd_physiotherapy,access_ipd_physiotherapy,physiotherapy.model_ipd_physiotherapy,base.group_user,1,1,1,1
+
+
+
+

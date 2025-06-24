@@ -1,0 +1,487 @@
+<odoo>
+    <template id="report_opd_month_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Opd Month Wise Report</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Selected Year :
+                                        <t t-esc="select_years"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <!--                        <t t-if="selection_types in ['OPD','IPD']">-->
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="Department" class="text-left">Department</th>
+                                    <th name="Jan" class="text-right">Jan</th>
+                                    <th name="Feb" class="text-right">Feb</th>
+                                    <th name="Mar" class="text-right">Mar</th>
+                                    <th name="Apr" class="text-right">Apr</th>
+                                    <th name="May" class="text-right">May</th>
+                                    <th name="Jun" class="text-right">Jun</th>
+                                    <th name="Jul" class="text-right">Jul</th>
+                                    <th name="Aug" class="text-right">Aug</th>
+                                    <th name="Sep" class="text-right">Sep</th>
+                                    <th name="Oct" class="text-right">Oct</th>
+                                    <th name="Nov" class="text-right">Nov</th>
+                                    <th name="Dec" class="text-right">Dec</th>
+                                    <th name="Total" class="text-center">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="opd_report">
+                                    <t t-set="January" t-value="0"/>
+                                    <t t-set="February" t-value="0"/>
+                                    <t t-set="March" t-value="0"/>
+                                    <t t-set="April" t-value="0"/>
+                                    <t t-set="May" t-value="0"/>
+                                    <t t-set="June" t-value="0"/>
+                                    <t t-set="July" t-value="0"/>
+                                    <t t-set="August" t-value="0"/>
+                                    <t t-set="September" t-value="0"/>
+                                    <t t-set="October" t-value="0"/>
+                                    <t t-set="November" t-value="0"/>
+                                    <t t-set="December" t-value="0"/>
+
+                                    <t t-set="total_value" t-value="0"/>
+                                    <t t-foreach="record" t-as="line">
+                                        <t t-set="row_total" t-value="0"/>
+                                        <!--                                        <t t-set="total_value" t-value="0"/>-->
+                                        <tr>
+                                            <td class="text-left">
+                                                <t t-esc="line"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('January', 0)"/>
+                                                <t t-set="January"
+                                                   t-value="January + record[line].get('January', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('January', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('February', 0)"/>
+                                                <t t-set="February"
+                                                   t-value="February + record[line].get('February', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('February', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('March', 0)"/>
+                                                <t t-set="March"
+                                                   t-value="March + record[line].get('March', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('March', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('April', 0)"/>
+                                                <t t-set="April"
+                                                   t-value="April + record[line].get('April', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('April', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('May', 0)"/>
+                                                <t t-set="May"
+                                                   t-value="May + record[line].get('May', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('May', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('June', 0)"/>
+                                                <t t-set="June"
+                                                   t-value="June + record[line].get('June', 0)"/>
+                                                <t t-set="row_total + record[line].get('June', 0)"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('July', 0)"/>
+                                                <t t-set="July"
+                                                   t-value="July + record[line].get('July', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('July', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('August', 0)"/>
+                                                <t t-set="August"
+                                                   t-value="August + record[line].get('August', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('August', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('September', 0)"/>
+                                                <t t-set="September"
+                                                   t-value="September + record[line].get('September', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('September', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('October', 0)"/>
+                                                <t t-set="October"
+                                                   t-value="October + record[line].get('October', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('October', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('November', 0)"/>
+                                                <t t-set="November"
+                                                   t-value="November + record[line].get('November', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('November', 0)"/>
+
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="record[line].get('December', 0)"/>
+                                                <t t-set="December"
+                                                   t-value="December + record[line].get('December', 0)"/>
+                                                <t t-set="row_total"
+                                                   t-value="row_total + record[line].get('December', 0)"/>
+
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="row_total"/>
+                                            </td>
+                                            <t t-set="total_value" t-value="total_value + row_total"/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td class="text-left">
+                                            Total
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="January"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="February"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="March"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="April"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="May"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="June"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="July"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="August"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="September"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="October"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="November"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="December"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="total_value"/>
+                                        </td>
+
+
+                                    </tr>
+                                </div>
+                                <!--                                <div class="opd_report">-->
+                                <!--                                    &lt;!&ndash;                <t t-set="index" t-value="0"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                    <t t-set="total_qty_available" t-value="0.0"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                    <t t-set="total_out_quantity" t-value="0.0"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                    <t t-set="total_current_stock" t-value="0.0"/>&ndash;&gt;-->
+                                <!--                                    <t t-foreach="record" t-as="line">-->
+                                <!--                                        <t t-esc="record[line]"/>-->
+                                <!--                                        &lt;!&ndash;                                        <tr>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        <t t-set="index" t-value="index+1"/>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        <td name="count" style="font-size:14px;">&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                            <span t-esc="index"/>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        </td>&ndash;&gt;-->
+                                <!--                                        <td name="department" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <span t-esc="line"/>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="department" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'January' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="February" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'february' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="March" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'march' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="April" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'april' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="July" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'february' in record[line]">-->
+                                <!--                                                <span t-esc="5"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="August" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'August' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="september" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'September' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="october" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'October' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="november" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'November' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td name="december" class="text-left" style="font-size:14px;">-->
+                                <!--                                            <t t-if="'December' in record[line]">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                            <t t-else="">-->
+                                <!--                                                <span t-esc="0"/>-->
+                                <!--                                            </t>-->
+                                <!--                                        </td>-->
+                                <!--                                        &lt;!&ndash;                                            &lt;!&ndash;                                            <td name="time" class="text-right" style="font-size:14px;">&ndash;&gt;&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                            &lt;!&ndash;                                                <span t-esc="line['select_time_id']"/>&ndash;&gt;&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                            &lt;!&ndash;                                            </td>&ndash;&gt;&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                            <td name="weekdays" class="text-right" style="font-size:14px;">&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                                <span t-esc="line['weekdays']"/>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                            </td>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        </tr>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        <t t-set="total_qty_available"&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                           t-value="total_qty_available+line['qty_available']"/>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        <t t-set="total_out_quantity"&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                           t-value="total_out_quantity+line['out_quantity']"/>&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                        <t t-set="total_current_stock"&ndash;&gt;-->
+                                <!--                                        &lt;!&ndash;                                           t-value="total_current_stock+line['current_stock']"/>&ndash;&gt;-->
+                                <!--                                    </t>-->
+                                <!--                                    &lt;!&ndash;            <tr>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                <td style="border: none;"></td>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                <td style="border: none;"></td>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                <td class="text-right" style="font-size:16px;">&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    <strong>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                        <t t-esc="total_qty_available"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    </strong>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                </td>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                <td class="text-right" style="font-size:16px;">&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    <strong>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                        <t t-esc="total_out_quantity"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    </strong>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                </td>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                <td class="text-right" style="font-size:16px;">&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    <strong>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                        <t t-esc="total_current_stock"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    </strong>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                </td>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;            </tr>&ndash;&gt;-->
+                                <!--                                </div>-->
+                            </tbody>
+                        </table>
+                        <!--                        </t>-->
+                        <!--                        <t t-if="selection_types == 'BOTH'">-->
+                        <!--                            <table class="table table-bordered">-->
+                        <!--                                <thead>-->
+                        <!--                                    <tr class="font-weight-bold bg-light" style="font-size:16px;">-->
+                        <!--                                        <h3>Medicine Stock OPD Wise</h3>-->
+                        <!--                                        <th name="refrence" class="text-left">Sr No</th>-->
+                        <!--                                        <th name="designation" class="text-left">Product Name</th>-->
+                        <!--                                        <th name="initial" class="text-right">Stock</th>-->
+                        <!--                                        <th name="out" class="text-right">Out</th>-->
+                        <!--                                        <th name="balance" class="text-right">Available Stock</th>-->
+                        <!--                                    </tr>-->
+                        <!--                                </thead>-->
+                        <!--                                <tbody>-->
+                        <!--                                    <div class="medicine_report">-->
+                        <!--                                        <t t-set="index" t-value="0"/>-->
+                        <!--                                        <t t-set="total_qty_available" t-value="0.0"/>-->
+                        <!--                                        <t t-set="total_out_quantity" t-value="0.0"/>-->
+                        <!--                                        <t t-set="total_current_stock" t-value="0.0"/>-->
+                        <!--                                        <t t-foreach="search_record" t-as="line">-->
+                        <!--                                            <tr>-->
+                        <!--                                                <t t-set="index" t-value="index+1"/>-->
+                        <!--                                                <td name="count" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="index"/>-->
+                        <!--                                                </td>-->
+                        <!--                                                <td name="product_name" class="text-left" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['product_name']"/>-->
+                        <!--                                                </td>-->
+
+                        <!--                                                <td name="qty_available" class="text-right" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['qty_available']"/>-->
+                        <!--                                                </td>-->
+                        <!--                                                <td name="out_quantity" class="text-right" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['out_quantity']"/>-->
+                        <!--                                                </td>-->
+                        <!--                                                <td name="current_stock" class="text-right" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['current_stock']"/>-->
+                        <!--                                                </td>-->
+                        <!--                                            </tr>-->
+                        <!--                                            <t t-set="total_qty_available"-->
+                        <!--                                               t-value="total_qty_available+line['qty_available']"/>-->
+                        <!--                                            <t t-set="total_out_quantity"-->
+                        <!--                                               t-value="total_out_quantity+line['out_quantity']"/>-->
+                        <!--                                            <t t-set="total_current_stock"-->
+                        <!--                                               t-value="total_current_stock+line['current_stock']"/>-->
+                        <!--                                        </t>-->
+                        <!--                                        <tr>-->
+                        <!--                                            <td style="border: none;"></td>-->
+                        <!--                                            <td style="border: none;"></td>-->
+                        <!--                                            <td class="text-right" style="font-size:16px;">-->
+                        <!--                                                <strong>-->
+                        <!--                                                    <t t-esc="total_qty_available"/>-->
+                        <!--                                                </strong>-->
+                        <!--                                            </td>-->
+                        <!--                                            <td class="text-right" style="font-size:16px;">-->
+                        <!--                                                <strong>-->
+                        <!--                                                    <t t-esc="total_out_quantity"/>-->
+                        <!--                                                </strong>-->
+                        <!--                                            </td>-->
+                        <!--                                            <td class="text-right" style="font-size:16px;">-->
+                        <!--                                                <strong>-->
+                        <!--                                                    <t t-esc="total_current_stock"/>-->
+                        <!--                                                </strong>-->
+                        <!--                                            </td>-->
+                        <!--                                        </tr>-->
+                        <!--                                    </div>-->
+                        <!--                                </tbody>-->
+                        <!--                            </table>-->
+                        <!--                            <table class="table table-bordered">-->
+                        <!--                                <thead>-->
+                        <!--                                    <tr class="font-weight-bold bg-light" style="font-size:16px;">-->
+                        <!--                                        <h3>Medicine Stock IPD Wise</h3>-->
+                        <!--                                        <th name="refrence" class="text-left">Sr No</th>-->
+                        <!--                                        <th name="designation" class="text-left">Product Name</th>-->
+                        <!--                                        <th name="initial" class="text-right">Stock</th>-->
+                        <!--                                        <th name="out" class="text-right">Out</th>-->
+                        <!--                                        <th name="balance" class="text-right">Available Stock</th>-->
+                        <!--                                    </tr>-->
+                        <!--                                </thead>-->
+                        <!--                                <tbody>-->
+                        <!--                                    <div class="medicine_report">-->
+                        <!--                                        <t t-set="index" t-value="0"/>-->
+                        <!--                                        <t t-set="total_qty_available" t-value="0.0"/>-->
+                        <!--                                        <t t-set="total_out_quantity" t-value="0.0"/>-->
+                        <!--                                        <t t-set="total_current_stock" t-value="0.0"/>-->
+                        <!--                                        <t t-foreach="ipd_record" t-as="line">-->
+                        <!--                                            <tr>-->
+                        <!--                                                <t t-set="index" t-value="index+1"/>-->
+                        <!--                                                <td name="count" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="index"/>-->
+                        <!--                                                </td>-->
+                        <!--                                                <td name="product_name" class="text-left" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['product_name']"/>-->
+                        <!--                                                </td>-->
+
+                        <!--                                                <td name="qty_available" class="text-right" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['qty_available']"/>-->
+                        <!--                                                </td>-->
+                        <!--                                                <td name="out_quantity" class="text-right" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['out_quantity']"/>-->
+                        <!--                                                </td>-->
+                        <!--                                                <td name="current_stock" class="text-right" style="font-size:14px;">-->
+                        <!--                                                    <span t-esc="line['current_stock']"/>-->
+                        <!--                                                </td>-->
+                        <!--                                            </tr>-->
+                        <!--                                            <t t-set="total_qty_available"-->
+                        <!--                                               t-value="total_qty_available+line['qty_available']"/>-->
+                        <!--                                            <t t-set="total_out_quantity"-->
+                        <!--                                               t-value="total_out_quantity+line['out_quantity']"/>-->
+                        <!--                                            <t t-set="total_current_stock"-->
+                        <!--                                               t-value="total_current_stock+line['current_stock']"/>-->
+                        <!--                                        </t>-->
+                        <!--                                        <tr>-->
+                        <!--                                            <td style="border: none;"></td>-->
+                        <!--                                            <td style="border: none;"></td>-->
+                        <!--                                            <td class="text-right" style="font-size:16px;">-->
+                        <!--                                                <strong>-->
+                        <!--                                                    <t t-esc="total_qty_available"/>-->
+                        <!--                                                </strong>-->
+                        <!--                                            </td>-->
+                        <!--                                            <td class="text-right" style="font-size:16px;">-->
+                        <!--                                                <strong>-->
+                        <!--                                                    <t t-esc="total_out_quantity"/>-->
+                        <!--                                                </strong>-->
+                        <!--                                            </td>-->
+                        <!--                                            <td class="text-right" style="font-size:16px;">-->
+                        <!--                                                <strong>-->
+                        <!--                                                    <t t-esc="total_current_stock"/>-->
+                        <!--                                                </strong>-->
+                        <!--                                            </td>-->
+                        <!--                                        </tr>-->
+                        <!--                                    </div>-->
+                        <!--                                </tbody>-->
+                        <!--                            </table>-->
+                        <!--                        </t>-->
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

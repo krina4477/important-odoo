@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_medicine_stock_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Medicine Stock Report</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From :
+                                        <t t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To :
+                                        <t t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="sequence" class="text-center">Sr.No</th>
+                                    <th name="sequence" class="text-left">Medicine Name</th>
+                                    <th name="manufacturing_date" class="text-left">Manufacturing Date</th>
+                                    <th name="expiry_date" class="text-left">Expiry Date</th>
+                                    <th name="lst_price" class="text-left">Sales price</th>
+                                    <th name="standard_price" class="text-left">Cost</th>
+                                    <th name="qty_available" class="text-left">Quantity On Hand</th>
+                                    <th name="virtual_available" class="text-left">Forecasted Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="opd_report">
+                                    <t t-set="index" t-value="0"/>
+                                    <t t-foreach="search_record" t-as="line">
+                                        <tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                            <td class="text-center" name="count" style="font-size:14px;">
+                                                <span t-esc="index"/>
+                                            </td>
+                                            <td name="Sequence" class="text-left" style="font-size:14px;">
+                                                <t t-if="line.get('expiry_note') and line['expiry_note'] == '(expired)'">
+                                                    <span style="color: red;">
+                                                        <t t-esc="str(line['name']) + str(line['expiry_note'])"/>
+                                                    </span>
+                                                </t>
+                                                <t t-elif="line.get('expiry_note') and line['expiry_note'] != 'False'">
+                                                    <span t-esc="str(line['name']) + str(line['expiry_note'])"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-esc="line['name']"/>
+                                                </t>
+                                            </td>
+                                            <td name="manufacturing_date" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['manufacturing_date']"/>
+                                            </td>
+                                            <td name="expiry_date" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['expiry_date']"/>
+                                            </td>
+                                            <td name="lst_price" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['lst_price']"/>
+                                            </td>
+                                            <td name="standard_price" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['standard_price']"/>
+                                            </td>
+                                            <td name="qty_available" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['qty_available']"/>
+                                            </td>
+                                            <td name="virtual_available" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['virtual_available']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

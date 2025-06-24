@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_pharmacy_pharmacist_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Pharmacist">
+                <field name="name"/>
+                <field name="pharmacist_education_ids" widget="many2many_tags"/>
+                <field name="city"/>
+                <field name="state_id"/>
+                <field name="country_id"/>
+                <field name="date_of_birth"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cr_pharmacy_pharmacist_form_view" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacist">
+                <sheet>
+                    <div class="oe_left" style="width: 500px;">
+                        <field name="image_1920" widget="image" class="oe_avatar"
+                               options="{'preview_image': 'image_medium'}"/>
+                        <div class="oe_title">
+                            <label for="name" string="Pharmacist Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                            <field name="pharmacist_education_ids" placeholder="Pharmacist Education"
+                                   widget="many2many_tags"/>
+                        </div>
+                    </div>
+
+                    <group>
+                        <group>
+                            <label for="street" string="Address"/>
+                            <div>
+                                <field name="street" placeholder="Street..."/>
+                                <field name="street2"/>
+                                <div class="address_format">
+                                    <field name="city" placeholder="City" style="width: 40%"/>
+                                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%"/>
+                                </div>
+                                <field name="country_id" placeholder="Country" class="oe_no_button"/>
+                            </div>
+                        </group>
+
+                        <group>
+                            <field name="date_of_birth"/>
+                            <field name="age"/>
+                            <field name="sex"/>
+                            <field name="is_pharmacist" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_pharmacist" model="ir.actions.act_window">
+        <field name="name">Pharmacist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_pharmacist','=',True)]</field>
+        <field name="context">{'default_is_pharmacist':True}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                     (0, 0, {'view_mode': 'tree', 'view_id': ref('cr_pharmacy_pharmacist_tree_view')}),
+                     (0, 0, {'view_mode': 'form', 'view_id': ref('cr_pharmacy_pharmacist_form_view')})]"/>
+    </record>
+
+    <menuitem id="cr_medical_menu_pharmacist" name="Pharmacist" parent="cr_medical_base.cr_medical_menu_root"
+              active="True" sequence="2"/>
+
+    <menuitem name="Pharmacist" id="menu_pharmacist_details_1" parent="cr_medical_base.cr_menu_configuration"
+              sequence="3"
+              groups="pharmacy.group_pharmacy,cr_medical_base.group_admin"/>
+    <menuitem name="Pharmacist Info" id="menu_pharmacist_details" parent="pharmacy.menu_pharmacist_details_1"
+              action="action_cr_pharmacist"
+              sequence="5"/>
+</odoo>
+

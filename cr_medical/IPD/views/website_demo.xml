@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website_demo" model="ir.ui.view">
+        <field name="name">Website Demo</field>
+        <field name="type">qweb</field>
+        <field name="key">cr_medical_base.website_demo</field>
+        <field name="arch" type="xml">
+            <t name="Website Demo" t-name="cr_medical_base.website_demo">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="oe_structure">
+                            <section class="s_features pt32 pb32">
+                                <div class="container">
+                                    <div class="row">
+                                        <form action="/website-demo-test" method="post">
+                                            <fieldset>
+                                                <legend>Personalia:</legend>
+                                                <label for="fname">First name:</label>
+                                                <input type="text" id="fname" name="fname"/>
+                                                <label for="lname">Last name:</label>
+                                                <input type="text" id="lname" name="lname"/>
+                                                <label for="email">Email:</label>
+                                                <input type="email" id="email" name="email"/>
+                                                <label for="birthday">Birthday:</label>
+                                                <input type="date" id="birthday" name="birthday"/>
+                                                <input type="submit" value="Submit"/>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+    <record id="website_demo_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/website-demo</field>
+        <field name="view_id" ref="website_demo"/>
+    </record>
+</odoo>

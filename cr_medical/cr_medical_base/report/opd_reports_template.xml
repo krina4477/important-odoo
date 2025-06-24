@@ -1,0 +1,98 @@
+<odoo>
+    <template id="report_opd_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="text-center">
+                        <h1>
+                            <u>
+                                <em>Opd Report</em>
+                            </u>
+                        </h1>
+                    </div>
+                    <div>
+                        <table class="table .table-striped .table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <td>Date From :
+                                        <t t-esc="start_date"/>
+                                    </td>
+                                    <td>Date To :
+                                        <t t-esc="end_date"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <!--                        <t t-if="selection_types in ['OPD','IPD']">-->
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="font-weight-bold bg-light" style="font-size:16px;">
+                                    <th name="sr_no" class="text-center">Sr.No</th>
+                                    <th name="date" class="text-center">Date</th>
+                                    <th name="sequence" class="text-left">Opd No</th>
+                                    <th name="Patient" class="text-left">Patient Name</th>
+                                    <th name="Patient" class="text-left">Age</th>
+                                    <th name="Patient" class="text-left">Sex</th>
+                                    <th name="department" class="text-left">Department</th>
+                                    <th name="doctor" class="text-left">Doctor</th>
+                                    <th name="date" class="text-center">Appointment Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="opd_report">
+                                    <t t-set="index" t-value="0"/>
+                                    <t t-foreach="search_record" t-as="line">
+                                        <tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                            <td class="text-center" name="count" style="font-size:14px;">
+                                                <span t-esc="index"/>
+                                            </td>
+                                            <td name="date" class="text-center" style="font-size:14px;">
+                                                <span t-esc="line['appointment_date']"
+                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>
+                                                (
+                                                <span t-esc="datetime.datetime.strptime(line['appointment_date'], '%Y-%m-%d').strftime('%a')"/>
+                                                )
+                                            </td>
+                                            <td name="Sequence" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['name']"/>
+                                            </td>
+                                            <td name="patient" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['patient_id']"/>
+<!--                                                <span t-esc="line['new_patient_name']"/>-->
+                                            </td>
+                                            <td name="age" class="text-left">
+                                                <span t-esc="line['age']"/>
+                                                <span t-esc="line['new_patient_age']"/>
+                                            </td>
+                                            <td name="sex" class="text-left">
+                                                <span t-esc="line['sex']"/>
+                                                <span t-esc="line['new_patient_sex']"/>
+                                            </td>
+                                            <td name="department" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['doctor_department_id']"/>
+                                            </td>
+                                            <td name="doctor" class="text-left" style="font-size:14px;">
+                                                <span t-esc="line['doctor_id']"/>
+                                            </td>
+                                            <td name="date" class="text-center" style="font-size:14px;">
+                                                <span t-esc="line['appointment_date']"
+                                                      t-options='{"widget": "date","format": "MM/dd/yyyy"}'/>
+                                                (
+                                                <span t-esc="datetime.datetime.strptime(line['appointment_date'], '%Y-%m-%d').strftime('%a')"/>
+                                                )
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

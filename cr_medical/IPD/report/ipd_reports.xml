@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_ipd_medicine_department_reports" model="ir.actions.report">
+        <field name="name">Medicine reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.ipd_medicine_report_department</field>
+        <field name="report_file">IPD.ipd_medicine_report_department</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_ipd_discharge_summary_reports" model="ir.actions.report">
+        <field name="name">Ipd Discharge Summary reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.ipd_discharge_report_department</field>
+        <field name="report_file">IPD.ipd_discharge_report_department</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_ipd_bed_count_reports" model="ir.actions.report">
+        <field name="name">Ipd Bed Count reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.ipd_bed_count_report_department</field>
+        <field name="report_file">IPD.ipd_bed_count_report_department</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_ipd_department_reports" model="ir.actions.report">
+        <field name="name">IPD reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.report_ipd_department_report</field>
+        <field name="report_file">IPD.report_ipd_department_report</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_ipd_month_reports" model="ir.actions.report">
+        <field name="name">IPD reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.report_ipd_month_report</field>
+        <field name="report_file">IPD.report_ipd_month_report</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_ipd_medicine_patient_reports" model="ir.actions.report">
+        <field name="name">IPD reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.report_ipd_medicine_patient_report</field>
+        <field name="report_file">IPD.report_ipd_medicine_patient_report</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_patient_count_reports" model="ir.actions.report">
+        <field name="name">IPD reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.patient_count_report_department</field>
+        <field name="report_file">IPD.patient_count_report_department</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_ipd_reports" model="ir.actions.report">
+        <field name="name">IPD reports</field>
+        <field name="model">ipd.reports</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">IPD.report_opd_report</field>
+        <field name="report_file">IPD.report_opd_report</field>
+        <field name="binding_model_id" ref="model_ipd_reports"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

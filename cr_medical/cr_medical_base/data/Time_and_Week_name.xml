@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--    Time Hours    -->
+        <record id="time_1" model="time.hours">
+            <field name="time">00.00</field>
+            <field name="name">00:00</field>
+        </record>
+        <record id="time_2" model="time.hours">
+            <field name="time">01.00</field>
+            <field name="name">01:00</field>
+        </record>
+        <record id="time_3" model="time.hours">
+            <field name="time">02.00</field>
+            <field name="name">02:00</field>
+        </record>
+        <record id="time_4" model="time.hours">
+            <field name="time">03.00</field>
+            <field name="name">03:00</field>
+        </record>
+        <record id="time_5" model="time.hours">
+            <field name="time">04.00</field>
+            <field name="name">04:00</field>
+        </record>
+        <record id="time_6" model="time.hours">
+            <field name="time">05.00</field>
+            <field name="name">05:00</field>
+        </record>
+        <record id="time_7" model="time.hours">
+            <field name="time">06.00</field>
+            <field name="name">06:00</field>
+        </record>
+        <record id="time_8" model="time.hours">
+            <field name="time">07.00</field>
+            <field name="name">07:00</field>
+        </record>
+        <record id="time_9" model="time.hours">
+            <field name="time">08.00</field>
+            <field name="name">08:00</field>
+        </record>
+        <record id="time_10" model="time.hours">
+            <field name="time">09.00</field>
+            <field name="name">09:00</field>
+        </record>
+        <record id="time_11" model="time.hours">
+            <field name="time">10.00</field>
+            <field name="name">10:00</field>
+        </record>
+        <record id="time_12" model="time.hours">
+            <field name="time">11.00</field>
+            <field name="name">11:00</field>
+        </record>
+        <record id="time_13" model="time.hours">
+            <field name="time">12.00</field>
+            <field name="name">12:00</field>
+        </record>
+        <record id="time_14" model="time.hours">
+            <field name="time">13.00</field>
+            <field name="name">13:00</field>
+        </record>
+        <record id="time_15" model="time.hours">
+            <field name="time">14.00</field>
+            <field name="name">14:00</field>
+        </record>
+        <record id="time_16" model="time.hours">
+            <field name="time">15.00</field>
+            <field name="name">15:00</field>
+        </record>
+        <record id="time_17" model="time.hours">
+            <field name="time">16.00</field>
+            <field name="name">16:00</field>
+        </record>
+        <record id="time_18" model="time.hours">
+            <field name="time">17.00</field>
+            <field name="name">17:00</field>
+        </record>
+        <record id="time_19" model="time.hours">
+            <field name="time">18.00</field>
+            <field name="name">18:00</field>
+        </record>
+        <record id="time_20" model="time.hours">
+            <field name="time">19.00</field>
+            <field name="name">19:00</field>
+        </record>
+        <record id="time_21" model="time.hours">
+            <field name="time">20.00</field>
+            <field name="name">20:00</field>
+        </record>
+        <record id="time_22" model="time.hours">
+            <field name="time">21.00</field>
+            <field name="name">21:00</field>
+        </record>
+        <record id="time_23" model="time.hours">
+            <field name="time">22.00</field>
+            <field name="name">22:00</field>
+        </record>
+        <record id="time_24" model="time.hours">
+            <field name="time">23.00</field>
+            <field name="name">23:00</field>
+        </record>
+
+        <!--        For Week Name        -->
+
+        <record id="set_week_name_1" model="weekday.name">
+            <field name="name">Monday</field>
+        </record>
+
+        <record id="set_week_name_2" model="weekday.name">
+            <field name="name">Tuesday</field>
+        </record>
+
+        <record id="set_week_name_3" model="weekday.name">
+            <field name="name">Wednesday</field>
+        </record>
+
+        <record id="set_week_name_4" model="weekday.name">
+            <field name="name">Thursday</field>
+        </record>
+
+        <record id="set_week_name_5" model="weekday.name">
+            <field name="name">Friday</field>
+        </record>
+
+        <record id="set_week_name_6" model="weekday.name">
+            <field name="name">Saturday</field>
+        </record>
+
+        <record id="set_week_name_7" model="weekday.name">
+            <field name="name">Sunday</field>
+        </record>
+
+        <!--        For Select Time -->
+
+        <record model="doctor.weeklyavalibility" id="select_time_demo_1">
+            <field name="name">1:00 To 3:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_2">
+            <field name="name">1:00 To 3:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_3">
+            <field name="name">6:00 To 12:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_4">
+            <field name="name">10:00 To 12:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_5">
+            <field name="name">1:00 To 9:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_6">
+            <field name="name">1:00 To 8:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_7">
+            <field name="name">2:00 To 9:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_8">
+            <field name="name">6:00 To 12:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_9">
+            <field name="name">3:00 To 8:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_10">
+            <field name="name">5:00 To 9:00</field>
+        </record>
+        <record model="doctor.weeklyavalibility" id="select_time_demo_11">
+            <field name="name">2:00 To 9:00</field>
+        </record>
+
+
+    </data>
+</odoo>

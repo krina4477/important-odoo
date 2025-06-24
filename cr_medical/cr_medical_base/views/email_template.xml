@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="mail_template_opd_opd" model="mail.template">
+            <field name="name">Follow up OPD Remainder</field>
+            <field name="model_id" ref="cr_medical_base.model_opd_opd"/>
+            <!--            <field name="email_from">{{ (user.email) }}</field>-->
+            <!--            <field name="email_to">{{ (object.patient_id.email) }}</field>-->
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding:0px;">
+                    <p style="margin: 0px; padding:0px; font-size: 13px;">
+                        Dear
+                        <t t-out="object.patient_id.name"/>
+                        <br/>
+                        <br/>
+                        Your Opd Details is with Reference No.<t t-out="object.name"/>.
+                        Your next Follow up opd on<t t-out="object.appointment_date"/>.
+                        <br/>
+                    </p>
+                </div>
+            </field>
+        </record>
+        <record id="mail_template_send_patient_review" model="mail.template">
+            <field name="name">Opd Email</field>
+            <field name="model_id" ref="cr_medical_base.model_opd_opd"/>
+            <field name="email_from">{{ (user.email) }}</field>
+            <field name="email_to">{{ (object.patient_id.email) }}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="subject">Patient review</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear
+                        <strong>
+                            <t t-out="object.patient_id.name"></t>
+                        </strong>
+                        ,
+                        <br/>
+                        your well-being is our highest concern. Did we address your health care
+                        issues? Please let us know if we've taken good care of you:
+                        <br/>
+                        <a class="btn btn-secondary"
+                           t-attf-href="{{ object.get_base_url() }}/my/review/{{object.id}}">
+                            Open Review page
+                        </a>
+
+                        <br/>
+                        <br/>
+                        Thank You.
+                    </p>
+                </div>
+            </field>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pathologist_education_tree_view" model="ir.ui.view">
+        <field name="name">pathologist.education.tree</field>
+        <field name="model">pathologist.education</field>
+        <field name="arch" type="xml">
+            <tree string="Pathologist">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pathologist_education_form_view" model="ir.ui.view">
+        <field name="name">pathologist.education.form</field>
+        <field name="model">pathologist.education</field>
+        <field name="arch" type="xml">
+            <form string="Pathologist Education">
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pathologist_education" model="ir.actions.act_window">
+        <field name="name">Pathologist Education</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pathologist.education</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Test!
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Pathologist Education Info"
+              id="menu_pathologist_education_details"
+              parent="laboratory.menu_pathologist_details_1"
+              action="action_pathologist_education"
+              sequence="39"/>
+</odoo>
+

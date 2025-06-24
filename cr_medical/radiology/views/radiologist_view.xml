@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_radiology_radiologist_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+             <tree string="Radiologist">
+                 <field name="name"/>
+                 <field name="radiologist_education_ids" widget="many2many_tags"/>
+                 <field name="city"/>
+                 <field name="state_id"/>
+                 <field name="country_id"/>
+                 <field name="date_of_birth"/>
+                 <field name="age"/>
+             </tree>
+        </field>
+    </record>
+
+    <record id="cr_radiology_radiologist_form_view" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Radiologist">
+            	<sheet>
+                        <div class="oe_left" style="width: 500px;">
+                            <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_medium'}"/>
+                            <div class="oe_title">
+                                <label for="name" string="Radiology Name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" required="1"/>
+                                </h1>
+                                <field name="radiologist_education_ids" placeholder="Radiologist Education" widget="many2many_tags"/>
+                            </div>
+                        </div>
+
+                    <group>
+                        <group>
+                            <label for="street" string="Address"/>
+                            <div>
+                                <field name="street" placeholder="Street..."/>
+                                <field name="street2"/>
+                                <div class="address_format">
+                                    <field name="city" placeholder="City" style="width: 40%"/>
+                                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%"/>
+                                </div>
+                                <field name="country_id" placeholder="Country" class="oe_no_button"/>
+                            </div>
+		            	</group>
+
+                        <group>
+                            <field name="date_of_birth"/>
+                            <field name="age"/>
+                            <field name="sex"/>
+                            <field name="is_radiologist" invisible="1"/>
+                        </group>
+		            </group>
+	            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_radiologist" model="ir.actions.act_window">
+        <field name="name">Radiologist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_radiologist','=',True)]</field>
+        <field name="context">{'default_is_radiologist':True}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                     (0, 0, {'view_mode': 'tree', 'view_id': ref('cr_radiology_radiologist_tree_view')}),
+                     (0, 0, {'view_mode': 'form', 'view_id': ref('cr_radiology_radiologist_form_view')})]"/>
+    </record>
+
+
+<!--    <record id="action_pharmacist" model="ir.actions.act_window">-->
+<!--        <field name="name">Pharmacist</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">res.partner</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="domain">[]</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                Test!-->
+<!--            </p>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <menuitem id="cr_medical_menu_radiologist" name="Radiologist" parent="cr_medical_base.cr_medical_menu_root" active="True" sequence="6"/>
+
+    <menuitem name="Radiologist" id="menu_radiologist_details_1" parent="cr_medical_base.cr_menu_configuration" sequence="7" groups="radiology.group_radiology,cr_medical_base.group_admin"/>
+    <menuitem name="Radiologist Info" id="menu_radiologist_details" parent="radiology.menu_radiologist_details_1" action="action_cr_radiologist"
+              sequence="32"/>
+</odoo>
+

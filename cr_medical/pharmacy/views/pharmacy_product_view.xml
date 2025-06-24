@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="cr_pharmacy_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="product_ref_id" optional="hide"/>
+                </xpath>
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-danger">categ_id == product_ref_id</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="cr_pharmacy_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label" position="replace">
+                    <label for="name" string="Medicine Name"/>
+                </xpath>
+
+                <!-- Display the expiry_note field next to the name field -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="expiry_note" readonly="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">Medicine Name</attribute>
+                </xpath>
+
+                <xpath expr="//div[@name='standard_price_uom']" position="after">
+                    <!--                    <field name="not_sold_in_last_six_months" required="True"/>-->
+                    <field name="manufacturing_date" required="True"/>
+                    <field name="expiry_date" required="True" decoration-success="categ_id == 'expired'"/>
+                </xpath>
+
+                <xpath expr="//page[@name='inventory']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="cr_product_template_search_view" model="ir.ui.view">
+            <field name="name">product.product.search</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <filter name="filter_to_sell" position="before">
+                    <filter name="not_sold_in_last_six_months" string="Non Moving Items"
+                            domain="[('is_medicine', '=', True), ('not_sold_in_last_six_months', '=', True)]"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="action_cr_pharmacy_product_information" model="ir.actions.act_window">
+            <field name="name">Add New Pharmacy Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_medicine','=',True)]</field>
+            <field name="context">{'default_is_medicine':True}</field>
+        </record>
+
+        <menuitem id="menu_products"
+                  name="Pharmacy Stock"
+                  action="action_cr_pharmacy_product_information"
+                  parent="pharmacy.menu_pharmacist_details_1"
+                  active="TRUE"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--       create show ipd Surgery  Type-->
+
+        <record id="surgery_type_demo_data_1" model="surgery.type">
+            <field name="surgery_type">Debridement Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_2" model="surgery.type">
+            <field name="surgery_type">Bariatric Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_3" model="surgery.type">
+            <field name="surgery_type">Colon and Rectal Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_4" model="surgery.type">
+            <field name="surgery_type">Endocrine Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_5" model="surgery.type">
+            <field name="surgery_type">Gynecological Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_6" model="surgery.type">
+            <field name="surgery_type">Hand Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_7" model="surgery.type">
+            <field name="surgery_type">Head and Neck Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_8" model="surgery.type">
+            <field name="surgery_type">Hernia Surgery</field>
+        </record>
+        <record id="surgery_type_demo_data_9" model="surgery.type">
+            <field name="surgery_type">Neurosurgery</field>
+        </record>
+        <record id="surgery_type_demo_data_10" model="surgery.type">
+            <field name="surgery_type">Plastic and Reconstructive Surgery</field>
+        </record>
+
+        <!--       create show ipd Surgery -->
+
+        <record id="show_ipd_surgery_demo_data_1" model="show.ipd.surgery">
+            <field name="patient_id" ref="IPD.res_partner_1"/>
+            <field name="surgery_date" eval="datetime.now() + timedelta(days=5)"/>
+            <field name="surgery_id" ref="surgery.surgery_type_demo_data_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_3"/>
+            <field name="anesthetic_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="ipd_id" ref="IPD.ipd_registration_demo_data_1"/>
+            <field name="start_time" eval="datetime.now() + timedelta(days=5)"/>
+            <field name="end_time" eval="datetime.now() + timedelta(days=6)"/>
+            <field name="state">done</field>
+            <field name="doctor_remark">Successful surgery</field>
+            <field name="ot_remark">Patient recovered well</field>
+            <field name="action">Medication prescribed</field>
+        </record>
+
+    </data>
+</odoo>

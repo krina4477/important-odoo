@@ -1,0 +1,13 @@
+
+        .selectt {
+            color: #000000;
+            padding: 30px;
+            display: none;
+            margin-top: 30px;
+            width: 100%;
+            background: #80808033
+        }
+        label {
+            margin-right: 20px;
+        }
+

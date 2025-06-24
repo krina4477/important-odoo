@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_surgery_diseases_reports" model="ir.actions.report">
+        <field name="name">Surgery reports</field>
+        <field name="model">surgery.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">surgery.report_surgery_diseases_report</field>
+        <field name="report_file">surgery.report_surgery_diseases_report</field>
+        <field name="binding_model_id" ref="model_surgery_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_surgery_doctor_reports" model="ir.actions.report">
+        <field name="name">Surgery reports</field>
+        <field name="model">surgery.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">surgery.report_surgery_doctor_report</field>
+        <field name="report_file">surgery.report_surgery_doctor_report</field>
+        <field name="binding_model_id" ref="model_surgery_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_surgery_department_reports" model="ir.actions.report">
+        <field name="name">Surgery reports</field>
+        <field name="model">surgery.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">surgery.report_surgery_department_report</field>
+        <field name="report_file">surgery.report_surgery_department_report</field>
+        <field name="binding_model_id" ref="model_surgery_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_surgery_reports" model="ir.actions.report">
+        <field name="name">Surgery reports</field>
+        <field name="model">surgery.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">surgery.report_surgery_report</field>
+        <field name="report_file">surgery.report_surgery_report</field>
+        <field name="binding_model_id" ref="model_surgery_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="diet_plan_view_form1" model="ir.ui.view">
+        <field name="name">diet plan</field>
+        <field name="model">diet.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id" readonly="True"
+                                   context="{'form_view_ref':'cr_medical_base.cr_patient_form_view'}"/>
+                            <field name="date_of_admit" readonly="True"/>
+                            <field name="doctor_department_id" readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="break_fast_ids" widget="many2many_tags"/>
+                            <field name="lunch_ids" widget="many2many_tags"/>
+                            <field name="dinner_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="set_diet" type="object" class="btn btn-primary"
+                                string="Confirm"/>
+                        <button string="Cancel" class="btn btn-primary" special="cancel"/>
+
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="diet_plan_action_form1" model="ir.actions.act_window">
+        <field name="name">Diet Plan</field>
+        <field name="res_model">diet.plan</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="diet_plan_view_form1"/>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+
+        <!--    Create Receptionist -->
+
+        <record id="res_partner_new_receptionist_1" model="res.partner">
+            <field name="name">Hina Jadav</field>
+            <field name="sex">female</field>
+            <field name="street">Parvat Patiya</field>
+            <field name="street2">Sitanagar Society</field>
+            <field name="city">Surat</field>
+            <field name="state">approve</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AR')]"/>
+            <field name="mobile">(870)-931-0505</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">jadavhina@example.com</field>
+            <field name="is_receptionist" eval="True"/>
+        </record>
+
+        <record id="res_partner_new_receptionist_2" model="res.partner">
+            <field name="name">Parul Shah</field>
+            <field name="sex">female</field>
+            <field name="street">Sayala Rode</field>
+            <field name="street2">Virat Society</field>
+            <field name="city">Ahmedabad</field>
+            <field name="state">approve</field>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AR')]"/>
+            <field name="mobile">(870)-888-0606</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="email">parulshah@example.com</field>
+            <field name="is_receptionist" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

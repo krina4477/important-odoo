@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--        For Creating Diet Breakfast-->
+
+        <record id="breakfast_demo_data1" model="break.fast">
+            <field name="name">upma</field>
+        </record>
+
+        <record id="breakfast_demo_data2" model="break.fast">
+            <field name="name">Sagoo Soup</field>
+        </record>
+
+        <record id="breakfast_demo_data3" model="break.fast">
+            <field name="name">Rava idli</field>
+        </record>
+
+        <record id="breakfast_demo_data4" model="break.fast">
+            <field name="name">Chuda(Poha)</field>
+        </record>
+
+        <record id="breakfast_demo_data5" model="break.fast">
+            <field name="name">Milk</field>
+        </record>
+
+        <record id="breakfast_demo_data6" model="break.fast">
+            <field name="name">Biscuit</field>
+        </record>
+
+        <record id="breakfast_demo_data7" model="break.fast">
+            <field name="name">Tea</field>
+        </record>
+
+        <record id="breakfast_demo_data8" model="break.fast">
+            <field name="name">Mansa Rasa</field>
+        </record>
+
+        <record id="breakfast_demo_data9" model="break.fast">
+            <field name="name">Coffee</field>
+        </record>
+
+        <record id="breakfast_demo_data10" model="break.fast">
+            <field name="name">Bread</field>
+        </record>
+
+
+        <!--        For Creating Diet Lunch-->
+
+        <record id="lunch_demo_data1" model="lunch.info">
+            <field name="name">Roti Dal</field>
+        </record>
+
+        <record id="lunch_demo_data2" model="lunch.info">
+            <field name="name">Tomato-Garlic Lentil Bowls</field>
+        </record>
+
+        <record id="lunch_demo_data3" model="lunch.info">
+            <field name="name">veg curry</field>
+        </record>
+
+        <record id="lunch_demo_data4" model="lunch.info">
+            <field name="name">Quickpea Curry</field>
+        </record>
+
+        <record id="lunch_demo_data5" model="lunch.info">
+            <field name="name">Rice</field>
+        </record>
+
+        <record id="lunch_demo_data6" model="lunch.info">
+            <field name="name">Mix Veg Curry</field>
+        </record>
+
+
+        <!--        For Creating Diet Dinner-->
+
+        <record id="dinner_demo_data1" model="dinner.info">
+            <field name="name">khichdi</field>
+        </record>
+
+        <record id="dinner_demo_data2" model="dinner.info">
+            <field name="name">uppam</field>
+        </record>
+
+        <record id="dinner_demo_data3" model="dinner.info">
+            <field name="name">Oats idli</field>
+        </record>
+
+        <record id="dinner_demo_data4" model="dinner.info">
+            <field name="name">Mansa Rasa</field>
+        </record>
+
+        <record id="dinner_demo_data5" model="dinner.info">
+            <field name="name">Chuda(Poha)</field>
+        </record>
+
+
+        <!--        For Creating Patient Diet-->
+
+        <record id="diet_demo_data1" model="kitchen.details">
+            <field name="patient_id" ref="IPD.res_partner_1"/>
+            <field name="date_of_admit" eval="datetime.now() + timedelta(days=3)"/>
+            <field name="break_fast_ids" eval="[(6,0,[ref('breakfast_demo_data2'),ref('breakfast_demo_data4')])]"/>
+            <field name="lunch_ids" eval="[(6,0,[ref('lunch_demo_data1')])]"/>
+            <field name="dinner_ids" eval="[(6,0,[ref('dinner_demo_data2')])]"/>
+            <!--            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>-->
+        </record>
+
+    </data>
+</odoo>

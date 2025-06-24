@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dinner_info_view_tree" model="ir.ui.view">
+        <field name="name">dinner.info.tree</field>
+        <field name="model">dinner.info</field>
+        <field name="arch" type="xml">
+            <tree string="dinner info">
+                <field name="name" required="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="dinner_info_view_form" model="ir.ui.view">
+        <field name="name">dinner_info</field>
+        <field name="model">dinner.info</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <sheet>
+                    <group>
+                        <field name="name" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_dinner_info" model="ir.actions.act_window">
+        <field name="name">Dinner</field>
+        <field name="res_model">dinner.info</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Dinner"
+              id="menu_dinner"
+              parent="diet_module.menu_diet"
+              action="action_cr_dinner_info"
+              sequence="68"
+              groups="cr_medical_base.group_doctor,cr_medical_base.group_admin"/>
+</odoo>

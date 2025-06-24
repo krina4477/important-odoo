@@ -1,0 +1,1369 @@
+<odoo>
+    <template id="portal_layout_inh" name="Portal layout: menu entry" inherit_id="portal.portal_breadcrumbs"
+              priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'OPDs'" class="col-lg-2" t-attf-class="breadcrumb-item active">
+                <a t-if="opd" t-attf-href="/my/all-opd?{{ keep_query() }}">OPDs</a>
+                <span t-else="">OPDs</span>
+            </li>
+            <li t-if="opd" t-attf-class="breadcrumb-item active">
+                <t t-esc="opd.name"/>
+            </li>
+
+            <li t-if="page_name == 'follow_opd'" class="col-lg-2" t-attf-class="breadcrumb-item active">
+                <a t-attf-href="/my/all-opd?{{ keep_query() }}">OPDs</a>
+            </li>
+            <li t-if="page_name == 'follow_opd'" t-attf-class="breadcrumb-item active">
+                <a t-attf-href="/my/opd/#{follow_opd_id.id}?{{ keep_query() }}">
+                    <t t-esc="follow_opd_id.name"/>
+                </a>
+            </li>
+
+            <li t-if="page_name == 'follow_opd'"
+                t-attf-class="breadcrumb-item active">
+                <a t-if="follow_opd_id_form" t-attf-href="/my/followup-opds/#{follow_opd_id.id}?{{ keep_query() }}">
+                    FollowUp OPDs
+                </a>
+                <span t-else="">Followup OPDs</span>
+            </li>
+
+            <li t-if="follow_opd_id_form" t-attf-class="breadcrumb-item active">
+                <t t-esc="follow_opd_id_form.name"/>
+            </li>
+
+
+            <li t-if="page_name == 'Pharmacy'" class="col-lg-2" t-attf-class="breadcrumb-item active">
+                <a t-if="pharmacy_id" t-attf-href="/my/all-pharmacy?{{ keep_query() }}">Pharmacy</a>
+                <span t-else="">Pharmacy</span>
+            </li>
+            <li t-if="pharmacy_id" t-attf-class="breadcrumb-item active">
+                <t t-esc="pharmacy_id.name"/>
+            </li>
+
+
+            <li t-if="page_name == 'Radiology'" class="col-lg-2" t-attf-class="breadcrumb-item active">
+                <a t-if="radiology_id" t-attf-href="/my/all-radiology?{{ keep_query() }}">Radiology</a>
+                <span t-else="">Radiology</span>
+            </li>
+            <li t-if="radiology_id" t-attf-class="breadcrumb-item active">
+                <t t-esc="radiology_id.name"/>
+            </li>
+
+
+            <li t-if="page_name == 'Laboratory'" class="col-lg-2" t-attf-class="breadcrumb-item active">
+                <a t-if="laboratory_id" t-attf-href="/my/all-laboratory?{{ keep_query() }}">Laboratory</a>
+                <span t-else="">Laboratory</span>
+            </li>
+            <li t-if="laboratory_id" t-attf-class="breadcrumb-item active">
+                <t t-esc="laboratory_id.name"/>
+            </li>
+
+
+            <li t-if="page_name == 'IPDs'" class="col-lg-2" t-attf-class="breadcrumb-item active">
+                <a t-if="ipd_id" t-attf-href="/my/all-ipd?{{ keep_query() }}">IPDs</a>
+                <span t-else="">IPDs</span>
+            </li>
+            <li t-if="ipd_id" t-attf-class="breadcrumb-item active">
+                <t t-esc="ipd_id.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_cr_user" name="User Portal" inherit_id="portal.portal_my_home"
+              customize_show="True" priority="30">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="replace">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">OPDs</t>
+                <t t-set="url" t-value="'/my/all-opd'"/>
+                <t t-set="placeholder_count" t-value="'opd_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Pharmacy</t>
+                <t t-set="url" t-value="'/my/all-pharmacy'"/>
+                <t t-set="placeholder_count" t-value="'pharmacy_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Radiology</t>
+                <t t-set="url" t-value="'/my/all-radiology'"/>
+                <t t-set="placeholder_count" t-value="'radiology_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Laboratory</t>
+                <t t-set="url" t-value="'/my/all-laboratory'"/>
+                <t t-set="placeholder_count" t-value="'laboratory_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">IPDs</t>
+                <t t-set="url" t-value="'/my/all-ipd'"/>
+                <t t-set="placeholder_count" t-value="'ipd_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!--=============================OPD Tree View Template==============================-->
+
+    <template id="cr_medical_opd_tree_view_portal_user" name="OPD">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">OPD</t>
+            </t>
+            <t t-if="not opd_ids">
+                <p>There are currently no OPDs for your account.</p>
+            </t>
+
+            <t t-if="opd_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>No</th>
+                        <t t-if="request.env.user.partner_id.is_doctor">
+                            <th>Patient Name</th>
+                        </t>
+                        <t t-else="request.env.user.partner_id.is_patient">
+                            <th>Doctor Name</th>
+                        </t>
+                        <th> Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="opd_ids" t-as="opd_id">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/opd/#{opd_id.id}?{{ keep_query() }}">
+                                    <span t-field="opd_id.name"/>
+                                </a>
+                            </td>
+                            <t t-if="request.env.user.partner_id.is_doctor">
+                                <td>
+                                    <span t-field="opd_id.patient_id.name"/>
+                                </td>
+                            </t>
+                            <t t-else="request.env.user.partner_id.is_patient">
+                                <td>
+                                    <span t-field="opd_id.doctor_id.name"/>
+                                </td>
+                            </t>
+                            <td>
+                                <span t-field="opd_id.appointment_date"/>
+                            </td>
+                            <td>
+                                <span t-field="opd_id.state"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!--===========================OPD form View=============================-->
+
+    <template id="cr_medical_opd_form_view_portal_user" name="OPD Form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">opd</t>
+            </t>
+            <div id="heading" t-attf-class="pb-2 pt-3 #{'card-header bg-white'}">
+                <div class="row">
+                    <div class="col text-left">
+                        <h3>
+                            <strong>OPD
+                                <span t-field="opd.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="col text-right">
+                        <t t-if="opd.is_normal_opd">
+                            <a role="button" class="btn btn-primary"
+                               t-attf-href="/my/followup-opds/#{opd.id}?{{ keep_query() }}">
+                                <i class="fa fa-check"/>
+                                <t>Follow Ups OPD</t>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div id="information" t-attf-class="pb-2 pt-3 #{'card-body bg-white'}">
+                <div class="row" id="opd_info">
+                    <div class="col-4">
+                        <strong>Patient Name:</strong>
+                        <span t-field="opd.patient_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Doctor Name:</strong>
+                        <span t-field="opd.doctor_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Dr. Department:</strong>
+                        <span t-field="opd.doctor_department_id.department"/>
+                    </div>
+                </div>
+                <div class="row" id="opd_appointment_info">
+                    <div class="mb-3 col-4">
+                        <strong>Appointment Date:</strong>
+                        <span t-field="opd.appointment_date"/>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <strong>WeekDay Name:</strong>
+                        <span t-field="opd.weekdays"/>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <strong>Time:</strong>
+                        <span t-field="opd.select_time_id"/>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-8" id="opd_Examine_info">
+                        <h4>
+                            <strong>
+                                <u>Examine Details</u>
+                            </strong>
+                        </h4>
+                        <div>
+                            <strong>Chief Complaints:</strong>
+                            <span t-field="opd.chief_complaints"/>
+                        </div>
+                        <div>
+                            <strong>Local Examination:</strong>
+                            <span t-field="opd.local_examination"/>
+                        </div>
+                        <div>
+                            <strong>System Examination:</strong>
+                            <span t-field="opd.system_examination"/>
+                        </div>
+                    </div>
+                    <div class="col-4" id="opd_vital_signs">
+                        <h4>
+                            <strong>
+                                <u>Vital Signs</u>
+                            </strong>
+                        </h4>
+                        <!--                        <field name="field_name" widget="text" placeholder="Field Placeholder"/>-->
+                        <div>
+                            <strong>Pulse:</strong>
+                            <span t-field="opd.pulse"/>
+                        </div>
+                        <div>
+                            <strong>BP:</strong>
+                            <span t-field="opd.blood_pressure"/>
+                        </div>
+                        <div>
+                            <strong>Temperature:</strong>
+                            <span t-field="opd.temp"/>
+                        </div>
+                        <div>
+                            <strong>Weight:</strong>
+                            <span t-field="opd.weight"/>
+                        </div>
+                        <div>
+                            <strong>Respiration:</strong>
+                            <span t-field="opd.respiration"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opd_pharmacy_info" t-if="opd.medicine_line_ids">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>Pharmacy</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="prescription_date" class="text-left">Date</th>
+                                    <th name="pharmacy_name" class="text-left">Pharmacy Name</th>
+                                    <th name="medicine_name" class="text-left">Medicine Name</th>
+                                    <th name="morning_dose" class="text-left">Morning Dose</th>
+                                    <th name="noon_dose" class="text-left">Noon Dose</th>
+                                    <th name="evening_dose" class="text-left">Evening Dose</th>
+                                    <th name="night_dose" class="text-left">Night Dose</th>
+                                    <th name="dose" class="text-left">Dose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="pharmacy_tbody">
+                                    <t t-foreach="opd.medicine_line_ids" t-as="pharmacy">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="pharmacy.prescriptionDate"/>
+                                            </td>
+                                            <td name="pharmacy_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="pharmacy.pharmacy_id"/>
+                                            </td>
+                                            <td name="medicine_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="pharmacy.medicine_id"/>
+                                            </td>
+                                            <td name="morning_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.morning_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="noon_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.noon_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="evening_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.evening_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="night_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.night_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="dose" class="text-left" style="font-size:14px;">
+                                                <span t-field="pharmacy.dose"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div t-if="opd.lab_line_ids" class="row" id="opd_laboratory_info">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>Laboratory</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="prescription_date" class="text-left">Date</th>
+                                    <th name="lab_name" class="text-left">Laboratory Name</th>
+                                    <th name="test_name" class="text-left">Test Name</th>
+                                    <th name="note" class="text-left">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="laboratory_tbody">
+                                    <t t-foreach="opd.lab_line_ids" t-as="laboratory">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="laboratory.prescriptionDate"/>
+                                            </td>
+                                            <td name="pharmacy_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="laboratory.laboratory_id.name"/>
+                                            </td>
+                                            <td name="medicine_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="laboratory.laboratory_test_id"/>
+                                            </td>
+                                            <td name="dose" class="text-left" style="font-size:14px;">
+                                                <span t-field="laboratory.note"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div t-if="opd.radio_line_ids" class="row" id="opd_radiology_info">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>Radiology</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="prescription_date" class="text-left">Date</th>
+                                    <th name="radio_name" class="text-left">Radiology Name</th>
+                                    <th name="test_name" class="text-left">Test Name</th>
+                                    <th name="note" class="text-left">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="laboratory_tbody">
+                                    <t t-foreach="opd.radio_line_ids" t-as="radiology">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="radiology.prescriptionDate"/>
+                                            </td>
+                                            <td name="pharmacy_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="radiology.radiology_id.name"/>
+                                            </td>
+                                            <td name="medicine_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="radiology.radiology_test_id"/>
+                                            </td>
+                                            <td name="dose" class="text-left" style="font-size:14px;">
+                                                <span t-field="radiology.note"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="follow_up">
+                    <div class="col-6">
+                        <strong>Followup Date:</strong>
+                        <span t-field="opd.follow_up_date"/>
+                    </div>
+
+                    <div class="col-4">
+                        <strong>Followup Advise:</strong>
+                        <span t-field="opd.followup_advice"/>
+                    </div>
+                </div>
+                <br/>
+                <a t-attf-href="/my/review/#{opd.id}?{{ keep_query() }}">
+                    <u>Upgarde your review</u>
+                </a>
+                <br/>
+                <div class="rating" style="margin: 0px; padding:12px;" disable="true">
+                    <t t-set="my_value" t-value="opd.ratings"/>
+                    <input type="radio" name="rating" id="rating-5" value="5" t-att-checked="my_value == '5'"/>
+                    <label for="rating-5">&#9733;</label>
+                    <input type="radio" name="rating" id="rating-4" value="4" t-att-checked="my_value == '4'"/>
+                    <label for="rating-4">&#9733;</label>
+                    <input type="radio" name="rating" id="rating-3" value="3" t-att-checked="my_value == '3'"/>
+                    <label for="rating-3">&#9733;</label>
+                    <input type="radio" name="rating" id="rating-2" value="2" t-att-checked="my_value == '2'"/>
+                    <label for="rating-2">&#9733;</label>
+                    <input type="radio" name="rating" id="rating-1" value="1" t-att-checked="my_value == '1'"/>
+                    <label for="rating-1">&#9733;</label>
+                </div>
+                <div>
+                    <t t-esc="opd.feedback"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--============================Pharmacy Tree View template============================-->
+
+    <template id="cr_medical_pharmacy_portal_user" name="Pharmacy">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Pharmacy</t>
+            </t>
+            <t t-if="not pharmacy_ids">
+                <p>There are currently no Pharmacy for your account.</p>
+            </t>
+
+            <t t-if="pharmacy_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>No</th>
+                        <th>Date</th>
+                        <th>Medical Name</th>
+                        <t t-if="request.env.user.partner_id.is_doctor">
+                            <th>Patient Name</th>
+                        </t>
+                        <t t-else="request.env.user.partner_id.is_patient">
+                            <th>Doctor Name</th>
+                        </t>
+                        <th>Medicine Name</th>
+                        <th>Dose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="pharmacy_ids" t-as="pharmacy">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/pharmacy/#{pharmacy.id}?{{ keep_query() }}">
+                                    <span t-field="pharmacy.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <span t-field="pharmacy.prescriptionDate"/>
+                            </td>
+                            <td>
+                                <span t-field="pharmacy.pharmacy_id"/>
+                            </td>
+                            <t t-if="request.env.user.partner_id.is_doctor">
+                                <td>
+                                    <span t-field="pharmacy.patient_id.name"/>
+                                </td>
+                            </t>
+                            <t t-else="request.env.user.partner_id.is_patient">
+                                <td>
+                                    <span t-field="pharmacy.doctor_id.name"/>
+                                </td>
+                            </t>
+                            <td>
+                                <span t-field="pharmacy.medicine_id"/>
+                            </td>
+                            <td>
+                                <span t-field="pharmacy.dose"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!--===========================Pharmacy form View=============================-->
+
+    <template id="cr_medical_pharmacy_form_view_portal_user" name="Pharmacy Form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Pharmacy</t>
+            </t>
+            <div id="heading" t-attf-class="pb-2 pt-3 #{'card-header bg-white'}">
+                <div class="row">
+                    <div class="col text-left">
+                        <h3>
+                            <strong>
+                                <span t-field="pharmacy_id.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="col text-right">
+                        <strong>Date:</strong>
+                        <span t-field="pharmacy_id.prescriptionDate"/>
+                    </div>
+                </div>
+            </div>
+            <div id="pharmacy information" t-attf-class="pb-2 pt-3 #{'card-body bg-white'}">
+                <div class="row mb-5" id="pharmacy_info">
+                    <div class="col-12 text-left">
+                        <h4>
+                            <strong>
+                                <span t-field="pharmacy_id.pharmacy_id.name"/>
+                            </strong>
+                        </h4>
+                        <div>
+                            <strong>Address:</strong>
+                            <span t-field="pharmacy_id.pharmacy_id.street"/>,
+                        </div>
+                        <div>
+                            <strong class="invisible">Address:</strong>
+                            <span t-field="pharmacy_id.pharmacy_id.street2"/>.
+                        </div>
+                        <div>
+                            <strong>Website:</strong>
+                            <span t-field="pharmacy_id.pharmacy_id.website"/>
+                        </div>
+                        <div>
+                            <strong>Phone/Mobile:</strong>
+                            <span t-field="pharmacy_id.pharmacy_id.phone"/>/
+                            <span t-field="pharmacy_id.pharmacy_id.mobile"/>
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            <span t-field="pharmacy_id.pharmacy_id.email"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="pharmacy_other_info">
+                    <div class="col-4">
+                        <strong>OPD:</strong>
+                        <span t-field="pharmacy_id.opd_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Patient Name:</strong>
+                        <span t-field="pharmacy_id.patient_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Doctor Name:</strong>
+                        <span t-field="pharmacy_id.doctor_id.name"/>
+                    </div>
+                </div>
+                <div class="row" id="medicine_info">
+                    <div class="col-4">
+                        <strong>Medicine Name:</strong>
+                        <span t-field="pharmacy_id.medicine_id"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Dose:</strong>
+                        <span t-field="pharmacy_id.dose"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--============================Radiology Tree View template============================-->
+
+    <template id="cr_medical_radiology_portal_user" name="Radiology">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Radiology</t>
+            </t>
+            <t t-if="not radiology_ids">
+                <p>There are currently no Radiology for your account.</p>
+            </t>
+
+            <t t-if="radiology_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>No</th>
+                        <th>Date</th>
+                        <th>Radiology Name</th>
+                        <t t-if="request.env.user.partner_id.is_doctor">
+                            <th>Patient Name</th>
+                        </t>
+                        <t t-else="request.env.user.partner_id.is_patient">
+                            <th>Doctor Name</th>
+                        </t>
+                        <th>Test Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="radiology_ids" t-as="radiology">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/radiology/#{radiology.id}?{{ keep_query() }}">
+                                    <span t-field="radiology.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <span t-field="radiology.prescriptionDate"/>
+                            </td>
+                            <td>
+                                <span t-field="radiology.radiology_id.name"/>
+                            </td>
+                            <t t-if="request.env.user.partner_id.is_doctor">
+                                <td>
+                                    <span t-field="radiology.patient_id.name"/>
+                                </td>
+                            </t>
+                            <t t-else="request.env.user.partner_id.is_patient">
+                                <td>
+                                    <span t-field="radiology.doctor_id.name"/>
+                                </td>
+                            </t>
+                            <td>
+                                <span t-field="radiology.radiology_test_id"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!--===========================Radiology form View=============================-->
+
+    <template id="cr_medical_radiology_form_view_portal_user" name="Radiology Form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Radiology</t>
+            </t>
+            <div id="heading" t-attf-class="pb-2 pt-3 #{'card-header bg-white'}">
+                <div class="row">
+                    <div class="col text-left">
+                        <h3>
+                            <strong>
+                                <span t-field="radiology_id.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="col text-right">
+                        <strong>Date:</strong>
+                        <span t-field="radiology_id.prescriptionDate"/>
+                    </div>
+                </div>
+            </div>
+            <div id="radiology information" t-attf-class="pb-2 pt-3 #{'card-body bg-white'}">
+                <div class="row mb-5" id="radiology_info">
+                    <div class="col-12 text-left">
+                        <h4>
+                            <strong>
+                                <span t-field="radiology_id.radiology_id.name"/>
+                            </strong>
+                        </h4>
+                        <div>
+                            <strong>Address:</strong>
+                            <span t-field="radiology_id.radiology_id.street"/>,
+                        </div>
+                        <div>
+                            <strong class="invisible">Address:</strong>
+                            <span t-field="radiology_id.radiology_id.street2"/>.
+                        </div>
+                        <div>
+                            <strong>Website:</strong>
+                            <span t-field="radiology_id.radiology_id.website"/>
+                        </div>
+                        <div>
+                            <strong>Phone/Mobile:</strong>
+                            <span t-field="radiology_id.radiology_id.phone"/>/
+                            <span t-field="radiology_id.radiology_id.mobile"/>
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            <span t-field="radiology_id.radiology_id.email"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="radiology_other_info">
+                    <div class="col-4">
+                        <strong>OPD:</strong>
+                        <span t-field="radiology_id.opd_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Patient Name:</strong>
+                        <span t-field="radiology_id.patient_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Doctor Name:</strong>
+                        <span t-field="radiology_id.doctor_id.name"/>
+                    </div>
+                </div>
+                <div class="row" id="radiology_test_info">
+                    <div class="col-4">
+                        <strong>Test:</strong>
+                        <span t-field="radiology_id.radiology_test_id"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--============================laboratory Tree View template============================-->
+
+    <template id="cr_medical_laboratory_portal_user" name="Laboratory">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Laboratory</t>
+            </t>
+            <t t-if="not laboratory_ids">
+                <p>There are currently no Laboratory for your account.</p>
+            </t>
+
+            <t t-if="laboratory_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>No</th>
+                        <th>Date</th>
+                        <th>Laboratory Name</th>
+                        <t t-if="request.env.user.partner_id.is_doctor">
+                            <th>Patient Name</th>
+                        </t>
+                        <t t-else="request.env.user.partner_id.is_patient">
+                            <th>Doctor Name</th>
+                        </t>
+                        <th>Test Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="laboratory_ids" t-as="laboratory">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/laboratory/#{laboratory.id}?{{ keep_query() }}">
+                                    <span t-field="laboratory.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <span t-field="laboratory.prescriptionDate"/>
+                            </td>
+                            <td>
+                                <span t-field="laboratory.laboratory_id.name"/>
+                            </td>
+                            <t t-if="request.env.user.partner_id.is_doctor">
+                                <td>
+                                    <span t-field="laboratory.patient_id.name"/>
+                                </td>
+                            </t>
+                            <t t-else="request.env.user.partner_id.is_patient">
+                                <td>
+                                    <span t-field="laboratory.doctor_id.name"/>
+                                </td>
+                            </t>
+                            <td>
+                                <span t-field="laboratory.laboratory_test_id"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!--===========================laboratory form View=============================-->
+
+    <template id="cr_medical_laboratory_form_view_portal_user" name="Laboratory Form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Laboratory</t>
+            </t>
+            <div id="heading" t-attf-class="pb-2 pt-3 #{'card-header bg-white'}">
+                <div class="row">
+                    <div class="col text-left">
+                        <h3>
+                            <strong>
+                                <span t-field="laboratory_id.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="col text-right">
+                        <strong>Date:</strong>
+                        <span t-field="laboratory_id.prescriptionDate"/>
+                    </div>
+                </div>
+            </div>
+            <div id="laboratory information" t-attf-class="pb-2 pt-3 #{'card-body bg-white'}">
+                <div class="row mb-5" id="laboratory_info">
+                    <div class="col-12 text-left">
+                        <h4>
+                            <strong>
+                                <span t-field="laboratory_id.laboratory_id.name"/>
+                            </strong>
+                        </h4>
+                        <div>
+                            <strong>Address:</strong>
+                            <span t-field="laboratory_id.laboratory_id.street"/>,
+                        </div>
+                        <div>
+                            <strong class="invisible">Address:</strong>
+                            <span t-field="laboratory_id.laboratory_id.street2"/>.
+                        </div>
+                        <div>
+                            <strong>Website:</strong>
+                            <span t-field="laboratory_id.laboratory_id.website"/>
+                        </div>
+                        <div>
+                            <strong>Phone/Mobile:</strong>
+                            <span t-field="laboratory_id.laboratory_id.phone"/>/
+                            <span t-field="laboratory_id.laboratory_id.mobile"/>
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            <span t-field="laboratory_id.laboratory_id.email"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="laboratory_other_info">
+                    <div class="col-4">
+                        <strong>OPD:</strong>
+                        <span t-field="laboratory_id.opd_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Patient Name:</strong>
+                        <span t-field="laboratory_id.patient_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Doctor Name:</strong>
+                        <span t-field="laboratory_id.doctor_id.name"/>
+                    </div>
+                </div>
+                <div class="row" id="laboratory_test_info">
+                    <div class="col-4">
+                        <strong>Test:</strong>
+                        <span t-field="laboratory_id.laboratory_test_id"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--============================IPDs Tree View template============================-->
+
+    <template id="cr_medical_ipd_portal_user" name="IPDs">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">IPDs</t>
+            </t>
+            <t t-if="not ipd_ids">
+                <p>There are currently no IPDs for your account.</p>
+            </t>
+
+            <t t-if="ipd_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>No</th>
+                        <th>Admit Date</th>
+                        <t t-if="request.env.user.partner_id.is_doctor">
+                            <th>Patient Name</th>
+                        </t>
+                        <t t-else="request.env.user.partner_id.is_patient">
+                            <th>Doctor Name</th>
+                        </t>
+                        <th>Room Type</th>
+                        <th>Room Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="ipd_ids" t-as="ipd">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/ipd/#{ipd.id}?{{ keep_query() }}">
+                                    <span t-field="ipd.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <span t-field="ipd.date_of_admit"/>
+                            </td>
+                            <t t-if="request.env.user.partner_id.is_doctor">
+                                <td>
+                                    <span t-field="ipd.patient_id.name"/>
+                                </td>
+                            </t>
+                            <t t-else="request.env.user.partner_id.is_patient">
+                                <td>
+                                    <span t-field="ipd.doctor_id.name"/>
+                                </td>
+                            </t>
+                            <td>
+                                <span t-field="ipd.select_room_type.name"/>
+                            </td>
+                            <td>
+                                <span t-field="ipd.select_room_number.room_no"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!--===========================IPDs form View=============================-->
+
+    <template id="cr_medical_ipd_form_view_portal_user" name="IPDs Form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">IPD</t>
+            </t>
+            <div id="heading" t-attf-class="pb-2 pt-3 #{'card-header bg-white'}">
+                <div class="row">
+                    <div class="col text-left">
+                        <h3>
+                            <strong>
+                                <span t-field="ipd_id.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="ipd information" t-attf-class="pb-2 pt-3 #{'card-body bg-white'}">
+                <div class="row" id="ipd_info">
+                    <div class="col-4">
+                        <strong>OPD:</strong>
+                        <span t-field="ipd_id.opd_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Patient Name:</strong>
+                        <span t-field="ipd_id.patient_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Doctor Name:</strong>
+                        <span t-field="ipd_id.doctor_id.name"/>
+                    </div>
+                </div>
+                <div class="row" id="other_info">
+                    <div class="col-4">
+                        <strong>Admit Date:</strong>
+                        <span t-field="ipd_id.date_of_admit"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Room Type:</strong>
+                        <span t-field="ipd_id.select_room_type"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Room No:</strong>
+                        <span t-field="ipd_id.select_room_number"/>
+                    </div>
+                </div>
+                <div class="row" id="ipd_info" t-if="ipd_id.ipd_summary_line_ids">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>IPD Summary</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="date" class="text-left">Date</th>
+                                    <th name="indication" class="text-left">Indication</th>
+                                    <th name="department" class="text-left">Department</th>
+                                    <th name="doctor" class="text-left">Reffered Doctor</th>
+                                    <th name="medicine" class="text-left">Medicine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="ipd_tbody">
+                                    <t t-foreach="ipd_id.ipd_summary_line_ids" t-as="ipd">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="ipd.date_of_admit"/>
+                                            </td>
+                                            <td name="indication" class="text-left" style="font-size:14px;">
+                                                <span t-field="ipd.disease_indication"/>
+                                            </td>
+                                            <td name="department" class="text-left" style="font-size:14px;">
+                                                <span t-field="ipd.doctor_department_id"/>
+                                            </td>
+                                            <td name="doctor" class="text-left" style="font-size:14px;">
+                                                <span t-field="ipd.doctor_refer_id"/>
+                                            </td>
+                                            <td name="medicine" class="text-left" style="font-size:14px;">
+                                                <span t-field="ipd.medicine_detail"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--=============================Follow Up OPD Tree View Template==============================-->
+
+    <template id="cr_medical_follow_up_opd_tree_view_portal_user" name="Follow Up OPD">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Follow Up OPD</t>
+            </t>
+            <t t-if="not opd_ids">
+                <p>There are currently no Follow Up OPD for your account.</p>
+            </t>
+
+            <t t-if="opd_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>No</th>
+                        <t t-if="request.env.user.partner_id.is_doctor">
+                            <th>Patient Name</th>
+                        </t>
+                        <t t-else="request.env.user.partner_id.is_patient">
+                            <th>Doctor Name</th>
+                        </t>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="opd_ids" t-as="opd_id">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/followup/#{follow_opd_id.id}/#{opd_id.id}?{{ keep_query() }}">
+                                    <span t-field="opd_id.name"/>
+                                </a>
+                            </td>
+                            <t t-if="request.env.user.partner_id.is_doctor">
+                                <td>
+                                    <span t-field="opd_id.patient_id.name"/>
+                                </td>
+                            </t>
+                            <t t-else="request.env.user.partner_id.is_patient">
+                                <td>
+                                    <span t-field="opd_id.doctor_id.name"/>
+                                </td>
+                            </t>
+                            <td>
+                                <span t-field="opd_id.appointment_date"/>
+                            </td>
+                            <td>
+                                <span t-field="opd_id.state"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!--===========================Follow Up OPD form View=============================-->
+
+    <template id="cr_medical_followup_opd_form_view_portal_user" name="Follow Up OPD Form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Follow Up OPD</t>
+            </t>
+            <div id="heading" t-attf-class="pb-2 pt-3 #{'card-header bg-white'}">
+                <div class="row">
+                    <div class="col text-left">
+                        <h3>
+                            <strong>OPD
+                                <span t-field="follow_opd_id_form.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="information" t-attf-class="pb-2 pt-3 #{'card-body bg-white'}">
+                <div class="row" id="follow_opd_info">
+                    <div class="col-4">
+                        <strong>Patient Name:</strong>
+                        <span t-field="follow_opd_id_form.patient_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Doctor Name:</strong>
+                        <span t-field="follow_opd_id_form.doctor_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Dr. Department:</strong>
+                        <span t-field="follow_opd_id_form.doctor_department_id.department"/>
+                    </div>
+                </div>
+                <div class="row" id="opd_appointment_info">
+                    <div class="mb-3 col-4">
+                        <strong>Appointment Date:</strong>
+                        <span t-field="follow_opd_id_form.appointment_date"/>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <strong>WeekDay Name:</strong>
+                        <span t-field="follow_opd_id_form.weekdays"/>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <strong>Time:</strong>
+                        <span t-field="follow_opd_id_form.select_time_id"/>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-8" id="opd_Examine_info">
+                        <h4>
+                            <strong>
+                                <u>Examine Details</u>
+                            </strong>
+                        </h4>
+                        <div>
+                            <strong>Chief Complaints:</strong>
+                            <span t-field="follow_opd_id_form.chief_complaints"/>
+                        </div>
+                        <div>
+                            <strong>Local Examination:</strong>
+                            <span t-field="follow_opd_id_form.local_examination"/>
+                        </div>
+                        <div>
+                            <strong>System Examination:</strong>
+                            <span t-field="follow_opd_id_form.system_examination"/>
+                        </div>
+                    </div>
+                    <div class="col-4" id="opd_vital_signs">
+                        <h4>
+                            <strong>
+                                <u>Vital Signs</u>
+                            </strong>
+                        </h4>
+                        <div>
+                            <strong>Pulse:</strong>
+                            <span t-field="follow_opd_id_form.pulse"/>
+                        </div>
+                        <div>
+                            <strong>BP:</strong>
+                            <span t-field="follow_opd_id_form.blood_pressure"/>
+                        </div>
+                        <div>
+                            <strong>Temperature:</strong>
+                            <span t-field="follow_opd_id_form.temp"/>
+                        </div>
+                        <div>
+                            <strong>Weight:</strong>
+                            <span t-field="follow_opd_id_form.weight"/>
+                        </div>
+                        <div>
+                            <strong>Respiration:</strong>
+                            <span t-field="follow_opd_id_form.respiration"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="follow_opd_pharmacy_info" t-if="follow_opd_id_form.medicine_line_ids">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>Pharmacy</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="prescription_date" class="text-left">Date</th>
+                                    <th name="pharmacy_name" class="text-left">Pharmacy Name</th>
+                                    <th name="medicine_name" class="text-left">Medicine Name</th>
+                                    <th name="morning_dose" class="text-left">Morning Dose</th>
+                                    <th name="noon_dose" class="text-left">Noon Dose</th>
+                                    <th name="evening_dose" class="text-left">Evening Dose</th>
+                                    <th name="night_dose" class="text-left">Night Dose</th>
+                                    <th name="dose" class="text-left">Dose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="pharmacy_tbody">
+                                    <t t-foreach="follow_opd_id_form.medicine_line_ids" t-as="pharmacy">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="pharmacy.prescriptionDate"/>
+                                            </td>
+                                            <td name="pharmacy_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="pharmacy.pharmacy_id"/>
+                                            </td>
+                                            <td name="medicine_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="pharmacy.medicine_id"/>
+                                            </td>
+                                            <td name="morning_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.morning_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="noon_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.noon_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="evening_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.evening_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="night_dose" class="text-center" style="font-size:14px;">
+                                                <t t-if="pharmacy.night_dose">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fa fa-times"/>
+                                                </t>
+                                            </td>
+                                            <td name="dose" class="text-left" style="font-size:14px;">
+                                                <span t-field="pharmacy.dose"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div t-if="follow_opd_id_form.lab_line_ids" class="row" id="foloow_opd_laboratory_info">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>Laboratory</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="prescription_date" class="text-left">Date</th>
+                                    <th name="lab_name" class="text-left">Laboratory Name</th>
+                                    <th name="test_name" class="text-left">Test Name</th>
+                                    <th name="note" class="text-left">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="laboratory_tbody">
+                                    <t t-foreach="follow_opd_id_form.lab_line_ids" t-as="laboratory">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="laboratory.prescriptionDate"/>
+                                            </td>
+                                            <td name="pharmacy_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="laboratory.laboratory_id.name"/>
+                                            </td>
+                                            <td name="medicine_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="laboratory.laboratory_test_id"/>
+                                            </td>
+                                            <td name="dose" class="text-left" style="font-size:14px;">
+                                                <span t-field="laboratory.note"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div t-if="follow_opd_id_form.radio_line_ids" class="row" id="follow_opd_radiology_info">
+                    <div class="col-12">
+                        <h4 class="mb-4">
+                            <strong>
+                                <u>Radiology</u>
+                            </strong>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th name="prescription_date" class="text-left">Date</th>
+                                    <th name="radio_name" class="text-left">Radiology Name</th>
+                                    <th name="test_name" class="text-left">Test Name</th>
+                                    <th name="note" class="text-left">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <div class="laboratory_tbody">
+                                    <t t-foreach="follow_opd_id_form.radio_line_ids" t-as="radiology">
+                                        <tr t-att-class="'font-weight-bold o_line_section'">
+                                            <td name="date" style="font-size:14px;">
+                                                <span t-field="radiology.prescriptionDate"/>
+                                            </td>
+                                            <td name="pharmacy_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="radiology.radiology_id.name"/>
+                                            </td>
+                                            <td name="medicine_name" class="text-left" style="font-size:14px;">
+                                                <span t-field="radiology.radiology_test_id"/>
+                                            </td>
+                                            <td name="dose" class="text-left" style="font-size:14px;">
+                                                <span t-field="radiology.note"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="follow_up">
+                    <div class="col-6">
+                        <strong>Followup Date:</strong>
+                        <span t-field="follow_opd_id_form.follow_up_date"/>
+                    </div>
+                    <div class="col-4">
+                        <strong>Followup Advise:</strong>
+                        <span t-field="follow_opd_id_form.followup_advice"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
+
+

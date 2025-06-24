@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="local_examination_1" model="local.examination">
+            <field name="name">Normal</field>
+        </record>
+        <record id="chief_examination_1" model="chief.complaints">
+            <field name="name">None</field>
+        </record>
+        <record id="patient_chief_complaints_1" model="chief.complaints">
+            <field name="name">ABC</field>
+        </record>
+        <record id="system_examination_1" model="system.examination">
+            <field name="name">Good</field>
+        </record>
+
+        <record id="set_opd_1" model="opd.opd">
+            <field name="new_patient_name">Harsh Patel</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="appointment_date" eval="datetime.now() + timedelta(days=5)"/>
+            <field name="weekdays">Monday</field>
+            <field name="select_time_id" ref="cr_medical_base.doctor_weekly_available_1"/>
+            <field name="local_examination" ref="cr_medical_base.local_examination_1"/>
+            <field name="chief_complaints" ref="cr_medical_base.chief_examination_1"/>
+            <field name="system_examination" ref="cr_medical_base.system_examination_1"/>
+            <field name="date_of_birth">1998-09-08</field>
+            <field name="blood_group">A+</field>
+            <field name="sex">male</field>
+            <field name="email">harsh.patel@gmail.com</field>
+            <field name="mobile">1245788956</field>
+            <field name="street">Phoenix Street</field>
+            <field name="street2">Aploha Streets</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AR')]"/>
+            <field name="city">Junagadh</field>
+            <field name="is_normal_opd">True</field>
+            <field name="state">pending</field>
+            <field name="symptoms_line_id" eval="[(6, 0, [ref('symptoms_demo_2')])]"/>
+            <field name="pulse">72</field>
+            <field name="blood_pressure">110</field>
+            <field name="temp">37</field>
+            <field name="weight">60</field>
+            <field name="respiration">12 to 15</field>
+            <!--            <field name="medicine_line_ids"-->
+            <!--                   eval="[(4, ref('pharmacy.pharmacy_prescription_demo_data_1'))]"/>-->
+            <!--            <field name="lab_line_ids" eval="[(4, ref('laboratory.laboratory_prescription_demo_data_1'))]"/>-->
+            <!--            <field name="radio_line_ids" eval="[(4, ref('radiology.radiology_prescription_demo_data_1'))]"/>-->
+            <field name="follow_up_date" eval="datetime.now() + timedelta(days=8)"/>
+            <field name="followup_advice">taking medicines on time</field>
+        </record>
+
+        <record id="set_opd_2" model="opd.opd">
+            <field name="new_patient_name">Sinojiya Dhruv</field>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_2"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_2"/>
+            <field name="appointment_date" eval="datetime.now() + timedelta(days=5)"/>
+            <field name="weekdays">Monday</field>
+            <field name="select_time_id" ref="cr_medical_base.doctor_weekly_available_2"/>
+            <field name="date_of_birth">1992-08-06</field>
+            <field name="age">31</field>
+            <field name="blood_group">A+</field>
+            <field name="sex">male</field>
+            <field name="email">s.dhruv@gmail.com</field>
+            <field name="mobile">12457587956</field>
+            <field name="street">Phoenix Street</field>
+            <field name="street2">Aploha Streets</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="state_id" model="res.country.state" search="[('code','ilike','AR')]"/>
+            <field name="city">America</field>
+            <field name="is_normal_opd">True</field>
+            <field name="local_examination" ref="cr_medical_base.local_examination_1"/>
+            <field name="chief_complaints" ref="cr_medical_base.chief_examination_1"/>
+            <field name="system_examination" ref="cr_medical_base.system_examination_1"/>
+            <field name="pulse">72 bpm</field>
+            <field name="blood_pressure">Normal</field>
+            <field name="temp">95.4 F(37C)</field>
+            <field name="weight">55</field>
+            <field name="respiration">15 bpm</field>
+            <field name="state">pending</field>
+            <field name="symptoms_line_id"
+                   eval="[(6, 0, [ref('symptoms_demo_1')])]"/>
+            <field name="follow_up_date" eval="datetime.now() + timedelta(days=8)"/>
+            <field name="followup_advice">taking medicines on time</field>
+            <!--            <field name="medicine_line_ids"-->
+            <!--                   eval="[(6, 0, [ref('pharmacy.pharmacy_demo_1')])]"/>-->
+            <!--            <field name="lab_line_ids"-->
+            <!--                   eval="[(6, 0, [ref('laboratory.laboratory_demo_1')])]"/>-->
+            <!--            <field name="radio_line_ids"-->
+            <!--                   eval="[(6, 0, [ref('radiology.radiology_demo_1')])]"/>-->
+        </record>
+
+        <!--        For Creating OPD for Existing Patients-->
+
+        <record id="set_opd_6" model="opd.opd">
+            <field name="existing_patient_name" eval="True"/>
+            <field name="patient_id" ref="cr_medical_base.res_partner_new_patient_1"/>
+            <field name="doctor_department_id" ref="cr_medical_base.res_partner_doctor_department_1"/>
+            <field name="doctor_id" ref="cr_medical_base.res_partner_doctor_1"/>
+            <field name="appointment_date" eval="datetime.now() + timedelta(days=7)"/>
+            <field name="weekdays">Tuesday</field>
+            <field name="is_normal_opd">True</field>
+            <field name="local_examination" ref="cr_medical_base.local_examination_1"/>
+            <field name="chief_complaints" ref="cr_medical_base.chief_examination_1"/>
+            <field name="system_examination" ref="cr_medical_base.system_examination_1"/>
+            <field name="pulse">72 bpm</field>
+            <field name="blood_pressure">Normal</field>
+            <field name="temp">95.4 F(37C)</field>
+            <field name="weight">55</field>
+            <field name="respiration">15 bpm</field>
+            <field name="state">confirm</field>
+            <field name="select_time_id" ref="cr_medical_base.doctor_weekly_available_1"/>
+            <field name="symptoms_line_id"
+                   eval="[(6, 0, [ref('symptoms_demo_3')])]"/>
+            <field name="follow_up_date" eval="datetime.now() + timedelta(days=10)"/>
+            <field name="followup_advice">taking medicines on time</field>
+        </record>
+
+    </data>
+</odoo>

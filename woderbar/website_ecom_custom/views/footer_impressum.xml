@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="footer_impressum_template" name="Impressum | WUNDERBAR Custom Radio Shop">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="footer_impressum_section" id='footer_impressum_section'>
+                    <div class="container footer_impressum_content">
+                        <h1 class="text-center">IMPRESSUM</h1>
+                        <div style="height:100px" class="wp-block-spacer"></div>
+                        <p class="p_has_gold_color"><strong>VERANTWORTLICH FÜR DEN INHALT:</strong></p>
+                        <p class="p_has_black_color_content"><strong>WUNDERBAR Custom Radio Shop GmbH</strong></p>
+                        <p class="p_has_black_color_content list-group">Bodelshofer Weg 1</p>
+                        <p class="p_has_black_color_content list-group">73230 Kirchheim unter Teck</p>
+                        <p class="p_has_black_color_content list-group">Deutschland</p>
+                        <p class="p_has_gold_color mt-4"><strong>KONTAKT</strong></p>
+                        <p class="p_has_black_color_content list-group">Telefon: +49 (0) 176 212 274 55</p>
+                        <p class="p_has_black_color_content list-group">E-Mail: sales@customradioshop.de</p>
+                        <p class="p_has_gold_color mt-4"><strong>REGISTEREINTRAG</strong></p>
+                        <p class="p_has_black_color_content list-group">Geschäftsführer: Timo Gschwendtner</p>
+                        <p class="p_has_black_color_content list-group">Registergericht: Amtsgericht Stuttgart, HRB 783630</p>
+                        <p class="p_has_black_color_content list-group">Ust-ID: DE 352436984</p>
+                        <p class="p_has_gold_color mt-4"><strong>HAFTUNGSAUSSCHLUSS</strong></p>
+                        <p class="p_has_black_color_content">Die Firma WUNDERBAR Custom Radio Shop GmbH ist bemüht ihr Online-Angebot stets aktuell und inhaltlich richtig sowie vollständig zu gestalten. Dennoch ist das Auftreten von Fehlern nicht völlig auszuschließen. Die WUNDERBAR Custom Radio Shop GmbH übernimmt, soweit nicht gesetzlich, z.B. durch die Preisangabenverordnung, vorgegeben, keine Haftung für die Aktualität, inhaltliche Richtigkeit sowie die Vollständigkeit der in ihrem Webangebot eingestellten Informationen.
+                            Die WUNDERBAR Custom Radio Shop GmbH ist nicht für die Inhalte fremder Seiten verantwortlich, die Sie über einen Link erreichen. Sie übernimmt keine Gewähr für die Richtigkeit und Vollständigkeit der Inhalte und Informationen, die Sie über die von WUNDERBAR Custom Radio Shop angebotenen Links zu anderen Anbietern erhalten. Dies gilt auch für Links auf Seiten von Anbietern und Unternehmen, die WUNDERBAR Custom Radio Shop nahestehen oder die mit WUNDERBAR Custom Radio Shop verbunden sind.</p>
+                        <p class="p_has_gold_color mt-4"><strong>URHEBERRECHTSERKLÄRUNG</strong></p>
+                        <p class="p_has_black_color_content">Inhalt und Struktur des WUNDERBAR Custom Radio Shop Online-Shops sowie der sonstigen von WUNDERBAR Custom Radio Shop betriebenen Webseite sind urheberrechtlich geschützt. Alle Texte, Bilder, Grafiken, Ton-, Video- und Animationsdateien unterliegen dem Urheberrecht, dem Markenrecht und anderen Gesetzen zum Schutz geistigen Eigentums. Einige Internet-Seiten enthalten auch Bilder, Grafiken, Ton-, Video- und Animationsdateien, die dem Urheberrecht, dem Markenrecht und den anderen Gesetzen zum Schutz geistigen Eigentums derjenigen unterliegen, die diese zur Verfügung gestellt haben. Eine Kopie oder sonstige Nutzung für andere als private Zwecke oder zur Weitergabe, anderweitigen Veröffentlichung, Vervielfältigung und Verbreitung, ob in originärer oder veränderter Form und in jedwedem Medium, oder eine solche Verwendung auf anderen Webseiten ist ohne vorherige ausdrückliche schriftliche Zustimmung der WUNDERBAR Custom Radio Shop GmbH nicht zulässig.
+
+</p>
+                    </div>
+                       <div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_action_all" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to define a new product.
+            </p>
+        </field>
+    </record>
+
+    <!-- Product Template Form View Inherited -->
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="google_product_category_id" filter_domain="[('google_product_category_id', 'child_of', raw_value)]" />
+                <field name="google_product_brand_id"/>
+                <field name="google_merchant_center_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_product_template_form_wgmc_inherited" model="ir.ui.view" >
+        <field name="name">product.template.form.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <div groups="website_google_merchant_center.group_google_merchant_center">
+                    <field name="sync_with_mc"/>
+                    <label for="sync_with_mc"/>
+               </div>
+            </div>
+            <xpath expr="//notebook" position="inside">
+                <page name="gmci" string="Google Merchant Center" attrs="{'invisible': [('sync_with_mc','=',False)]}" groups="website_google_merchant_center.group_google_merchant_center">
+                    <group>
+                        <group>
+                            <field name="google_merchant_center_id" attrs="{'required': [('sync_with_mc','=',True)]}"/>
+                            <field name="google_product_category_id"/>
+                            <field name="google_target_country"/>
+                            <field name="google_content_language"/>
+                            <field name="google_channel"/>
+                            <field name="gmc_pricelist_id"/>
+                            <field name="gmc_list_price"/>
+                            <field name="gmc_lisitng_response" attrs="{'invisible': [('gmc_lisitng_response','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="google_website"/>
+                            <field name="google_product_brand_id"/>
+                            <field name="google_condition"/>
+                            <field name="google_shipping"/>
+                            <field name="google_shipping_amount"/>
+                            <field name="google_tax_rate"/>
+                        </group>
+                        <group>
+                            <field name="google_content_uri" widget="url" text="Authorize Account" class="oe_bold oe_inline" nolabel="1"/>
+                            <button string="Sync Now" type="object" name="sync_temp_products_with_gmc" class="btn-primary oe_inline"/>
+                        </group>
+                        <group>
+                            <button string="Delete From Center" type="object" name="delete_temp_products_from_gmc" attrs="{'invisible': [('sync_with_mc','=',False)]}" class="btn-primary oe_inline"/>
+                            <button string="Manually Reset Data" type="object" name="reset_gmc_data"  class="btn-primary oe_inline"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Product Form View Inherited -->
+    <record id="product_search_form_view" model="ir.ui.view">
+        <field name="name">product.product.search</field>
+        <field name="model">product.product</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="product.product_search_form_view"/>
+        <field name="arch" type="xml">
+            <field name="product_tmpl_id" position="after">
+                <field name="google_product_color_id"/>
+                <field name="google_product_size_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_product_form_wgmc_inherited" model="ir.ui.view" >
+        <field name="name">product.product.form.inherited</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <div groups="website_google_merchant_center.group_google_merchant_center">
+                    <field name="sync_with_mc"/>
+                    <label for="sync_with_mc"/>
+               </div>
+            </div>
+            <xpath expr="//notebook" position="inside">
+                <page name="gmci" string="Google Merchant Center" attrs="{'invisible': [('sync_with_mc','=',False)]}" groups="website_google_merchant_center.group_google_merchant_center">
+                    <group>
+                        <group>
+                            <field name="google_merchant_center_id" attrs="{'required': [('sync_with_mc','=',True)]}"/>
+                            <field name="google_mcid" readonly="0"/>
+                            <field name="google_product_category_id"/>
+                            <field name="google_target_country"/>
+                            <field name="google_content_language"/>
+                            <field name="google_channel"/>
+                            <field name="google_product_color_id"/>
+                            <field name="google_product_size_id"/>
+                            <field name="google_product_brand_id"/>
+                            <field name="google_condition"/>
+                            <field name="google_sync_date" readonly="1"/>
+                            <field name="google_expiration_date"/>
+                            <field name="gmc_lisitng_response" attrs="{'invisible': [('gmc_lisitng_response','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="google_website"/>
+                            <field name="google_availability"/>
+                            <field name="gmc_pricelist_id"/>
+                            <field name="gmc_list_price"/>
+                            <field name="google_shipping"/>
+                            <field name="google_shipping_amount"/>
+                            <field name="google_tax_rate"/>
+                            <field name="google_gender"/>
+                            <field name="google_age_group"/>
+                            <field name="google_identifier_exists"/>
+                            <field name="google_barcode_as_gtin" attrs="{'invisible': [('google_identifier_exists','=',False)]}"/>
+                            <field name="google_gtin" attrs="{'invisible': ['|', ('google_barcode_as_gtin','=',True), ('google_identifier_exists','=',False)]}" />
+                            <field name="google_default_code_as_mpn" attrs="{'invisible': [('google_identifier_exists','=',False)]}"/>
+                        </group>
+                    </group>
+                    <group string="Display ads attributes">
+                        <group>
+                            <field name="google_display_ads_id" readonly="1"/>
+                            <field name="google_display_ads_title"/>
+                            <field name="google_display_ads_link"/>
+                        </group>
+                        <group>
+                            <field name="google_display_ads_similar_ids" widget="many2many_tags"/>
+                            <field name="google_display_ads_value"/>
+                            <field name="google_excluded_destination"/>
+                        </group>
+                        <group>
+                            <field name="google_content_uri" widget="url" text="Authorize Account" class="oe_bold oe_inline" nolabel="1"/>
+                            <button string="Sync Now" type="object" name="sync_product_with_gmc" class="btn-primary oe_inline"/>
+                        </group>
+                        <group>
+                            <button string="Delete From Center" type="object" name="delete_product_from_gmc" attrs="{'invisible': ['|', ('sync_with_mc','=',False),('google_mcid','=',False)]}" class="btn-primary oe_inline"/>
+                            <button string="Manually Reset Data" type="object" name="reset_gmc_data" attrs="{'invisible': ['|', ('sync_with_mc','=',False),('google_mcid','=',False)]}" class="btn-primary oe_inline"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

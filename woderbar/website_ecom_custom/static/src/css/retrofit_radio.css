@@ -1,0 +1,59 @@
+.classic_car_section,.classic_station_section{
+    padding-left:7%;
+    padding-right:7%;
+}
+.para_a_link{
+    color:#b09b5f;
+    text-decoration-line:underline;
+    font-family: sans-serif;
+}
+.para_a_link:hover{
+    color:#b09b5f;
+    text-decoration-line:underline;
+}
+.classic_car,.classic_station{
+    text-transform:uppercase;
+}
+.classic_car_content{
+    margin-top:5%;
+}
+.station_radio_class{
+    padding:8rem 0;
+}
+.content_h1{
+    font-size:2.5rem;
+    margin-bottom: -0.5rem;
+
+}
+.content_h2{
+    font-size:1.5rem;
+}
+.p_has_black_color_content{
+    color: black;
+    font-size:1rem;
+    font-family: sans-serif;
+}
+.p_has_gold_color_content{
+    color: #b09b5f;
+    font-size:14px;
+    font-family: sans-serif;
+}
+.classic_station{
+    text-transform:uppercase;
+}
+.station_content_1{
+    font-size:2.5rem;
+}
+.station_content_2{
+    font-size:1rem;
+}
+
+.li_has_gold_color_link{
+    color:#b09b5f;
+    text-decoration: underline;
+    font-size:14px;
+    font-family: sans-serif;
+}
+.li_has_gold_color_link:hover{
+    color:#8d7c4c;
+}

@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="custom_home_page" inherit_id="website.homepage" name="Home Page">
+        <xpath expr="//div[@id='wrap']" position="replace">
+    <div id="wrap" class="oe_structure oe_empty homepage oe_structure_not_nearest">
+      <section class="radio_home_cover o_colored_level" id="radio_home_cover" style="background-image: none;">
+        <div class="container_class">
+          <img decoding="async" class="wp-block-cover__image-background wp-image-14" alt="" src="/web/image/16000-21d4024f/Website_1959Cadillac.png" data-object-fit="cover" title="Nostalgie trifft auf Hightech I WUNDERBAR Custom Radio Shop" loading="lazy" data-original-id="15999" data-original-src="/web/image/15999-68931de7/Website_1959Cadillac.png" data-mimetype="image/png" data-resize-width="undefined"/>
+          <div class="radio_homepage_1">
+            <p class="is-style-subhead is-style-uppercase has-gold-color has-text-color has-small-font-size">
+              <strong>HISTORISCHE AUTORADIOS MIT DIGITALEN FUNKTIONEN</strong>
+            </p>
+            <h1 class="has-softblack-color has-text-color wp-block-heading">NOSTALGIE TRIFFT AUF HIGHTECH</h1>
+            <p>
+              <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-softblack-color">
+                                        Nachrichten hören, Smartphone aufladen, eigene Playlists abspielen und telefonieren – und das alles vollständig in dein Oldtimer Radio integriert.
+                                    </mark>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="finde_dein_radio_section o_colored_level" data-snippet="s_search_filter" data-name="Search and Filter" style="background-image: none;">
+        <form class="container container_class2 jotform-form" action="/search_radio" method="post">
+          <div class="home_content_class">
+            <p class="subhead_search o_default_snippet_text">FINDE DEIN RADIO</p>
+            <center>
+              <div class="ct">
+                <div class="row change_row">
+                  <div class="col-md-9 o_colored_level">
+                    <div class="row">
+                      <div class="col home_manufacturer o_colored_level" id="manufac_id">
+                        <select size="1" class="select_class manufact_select_class" name="manufacturer">
+                          <option value="" class="o_default_snippet_text">Fahrzeug</option>
+                          <option class="option_manu o_default_snippet_text" value="ACADIAN">ACADIAN</option>
+                          <option class="option_manu o_default_snippet_text" value="BEAUMONT">BEAUMONT</option>
+                          <option class="option_manu o_default_snippet_text" value="BUICK">BUICK</option>
+                          <option class="option_manu o_default_snippet_text" value="CADILLAC">CADILLAC</option>
+                          <option class="option_manu o_default_snippet_text" value="CHEVROLET">CHEVROLET</option>
+                          <option class="option_manu o_default_snippet_text" value="CHRYSLER">CHRYSLER</option>
+                          <option class="option_manu o_default_snippet_text" value="GENERAL MOTORS">GENERAL MOTORS</option>
+                          <option class="option_manu o_default_snippet_text" value="GM">GM</option>
+                          <option class="option_manu o_default_snippet_text" value="GMC">GMC</option>
+                          <option class="option_manu o_default_snippet_text" value="LINCOLN">LINCOLN</option>
+                          <option class="option_manu o_default_snippet_text" value="OLDSMOBILE">OLDSMOBILE</option>
+                          <option class="option_manu o_default_snippet_text" value="PACKARD">PACKARD</option>
+                          <option class="option_manu o_default_snippet_text" value="PONTIAC">PONTIAC</option>
+                          <option class="option_manu o_default_snippet_text" value="STUDEBAKER">STUDEBAKER</option>
+                        </select>
+                      </div>
+                      <div class="col home_year o_colored_level" id="year_id">
+                        <select size="1" class="select_class year_select_class" name="model_year">
+                          <option value="" class="option_manu o_default_snippet_text">Baujahr</option>
+                        </select>
+                      </div>
+                      <div class="col home_name o_colored_level" id="model_name_id">
+                        <select size="1" class="select_class model_select_class" name="model_name">
+                          <option class="option_manu o_default_snippet_text" value="">Modell</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 text-center home_page_button o_colored_level">
+                    <button class="btn btn-primary o_default_snippet_text" id="find_now" type="submit">
+                                            Jetzt finden
+                                        </button>
+                  </div>
+                </div>
+              </div>
+            </center>
+          </div>
+        </form>
+      </section>
+      <section data-snippet="s_homepage_10" class="o_colored_level" data-name="Homepage 10" style="background-image: none;" id="Homepage-10" data-anchor="true">
+        <div class="contaniner_width_class container">
+          <div class="ekit-heading elementskit-section-title-wraper text-center" data-original-title="" title="" aria-describedby="tooltip617092">
+            <p class="p_has_gold_color">
+              <strong>
+                <span style="font-size: 18px;">DEIN ORIGINALES AUTORADIO AUF DEINE ANSPRÜCHE ABGESTIMMT</span>
+              </strong>
+            </p>
+            <p class="home_heading_2 o_default_snippet_text">JEDES AUTORADIO BLEIBT EIN ORIGINAL</p>
+            <p class="para_p2 o_default_snippet_text">Denn viele Radios in Oldtimern sind kleine Meisterwerke des Designs. Meist sind sie sogar kleine Raritäten und viel zu schade um sie durch Retroradios zu ersetzen. Äußerlich noch wahre Schmuckstücke, genügt ihre technische Ausstattung leider nicht mehr den Anforderungen der modernen Technik.</p>
+            <p class="para_p2">Alle Änderungen nehmen wir nur im Inneren deines Radio vor. Wir benötigen keine zusätzlichen Verbindungskabel und verstecken keine Technik im Handschuhfach deines Klassikers. Einzig das Innere deines Autoradios wird mit neuen Komponenten ausgestattet. Das Gehäuse und alle Knöpfe, Schalter und Regler werden sorgfältig gereinigt und behalten weiterhin alle ihre ursprünglichen Funktionen.
+            </p>
+            <div class="col-md-12" data-original-title="" title="" aria-describedby="tooltip548082">
+              <button id="ofr_btn" type="submit" data-original-title="" title="" aria-describedby="tooltip960867">
+                <a href="/shop?attrib_model_year=Select+Year&amp;attrib_fahrzeug_modell=Select+Model&amp;attrib_category=3" data-original-title="" title="">
+                  <font class="text-o-color-4" data-original-title="" title="" aria-describedby="tooltip832601">
+                    <span style="font-weight: bolder;" data-original-title="" title="" aria-describedby="tooltip761664">JETZT ALLE NACHRÜSTUNGEN SEHEN</span>
+                  </font>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty">
+          <section class="s_text_image mt96 s_homepage_2_section o_colored_level" data-snippet="s_homepage_2" data-name="Homepage 2" style="background-image: none;">
+            <div class="container image_content_class">
+              <div class="row text_img_class align-items-center">
+                <div class="col-lg-5 o_colored_level">
+                  <a href="https://www.customradioshop.de/shop/nachrustung-digitaltechnik-i-blaupunkt-emden-24972#attr=581">
+                    <img src="/website_ecom_custom/static/img/Website_BLAUPUNKT_Bremen-1.png" class="img img-fluid img_class" loading="lazy" data-original-title="" title="" aria-describedby="tooltip661954" alt="Nachrüstung BLAUPUNKT Emden"/>
+                  </a>
+                </div>
+                <div class="pt16 pb16 text_class o_colored_level col-lg-5">
+                  <p class="p_has_gold_color_head">
+                    <strong class="o_default_snippet_text">Bluetooth</strong>
+                  </p>
+                  <p class="text_block_heading">
+                            INTEGRIERTES BLUETOOTH IM OLDTIMER – WUNDERBAR KOMFORTABEL
+                        </p>
+                  <p class="para_text_image o_default_snippet_text">
+                            Vor dir die langgezogene Landstraße. Im Autoradio spielen sie gerade deinen Lieblingssong. Entspannt hängst du deinen Gedanken nach, als das Klingeln des Smartphones diese jäh unterbricht. Ein Anruf! Automatisch, ganz ohne dein Zutun verstummt die Melodie. Ein kurzer Rechtsdreh am Senderknopf – nun du kannst über die Freisprechanlage telefonieren. Unsere einfache Bedienung macht deinen Oldtimer zum entspannten Ort fürs Cruisen, Telefonieren und Musikhören – einfach WUNDERBAR.
+                        </p>
+                  <button id="find_out_more" type="submit">Jetzt mehr erfahren</button>
+                </div>
+              </div>
+            </div>
+            <div class="oe_structure oe_empty"/>
+          </section>
+        </div>
+      </section>
+      <div class="oe_structure oe_empty" data-snippet="s_search_filter" data-name="Search and Filter"/>
+      <section class="s_text_image o_colored_level" data-name="Text - Image" style="background-image: none;" id="Text---Image" data-anchor="true">
+        <div class="container image_content_class">
+          <div class="row align-items-center text_img_class_invert">
+            <div class="col-lg-5 s3_image_homepage" style="display:none;">
+              <img src="/website_ecom_custom/static/img/Website_BECKER_GrandPrix.jpg" class="img img-fluid img_class_invert" alt="Our Team" loading="lazy"/>
+            </div>
+            <div class="col-lg-7 pt16 pb16 text_class_invert o_colored_level">
+              <p class="p_has_gold_color_head_s3">
+                <strong>UKW UND DAB+</strong>
+              </p>
+              <p class="text_block_heading_invert">
+                                    UKW UND DIGITALES RADIO – WUNDERBAR EMPFANGSBEREIT IN DEINEM OLDTIMER
+                                </p>
+              <p class="para_text_image_invert">
+                                    Dein historisches Autoradio. Äußerlich eine kleine Kostbarkeit, ist sein technisches Können leider begrenzt. Dein Radio besitzt nur einen Empfang über Mittelwelle und du wünschst dir auch UKW-Empfang? Oder möchtest du den klaren Klang und die große Senderauswahl mit DAB+, dem neuesten Standard für den digitalen Radioempfang? Dann bist du bei uns genau richtig.
+                                </p>
+              <p class="p_has_gold_color">
+                <strong>BECKER GRANDPRIX FÜR MERCEDES-BENZ SL “PAGODE” UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB
+                                <span class="fa fa-arrow-right"/></strong>
+              </p>
+            </div>
+            <div class="col-lg-5 s3_image_homepage_2 o_colored_level">
+              <a href="https://wunderbar.odoo.com/shop/nachrustung-digitaltechnik-i-becker-grand-prix-nadelstreifen-24969#attr=592">
+                <img src="/website_ecom_custom/static/img/Website_BECKER_GrandPrix.jpg" class="img img-fluid img_class_invert float-right" alt="Our Team" loading="lazy" data-original-title="" title="" aria-describedby="tooltip792318"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty"/>
+      </section>
+      <section class="s_text_image o_colored_level" data-name="Text - Image" style="background-image: none;">
+        <div class="container image_content_class">
+          <div class="row align-items-center text_img_class">
+            <div class="col-lg-5 o_colored_level">
+              <a href="https://www.customradioshop.de/shop/nachrustung-digitaltechnik-wonderbar-radio-i-i-chevrolet-corvette-1968-1973-24995#attr=707">
+                <img src="/website_ecom_custom/static/img/Website_DELCO_Corvette.jpg" class="img img-fluid img_class" alt="Nachrüstung DELCO Radio für CORVETTE 1969" loading="lazy" data-original-title="" title="" aria-describedby="tooltip907156"/>
+              </a>
+            </div>
+            <div class="col-lg-7 pt16 pb16 text_class">
+              <p class="p_has_gold_color_head">
+                <strong>USB</strong>
+              </p>
+              <p class="text_block_heading">
+                                    USB-LADESTELLE AM OLDTIMERRADIO – WUNDERBAR ZEITGEMÄSS
+                                </p>
+              <p class="para_text_image">
+                                    Speichere dir einfach deine Lieblingssongs auf deinen USB-Stick und spiele sie während deiner Ausfahrt über den USB-Anschluss ab. Nach jeder Pause startet dein Radio an der Songstelle, an der die Wiedergabe unterbrochen wurde. Und wenn du einmal keine Musik hörst, kannst du über diesen USB-Anschluss ganz bequem dein Smartphone wieder aufladen. Einfache Bedienung, über die originalen Tasten und Schalter, machen deinen Oldtimer zum entspannten Ort fürs Musikhören und Smartphone aufladen – einfach WUNDERBAR.
+                                </p>
+              <p class="p_has_gold_color">
+                <strong><span class="fa fa-arrow-left"/>DELCO 91VFP1-7302721 FÜR CORVETTE BAUJAHR 1969 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty"/>
+      </section>
+      <section class="mt96 o_colored_level" style="background-image: none;">
+        <div class="mt96 container">
+          <div class="ekit-heading elementskit-section-title-wraper text-center">
+            <p class="p_has_gold_color">
+              <strong>WUNDERBAR CUSTOM RADIO SHOP</strong>
+            </p>
+            <p class="home_heading_2">WARUM ZU WUNDERBAR? WEIL WIR ZU ERST UNSERE EIGENEN RADIOS UMGEBAUT HABEN</p>
+            <p class="para_p2">Der Name WUNDERBAR ist eine Anlehnung an WONDERBAR, dem legendären Sendersuchlauf von DELCO, der auch in meinen beiden Oldtimern verbaut ist: einem 1956er Cadillac Sedan de Ville und einem 1961er Cadillac Fleetwood Sixty Special. In beiden Fahrzeugen waren die DELCO Wonderbar Radios defekt und es gab viele, die mir helfen wollten – und keinen, der es wirklich konnte. Deshalb gibt es WUNDERBAR I Custom Radio Shop – eine kleine Radioschmiede, die den alten Autoradios wieder neues Leben einhaucht und sie Dinge machen lassen, von denen ihr bisher nur geträumt habt.</p>
+          </div>
+        </div>
+      </section>
+      <section class="s_text_image o_colored_level" data-name="Text - Image">
+        <div class="container image_content_class">
+          <div class="row align-items-center text_img_class">
+            <div class="col-lg-5 pt16 pb16 pr-0 s3_image_homepage" style="display:none;">
+              <img src="/website_ecom_custom/static/img/Webseite_keine_externen_Geraete.jpg" class="img img-fluid img_class_invert" alt="Our Team" loading="lazy"/>
+            </div>
+            <div class="col-lg-7 text_class_lower o_colored_level">
+              <p class="p_has_gold_color">
+                <strong>ALLES IN EINEM GEHÄUSE MIT EINEM INTELLIGENTEN BEDIENKONZEPT</strong>
+              </p>
+              <p class="text_block_heading">KEINE EXTERNEN GERÄTE IM HANDSCHUHFACH</p>
+              <p class="para_text_image">
+                                    Viele andere Anbieter installieren einen 3.5 mm Klinkenanschluss – und schließen daran dann einen externen Bluetooth- oder DAB+ Empfänger an. Bei WUNDERBAR sind all diese Technologien im originalen Gehäuse integriert und alle lassen sich ausnahmslos über die originalen Schalter und Regler bedienen. Jedes Radio erhält Anschlüsse für die Stromversorgung und Lautsprecherausgänge, bei Bluetooth einen Eingang für das Mikrofon und auf Wunsch Chinch-Ausgänge für einen Verstärker-Anschluss.
+                                </p>
+              <p class="p_has_gold_color">
+                <strong>DELCO 91VFP1-7302721 FÜR CORVETTE BAUJAHR 1969 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB<span class="fa fa-arrow-right"/></strong>
+              </p>
+            </div>
+            <div class="col-lg-5 pr-0 s3_image_homepage_2 o_colored_level pb0 pt0">
+              <img src="/website_ecom_custom/static/img/Webseite_keine_externen_Geraete.jpg" class="img float-right img-fluid img_class_invert" alt="Our Team" loading="lazy" data-original-title="" title="" aria-describedby="tooltip347627"/>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty"/>
+      </section>
+      <section class="s_text_image o_colored_level" data-name="Text - Image" style="background-image: none;">
+        <div class="container image_content_class">
+          <div class="row align-items-center text_img_class_invert">
+            <div class="col-lg-5">
+              <img src="/website_ecom_custom/static/img/Website_intelligentes_Bedienkonzept-1.jpg" class="img img-fluid img_class" alt="Our Team" loading="lazy"/>
+            </div>
+            <div class="col-lg-7 pt16 pb16 text_class">
+              <p class="p_has_gold_color">
+                <strong>DURCHDACHTES BEDIENKONZEPT MIT SPRACHANSAGEN</strong>
+              </p>
+              <p class="text_block_heading_invert">ALLE SCHALTER UND TASTER BLEIBEN ORIGINAL</p>
+              <p class="para_text_image_invert">
+                                    Ausnahmslos alle Funktionen des Radios lassen sich über die originalen Schalter und Regler bedienen – mit einem Unterschied: Viele der Schalter besitzen nach der Umrüstung einen erweiterten Funktionsumfang. Damit kannst du dann alle zusätzlichen Funktionen bequem steuern. Zum Beispiel erfolgt die Kopplung des Smartphone via Bluetooth über den Lautstärkeregler – indem du ihn zweimal kurz nach rechts drehst und das Radio dann “Ready to Pair” ist.
+                                </p>
+              <p class="p_has_gold_color">
+                <strong><span class="fa fa-arrow-left"/>CONTINENTAL-EDISON FÜR CITROEN AMI 6 UMGERÜSTET AUF UKW I DAB+ I USB</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty"/>
+      </section>
+      <section class="s_text_image" data-name="Text - Image">
+        <div class="container image_content_class">
+          <div class="row align-items-center text_img_class">
+            <div class="col-lg-5 pr-0 s3_image_homepage" style="display:none;">
+              <img src="/website_ecom_custom/static/img/Website_Sendersuchlauf_DAB.jpg" class="img img-fluid img_class_invert" alt="Our Team" loading="lazy"/>
+            </div>
+            <div class="col-lg-7 pt16 pb16 text_class_lower">
+              <p class="p_has_gold_color">
+                <strong>DELCO WONDERBAR UND BECKER MEXICO</strong>
+              </p>
+              <p class="text_block_heading">SENDERSUCHLAUF AUCH FÜR DAB+</p>
+              <p class="para_text_image">
+                                    Der elektromechanische Sendersuchlauf in vielen alten BECKER und DELCO Autoradios wird von anderen Anbietern entweder stillgelegt oder funktioniert nur für den UKW-Empfang. Bei WUNDERBAR restaurieren wir den Sendersuchlauf und machen ihn dann anschließend fit für DAB+ – damit finden sie auch in Zukunft alle Sender wie gewohnt: über die Stationstasten oder eben automatisch über die Suchlauftaste.
+                                </p>
+              <p class="p_has_gold_color">
+                <strong><span class="fa fa-arrow-right"/>DELCO 7272505 WONDERBAR RADIO FÜR CADILLAC BAUJAHR 1959 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB</strong>
+              </p>
+            </div>
+            <div class="col-lg-5 pr-0 s3_image_homepage_2">
+              <img src="/website_ecom_custom/static/img/Website_Sendersuchlauf_DAB.jpg" class="img img-fluid img_class_invert float-right" alt="Our Team" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty"/>
+      </section>
+      <section>
+        <div class="container ask_contact_class">
+          <div class="row pt104 s_homepage_11">
+            <div id="contactus" class="col-md-6 intr_class">
+              <h3 class="ask_class">Interessiert?<br/>
+                                Noch Fragen?</h3>
+              <br/>
+              <p>Du willst dein Radio bei WUNDERBAR umrüsten lassen und benötigst ein Angebot? Oder du willst einfach mal so mit uns sprechen, weil du Fragen zu deinem Radio hast? Dann melde dich doch einfach gerne bei uns<br/>
+                                </p>
+              <p class="mt-5">Email: sales@customradioshop.de</p>
+            </div>
+            <div class="col-md-6">
+              <form class="contact-form" action="/contact_us_radio" method="post">
+                <p>Was sollen wir für dich tun?</p>
+                <div style="margin-bottom: 23px;">
+                  <a href="#" role="button" id="ofr_like_btn" class="btn btn-primary btn-lg d-inline">
+                                            Ich möchte gerne ein Angebot
+                                        </a>
+                </div>
+                <div>
+                  <a href="#" role="button" id="que_btn" class="btn btn-primary btn-lg d-inline">
+                                            Ich habe eine Frage
+                                        </a>
+                </div>
+                <input name="name" class="form-control mt-5" type="text" placeholder="Wie ist dein Name?"/>
+                <input name="email_from" class="form-control mt-5" type="text" placeholder="Wie ist dein E-mail?"/>
+                <input name="phone" class="form-control mt-5" type="text" placeholder="Wie ist deine Telefonnummer für Rückfragen?"/>
+                <input name="description" class="form-control mt-5" type="text" placeholder="Was für ein Radio hast du?"/>
+                <button id="submit_btn" type="submit" class="mt-5">
+                                        Absenden
+                                    </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="oe_structure oe_empty"/>
+      </section>
+    </div>
+    <div class="oe_structure oe_empty"/>
+  </xpath>
+<!--        <xpath expr="//div[@id='wrap']" position="replace">-->
+<!--            <div id="wrap" class="oe_structure oe_empty homepage oe_structure_not_nearest">-->
+
+<!--                &lt;!&ndash; Home page 1 snippet &ndash;&gt;-->
+<!--                <section class="radio_home_cover" id='radio_home_cover'>-->
+<!--                    <div class="container_class">-->
+<!--                            <img decoding="async" class="wp-block-cover__image-background wp-image-14" alt="Nostalgie trifft auf Hightech I WUNDERBAR Custom Radio Shop" src="https://customradioshop.de/wp-content/uploads/2021/05/Website_1959Cadillac.png" data-object-fit="cover" title="Nostalgie trifft auf Hightech I WUNDERBAR Custom Radio Shop"/>-->
+<!--                            <div class="radio_homepage_1">-->
+<!--                                <p class="is-style-subhead is-style-uppercase has-gold-color has-text-color has-small-font-size">-->
+<!--                                    <strong>HISTORISCHE AUTORADIOS MIT DIGITALEN FUNKTIONEN</strong>-->
+<!--                                </p>-->
+<!--                                <h1 class="has-softblack-color has-text-color wp-block-heading">NOSTALGIE TRIFFT AUF HIGHTECH</h1>-->
+<!--                                <p>-->
+<!--                                    <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-softblack-color">-->
+<!--                                        Nachrichten hören, Smartphone aufladen, eigene Playlists abspielen und telefonieren – und das alles vollständig in dein Oldtimer Radio integriert.-->
+<!--                                    </mark>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--                -->
+<!--                &lt;!&ndash; Search snippet &ndash;&gt;-->
+<!--                <section class="finde_dein_radio_section o_colored_level" data-snippet="s_search_filter" data-name="Search and Filter" style="background-image: none;">-->
+<!--                        <form class="container container_class2 jotform-form" action="/search_radio" method="post">-->
+<!--                        <div class="home_content_class">-->
+<!--                            <p class="subhead_search o_default_snippet_text">FINDE DEIN RADIO</p>-->
+<!--                            <center>-->
+<!--                                <div class="ct">-->
+<!--                                    <div class="row change_row">-->
+<!--                                    <div class="col-md-9 o_colored_level">-->
+<!--                                        <div class="row">-->
+<!--                                        <div class="col home_manufacturer o_colored_level" id="manufac_id">-->
+<!--                                            <select size="1" class="select_class manufact_select_class" name="manufacturer">-->
+<!--                                            <option value="" class="o_default_snippet_text">Fahrzeug</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="ACADIAN">ACADIAN</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="BEAUMONT">BEAUMONT</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="BUICK">BUICK</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="CADILLAC">CADILLAC</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="CHEVROLET">CHEVROLET</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="CHRYSLER">CHRYSLER</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="GENERAL MOTORS">GENERAL MOTORS</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="GM">GM</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="GMC">GMC</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="LINCOLN">LINCOLN</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="OLDSMOBILE">OLDSMOBILE</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="PACKARD">PACKARD</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="PONTIAC">PONTIAC</option>-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="STUDEBAKER">STUDEBAKER</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="col home_year o_colored_level" id="year_id">-->
+<!--                                            <select size="1" class="select_class year_select_class" name="model_year">-->
+<!--                                            <option value="" class="option_manu o_default_snippet_text">Baujahr</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="col home_name o_colored_level" id="model_name_id">-->
+<!--                                            <select size="1" class="select_class model_select_class" name="model_name">-->
+<!--                                            <option class="option_manu o_default_snippet_text" value="">Modell</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-3 text-center home_page_button o_colored_level">-->
+<!--                                        <button class="btn btn-primary o_default_snippet_text" id="find_now" type="submit">-->
+<!--                                            Jetzt finden-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </center>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 3 snippet &ndash;&gt;-->
+<!--                <section class="s_text_image">-->
+<!--                    <div class="container image_content_class">-->
+<!--                        <div class="row align-items-center text_img_class_invert">-->
+<!--                            <div class="col-lg-5 s3_image_homepage" style="display:none;">-->
+<!--                                <img src="/website_ecom_custom/static/img/Website_BECKER_GrandPrix.jpg" class="img img-fluid img_class_invert" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 pt16 pb16 text_class_invert">-->
+<!--                                <p class="p_has_gold_color_head_s3"><strong>UKW UND DAB+</strong></p>-->
+<!--                                <p class="text_block_heading_invert">-->
+<!--                                    UKW UND DIGITALES RADIO – WUNDERBAR EMPFANGSBEREIT IN DEINEM OLDTIMER-->
+<!--                                </p>-->
+<!--                                <p class="para_text_image_invert">-->
+<!--                                    Dein historisches Autoradio. Äußerlich eine kleine Kostbarkeit, ist sein technisches Können leider begrenzt. Dein Radio besitzt nur einen Empfang über Mittelwelle und du wünschst dir auch UKW-Empfang? Oder möchtest du den klaren Klang und die große Senderauswahl mit DAB+, dem neuesten Standard für den digitalen Radioempfang? Dann bist du bei uns genau richtig.-->
+<!--                                </p>-->
+<!--                                <p class="p_has_gold_color"><strong>BECKER GRANDPRIX FÜR MERCEDES-BENZ SL “PAGODE” UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB-->
+<!--                                <span class="fa fa-arrow-right"></span></strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-5 s3_image_homepage_2">-->
+<!--                                <img src="/website_ecom_custom/static/img/Website_BECKER_GrandPrix.jpg" class="img img-fluid img_class_invert float-right" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--                -->
+<!--                &lt;!&ndash; Home page 4 snippet &ndash;&gt;-->
+<!--                <section class="s_text_image">-->
+<!--                    <div class="container image_content_class">-->
+<!--                        <div class="row align-items-center text_img_class">-->
+<!--                            <div class="col-lg-5">-->
+<!--                                <img src="/website_ecom_custom/static/img/Website_DELCO_Corvette.jpg" class="img img-fluid img_class" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 pt16 pb16 text_class">-->
+<!--                                <p class="p_has_gold_color_head"><strong>USB</strong></p>-->
+
+<!--                                <p class="text_block_heading">-->
+<!--                                    USB-LADESTELLE AM OLDTIMERRADIO – WUNDERBAR ZEITGEMÄSS-->
+<!--                                </p>-->
+<!--                                <p class="para_text_image">-->
+<!--                                    Speichere dir einfach deine Lieblingssongs auf deinen USB-Stick und spiele sie während deiner Ausfahrt über den USB-Anschluss ab. Nach jeder Pause startet dein Radio an der Songstelle, an der die Wiedergabe unterbrochen wurde. Und wenn du einmal keine Musik hörst, kannst du über diesen USB-Anschluss ganz bequem dein Smartphone wieder aufladen. Einfache Bedienung, über die originalen Tasten und Schalter, machen deinen Oldtimer zum entspannten Ort fürs Musikhören und Smartphone aufladen – einfach WUNDERBAR.-->
+<!--                                </p>-->
+<!--                                <p class="p_has_gold_color"><strong><span class="fa fa-arrow-left"></span>DELCO 91VFP1-7302721 FÜR CORVETTE BAUJAHR 1969 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB</strong></p>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page project snippet &ndash;&gt;-->
+<!--                <section class="mt-5">-->
+<!--                    <div class="ekit-heading elementskit-section-title-wraper text-center container">-->
+<!--                        <p class="p_has_gold_color"><strong>PROJEKTE</strong></p>-->
+<!--                        <p class="home_heading_2">EIN KLEINER AUSZUG AN RADIOS DIE WIR SCHON UMGERÜSTET HABEN</p>-->
+<!--                        <p class="para_p2 projekte_page_3">Eine Umrüstung durch WUNDERBAR ist grundsätzlich für jedes alte Autoradio möglich. Dabei sind wir nicht nur auf amerikanische Radios von DELCO, MOPAR und BENDIX spezialisiert sondern haben auch schon viele deutsche Radios von BLAUPUNKT und BECKER umgerüstet.</p>-->
+<!--                    </div>-->
+<!--                    <div class="container image_content_class">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-3">-->
+<!--                                <a href="https://www.instagram.com/p/CZhfOoOId9H/">-->
+<!--                                    <img src="/website_ecom_custom/static/img/img_1.jpg" class="img img-fluid multi_img" alt="Our Team"/>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-3">-->
+<!--                                <a href="https://www.instagram.com/p/CZhfOoOId9H/">-->
+<!--                                    <img src="/website_ecom_custom/static/img/img_2.jpg" class="img img-fluid multi_img" alt="Our Team"/>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-3">-->
+<!--                                <a href="https://www.instagram.com/p/CZhfOoOId9H/">-->
+<!--                                    <img src="/website_ecom_custom/static/img/img_3.jpg" class="img img-fluid multi_img" alt="Our Team"/>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-3">-->
+<!--                                <a href="https://www.instagram.com/p/CZhfOoOId9H/">-->
+<!--                                    <img src="/website_ecom_custom/static/img/img_4.jpg" class="img img-fluid multi_img" alt="Our Team"/>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row mt-2">-->
+<!--                            <div class="col-md-3">-->
+<!--                                <a href="https://www.instagram.com/p/CZhfOoOId9H/">-->
+<!--                                    <img src="/website_ecom_custom/static/img/img_5.jpg" class="img img-fluid multi_img" alt="Our Team"/>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-3">-->
+<!--                                <a href="https://www.instagram.com/p/CZhfOoOId9H/">-->
+<!--                                    <img src="/website_ecom_custom/static/img/img_6.jpg" class="img img-fluid multi_img" alt="Our Team"/>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 6 snippet &ndash;&gt;-->
+<!--                <section class="mt-5">-->
+<!--                    <div class="container simulate_radio_class">-->
+<!--                        <div class="ekit-heading elementskit-section-title-wraper text-center">-->
+<!--                            <p class="p_has_gold_color"><strong>ALLE FUNKTONEN UND FEATURES IN DER ÜBERSICHT</strong></p>-->
+<!--                            <p class="home_heading_2 s_homepage_6page">EINE ÜBERSICHT AN DINGEN DIE DEIN RADIO NACH EINER UMRÜSTUNG DURCH WUNDERBAR KANN</p>-->
+<!--                            <p class="para_p2">Abgesehen von der höheren Leistung und der höheren Anzahl an Musikquellen, gibt es noch weitere Optionen die dein Oldtimerradio nach einer Umrüstung beherrscht – entweder als Standard integriert oder Wunsch eingebaut.</p>-->
+<!--                        </div>-->
+
+<!--                        <div class="row d-flex align-items-stretch">-->
+<!--                            <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">-->
+<!--                                <div class="card bg-white h-100 border-0">-->
+<!--                                    <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_Simulation_Roehrenradio.jpg" alt=""/>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <p class="p_has_gold_color text-center"><strong>SIMULATION RÖHRENGERÄT</strong></p>-->
+<!--                                        <p class="card-text">Auf Wunsch können wir das umgerüstete Radio so konfigurieren, dass eine Vorheizzeit der Röhren imitiert wird. Damit dauert es dann nach dem Einschalten zwischen 5 und 10 Sekunden, bis sich der Empfang einstellt – ähnlich wie bei einem echten Röhrenradio. Gleichzeitig lässt sich für den Nutzer einstellen, ob das Gerät das leichte Surren einer Zerhacker-Patrone imitieren soll.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">-->
+<!--                                <div class="card bg-white h-100 border-0">-->
+<!--                                    <img class="card-img-top" src="/website_ecom_custom/static/img/Website_externe_Verstaerkerausgaenge.jpg" alt=""/>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <p class="p_has_gold_color text-center"><strong>EXTERNE VERSTÄRKERAUSGÄNGE</strong></p>-->
+<!--                                        <p class="card-text">Auf Wunsch installieren wir zusätzlich zu den im Standard enthaltenen verstärkten Lautsprecherausgängen Chinch-Ausgänge für einen externen Verstärker für Vorne Links, Vorne Rechts, Hinten Links und Hinten Rechts sowie einen separaten Ausgang für einen Subwoofer. Die Steuerleitung für den Verstärker ist selbstverständlich inklusive.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">-->
+<!--                                <div class="card bg-white h-100 border-0">-->
+<!--                                    <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_12Volt.jpg" alt=""/>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <p class="p_has_gold_color text-center"><strong>6 VOLT UND 12 VOLT</strong></p>-->
+<!--                                        <p class="card-text">Selbstverständlich kann das Team von WUNDERBAR beide Varianten umrüsten. Entweder weil du ein 6 Volt Radio besitzt und dein Fahrzeug nun auf 12 Volt läuft oder wenn du den umgekehrten Fall hast, dass du tatsächlich auf 6 Volt durch die Lande kurvst. Wir verwenden Spannungswandler, die auf die eingesetzte Technologie abgestimmt sind, ohne dass du dir darüber Sorgen machen musst.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row d-flex align-items-stretch align-items-stretch_2 mt120">-->
+<!--                            <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">-->
+<!--                                <div class="card bg-white h-100 border-0">-->
+<!--                                    <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_Schutz_vor_Verpolung.jpg" alt=""/>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <p class="p_has_gold_color text-center"><strong>SCHUTZ VOR VERPOLUNG</strong></p>-->
+<!--                                        <p class="card-text">Wir sichern dich ab. Jedes durch uns umgerüstete Radio bietet einen zuverlässigen Schutz vor Verpolung. Wenn du Plus und Minus vertauschst, passiert absolut nichts. Das Radio geht zwar nicht an, aber auch nicht kaputt. Gleiches gilt für die Lautsprecherausgänge: Es kommt lediglich eine Sprachansage und der Ausgang wird automatisch abgeschalten, so dass das die Technik keinen Schaden nimmt.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">-->
+<!--                                <div class="card bg-white h-100 border-0">-->
+<!--                                    <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_Sprachansagen-1.jpg" alt=""/>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <p class="p_has_gold_color text-center"><strong>SPRACHANSAGEN ZUR NUTZERFÜHRUNG</strong></p>-->
+<!--                                        <p class="card-text">Die durch WUNDERBAR umgerüsteten Oldtimer-Radios bieten standardmäßig Sprachansagen für die wichtigsten Funktionen des Radios. Egal ob du dein Smartphone per Bluetooth koppelst, einen Sendersuchlauf startest, dich im DAB+ Setup befindest oder deine Lautsprecher kurzgeschlossen hast – dein neues altes Radio wird dich mit freundlicher Stimme unterstützen.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">-->
+<!--                                <div class="card bg-white h-100 border-0">-->
+<!--                                    <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_LED_Nutzerfuehrung.jpg" alt=""/>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <p class="p_has_gold_color text-center"><strong>LED ZUR NUTZERFÜHRUNG</strong></p>-->
+<!--                                        <p class="card-text">WUNDERBAR verbaut immer eine kleine RGB LED, die dir den jeweiligen Betriebszustand anzeigt. Sie leuchtet gelb für UKW-Empfang, blau für Bluetooth, rot für Mittelwelle, türkis für DAB+ und sie leuchtet pink für USB. Je nachdem in welchem Modus du bist, merkt sich das Radio den letzten Betriebszustand und fängt genau da wieder an, wo ihr aufgehört habt.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 12 snippet &ndash;&gt;-->
+<!--                <section class="mt96">-->
+<!--                    <div class="container mt96">-->
+<!--                        <div class="ekit-heading elementskit-section-title-wraper text-center">-->
+<!--                            <p class="p_has_gold_color"><strong>WUNDERBAR I CUSTOM RADIO SHOP</strong></p>-->
+<!--                            <p class="home_heading_2">WARUM ZU WUNDERBAR? WEIL WIR ZU ERST UNSERE EIGENEN RADIOS UMGEBAUT HABEN</p>-->
+<!--                            <p class="para_p2">Der Name WUNDERBAR ist eine Anlehnung an WONDERBAR, dem legendären Sendersuchlauf von DELCO, der auch in meinen beiden Oldtimern verbaut ist: einem 1956er Cadillac Sedan de Ville und einem 1961er Cadillac Fleetwood Sixty Special. In beiden Fahrzeugen waren die DELCO Wonderbar Radios defekt und es gab viele, die mir helfen wollten – und keinen, der es wirklich konnte. Deshalb gibt es WUNDERBAR I Custom Radio Shop – eine kleine Radioschmiede, die den alten Autoradios wieder neues Leben einhaucht und sie Dinge machen lassen, von denen ihr bisher nur geträumt habt.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 7 snippet &ndash;&gt;-->
+<!--                <section class="s_text_image">-->
+<!--                    <div class="container image_content_class">-->
+<!--                        <div class="row align-items-center text_img_class">-->
+<!--                            <div class="col-lg-5 pt16 pb16 pr-0 s3_image_homepage" style="display:none;">-->
+<!--                                <img src="/website_ecom_custom/static/img/Webseite_keine_externen_Geraete.jpg" class="img img-fluid img_class_invert" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 text_class_lower">-->
+<!--                                <p class="p_has_gold_color"><strong>ALLES IN EINEM GEHÄUSE MIT EINEM INTELLIGENTEN BEDIENKONZEPT</strong></p>-->
+<!--                                <p class="text_block_heading">KEINE EXTERNEN GERÄTE IM HANDSCHUHFACH</p>-->
+<!--                                <p class="para_text_image">-->
+<!--                                    Viele andere Anbieter installieren einen 3.5 mm Klinkenanschluss – und schließen daran dann einen externen Bluetooth- oder DAB+ Empfänger an. Bei WUNDERBAR sind all diese Technologien im originalen Gehäuse integriert und alle lassen sich ausnahmslos über die originalen Schalter und Regler bedienen. Jedes durch uns restaurierte und umgerüstete Radio erhält Anschlüsse für die Stromversorgung, einen Anschluss für die Lautsprecherausgänge, bei Bluetooth einen Eingang für das Mikrofon und auf Wunsch Chinch-Ausgänge für einen Verstärker-Anschluss.-->
+<!--                                </p>-->
+<!--                                <p class="p_has_gold_color"><strong>DELCO 91VFP1-7302721 FÜR CORVETTE BAUJAHR 1969 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB<span class="fa fa-arrow-right"></span></strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-5 pt16 pb16 pr-0 s3_image_homepage_2">-->
+<!--                                <img src="/website_ecom_custom/static/img/Webseite_keine_externen_Geraete.jpg" class="img float-right img-fluid img_class_invert" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 8 snippet &ndash;&gt;-->
+<!--                <section class="s_text_image">-->
+<!--                    <div class="container image_content_class">-->
+<!--                        <div class="row align-items-center text_img_class_invert">-->
+<!--                            <div class="col-lg-5">-->
+<!--                                <img src="/website_ecom_custom/static/img/Website_intelligentes_Bedienkonzept-1.jpg" class="img img-fluid img_class" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 pt16 pb16 text_class">-->
+<!--                                <p class="p_has_gold_color"><strong>DURCHDACHTES BEDIENKONZEPT MIT SPRACHANSAGEN</strong></p>-->
+<!--                                <p class="text_block_heading_invert">ALLE SCHALTER UND TASTER BLEIBEN ORIGINAL</p>-->
+<!--                                <p class="para_text_image_invert">-->
+<!--                                    Ausnahmslos alle Funktionen des Radios lassen sich über die originalen Schalter und Regler bedienen – mit einem Unterschied: Viele der Schalter besitzen nach der Umrüstung einen erweiterten Funktionsumfang. Damit kannst du dann alle zusätzlichen Funktionen bequem steuern. Zum Beispiel erfolgt die Kopplung des Smartphone via Bluetooth über den Lautstärkeregler – indem du ihn zweimal kurz nach rechts drehst und das Radio dann “Ready to Pair” ist.-->
+<!--                                </p>-->
+<!--                                <p class="p_has_gold_color"><strong><span class="fa fa-arrow-left"></span>CONTINENTAL-EDISON FÜR CITROEN AMI 6 UMGERÜSTET AUF UKW I DAB+ I USB</strong></p>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 9 snippet &ndash;&gt;-->
+<!--                <section class="s_text_image">-->
+<!--                    <div class="container image_content_class">-->
+<!--                        <div class="row align-items-center text_img_class">-->
+<!--                            <div class="col-lg-5 pr-0 s3_image_homepage" style="display:none;">-->
+<!--                                <img src="/website_ecom_custom/static/img/Website_Sendersuchlauf_DAB.jpg" class="img img-fluid img_class_invert" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 pt16 pb16 text_class_lower">-->
+<!--                                <p class="p_has_gold_color"><strong>DELCO WONDERBAR UND BECKER MEXICO</strong></p>-->
+<!--                                <p class="text_block_heading">SENDERSUCHLAUF AUCH FÜR DAB+</p>-->
+<!--                                <p class="para_text_image">-->
+<!--                                    Der elektromechanische Sendersuchlauf in vielen alten BECKER und DELCO Autoradios wird von anderen Anbietern entweder stillgelegt oder funktioniert nur für den UKW-Empfang. Bei WUNDERBAR restaurieren wir den Sendersuchlauf und machen ihn dann anschließend fit für DAB+ – damit finden sie auch in Zukunft alle Sender wie gewohnt: über die Stationstasten oder eben automatisch über die Suchlauftaste.-->
+<!--                                </p>-->
+<!--                                <p class="p_has_gold_color"><strong><span class="fa fa-arrow-right"></span>DELCO 7272505 WONDERBAR RADIO FÜR CADILLAC BAUJAHR 1959 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-5 pr-0 s3_image_homepage_2">-->
+<!--                                <img src="/website_ecom_custom/static/img/Website_Sendersuchlauf_DAB.jpg" class="img img-fluid img_class_invert float-right" alt="Our Team"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                &lt;!&ndash; Home page 11 snippet &ndash;&gt;-->
+<!--                <section>-->
+<!--                    <div id="contact_us" class="container ask_contact_class">-->
+<!--                        <div class="row pt104 s_homepage_11">-->
+<!--                            <div class="col-md-6 intr_class">-->
+<!--                                <h3 class="ask_class">Interessiert?<br></br>-->
+<!--                                Noch Fragen?</h3>-->
+<!--                                <br></br>-->
+<!--                                <p>Du willst dein Radio bei WUNDERBAR umrüsten lassen und benötigst ein Angebot? Oder du willst einfach mal so mit uns sprechen, weil du Fragen zu deinem Radio hast? Dann melde dich doch einfach gerne bei uns<br></br>-->
+<!--                                </p>-->
+<!--                                <p class="mt-5">Email: sales@customradioshop.de</p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-6">-->
+<!--                                <form class="contact-form" action="/contact_us_radio" method="post">-->
+<!--                                    <p>Was sollen wir für dich tun?</p>-->
+<!--                                    <div style="margin-bottom: 23px;">-->
+<!--                                        <a href="#" role="button" id="ofr_like_btn" class="btn btn-primary btn-lg d-inline">-->
+<!--                                            Ich möchte gerne ein Angebot-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <a href="#" role="button" id="que_btn" class="btn btn-primary btn-lg d-inline">-->
+<!--                                            Ich habe eine Frage-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+
+<!--                                    <span>-->
+<!--                                        <input name="name" class="form-control mt-5" type="text" placeholder="Wie ist dein Name?"/>-->
+<!--                                    </span>-->
+
+<!--                                    <span>-->
+<!--                                        <input name="email_from" class="form-control mt-5" type="text" placeholder="Wie ist dein E-mail?"/>-->
+<!--                                    </span>-->
+
+<!--                                    <span>-->
+<!--                                        <input name="phone" class="form-control mt-5" type="text" placeholder="Wie ist deine Telefonnummer für Rückfragen?"/>-->
+<!--                                    </span>-->
+
+<!--                                    <span>-->
+<!--                                        <input name="description" class="form-control mt-5" type="text" placeholder="Was für ein Radio hast du?"/>-->
+<!--                                    </span>-->
+<!--                                    <button id="submit_btn" type="submit" class="mt-5">-->
+<!--                                        Absenden-->
+<!--                                    </button>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--            </div>-->
+<!--        </xpath>-->
+    </template>
+
+    <template id="s_homepage_1" name="Homepage 1">
+        <section class="radio_home_cover" id='radio_home_cover'>
+            <div class="container_class">
+<!--                <div class="home_content_class">-->
+<!--                    <div class="">-->
+<!--                        <img src="/website_ecom_custom/static/img/cover.png" class="cover_img_2"-->
+<!--                        alt="Cover"/>-->
+<!--                    </div>-->
+                    <img decoding="async" class="wp-block-cover__image-background wp-image-14" alt="Nostalgie trifft auf Hightech I WUNDERBAR Custom Radio Shop" src="https://customradioshop.de/wp-content/uploads/2021/05/Website_1959Cadillac.png" data-object-fit="cover" title="Nostalgie trifft auf Hightech I WUNDERBAR Custom Radio Shop"/>
+                    <div class="radio_homepage_1">
+                        <p class="is-style-subhead is-style-uppercase has-gold-color has-text-color has-small-font-size">
+                            <strong>HISTORISCHE AUTORADIOS MIT DIGITALEN FUNKTIONEN</strong>
+                        </p>
+                        <h1 class="has-softblack-color has-text-color wp-block-heading">NOSTALGIE TRIFFT AUF HIGHTECH</h1>
+                        <p>
+                            <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-softblack-color">
+                                Nachrichten hören, Smartphone aufladen, eigene Playlists abspielen und telefonieren – und das alles vollständig in dein Oldtimer Radio integriert.
+                            </mark>
+                        </p>
+<!--                        <p class="mb-0 p_has_gold_color_s1"><strong>HISTORISCHE AUTORADIOS MIT DIGITALEN FUNKTIONEN</strong></p>-->
+<!--                        <p class="home_heading mb-0">NOSTALGIE TRIFFT AUF HIGHTECH</p>-->
+<!--                        <p class="para_p2 mb-0">Nachrichten hören, Smartphone aufladen, eigene Playlists abspielen und telefonieren – und das alles vollständig in dein Oldtimer Radio integriert.</p>-->
+                    </div>
+
+<!--                </div>-->
+            </div>
+        </section>
+    </template>
+
+    <template id="s_search_filter" name="Search and Filter">
+        <section class="finde_dein_radio_section">
+            <form class="container container_class2 jotform-form" action="/search_radio" method="post">
+                <div class="home_content_class">
+                    <p class="subhead_search">FINDE DEIN RADIO</p>
+                    <center>
+                        <div class="ct">
+                            <div class="row change_row">
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col home_manufacturer" id="manufac_id">
+                                            <select size="1" class="select_class manufact_select_class" name="manufacturer">
+                                                <option value="">Fahrzeug</option>
+                                                <option class="option_manu" value="ACADIAN" t-att-selected="'selected' if manufacturer_val=='ACADIAN' else None">ACADIAN</option>
+                                                <option class="option_manu" value="BEAUMONT" t-att-selected="'selected' if manufacturer_val=='BEAUMONT' else None">BEAUMONT</option>
+                                                <option class="option_manu" value="BUICK" t-att-selected="'selected' if manufacturer_val=='BUICK' else None">BUICK</option>
+                                                <option class="option_manu" value="CADILLAC" t-att-selected="'selected' if manufacturer_val=='CADILLAC' else None">CADILLAC</option>
+                                                <option class="option_manu" value="CHEVROLET" t-att-selected="'selected' if manufacturer_val=='CHEVROLET' else None">CHEVROLET</option>
+                                                <option class="option_manu" value="CHRYSLER" t-att-selected="'selected' if manufacturer_val=='CHRYSLER' else None">CHRYSLER</option>
+                                                <option class="option_manu" value="GENERAL MOTORS" t-att-selected="'selected' if manufacturer_val=='GENERAL MOTORS' else None">GENERAL MOTORS</option>
+                                                <option class="option_manu" value="GM" t-att-selected="'selected' if manufacturer_val=='GM' else None">GM</option>
+                                                <option class="option_manu" value="GMC" t-att-selected="'selected' if manufacturer_val=='GMC' else None">GMC</option>
+                                                <option class="option_manu" value="LINCOLN" t-att-selected="'selected' if manufacturer_val=='LINCOLN' else None">LINCOLN</option>
+                                                <option class="option_manu" value="OLDSMOBILE" t-att-selected="'selected' if manufacturer_val=='OLDSMOBILE' else None">OLDSMOBILE</option>
+                                                <option class="option_manu" value="PACKARD" t-att-selected="'selected' if manufacturer_val=='PACKARD' else None">PACKARD</option>
+                                                <option class="option_manu" value="PONTIAC" t-att-selected="'selected' if manufacturer_val=='PONTIAC' else None">PONTIAC</option>
+                                                <option class="option_manu" value="STUDEBAKER" t-att-selected="'selected' if manufacturer_val=='STUDEBAKER' else None">STUDEBAKER</option>
+                                            </select>
+                                        </div>
+                                        <div class="col home_year" id="year_id">
+                                             <select size="1" class="select_class year_select_class" name="model_year">
+                                                 <option value="" class="option_manu">Baujahr</option>
+                                             </select>
+                                        </div>
+                                        <div class="col home_name" id="model_name_id">
+                                            <select size="1" class="select_class model_select_class" name="model_name">
+                                                <option class="option_manu" value="">Modell</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3  text-center home_page_button">
+                                    <button class="btn btn-primary" id="find_now" type="submit">
+                                        Jetzt finden
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </form>
+        </section>
+        <!-- <div class="oe_structure oe_empty"/> -->
+    </template>
+
+    <template id="s_homepage_2" name="Homepage 2">
+        <section class="s_text_image mt96 s_homepage_2_section">
+            <div class="container image_content_class">
+                <div class="row align-items-center text_img_class">
+                    <div class="col-lg-5">
+                        <img src="/website_ecom_custom/static/img/Website_BLAUPUNKT_Bremen-1.png" class="img img-fluid img_class" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 pt16 pb16 text_class">
+                        <p class="p_has_gold_color_head"><strong>Bluetooth</strong></p>
+
+                        <p class="text_block_heading">
+                            INTEGRIERTES BLUETOOTH IM OLDTIMER – WUNDERBAR KOMFORTABEL
+                        </p>
+                        <p class="para_text_image">
+                            Vor dir die langgezogene Landstraße. Im Autoradio spielen sie gerade deinen Lieblingssong. Entspannt hängst du deinen Gedanken nach, als das Klingeln des Smartphones diese jäh unterbricht. Ein Anruf! Automatisch, ganz ohne dein Zutun verstummt die Melodie. Ein kurzer Rechtsdreh am Senderknopf – nun du kannst über die Freisprechanlage telefonieren. Unsere einfache Bedienung macht deinen Oldtimer zum entspannten Ort fürs Cruisen, Telefonieren und Musikhören – einfach WUNDERBAR.
+                        </p>
+                        <button id="find_out_more" type="submit">Jetzt mehr erfahren</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_3" name="Homepage 3">
+        <section class="s_text_image">
+            <div class="container image_content_class">
+                <div class="row align-items-center text_img_class_invert">
+                    <div class="col-lg-5 s3_image_homepage" style="display:none;">
+                        <img src="/website_ecom_custom/static/img/Website_BECKER_GrandPrix.jpg" class="img img-fluid img_class_invert" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 pt16 pb16 text_class_invert">
+                        <p class="p_has_gold_color_head_s3"><strong>UKW UND DAB+</strong></p>
+                        <p class="text_block_heading_invert">
+                            UKW UND DIGITALES RADIO – WUNDERBAR EMPFANGSBEREIT IN DEINEM OLDTIMER
+                        </p>
+                        <p class="para_text_image_invert">
+                            Dein historisches Autoradio. Äußerlich eine kleine Kostbarkeit, ist sein technisches Können leider begrenzt. Dein Radio besitzt nur einen Empfang über Mittelwelle und du wünschst dir auch UKW-Empfang? Oder möchtest du den klaren Klang und die große Senderauswahl mit DAB+, dem neuesten Standard für den digitalen Radioempfang? Dann bist du bei uns genau richtig.
+                        </p>
+                        <p class="p_has_gold_color"><strong>BECKER GRANDPRIX FÜR MERCEDES-BENZ SL “PAGODE” UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB
+                        <span class="fa fa-arrow-right"></span></strong></p>
+                    </div>
+                    <div class="col-lg-5 s3_image_homepage_2">
+                        <img src="/website_ecom_custom/static/img/Website_BECKER_GrandPrix.jpg" class="img img-fluid img_class_invert float-right" alt="Our Team"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_4" name="Homepage 4">
+        <section class="s_text_image">
+            <div class="container image_content_class">
+                <div class="row align-items-center text_img_class">
+                    <div class="col-lg-5">
+                        <img src="/website_ecom_custom/static/img/Website_DELCO_Corvette.jpg" class="img img-fluid img_class" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 pt16 pb16 text_class">
+                        <p class="p_has_gold_color_head"><strong>USB</strong></p>
+
+                        <p class="text_block_heading">
+                            USB-LADESTELLE AM OLDTIMERRADIO – WUNDERBAR ZEITGEMÄSS
+                        </p>
+                        <p class="para_text_image">
+                            Speichere dir einfach deine Lieblingssongs auf deinen USB-Stick und spiele sie während deiner Ausfahrt über den USB-Anschluss ab. Nach jeder Pause startet dein Radio an der Songstelle, an der die Wiedergabe unterbrochen wurde. Und wenn du einmal keine Musik hörst, kannst du über diesen USB-Anschluss ganz bequem dein Smartphone wieder aufladen. Einfache Bedienung, über die originalen Tasten und Schalter, machen deinen Oldtimer zum entspannten Ort fürs Musikhören und Smartphone aufladen – einfach WUNDERBAR.
+                        </p>
+                        <p class="p_has_gold_color"><strong><span class="fa fa-arrow-left"></span>DELCO 91VFP1-7302721 FÜR CORVETTE BAUJAHR 1969 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB</strong></p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="homepage_project" name="Project HomePage">
+        <section class="mt-5">
+            <div class="ekit-heading elementskit-section-title-wraper text-center container">
+                <p class="p_has_gold_color"><strong>PROJEKTE</strong></p>
+                <p class="home_heading_2">EIN KLEINER AUSZUG AN RADIOS DIE WIR SCHON UMGERÜSTET HABEN</p>
+                <p class="para_p2 projekte_page_3">Eine Umrüstung durch WUNDERBAR ist grundsätzlich für jedes alte Autoradio möglich. Dabei sind wir nicht nur auf amerikanische Radios von DELCO, MOPAR und BENDIX spezialisiert sondern haben auch schon viele deutsche Radios von BLAUPUNKT und BECKER umgerüstet.</p>
+            </div>
+            <div class="container image_content_class">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/p/CZhfOoOId9H/">
+                            <img src="/website_ecom_custom/static/img/img_1.jpg" class="img img-fluid multi_img" alt="Our Team"/>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/p/CZhfOoOId9H/">
+                            <img src="/website_ecom_custom/static/img/img_2.jpg" class="img img-fluid multi_img" alt="Our Team"/>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/p/CZhfOoOId9H/">
+                            <img src="/website_ecom_custom/static/img/img_3.jpg" class="img img-fluid multi_img" alt="Our Team"/>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/p/CZhfOoOId9H/">
+                            <img src="/website_ecom_custom/static/img/img_4.jpg" class="img img-fluid multi_img" alt="Our Team"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/p/CZhfOoOId9H/">
+                            <img src="/website_ecom_custom/static/img/img_5.jpg" class="img img-fluid multi_img" alt="Our Team"/>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/p/CZhfOoOId9H/">
+                            <img src="/website_ecom_custom/static/img/img_6.jpg" class="img img-fluid multi_img" alt="Our Team"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </template>
+
+    <template id="s_homepage_6" name="Homepage 6">
+        <section class="mt-5">
+            <div class="container simulate_radio_class">
+                <div class="ekit-heading elementskit-section-title-wraper text-center">
+                    <p class="p_has_gold_color"><strong>ALLE FUNKTONEN UND FEATURES IN DER ÜBERSICHT</strong></p>
+                    <p class="home_heading_2 s_homepage_6page">EINE ÜBERSICHT AN DINGEN DIE DEIN RADIO NACH EINER UMRÜSTUNG DURCH WUNDERBAR KANN</p>
+                    <p class="para_p2">Abgesehen von der höheren Leistung und der höheren Anzahl an Musikquellen, gibt es noch weitere Optionen die dein Oldtimerradio nach einer Umrüstung beherrscht – entweder als Standard integriert oder Wunsch eingebaut.</p>
+                </div>
+
+                <div class="row d-flex align-items-stretch">
+                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                        <div class="card bg-white h-100 border-0">
+                            <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_Simulation_Roehrenradio.jpg" alt=""/>
+                            <div class="card-body">
+                                <p class="p_has_gold_color text-center"><strong>SIMULATION RÖHRENGERÄT</strong></p>
+                                <p class="card-text">Auf Wunsch können wir das umgerüstete Radio so konfigurieren, dass eine Vorheizzeit der Röhren imitiert wird. Damit dauert es dann nach dem Einschalten zwischen 5 und 10 Sekunden, bis sich der Empfang einstellt – ähnlich wie bei einem echten Röhrenradio. Gleichzeitig lässt sich für den Nutzer einstellen, ob das Gerät das leichte Surren einer Zerhacker-Patrone imitieren soll.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                        <div class="card bg-white h-100 border-0">
+                            <img class="card-img-top" src="/website_ecom_custom/static/img/Website_externe_Verstaerkerausgaenge.jpg" alt=""/>
+                            <div class="card-body">
+                                <p class="p_has_gold_color text-center"><strong>EXTERNE VERSTÄRKERAUSGÄNGE</strong></p>
+                                <p class="card-text">Auf Wunsch installieren wir zusätzlich zu den im Standard enthaltenen verstärkten Lautsprecherausgängen Chinch-Ausgänge für einen externen Verstärker für Vorne Links, Vorne Rechts, Hinten Links und Hinten Rechts sowie einen separaten Ausgang für einen Subwoofer. Die Steuerleitung für den Verstärker ist selbstverständlich inklusive.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                        <div class="card bg-white h-100 border-0">
+                            <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_12Volt.jpg" alt=""/>
+                            <div class="card-body">
+                                <p class="p_has_gold_color text-center"><strong>6 VOLT UND 12 VOLT</strong></p>
+                                <p class="card-text">Selbstverständlich kann das Team von WUNDERBAR beide Varianten umrüsten. Entweder weil du ein 6 Volt Radio besitzt und dein Fahrzeug nun auf 12 Volt läuft oder wenn du den umgekehrten Fall hast, dass du tatsächlich auf 6 Volt durch die Lande kurvst. Wir verwenden Spannungswandler, die auf die eingesetzte Technologie abgestimmt sind, ohne dass du dir darüber Sorgen machen musst.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-stretch align-items-stretch_2 mt120">
+                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                        <div class="card bg-white h-100 border-0">
+                            <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_Schutz_vor_Verpolung.jpg" alt=""/>
+                            <div class="card-body">
+                                <p class="p_has_gold_color text-center"><strong>SCHUTZ VOR VERPOLUNG</strong></p>
+                                <p class="card-text">Wir sichern dich ab. Jedes durch uns umgerüstete Radio bietet einen zuverlässigen Schutz vor Verpolung. Wenn du Plus und Minus vertauschst, passiert absolut nichts. Das Radio geht zwar nicht an, aber auch nicht kaputt. Gleiches gilt für die Lautsprecherausgänge: Es kommt lediglich eine Sprachansage und der Ausgang wird automatisch abgeschalten, so dass das die Technik keinen Schaden nimmt.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                        <div class="card bg-white h-100 border-0">
+                            <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_Sprachansagen-1.jpg" alt=""/>
+                            <div class="card-body">
+                                <p class="p_has_gold_color text-center"><strong>SPRACHANSAGEN ZUR NUTZERFÜHRUNG</strong></p>
+                                <p class="card-text">Die durch WUNDERBAR umgerüsteten Oldtimer-Radios bieten standardmäßig Sprachansagen für die wichtigsten Funktionen des Radios. Egal ob du dein Smartphone per Bluetooth koppelst, einen Sendersuchlauf startest, dich im DAB+ Setup befindest oder deine Lautsprecher kurzgeschlossen hast – dein neues altes Radio wird dich mit freundlicher Stimme unterstützen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                        <div class="card bg-white h-100 border-0">
+                            <img class="card-img-top" src="/website_ecom_custom/static/img/Webseite_LED_Nutzerfuehrung.jpg" alt=""/>
+                            <div class="card-body">
+                                <p class="p_has_gold_color text-center"><strong>LED ZUR NUTZERFÜHRUNG</strong></p>
+                                <p class="card-text">WUNDERBAR verbaut immer eine kleine RGB LED, die dir den jeweiligen Betriebszustand anzeigt. Sie leuchtet gelb für UKW-Empfang, blau für Bluetooth, rot für Mittelwelle, türkis für DAB+ und sie leuchtet pink für USB. Je nachdem in welchem Modus du bist, merkt sich das Radio den letzten Betriebszustand und fängt genau da wieder an, wo ihr aufgehört habt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_7" name="Homepage 7">
+        <section class="s_text_image">
+            <div class="container image_content_class">
+                <div class="row align-items-center text_img_class">
+                    <div class="col-lg-5 pt16 pb16 pr-0 s3_image_homepage" style="display:none;">
+                        <img src="/website_ecom_custom/static/img/Webseite_keine_externen_Geraete.jpg" class="img img-fluid img_class_invert" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 text_class_lower">
+                        <p class="p_has_gold_color"><strong>ALLES IN EINEM GEHÄUSE MIT EINEM INTELLIGENTEN BEDIENKONZEPT</strong></p>
+                        <p class="text_block_heading">KEINE EXTERNEN GERÄTE IM HANDSCHUHFACH</p>
+                        <p class="para_text_image">
+                            Viele andere Anbieter installieren einen 3.5 mm Klinkenanschluss – und schließen daran dann einen externen Bluetooth- oder DAB+ Empfänger an. Bei WUNDERBAR sind all diese Technologien im originalen Gehäuse integriert und alle lassen sich ausnahmslos über die originalen Schalter und Regler bedienen. Jedes durch uns restaurierte und umgerüstete Radio erhält Anschlüsse für die Stromversorgung, einen Anschluss für die Lautsprecherausgänge, bei Bluetooth einen Eingang für das Mikrofon und auf Wunsch Chinch-Ausgänge für einen Verstärker-Anschluss.
+                        </p>
+                        <p class="p_has_gold_color"><strong>DELCO 91VFP1-7302721 FÜR CORVETTE BAUJAHR 1969 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB<span class="fa fa-arrow-right"></span></strong></p>
+                    </div>
+                    <div class="col-lg-5 pt16 pb16 pr-0 s3_image_homepage_2">
+                        <img src="/website_ecom_custom/static/img/Webseite_keine_externen_Geraete.jpg" class="img float-right img-fluid img_class_invert" alt="Our Team"/>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_8" name="Homepage 8">
+        <section class="s_text_image">
+            <div class="container image_content_class">
+                <div class="row align-items-center text_img_class_invert">
+                    <div class="col-lg-5">
+                        <img src="/website_ecom_custom/static/img/Website_intelligentes_Bedienkonzept-1.jpg" class="img img-fluid img_class" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 pt16 pb16 text_class">
+                        <p class="p_has_gold_color"><strong>DURCHDACHTES BEDIENKONZEPT MIT SPRACHANSAGEN</strong></p>
+                        <p class="text_block_heading_invert">ALLE SCHALTER UND TASTER BLEIBEN ORIGINAL</p>
+                        <p class="para_text_image_invert">
+                            Ausnahmslos alle Funktionen des Radios lassen sich über die originalen Schalter und Regler bedienen – mit einem Unterschied: Viele der Schalter besitzen nach der Umrüstung einen erweiterten Funktionsumfang. Damit kannst du dann alle zusätzlichen Funktionen bequem steuern. Zum Beispiel erfolgt die Kopplung des Smartphone via Bluetooth über den Lautstärkeregler – indem du ihn zweimal kurz nach rechts drehst und das Radio dann “Ready to Pair” ist.
+                        </p>
+                        <p class="p_has_gold_color"><strong><span class="fa fa-arrow-left"></span>CONTINENTAL-EDISON FÜR CITROEN AMI 6 UMGERÜSTET AUF UKW I DAB+ I USB</strong></p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_9" name="Homepage 9">
+        <section class="s_text_image">
+            <div class="container image_content_class">
+                <div class="row align-items-center text_img_class">
+                    <div class="col-lg-5 pr-0 s3_image_homepage" style="display:none;">
+                        <img src="/website_ecom_custom/static/img/Website_Sendersuchlauf_DAB.jpg" class="img img-fluid img_class_invert" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 pt16 pb16 text_class_lower">
+                        <p class="p_has_gold_color"><strong>DELCO WONDERBAR UND BECKER MEXICO</strong></p>
+                        <p class="text_block_heading">SENDERSUCHLAUF AUCH FÜR DAB+</p>
+                        <p class="para_text_image">
+                            Der elektromechanische Sendersuchlauf in vielen alten BECKER und DELCO Autoradios wird von anderen Anbietern entweder stillgelegt oder funktioniert nur für den UKW-Empfang. Bei WUNDERBAR restaurieren wir den Sendersuchlauf und machen ihn dann anschließend fit für DAB+ – damit finden sie auch in Zukunft alle Sender wie gewohnt: über die Stationstasten oder eben automatisch über die Suchlauftaste.
+                        </p>
+                        <p class="p_has_gold_color"><strong><span class="fa fa-arrow-right"></span>DELCO 7272505 WONDERBAR RADIO FÜR CADILLAC BAUJAHR 1959 UMGERÜSTET AUF UKW I BLUETOOTH I DAB+ I USB</strong></p>
+                    </div>
+                    <div class="col-lg-5 pr-0 s3_image_homepage_2">
+                        <img src="/website_ecom_custom/static/img/Website_Sendersuchlauf_DAB.jpg" class="img img-fluid img_class_invert float-right" alt="Our Team"/>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_10" name="Homepage 10">
+        <section>
+            <div class="container contaniner_width_class">
+                <div class="ekit-heading elementskit-section-title-wraper text-center">
+                    <p class="p_has_gold_color"><strong>DEIN ORIGINALES AUTORADIO AUF DEINE ANSPRÜCHE ABGESTIMMT</strong></p>
+                    <p class="home_heading_2">JEDES AUTORADIO BLEIBT EIN ORIGINAL</p>
+                    <p class="para_p2">Denn viele Radios in Oldtimern sind kleine Meisterwerke des Designs. Meist sind sie sogar kleine Raritäten und viel zu schade um sie durch Retroradios zu ersetzen. Äußerlich noch wahre Schmuckstücke, genügt ihre technische Ausstattung leider nicht mehr den Anforderungen der modernen Technik.</p>
+                    <p class="para_p2">Alle Änderungen nehmen wir nur im Inneren deines Radio vor. Wir benötigen keine zusätzlichen Verbindungskabel und verstecken keine Technik im Handschuhfach deines Klassikers. Einzig das Innere deines Autoradios wird mit neuen Komponenten ausgestattet. Das Gehäuse und alle Knöpfe, Schalter und Regler werden sorgfältig gereinigt und behalten weiterhin alle ihre ursprünglichen Funktionen.</p>
+                    <div class="col-md-12">
+                        <button id="ofr_btn" type="submit">Jetzt ein Angebot bekommen</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_11" name="Homepage 11">
+        <section>
+            <div class="container ask_contact_class">
+                <div class="row pt104 s_homepage_11">
+                    <div class="col-md-6 intr_class">
+                        <h3 class="ask_class">Interessiert?<br></br>
+                        Noch Fragen?</h3>
+                        <br></br>
+                        <p>Du willst dein Radio bei WUNDERBAR umrüsten lassen und benötigst ein Angebot? Oder du willst einfach mal so mit uns sprechen, weil du Fragen zu deinem Radio hast? Dann melde dich doch einfach gerne bei uns<br></br>
+                        </p>
+                        <p class="mt-5">Email: sales@customradioshop.de</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="contact-form" action="/contact_us_radio" method="post">
+                            <p>Was sollen wir für dich tun?</p>
+                            <div style="margin-bottom: 23px;">
+                                <a href="#" role="button" id="ofr_like_btn" class="btn btn-primary btn-lg d-inline">
+                                    Ich möchte gerne ein Angebot
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#" role="button" id="que_btn" class="btn btn-primary btn-lg d-inline">
+                                    Ich habe eine Frage
+                                </a>
+                            </div>
+
+                            <span>
+                                <input name="name" class="form-control mt-5" type="text" placeholder="Wie ist dein Name?"/>
+                            </span>
+
+                            <span>
+                                <input name="email_from" class="form-control mt-5" type="text" placeholder="Wie ist dein E-mail?"/>
+                            </span>
+
+                            <span>
+                                <input name="phone" class="form-control mt-5" type="text" placeholder="Wie ist deine Telefonnummer für Rückfragen?"/>
+                            </span>
+
+                            <span>
+                                <input name="description" class="form-control mt-5" type="text" placeholder="Was für ein Radio hast du?"/>
+                            </span>
+                            <button id="submit_btn" type="submit" class="mt-5">
+                                Absenden
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="oe_structure oe_empty"/> -->
+        </section>
+    </template>
+
+    <template id="s_homepage_12" name="Homepage 12">
+        <section class="mt96">
+            <div class="container mt96">
+                <div class="ekit-heading elementskit-section-title-wraper text-center">
+                    <p class="p_has_gold_color"><strong>WUNDERBAR I CUSTOM RADIO SHOP</strong></p>
+                    <p class="home_heading_2">WARUM ZU WUNDERBAR? WEIL WIR ZU ERST UNSERE EIGENEN RADIOS UMGEBAUT HABEN</p>
+                    <p class="para_p2">Der Name WUNDERBAR ist eine Anlehnung an WONDERBAR, dem legendären Sendersuchlauf von DELCO, der auch in meinen beiden Oldtimern verbaut ist: einem 1956er Cadillac Sedan de Ville und einem 1961er Cadillac Fleetwood Sixty Special. In beiden Fahrzeugen waren die DELCO Wonderbar Radios defekt und es gab viele, die mir helfen wollten – und keinen, der es wirklich konnte. Deshalb gibt es WUNDERBAR I Custom Radio Shop – eine kleine Radioschmiede, die den alten Autoradios wieder neues Leben einhaucht und sie Dinge machen lassen, von denen ihr bisher nur geträumt habt.</p>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
+

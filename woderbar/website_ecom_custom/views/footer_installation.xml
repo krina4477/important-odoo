@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="footer_installation_template" name="Installations- und Bedienungsanleitung | WUNDERBAR Custom Radio Shop">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="footer_installation_section" id='footer_installation_section'>
+                    <div class="container footer_installation_content">
+                        <h1>INSTALLATIONS- UND BEDIENUNGSANLEITUNG</h1>
+                        <h2>EINBAU</h2>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="install_head">1. Einleitung</h3>
+                        <p>Vielen Dank, dass Sie für die Umrüstung Ihres Oldtimerradio durch WUNDERBAR I Custom Radio Shop entschieden haben. Bitte lesen Sie vor Installation und Gebrauch Ihres neuen Radio diese Installation- und Bedienungsanleitung genau durch.</p>
+                        <p>Für den Fall, dass Sie bei der Installation unsicher sind, lassen sie sich bitte durch einen Fachmann unterstützen. Unabhängig von der neuen Bedienung und den neuen Anschlüssen des Radio, erfolgt der Einbau nach den fahrzeugspezifischen Vorgaben des Fahrzeugherstellers. Wenn vorhanden, ist das Werkstatthandbuch in aller Regel der beste Leitfaden für den Einbau des Radio.</p>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="install_head">2. Anschluss des umgebauten Radio</h3>
+                        <div class="wp-block-image">
+                            <figure class="text-center size-full is-resized">
+                                <img src="/website_ecom_custom/static/img/WUNDERBAR_Anschlussplan.svg" class="fig_class"
+                                     alt="Cover"/>
+                            </figure>
+                        </div>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <p><mark style="background-color:rgba(0, 0, 0, 0)" class="p_has_gold_color_info">HINWEIS: Die Stromversorgung des Radio über das rote Pluskabel NIEMALS direkt an die Batterie anschließen. Für die Stromversorgung des Radio verwenden Sie bitte immer Zündungsplus – das bedeutet dass nur dann Strom anliegt, wenn die Zündung eingeschalten ist. Sollte dieser Anschluss ab Werk nicht verfügbar sein, so verlegen sie bitte eine entsprechende Leitung.     </mark></p>
+                        <div style="height:100px" class="wp-block-spacer"></div>
+                        <h2>BEDIENUNG</h2>
+                        <p>Die Bedienung des Radio erfolgt über die original eingebauten Tasten und Schalter. Die Bedienelemente haben die selben Funktionen wie vor dem Umbau, mit der Ausnahme, dass das umgerüstete Radio mehr Funktionen aufweist und deshalb <strong>die originalen Drehregler und Schalter nach der Umrüstung mit mehreren Funktionen</strong> belegt sind.</p>
+                        <div class="wp-block-accordion accordion" id="mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1_0" aria-expanded="false" aria-controls="mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1_0">
+                                        1.1 Wie kann ich die Lautstärke einstellen?
+                                    </button>
+                                </h3>
+                                <div id="mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1_0" class="accordion-collapse collapse " aria-labelledby="mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1_0_heading" data-parent="#mb-block-ad7c6f6e-faea-4f88-b309-ced9aeb7d6c1">
+                                    <div class="accordion-body">
+                                        <p>Die Lautstärke Ihres Radio wird wie gewohnt über den originalen Dreh- beziehungsweise Schiebeknopf eingestellt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wp-block-accordion accordion" id="mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a_0" aria-expanded="false" aria-controls="mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a_0">
+                                        1.2 Wie kann ich die Höhen und Tiefen meines Radios verändern?
+                                    </button>
+                                </h3>
+                                <div id="mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a_0" class="accordion-collapse collapse " aria-labelledby="mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a_0_heading" data-parent="#mb-block-bfc50919-c79b-446b-8330-bf8b2975c65a">
+                                    <div class="accordion-body">
+                                        <p>Die Klangregelung des Radio für die Einstellung der Höhen und Tiefen, wird wie gewohnt über den originalen Dreh- beziehungsweise Schiebeknopf eingestellt. Ist am originalen Radio ein Klangschalter (mehrstufiger Schalter) verbaut, so kann dieser ebenfalls wie gewohnt bedient werden, um den Klangbild des Radio mehr Höhen oder mehr Tiefen hinzuzufügen.</p>
+                                        <p><mark class="p_has_gold_color_info"><strong>HINWEIS:</strong> Ist das Radio auf Wunsch mit DAB+ ausgestattet und besitzt es einen Klangschalter (mehrstufiger Schalter) so wird dieser Klangschalter umgerüstet, so dass damit die Funktion des Lautstärkereglers verändert werden kann. Das bedeutet, dass der Nutzer über das Umschalten des Klangregler steuern kann, ob der Lautstärkeregler zum Verändern der Lautstärke verwendet werden kann <strong>ODER </strong>ob über den Lautstärkeregler das Klangbild (Höhen und Tiefen) eingestellt werden kann. Der Hintergrund ist, dass der Klangregler für viele Einstellungen und das Set-Up von DAB+ notwendig ist. Weitere Informationen dazu finden Sie im Kapitel DAB+.</mark></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wp-block-accordion accordion" id="mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077_0" aria-expanded="false" aria-controls="mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077_0">
+                                    1.3 Wie kann ich die  Balance an meinem Radio einstellen?</button>
+                                </h3>
+                                <div id="mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077_0" class="accordion-collapse collapse " aria-labelledby="mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077_0_heading" data-parent="#mb-block-fbcc93af-2b0b-43d3-a680-0dcb7b8bf077">
+                                    <div class="accordion-body">
+                                        <p></p>
+                                        <p>Die Balance des Radio wird wie gewohnt über den originalen Dreh- beziehungsweise Schiebeknopf eingestellt.</p>
+                                        <p></p>
+                                        <p>Ist am originalen Radio kein separater Schalter für die Balance vorhanden, so aktiviert das Radio die virtuelle Balance-Funktion dann, wenn mindestens zwei Lautsprecher (links und rechts) angeschlossen sind. Diesen erreicht man durch <strong>zwei kurze Drehbewegungen des Klangregler nach links. </strong>Es erfolgt eine Sprachansage, dass der virtuelle Balance-Regler aktiv ist. Nun kann die Balance über den Klangregler eingestellt werden. Werden keine Drehbewegungen am Klangregler mehr vorgenommen, wartet das Radio einige Sekunden und beendet den virtuellen Balance mit einer Sprachansage und speichert die getroffenen Einstellungen.</p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wp-block-accordion accordion" id="mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8_0" aria-expanded="false" aria-controls="mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8_0">
+                                    1.4 Wie kann ich die Faderfunktion einsetzen`?</button>
+                                </h3>
+                                <div id="mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8_0" class="accordion-collapse collapse " aria-labelledby="mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8_0_heading" data-parent="#mb-block-f7fae0ed-88c4-4efe-8cfe-2413fdbed0b8">
+                                    <div class="accordion-body">
+                                        <p></p>
+								        <p>Die Fader-Funktion des Radio wird wie gewohnt über den originalen Dreh- beziehungsweise Schiebeknopf eingestellt.</p>
+                                        <p></p>
+                                        <p>Ist am originalen Radio kein separater Schalter für die Fader-Funktion vorhanden, so aktiviert das Radio den virtuelle Fader nur dann, wenn mindestens zwei Lautsprecher (vorne und hinten) angeschlossen ist. Diesen erreicht man durch <strong>zwei kurze Drehbewegungen des Klangregler nach rechts. </strong>Es erfolgt eine Sprachansage, dass der virtuelle Fader aktiv ist. Nun kann die Abstimmung zwischen den hinteren und vorderen Lautsprechern über den Klangregler eingestellt werden. Werden keine Drehbewegungen am mehr Klangregler mehr vorgenommen, wartet das Radio einige Sekunden und beendet den virtuellen Balance mit einer Sprachansage und speichert die getroffenen Einstellungen.</p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height:50px" class="wp-block-spacer"></div>
+                        <h3 class="install_head">2. Radiobetrieb in umgebauten Radios </h3>
+                        <p>Abhängig von den gewählten Optionen, bietet ihr umgerüstetes Radio drei Arten des Radioempfang: Mittelwelle, UKW und auf Wunsch digitalen Radioempfang mit DAB+. Für DAB+ ist ein initiales Setup notwendig. Weitere Information hierzu finden sie im separierten Kapitel zu DAB+ in dieser Anleitung. Viele alte Autoradios hatten einen Wählschalter zwischen UKW und Mittelwelle. </p>
+                        <div class="wp-block-accordion accordion" id="mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b_0" aria-expanded="false" aria-controls="mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b_0">
+                                    2.1.1 Wie wähle ich den Empfangsmodus wenn mein Radio KEINEN Schalter hat?</button>
+                                </h3>
+                                <div id="mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b_0" class="accordion-collapse collapse " aria-labelledby="mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b_0_heading" data-parent="#mb-block-8abc52bd-3cf5-49af-b5f0-d8acb002f95b">
+                                    <div class="accordion-body">
+                                        <p>Um zwischen dein einzelne Empfangsmodi springen zu können, schalten sie das Radio kurz aus und wieder ein. Die Reihenfolge ist: UKW (LED leuchtet gelb), DAB+ (LED leuchtet türkis) und Mittelwelle (LED leuchtet rot). Um Bluetooth zu starten koppeln sie bitte in Bluetooth-Gerät (LED leuchtet blau). Um USB zu starten stecken Sie bitte in USB-Stick in die USB-Buchse (LED leuchtet rosa</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wp-block-accordion accordion" id="mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e_0" aria-expanded="false" aria-controls="mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e_0">
+                                    2.1.1 Wie wähle ich den Empfangsmodus wenn mein Radio EINEN Schalter hat?</button>
+                                </h3>
+                                <div id="mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e_0" class="accordion-collapse collapse " aria-labelledby="mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e_0_heading" data-parent="#mb-block-9a2d92b6-7fa6-47e9-9c3d-d28c1c40349e">
+                                    <div class="accordion-body">
+                                        <p>Ist an ihrem Radio ein Schalter für die Auswahl zwischen UKW (FM) und Mittelwelle (AM) vorhanden, so wird dieser weiterhin funktionieren. In aller Regel wird er Schalter jedoch dazu verwendet, um zwischen UKW und DAB+ hin- und her zu schalten, da der Empfang von Mittelwelle keine Rolle mehr spielt und bei dieser Art Radios deaktiviert wird.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height:50px" class="wp-block-spacer"></div>
+                        <h3 class="install_head">3. Telefon und Musikintegration mit Bluetooth in umgerüsteten Radios</h3>
+                        <p>Ist ihr Radio auf Wunsch mit Bluetooth umgerüstet worden, so ist es möglich über die Bluetooth-Verbindung Musik zu hören und Anrufe im Fahrzeug durch zu führen. Die Bluetooth-Funktionen sind vollständig in das Radio integriert und können über verschiedene Drehbewegungen an den Drehschaltern oder über den externen Druckknopf abgerufen werden.</p>
+                        <div class="wp-block-accordion accordion" id="mb-block-18127b63-4de4-4281-851f-c65b352485c9">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-18127b63-4de4-4281-851f-c65b352485c9_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-18127b63-4de4-4281-851f-c65b352485c9_0" aria-expanded="false" aria-controls="mb-block-18127b63-4de4-4281-851f-c65b352485c9_0">
+                                    3.1 Wie koppele ich mein Bluetooth-Gerät mit meinem Radio ?</button>
+                                </h3>
+                                <div id="mb-block-18127b63-4de4-4281-851f-c65b352485c9_0" class="accordion-collapse collapse " aria-labelledby="mb-block-18127b63-4de4-4281-851f-c65b352485c9_0_heading" data-parent="#mb-block-18127b63-4de4-4281-851f-c65b352485c9">
+                                    <div class="accordion-body">
+									<p></p>
+									<p>Um eine Bluetooth-Verbindung zu einem neuen Gerät herzustellen, schalten Sie das Radio ein und vergewissern sie sich, dass sie im UKW-Modus sind (LED leuchtet gelb). Drehen Sie den Lautstärkeregler in seine mittlere Position und <strong>drehen sie ihn dann zweimal hin und her in Richtung der höheren Lautstärke </strong>oder verwenden Sie den<strong> Druckknopf und drücken diesen 1 x lang.</strong></p>
+									<p></p>
+									<p>Die eingebaute LED blinkt blau und es erfolgt eine Sprachansage: “Bluetooth is Ready to Pair“. Nach dieser Sprachansage geht das Radio in den Pairing-Zustand und verbleibt in diesem Zustand für maximal 90 Sekunden.</p>
+									<p></p>
+									<p>Gehen sie nun in die Bluetooth-Einstellungen in Ihrem Bluetooth-Gerät und koppeln sie das externe Bluetooth-Gerät.</p>
+									<p></p>
+									<p><mark class="p_has_gold_color_info"><strong>HINWEIS: </strong>Es können bis zu acht Bluetooth-Geräte gekoppelt werden. Wird ein neuntes Gerät gekoppelt, wird das älteste gekoppelte Gerät automatisch deaktiviert und muss für eine erneute Verwendung neu verbunden werden.</mark></p>
+									<p></p>
+                                    </div>
+								</div>
+							</div>
+						</div>
+						<div style="height:25px" class="wp-block-spacer"></div>
+                        <div class="wp-block-accordion accordion" id="mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7_0_heading">
+									<button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7_0" aria-expanded="false" aria-controls="mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7_0">
+									3.2.1 Wie starte ich die Musikwiedergabe mit Bluetooth ?</button>
+								</h3>
+                                <div id="mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7_0" class="accordion-collapse collapse " aria-labelledby="mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7_0_heading" data-parent="#mb-block-53e72a51-ae32-4933-8f06-ada6d6b65df7">
+									<div class="accordion-body">
+										<p>Um die Musikwiedergabe zu starten, drehen Sie den Lautstärkeregler <strong>zweimal nach links und rechts in Richtung der niedrigerer Lautstärke</strong> oder verwenden Sie den<strong> Druckknopf und drücken diesen 1 x lang. </strong>Optional können Sie die Musikwiedergabe auch über ihr Bluetooth-Gerät starten. Das Radio erkennt dies und schaltet dann automatisch in die Bluetooth-Musikwiedergabe.</p>
+										<p><strong>HINWEIS:</strong> Wenn die Bluetooth-Musikwiedergabe die letzte Wiedergabeart war, bevor sie die Zündung ausgeschalten haben, so wird das Radio beim einschalten erst in den UKW-Modus schalten, anschließend Bluetooth automatisch verbinden und anschließend die Musikwiedergabe starten.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="wp-block-accordion accordion" id="mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570">
+							<div class="accordion-item">
+								<h3 class="accordion-header" id="mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570_0_heading">
+									<button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570_0" aria-expanded="false" aria-controls="mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570_0">
+									3.2.2 Wie pausiere ich die Wiedergabe?</button>
+								</h3>
+								<div id="mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570_0" class="accordion-collapse collapse " aria-labelledby="mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570_0_heading" data-parent="#mb-block-45b2763c-2738-4cfa-afe7-dc4446d8e570">
+									<div class="accordion-body">
+										<p>Wiederholen Sie die obigen Anweisungen und drehen Sie den Lautstärkeregler <strong>zweimal nach links und rechts in Richtung der niedrigerer Lautstärke </strong>oder verwenden Sie den <strong>Druckknopf und drücken diesen 1 x lang</strong>, um zwischen Pause und Wiedergabe zu wechseln. Während die Audiowiedergabe unterbrochen ist, blinkt die Status-LED langsam blau.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="wp-block-accordion accordion" id="mb-block-00dd96f9-e518-40ec-b356-e86889b61472">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-00dd96f9-e518-40ec-b356-e86889b61472_0_heading">
+									<button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-00dd96f9-e518-40ec-b356-e86889b61472_0" aria-expanded="false" aria-controls="mb-block-00dd96f9-e518-40ec-b356-e86889b61472_0">
+									3.2.3  Wie kann ich zum nächsten oder letzten Titel springen?</button>
+								</h3>
+								<div id="mb-block-00dd96f9-e518-40ec-b356-e86889b61472_0" class="accordion-collapse collapse " aria-labelledby="mb-block-00dd96f9-e518-40ec-b356-e86889b61472_0_heading" data-parent="#mb-block-00dd96f9-e518-40ec-b356-e86889b61472">
+									<div class="accordion-body">
+										<p>Um zum nächsten Musiktitel zu springen, <strong>drehen Sie den Abstimmregler für die Sendefrequenz einmal kurz nach rechts </strong>oder verwenden Sie den&amp;nbsp;<strong>Druckknopf und drücken diesen 1 x kurz</strong>. Um zu einem vorherigen Titel zurück zu kehren, <strong>drehen Sie den Abstimmregler für die Sendefrequenz einmal kurz nach links </strong>oder verwenden Sie den Druckknopf <strong>und drücken diesen 2 x kurz.</strong></p>
+										<p><mark class="p_has_gold_color_info"><strong>HINWEIS:</strong> Bei Radios mit einem Sendersuchlauf (DELCO WONDERBAR, FORD Town &amp; Country, BECKER Mexico, …) kann der nächste Titel auch durch <strong>Drücken der Sendersuchlauf-Taste</strong> angewählt werden. Soll der vorherige Titel angewählt werden, so erreichen sie dies in dem sie die <strong>Sendersuchlauf-Taste zweimal kurz hintereinander drücken</strong>.</mark></p>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="wp-block-accordion accordion" id="mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5">
+							<div class="accordion-item">
+								<h3 class="accordion-header" id="mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5_0_heading">
+									<button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5_0" aria-expanded="false" aria-controls="mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5_0">
+									3.2.4 Wie kann ich die Bluetooth-Musikwiedergabe beenden ?</button>
+								</h3>
+								<div id="mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5_0" class="accordion-collapse collapse " aria-labelledby="mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5_0_heading" data-parent="#mb-block-ffbdd47f-da91-441b-94b2-4b9e56b4f6b5">
+									<div class="accordion-body">
+										<p>Um die <mark class="p_has_gold_color_info">Musikwiedergabe </mark> zu beenden, pausieren sie die <mark class="p_has_gold_color_info">Musikwiedergabe </mark> wie in 3.2.2 beschrieben oder pausieren sie die Wiedergabe an ihrem Bluetooth-Gerät. Während die Audiowiedergabe unterbrochen ist, blinkt die Status-LED langsam blau und schaltet dann nach kurzer Zeit in den zuletzt gewählten Radiomodus zurück.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="height:50px" class="wp-block-spacer"></div>
+						<h3 class="install_head">4. Digitalen Radioempfang mit DAB+ in umgerüsteten Radios </h3>
+						<p>Ist ihr Radio auf Wunsch mit DAB+ als Option umgerüstet worden, so ist es möglich digitale Radiosender zu empfangen. Für den digitalen Radioempfang ist keine separate DAB+-Antenne notwendig, da der Empfang über die im Fahrzeug eingebaute Antenne funktioniert.</p>
+                        <p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-gold-color"><strong>HINWEIS:</strong> Es ist es notwendig vor Verwendung von DAB+ ein Setup durchzuführen. Das liegt darin begründet, dass jede Region unterschiedliche DAB+ Sender anbietet und diese vor Verwendung </mark>einmalig gesucht und dann nach persönlichen Wünschen editiert werden können. Der gesamt Vorgang besteht aus der Suche nach verfügbaren Stationen und das Editieren der verfügbaren Stationen nach persönlichen Wünschen. Ist man in einer neuen Region, könne auch alle Sender gelöscht und die zwei vorher genannten Schritte erneut durchgeführt werden.</p>
+                        <div class="wp-block-accordion accordion" id="mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5">
+                            <div class="accordion-item">
+								<h3 class="accordion-header" id="mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5_0_heading">
+									<button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5_0" aria-expanded="true" aria-controls="mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5_0">
+									4.1 DAB+ Sender suchen</button>
+								</h3>
+								<div id="mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5_0" class="accordion-collapse collapse show" aria-labelledby="mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5_0_heading" data-parent="#mb-block-6a5f417f-cb42-40e4-a960-f49c9eee41f5">
+									<div class="accordion-body">
+										<p></p>
+										<p>Wechseln Sie in den DAB+-Empfangsmodus und überprüfen Sie, dass die LED in der Farbe Türkis leuchtet. Ist noch kein Sendersuchlauf durchgeführt worden, so hören Sie nun eine Sprachansage durch das Radio dass keine Sender gefunden werden (“No stations found”)</p>
+										<p></p>
+										<p><mark class="p_has_gold_color_info">HINWEIS: Wenn Sie den Sendersuchlauf durchführen, fahren Sie Ihre Antenne bitte vollständig aus. Zeitgleich führen Sie den Sendersuchlauf bitte nicht innerhalb von Gebäuden sondern nur außerhalb im Freien durch.</mark></p>
+										<p></p>
+										<p>Um das Menü zu starten, drehen sie nun den Klangregler <strong>dreimal nach rechts in Richtung der Bass-Einstellung</strong>. Ist das Menü erfolgreich gestartet, erfolgt eine Sprachansage, dass das Radio jetzt im DAB+ Setup Modus ist. Alternativ verwenden Sie den<strong> Druckknopf und drücken diesen 4 x kurz und 1 x lang</strong>.</p>
+										<p></p>
+										<p>Drehen Sie nun <strong>innerhalb von acht Sekunden</strong> nach Aufrufen des DAB-Setup-Modus den Klangregler wie abgebildet <strong>dreimal nach links in Richtung der Höheneinstellung</strong>. Dies startet den DAB+ Scan-Modus und es erfolgt eine Ansage “Scanning for Stations”. Die Status-LED blinkt und es erfolgt ein periodischer Piepton, während der Suchlauf aktiv ist. Dieser Vorgang kann je nach Anzahl der Ensembles und Stationen in Ihrer Region mehrere Minuten dauern. Alternativ verwenden Sie den<strong> Druckknopf und drücken diesen 3 x kurz und 1 x lang</strong>, um den Suchlauf zu starten.</p>
+										<p></p>
+										<p>Wenn keine Sender gefunden werden, beginnt der Suchlauf automatisch von vorne.</p>
+										<p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wp-block-accordion accordion" id="mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8_0_heading">
+                                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8_0" aria-expanded="false" aria-controls="mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8_0">
+                                    4.3 DAB+ Einrichtung beenden</button>
+                                </h3>
+                                <div id="mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8_0" class="accordion-collapse collapse " aria-labelledby="mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8_0_heading" data-parent="#mb-block-8b78bc03-a451-4c05-bc59-a8a75384c1e8">
+                                    <div class="accordion-body">
+                                        <p>Durch <strong>Drehen des Tonregler dreimal nach links in Richtung der Bass-Einstellung</strong>, können Sie das Setup jederzeit beenden und das Radio in den Normalbetrieb zurückversetzen. Alternativ verwenden Sie den <strong>Druckknopf und drücken diesen 3 x kurz und 1 x lang</strong>, um das DAB+ Setup zu beenden. Wenn sich das Radio zum Zeitpunkt der Beendigung der Einrichtung im Bearbeitungsmodus befand, wird auch die endgültige Anzahl der aktivierten Sender angesagt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

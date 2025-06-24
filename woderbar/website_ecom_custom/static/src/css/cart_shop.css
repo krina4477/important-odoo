@@ -1,0 +1,39 @@
+.cart_shop{
+    padding-top:10%;
+    padding-bottom:5%;
+    background: #f0f0f0;
+}
+.cart_shop_content_1{
+    font-size:2.5rem;
+}
+.cart_shop_content_2{
+
+}
+.shop_btn_class{
+    color: white;
+    background-color: #b09b5f;
+    border-color: #b09b5f;
+    border-radius: 2rem;
+    padding: 0.7185rem 2rem;
+    font-size: .875rem;
+    font-weight:300;
+    text-transform:uppercase;
+    width:-webkit-fill-available;
+}
+.shop_btn_class:hover{
+    background-color: #bcaa77;
+    border-color: #b8a56f;
+    color:white;
+    text-decoration:none;
+}
+
+#paypal_btn_wrap{
+    position: absolute;
+    margin-top: 7px;
+    width: 100%;
+}
+/* Apply style to the button */
+paypal-button-shape-rect {
+    width: 0px !important;
+}
+

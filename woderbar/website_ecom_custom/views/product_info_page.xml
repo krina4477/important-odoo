@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="product_info_template" name="Product Info">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="product_info_section oe_website_sale" id='product_info_section'>
+                    <div class="container product_info_content">
+                        <div class="prod_class">
+                            <span t-field="radio.x_studio_image"
+                                  t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'card-img-top'}"/>
+                            <div class="product_info">
+                                <div class="row">
+                                    <div class="col">
+                                        <a class="vehical_model"
+                                           href="#tab-vehical-model">Fahrzeugmodell
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="vehical_description"
+                                           href="#tab-vehical-desription" role="button" aria-expanded="true"
+                                           aria-controls="tab-vehical-desription">Beschreibung
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="technical_info"
+                                           href="#tab-technical_info" role="button" aria-expanded="true"
+                                           aria-controls="tab-technical_info">Technische Daten
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="tab-vehical-model">
+                                    <div class="row mt64 ml-0 vehical_model_row">
+                                        <p class="p_has_gold_color_tag" style="">
+                                            <strong>Fahrzeugmodell</strong>
+                                        </p>
+                                    </div>
+                                    <div class="row ml-0 mr-0 vehical_model_decription">
+                                        <span>The radio fits the following vehicle models:</span>
+                                    </div>
+                                    <div class="row ml-0 mr-0 vehical_model_name">
+                                        <ul>
+                                            <t t-foreach="radio.x_studio_many2many_field_VfxZV" t-as="rad_model">
+                                                <li>
+                                                    <p class="ml-3">
+                                                        <t t-esc="rad_model.x_name"/>
+                                                    </p>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="tab-vehical-desription">
+                                    <div class="row mt64 ml-0 vehical_descript_row">
+                                        <p class="p_has_gold_color_tag mt-5">
+                                            <strong>Beschreibung</strong>
+                                        </p>
+                                    </div>
+                                    <div class="row ml-0 mr-0 vehical_model_decription">
+                                        <t t-raw="radio.x_studio_beschreibung"/>
+                                    </div>
+                                </div>
+                                <div id="tab-technical_info">
+                                    <div class="row mt64 ml-0 vehical_technical_row">
+                                        <p class="p_has_gold_color_tag mt-5">
+                                            <strong>Technische Daten</strong>
+                                        </p>
+                                    </div>
+                                    <div class="row ml-0 mr-0 tech_specification">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="font-weight-bold">Hersteller</td>
+                                                    <td class="text-right">
+                                                        <span t-field="radio.x_studio_hersteller"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Stromspannung</td>
+                                                    <td class="text-right">
+                                                        <span t-field="radio.x_studio_spannung"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Kanäle</td>
+                                                    <td class="text-right">
+                                                        <span t-field="radio.x_studio_kanle"/>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Frequenzen</td>
+                                                    <td class="text-right">
+                                                        <span t-field="radio.x_studio_frequenzband"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Überblendregler</td>
+                                                    <td class="text-right">
+                                                        <span t-field="radio.x_studio_fader"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Stationstasten</td>
+                                                    <td class="text-right">
+                                                        <span t-field="radio.x_studio_stationstasten"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Besondere Merkmale</td>
+                                                    <t t-if="radio.x_studio_special_features">
+                                                        <td class="text-right">
+                                                            <span t-field="radio.x_studio_special_features"/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <td class="text-right">None</td>
+                                                    </t>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div t-if="radio.x_studio_many2many_field_DxIVN" id="tab-product_info">
+                                    <div class="row mt64 ml-0 vehical_product_row">
+                                        <p class="p_has_gold_color_tag mt-5">
+                                            <strong>ERSATZTEILE</strong>
+                                        </p>
+                                    </div>
+                                    <div class="row ml-0 mr-0 product_specification">
+                                        <t t-foreach="radio.x_studio_many2many_field_DxIVN" t-as="product">
+                                            <table style="width:100%">
+                                                <tr>
+                                                    <td rowspan="3" style="width: 25%;">
+                                                        <t t-if="product.sudo().image_128">
+                                                            <a t-att-href="product.website_url">
+                                                                <img t-att-src="image_data_uri(product.sudo().image_128)"
+                                                                     class="img rounded" t-att-alt="product.name"/>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                    <td style="width: 49%;">
+                                                        <span colspan="2">
+                                                            <strong>
+                                                                <a style="color:#b09b5f;"
+                                                                   t-att-href="product.website_url">
+                                                                    <t t-esc="product.name"/>
+                                                                </a>
+                                                            </strong>
+                                                        </span>
+                                                        <br/>
+                                                        <span>
+                                                            <t t-if="product.description_sale"><t t-esc="product.description_sale[:150]"/></t>
+                                                            <t t-if="product.description_sale and len(product.description_sale) > 150">...</t>
+                                                        </span>
+                                                        <br/>
+                                                        <span>
+                                                            <b>
+                                                                <t t-esc="product.list_price"
+                                                                   t-options='{"widget": "monetary", "display_currency": product.currency_id}'/>
+                                                            </b>
+                                                        </span>
+                                                    </td>
+                                                    <td style="width: 26%;vertical-align:baseline;">
+                                                        <form t-if="product.product_tmpl_id._is_add_to_cart_possible()"
+                                                              action="/shop/cart/update" method="POST">
+                                                            <input type="hidden" name="csrf_token"
+                                                                   t-att-value="request.csrf_token()"/>
+                                                            <div class="js_product js_main_product mb-3">
+                                                                <t t-placeholder="select">
+                                                                    <input type="hidden" class="product_id"
+                                                                           name="product_id" t-att-value="product.id"/>
+                                                                    <input type="hidden" class="product_template_id"
+                                                                           name="product_template_id"
+                                                                           t-att-value="product.product_tmpl_id.id"/>
+                                                                    <input t-if="product.public_categ_ids.ids"
+                                                                           type="hidden" class="product_category_id"
+                                                                           name="product_category_id"
+                                                                           t-att-value="product.public_categ_ids.ids[0]"/>
+                                                                    <t t-if="combination" t-call="sale.variants">
+                                                                        <t t-set="ul_class" t-valuef="flex-column"/>
+                                                                        <t t-set="parent_combination" t-value="None"/>
+                                                                    </t>
+                                                                    <t t-else="">
+                                                                        <ul class="d-none js_add_cart_variants"
+                                                                            t-att-data-attribute_exclusions="{'exclusions: []'}"/>
+                                                                    </t>
+                                                                </t>
+                                                                <p t-if="True"
+                                                                   class="css_not_available_msg alert alert-warning">
+                                                                    This combination does not exist.
+                                                                </p>
+                                                                <div id="add_to_cart_wrap" class="d-inline">
+                                                                    <button class="button btn btn-cart btn-md btn-primary add-to-cart-carousel" style="margin-left: 75px;">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                                                    </button>
+                                                                    <!-- <a data-animation-selector=".o_wsale_product_images"
+                                                                       role="button" id="add_to_cart"
+                                                                       style="font-size:small;background-color: #017e84;margin-left: 5px;"
+                                                                       class="btn btn-primary btn-lg js_check_product rounded-circle a-submit my-1 mr-1 px-5 font-weight-bold flex-grow-1"
+                                                                       href="#">
+                                                                        <i class="fa fa-shopping-cart mr-2"/>IN DEN
+                                                                        WARENKORB
+                                                                    </a>
+                                                                    <div id="product_option_block"
+                                                                         class="d-inline-block align-middle"/> -->
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fix_prod_class">
+                            <div class="prod_content">
+                                <p class="p_has_gold_color_tag">
+                                    <strong>
+                                        <span>
+                                            <t t-esc="radio.x_studio_fahrzeug_hersteller"/>
+                                        </span>
+                                    </strong>
+                                </p>
+                                <p class="prod_name">
+                                    <t t-esc="radio.x_name"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="wrap" class="oe_structure oe_empty"/>
+        </t>
+    </template>
+</odoo>

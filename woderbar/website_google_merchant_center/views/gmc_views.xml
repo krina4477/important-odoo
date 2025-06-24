@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Merchant.Center -->
+    <record id="product_merchant_center_form_view" model="ir.ui.view">
+        <field name="name">merchant.center.form</field>
+        <field name="model">merchant.center</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(product_template_action_all)d" type="action" icon="fa-th-list" context="{'search_default_google_merchant_center_id': active_id}">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Center ID" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. 1234567"/></h1>
+                        <field name="website" placeholder="http://www.google.com"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pricelist_id" groups="product.group_product_pricelist" options="{'no_open':True,'no_create': True}"/>
+                        </group>
+                        <group/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_merchant_center_list_view" model="ir.ui.view">
+        <field name="name">merchant.center.list</field>
+        <field name="model">merchant.center</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Merchant Center">
+                <field name="name"/>
+                <field name="website"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_merchant_center_action_form" model="ir.actions.act_window">
+        <field name="name">Merchant Center</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merchant.center</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to define a new Merchant ID.
+          </p><p>
+            Merhant Centers are used to Manage your products through the
+            Google Merchant center with multiple websites.
+          </p>
+        </field>
+    </record>
+
+    <!-- Merchant.brand -->
+    <record id="product_merchant_brand_search_view" model="ir.ui.view">
+        <field name="name">merchant.center.brand.search</field>
+        <field name="model">merchant.center.brand</field>
+        <field name="arch" type="xml">
+            <search string="Product Brand">
+                <field name="name" string="Product brand"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_merchant_brand_form_view" model="ir.ui.view">
+        <field name="name">merchant.center.brand.form</field>
+        <field name="model">merchant.center.brand</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(product_template_action_all)d" type="action" icon="fa-th-list" context="{'search_default_google_product_brand_id': active_id}">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Brand name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Puma"/></h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_merchant_brand_list_view" model="ir.ui.view">
+        <field name="name">merchant.center.brand.list</field>
+        <field name="model">merchant.center.brand</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Product Brand">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_merchant_brand_action_form" model="ir.actions.act_window">
+        <field name="name">Merchant Center Product Brand</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merchant.center.brand</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to define a new brand.
+          </p><p>
+            Brands are used to browse your products through the
+            Google Merchant center.
+          </p>
+        </field>
+    </record>
+
+    <!-- Merchant.category -->
+    <record id="product_merchant_category_search_view" model="ir.ui.view">
+        <field name="name">merchant.center.category.search</field>
+        <field name="model">merchant.center.category</field>
+        <field name="arch" type="xml">
+            <search string="Product Categories">
+                <field name="name" string="Product Categories"/>
+                <field name="parent_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_merchant_category_form_view" model="ir.ui.view">
+        <field name="name">merchant.center.category.form</field>
+        <field name="model">merchant.center.category</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(product_template_action_all)d" type="action" icon="fa-th-list" context="{'search_default_google_product_category_id': active_id}">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Category name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Sporting Goods"/></h1>
+                    </div>
+                    <group name="first" col="2">
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_merchant_category_list_view" model="ir.ui.view">
+        <field name="name">merchant.center.category.list</field>
+        <field name="model">merchant.center.category</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Product Categories">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_merchant_category_action_form" model="ir.actions.act_window">
+        <field name="name">Merchant Center Product Categories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merchant.center.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to define a new category.
+          </p><p>
+            Categories are used to browse your products through the
+            Google Merchant center.
+          </p>
+        </field>
+    </record>
+
+    <!-- Merchant.Color -->
+    <record id="product_merchant_color_search_view" model="ir.ui.view">
+        <field name="name">merchant.center.color.search</field>
+        <field name="model">merchant.center.color</field>
+        <field name="arch" type="xml">
+            <search string="Product Color">
+                <field name="name" string="Product Color"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_merchant_color_form_view" model="ir.ui.view">
+        <field name="name">merchant.center.color.form</field>
+        <field name="model">merchant.center.color</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <!-- <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(product_template_action_all)d" type="action" icon="fa-th-list" context="{'search_default_google_product_color_id': active_id}">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                    </div> -->
+                    <div class="oe_title">
+                        <label for="name" string="Color name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. White"/></h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_merchant_color_list_view" model="ir.ui.view">
+        <field name="name">merchant.center.color.list</field>
+        <field name="model">merchant.center.color</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Product Color">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_merchant_color_action_form" model="ir.actions.act_window">
+        <field name="name">Merchant Center Product Color</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merchant.center.color</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to define a new color.
+          </p><p>
+            Colors are used to browse your products through the
+            Google Merchant center.
+          </p>
+        </field>
+    </record>
+
+    <!-- Merchant.Size -->
+    <record id="product_merchant_size_search_view" model="ir.ui.view">
+        <field name="name">merchant.center.size.search</field>
+        <field name="model">merchant.center.size</field>
+        <field name="arch" type="xml">
+            <search string="Product Size">
+                <field name="name" string="Product Size"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_merchant_size_form_view" model="ir.ui.view">
+        <field name="name">merchant.center.size.form</field>
+        <field name="model">merchant.center.size</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <!-- <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(product_template_action_all)d" type="action" icon="fa-th-list" context="{'search_default_google_product_size_id': active_id}">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                    </div> -->
+                    <div class="oe_title">
+                        <label for="name" string="Size name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. XL"/></h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_merchant_size_list_view" model="ir.ui.view">
+        <field name="name">merchant.center.size.list</field>
+        <field name="model">merchant.center.size</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Product Size">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_merchant_size_action_form" model="ir.actions.act_window">
+        <field name="name">Merchant Center Product Size</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merchant.center.size</field>
+        
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to define a new size.
+          </p><p>
+            Sizes are used to browse your products through the
+            Google Merchant center.
+          </p>
+        </field>
+    </record>
+
+</odoo>

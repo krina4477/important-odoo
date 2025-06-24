@@ -1,0 +1,110 @@
+.prod_content{
+    padding-top: 13%;
+    padding-left: 13%;
+    padding-right: 15%;
+    padding-bottom: 15%;
+    background:#f0f0f0;
+}
+.product_info_content{
+    max-width:100%;
+}
+.p_has_gold_color_tag{
+    font-size:.75rem;
+    color:#b09b5f;
+    text-transform:uppercase;
+}
+.prod_name{
+    font-size:2.5rem;
+    text-transform:uppercase;
+
+}
+
+.prod_name_shoppage{
+    font-size:2rem;
+    word-break: break-word;
+}
+
+.vehical_model,.vehical_description,.technical_info{
+    color:black;
+    font-weight:bold;
+}
+.vehical_model:hover,.vehical_description:hover,.technical_info:hover{
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+}
+.vehical_descript_row,.vehical_technical_row{
+    border-top:solid 1px #b09b5f;
+}
+
+.vehical_descript_row,.vehical_product_row{
+    border-top:solid 1px #b09b5f;
+}
+
+.product_info{
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top: 5%;
+}
+.prod_class{
+    width: 50%;
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+
+.fix_prod_class{
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+}
+
+*{scroll-behavior: smooth;}
+
+@media screen and (max-device-width: 640px) {
+    .product_info_content{
+        max-width:100%;
+        display: grid;
+    }
+
+    .prod_class{
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+        width: 100%;
+        order:2;
+    }
+    
+    .fix_prod_class{
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+        top: 0;
+        right: 0;
+        left: 50%;
+        bottom: 0;
+        background: #f0f0f0;
+        align-items: center;
+        position: unset;
+        order:1;
+        display: block;
+    }
+
+    .add-to-cart-carousel{
+        background: #b09b5f;
+        border-radius: 50%;
+        margin-left: 130%;
+        border-color: #b09b5f;
+        margin-top: -23%;
+        height: 45px;
+        width: 45px;
+    }
+
+    #add_to_cart_wrap{
+        margin-left: -50px;
+    }
+}

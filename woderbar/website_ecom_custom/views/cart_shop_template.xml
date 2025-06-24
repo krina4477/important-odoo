@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="cart_shop_template" name="Cart Shop Template">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="cart_shop">
+                    <p class="cart_shop_content_1 text-center">WARENKORB</p>
+                    <p class="cart_shop_content_2 mt96">Dein Warenkorb ist gegenwärtig leer.</p>
+                    <a href="/shop" class="shop_btn_class text-center">Zurück zum Shop</a>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

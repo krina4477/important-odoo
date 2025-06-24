@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="confirmation" name="Confirmation" inherit_id="website_sale.confirmation">
+
+        <xpath expr="//div[1]" position="attributes">
+            <attribute name="style" >background: #f2f2f3;</attribute>
+        </xpath>
+
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="replace">
+            <div class="container oe_website_sale py-2">
+                <div style="display: flex;" class="mt-5">
+                    <div style="height: 80px; width: 80px; text-align: center; margin-right: 15px">
+                        <img src="/website_ecom_custom/static/img/confirm.png" alt="Confirm Logo" style="height: 85%; width:85%"/>
+                    </div>
+                    <div>
+                        <strong style="font-size: 35px">Your Order is confirmed!</strong><br/>
+                        Your Order has been confirmed and will be shipping within the next days.
+                    </div>
+                </div>
+                
+                <div style="margin: 70px 0; background: white; padding:17px">
+                    <p style="color: #b09b5f">Hello <t t-esc="order.partner_id.name"/>,</p><br/>
+                    Your Order and payment has been successfully Processed. Thank You! <br/>
+                    We'll be sending a shipping confirmation email when the items shipped succesfully.
+                    <hr/>
+
+                    <div style="display:flex">
+                        <div style="width: 20%; padding: 0px;">
+                            Order Nr.<br/>
+                            <t t-esc="order.name"/> 
+                        </div>
+                        <div style="width: 20%; padding: 0px;">
+                            Order Date<br/>
+                            <t t-esc="order.date_order.strftime('%d.%b.%Y')" />
+                        </div>
+                        <t t-set="payment_tx_id" t-value="order.get_portal_last_transaction()"/>
+                        <div style="width: 20%; padding: 0px;">
+                            Payment<br/>
+                            <t t-esc="payment_tx_id.acquirer_id.display_as or payment_tx_id.acquirer_id.name"/>
+                        </div>
+                        <div style="margin-left: auto; padding: 0px;">
+                            Shipping Address<br/>
+                            <t t-esc="order.partner_shipping_id" t-options="dict(widget='contact', fields=['address'], no_marker=True, separator=', ')" class="address-inline"/>
+                        </div>
+                    </div><hr/>
+
+                    <t t-set="website_sale_order" t-value="order"/>
+                    <t t-set="total_product" t-value="sum(website_sale_order.website_order_line.mapped('product_uom_qty'))"/>
+
+                    <div>
+                        <p style="color: #b09b5f">Order Summary (<t t-esc="'{:.0f}'.format(total_product)" />)</p>
+
+                        <div t-foreach="website_sale_order.website_order_line" t-as="line" style="display: flex; padding-top: 11px; padding-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+                            <div>
+                                <span t-if="line._is_not_sellable_line() and line.product_id.image_128">
+                                    <img t-att-src="image_data_uri(line.product_id.image_128)" class="img o_image_64_max rounded" t-att-alt="line.name_short"/>
+                                </span>
+                                <span t-else=""
+                                    t-field="line.product_id.image_128"
+                                    t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max'}" />
+                            </div>
+                            <div style="margin-left: 35px;">
+                                <strong t-field="line.name_short" /><br/>
+                                <t t-esc="line.name[:40]" />...<br/>
+                                Menge: <t t-esc="line.product_uom_qty" /> <t t-esc="line.product_uom.name" />
+                            </div>
+                            <div style="margin-left: auto; font-size: 18px;">
+                                <strong><t t-esc="line.price_total" style=""/></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div t-if="website_sale_order and website_sale_order.website_order_line">
+                        <div id="subtotal_excluding_delivery" style="display:flex">
+                            Subtotal excluding delivery:
+                            <div style="margin-left: auto;">
+                                <span t-esc="website_sale_order.amount_total - website_sale_order.amount_delivery" class="monetary_field" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}"/>
+                            </div>
+                        </div>
+                        <div id="delivery" style="display:flex; margin-top: 15px">
+                            delivery:
+                            <div style="margin-left: auto;">
+                                <span t-field="website_sale_order.amount_delivery" class="monetary_field" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div t-if="website_sale_order and website_sale_order.website_order_line">
+                        <div id="subtotal" style="display:flex; margin-top: 15px">
+                            <strong>Subtotal:</strong>
+                            <div style="margin-left: auto;">
+                                <strong t-field="website_sale_order.amount_total" class="monetary_field" style="white-space: nowrap; font-size: 18px;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}"/>
+                            </div>
+                        </div>
+                        <div id="total_without_vat" style="display:flex; margin-top: 15px">
+                            Total without VAT:
+                            <div style="margin-left: auto;">
+                                <span t-field="website_sale_order.amount_untaxed" class="monetary_field" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}"/>
+                            </div>
+                        </div>
+                        <div id="vat_19" style="display:flex; margin-top: 15px; margin-bottom: 15px;">
+                            Vat(19%):
+                            <div style="margin-left: auto;">
+                                <span t-field="website_sale_order.amount_tax" class="monetary_field" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: website_sale_order.pricelist_id.currency_id}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

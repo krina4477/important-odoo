@@ -1,0 +1,59 @@
+.footer_installation_section{
+    padding:4rem 0;
+}
+@media (min-width: 1400px){
+    .footer_installation_content{
+        max-width: 1320px;
+    }
+}
+.install_head{
+    font-weight: 500;
+    font-size: 1.75rem!important;
+}
+.accordion-button:not(.collapsed) {
+    color: #9e8c56;
+    background-color: #f7f5ef;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+.accordion-item:last-of-type {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.accordion-item:first-of-type {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.fig_class{
+    width: 828px;
+    height: 671px;
+}
+
+.p_has_gold_color_info{
+    color: #b09b5f;
+    font-size: 14px;
+}
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}
+.accordion-body {
+    padding: 1rem 1.25rem;
+}
+.accordion-header{
+    margin-bottom: 0;
+}

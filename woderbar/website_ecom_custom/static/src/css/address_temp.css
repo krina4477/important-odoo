@@ -1,0 +1,48 @@
+.address_class{
+    background:#f0f0f0;
+}
+.address_container{
+    max-width: 100%;
+    padding:4rem;
+}
+.address_head{
+    font-size:2.5rem;
+}
+.add_content1{
+    font-size:1.25rem;
+}
+.add_content2{
+    font-size:0.875rem;
+}
+
+.div_form{
+    border: solid 1px #50575e;
+    border-radius: 4px;
+}
+
+.label_form{
+    font-weight:300;
+    color:#757575;
+}
+.order_fee{
+    background: black;
+    border-color: black;
+    color:white;
+    width:30%;
+    height:40px;
+    float:right;
+    text-transform:uppercase;
+    font-weight:300;
+    cursor:pointer;
+    border-radius: inherit;
+}
+#shipping_use_same{
+    width:1em;
+    height:1em;
+}
+.toggle_summary_div{
+       background:#f0f0f0;
+}
+.order_overview{
+    border-top:solid 1px;
+}

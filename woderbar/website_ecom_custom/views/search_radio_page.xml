@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="search_radio_template" name="Search Radio Page">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="bg-light radio_search_content">
+                    <div class="container">
+                        <div class="text-center">
+                            <h1>Suche</h1>
+                            <p class="lead">Deine Suche ergab 1 Treffer.</p>
+                        </div>
+                    </div>
+                    <form class="" action="/search_radio" method="post">
+                        <div class="container form_search_class">
+                            <p class="subhead_search">FINDE DEIN RADIO</p>
+                            <div class="ct">
+                                <div class="row change_row">
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col home_manufacturer" id="manufac_id">
+                                                <select size="1" class="select_class manufact_select_class" name="manufacturer">
+                                                    <option value="">Fahrzeug</option>
+                                                    <option class="option_manu" value="ACADIAN" t-att-selected="'selected' if manufacturer_val=='ACADIAN' else None">ACADIAN</option>
+                                                    <option class="option_manu" value="BEAUMONT" t-att-selected="'selected' if manufacturer_val=='BEAUMONT' else None">BEAUMONT</option>
+                                                    <option class="option_manu" value="BUICK" t-att-selected="'selected' if manufacturer_val=='BUICK' else None">BUICK</option>
+                                                    <option class="option_manu" value="CADILLAC" t-att-selected="'selected' if manufacturer_val=='CADILLAC' else None">CADILLAC</option>
+                                                    <option class="option_manu" value="CHEVROLET" t-att-selected="'selected' if manufacturer_val=='CHEVROLET' else None">CHEVROLET</option>
+                                                    <option class="option_manu" value="CHRYSLER" t-att-selected="'selected' if manufacturer_val=='CHRYSLER' else None">CHRYSLER</option>
+                                                    <option class="option_manu" value="GENERAL MOTORS" t-att-selected="'selected' if manufacturer_val=='GENERAL MOTORS' else None">GENERAL MOTORS</option>
+                                                    <option class="option_manu" value="GM" t-att-selected="'selected' if manufacturer_val=='GM' else None">GM</option>
+                                                    <option class="option_manu" value="GMC" t-att-selected="'selected' if manufacturer_val=='GMC' else None">GMC</option>
+                                                    <option class="option_manu" value="LINCOLN" t-att-selected="'selected' if manufacturer_val=='LINCOLN' else None">LINCOLN</option>
+                                                    <option class="option_manu" value="OLDSMOBILE" t-att-selected="'selected' if manufacturer_val=='OLDSMOBILE' else None">OLDSMOBILE</option>
+                                                    <option class="option_manu" value="PACKARD" t-att-selected="'selected' if manufacturer_val=='PACKARD' else None">PACKARD</option>
+                                                    <option class="option_manu" value="PONTIAC" t-att-selected="'selected' if manufacturer_val=='PONTIAC' else None">PONTIAC</option>
+                                                    <option class="option_manu" value="STUDEBAKER" t-att-selected="'selected' if manufacturer_val=='STUDEBAKER' else None">STUDEBAKER</option>
+                                                </select>
+                                            </div>
+                                            <div class="col home_year" id="year_id">
+                                                <select size="1" class="select_class year_select_class" name="model_year">
+                                                    <option value="" class="option_manu">Baujahr</option>
+                                                </select>
+                                            </div>
+                                            <div class="col home_name" id="model_name_id">
+                                                <select size="1" class="select_class model_select_class" name="model_name">
+                                                    <option class="option_manu" value="">Modell</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3  text-center">
+                                        <button class="btn btn-primary" id="find_now" type="submit">
+                                            Jetzt finden
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="row d-flex align-items-stretch">
+                                    <t t-foreach="radios" t-as="rad">
+                                        <div class="col-lg-3 s_col_no_bgcolor pt56 pb16">
+                                            <div class="card bg-white h-100 border-0">
+
+                                                <a t-att-href="'/product_info?radio_id=%i' % rad.id">
+                                                    <span t-field="rad.x_studio_image" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'card-img-top'}"/>
+                                                </a>
+                                                <div  class="card-body">
+                                                    <a t-att-href="'/product_info?radio_id=%i' % rad.id"><p class="p_has_black_color"><strong><t t-esc="rad.x_name"/></strong></p></a>
+                                                    <div class="card-text" t-if="rad.x_studio_beschreibung" style="margin-bottom:10px">
+                                                        <span t-esc="rad.x_studio_beschreibung[:150]+ '...' if rad.x_studio_beschreibung and len(rad.x_studio_beschreibung) &gt; 150 else rad.x_studio_beschreibung[:150]"/>
+                                                    </div>
+                                                    <a t-att-href="'/product_info?radio_id=%i' % rad.id" class="all_info text-center">alle Informationen</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div id="wrap" class="oe_structure oe_empty"/>
+        </t>
+    </template>
+
+    <template id="s_search_radio_template" name="Search Radio Page">
+        <form class="" action="/search_radio" method="post">
+                <div class="container form_search_class">
+                    <p class="subhead_search">FINDE DEIN RADIO</p>
+                    <div class="ct">
+                        <div class="row change_row">
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col home_manufacturer" id="manufac_id">
+                                        <select size="1" class="select_class manufact_select_class" name="manufacturer">
+                                            <option value="">Fahrzeug</option>
+                                            <option class="option_manu" value="ACADIAN" t-att-selected="'selected' if manufacturer_val=='ACADIAN' else None">ACADIAN</option>
+                                            <option class="option_manu" value="BEAUMONT" t-att-selected="'selected' if manufacturer_val=='BEAUMONT' else None">BEAUMONT</option>
+                                            <option class="option_manu" value="BUICK" t-att-selected="'selected' if manufacturer_val=='BUICK' else None">BUICK</option>
+                                            <option class="option_manu" value="CADILLAC" t-att-selected="'selected' if manufacturer_val=='CADILLAC' else None">CADILLAC</option>
+                                            <option class="option_manu" value="CHEVROLET" t-att-selected="'selected' if manufacturer_val=='CHEVROLET' else None">CHEVROLET</option>
+                                            <option class="option_manu" value="CHRYSLER" t-att-selected="'selected' if manufacturer_val=='CHRYSLER' else None">CHRYSLER</option>
+                                            <option class="option_manu" value="GENERAL MOTORS" t-att-selected="'selected' if manufacturer_val=='GENERAL MOTORS' else None">GENERAL MOTORS</option>
+                                            <option class="option_manu" value="GM" t-att-selected="'selected' if manufacturer_val=='GM' else None">GM</option>
+                                            <option class="option_manu" value="GMC" t-att-selected="'selected' if manufacturer_val=='GMC' else None">GMC</option>
+                                            <option class="option_manu" value="LINCOLN" t-att-selected="'selected' if manufacturer_val=='LINCOLN' else None">LINCOLN</option>
+                                            <option class="option_manu" value="OLDSMOBILE" t-att-selected="'selected' if manufacturer_val=='OLDSMOBILE' else None">OLDSMOBILE</option>
+                                            <option class="option_manu" value="PACKARD" t-att-selected="'selected' if manufacturer_val=='PACKARD' else None">PACKARD</option>
+                                            <option class="option_manu" value="PONTIAC" t-att-selected="'selected' if manufacturer_val=='PONTIAC' else None">PONTIAC</option>
+                                            <option class="option_manu" value="STUDEBAKER" t-att-selected="'selected' if manufacturer_val=='STUDEBAKER' else None">STUDEBAKER</option>
+                                        </select>
+                                    </div>
+                                    <div class="col home_year" id="year_id">
+                                        <select size="1" class="select_class year_select_class" name="model_year">
+                                            <option value="" class="option_manu">Baujahr</option>
+                                        </select>
+                                    </div>
+                                    <div class="col home_name" id="model_name_id">
+                                        <select size="1" class="select_class model_select_class" name="model_name">
+                                            <option class="option_manu" value="">Modell</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3  text-center">
+                                <button class="btn btn-primary" id="find_now" type="submit">
+                                    Jetzt finden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-stretch">
+                            <t t-foreach="radios" t-as="rad">
+                                <div class="col-lg-3 s_col_no_bgcolor pt56 pb16">
+                                    <div class="card bg-white h-100 border-0">
+
+                                        <a t-att-href="'/product_info?radio_id=%i' % rad.id">
+                                            <span t-field="rad.x_studio_image" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'card-img-top'}" />
+                                        </a>
+                                        <div class="card-body">
+                                            <a href=""><p class="p_has_black_color"><strong><t t-esc="rad.x_name"/></strong></p></a>
+                                            <p class="card-text"><t t-esc="rad.x_studio_beschreibung"/></p>
+                                            <a t-att-href="'/product_info?radio_id=%i' % rad.id" class="all_info text-center">alle Informationen</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                </div>
+            </form>
+    </template>
+</odoo>

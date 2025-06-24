@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- override template -->
+    <template id="website_sale_stock.website_sale_stock_payment" inherit_id="website_sale.cart_summary">
+<!--         <xpath expr="//table[@id='cart_products']//td[hasclass('td-qty')]" position="inside">-->
+<!--          <t t-if='line._get_stock_warning(clear=False)'>-->
+<!--            <i class='fa fa-warning text-warning' t-att-title="line._get_stock_warning()" role="img" aria-label="Warning"/>-->
+<!--          </t>-->
+<!--        </xpath>-->
+        <xpath expr="//table[@id='cart_products']" position="after">
+            <t t-if='website_sale_order'>
+              <t t-set='warning' t-value='website_sale_order._get_stock_warning(clear=False)' />
+              <div t-if='warning' class="alert alert-warning" role="alert">
+                <strong>Warning!</strong> <t t-esc='website_sale_order._get_stock_warning()'/>
+              </div>
+            </t>
+        </xpath>
+      </template>
+
+    <template id="cart_summary_inherit" inherit_id="website_sale.cart_summary" name="Cart Summary Inherit">
+        <xpath expr="//div[hasclass('card')]" position="replace">
+            <div class="card mt32" style="background:#f0f0f0;border:none;">
+            <div class="p-xl-0" style="background:#FFF;">
+                <div t-if="not website_sale_order or not website_sale_order.website_order_line" class="alert alert-info">
+                    Your cart is empty!
+                </div>
+                <div class="toggle_summary_div d-none d-xl-block">
+                    <table class="table table-striped table-sm" id="cart_products" t-if="website_sale_order and website_sale_order.website_order_line">
+                        <thead class="d-none">
+                            <tr>
+                                <th class="border-top-0 td-img">Product</th>
+                                <th class="border-top-0"></th>
+                                <th class="border-top-0 td-qty">Quantity</th>
+                                <th class="border-top-0 text-center td-price">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+<!--                            <tr class="order_overview">Bestellübersicht</tr>-->
+                            <tr t-foreach="website_sale_order.website_order_line" t-as="line">
+                                <td colspan="2" t-if="not line.product_id.product_tmpl_id"></td>
+                                <td class='td-img text-center' t-if="line.product_id.product_tmpl_id">
+                                    <sup class="badge badge-primary"><t t-esc="line.product_uom_qty"/></sup>
+                                    <span t-if="line._is_not_sellable_line() and line.product_id.image_128">
+                                        <img t-att-src="image_data_uri(line.product_id.image_128)" class="img o_image_64_max rounded" t-att-alt="line.name_short"/>
+                                    </span>
+                                    <span t-else=""
+                                        t-field="line.product_id.image_128"
+                                        t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max'}"
+                                    />
+                                </td>
+                                <td class='td-product_name' t-if="line.product_id.product_tmpl_id">
+                                    <div>
+                                        <span t-field="line.name_short" />
+                                    </div>
+                                </td>
+
+                                <td class="text-center td-price font-weight-bold">
+                                    <span t-field="line.price_reduce_taxexcl" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}" groups="account.group_show_line_subtotals_tax_excluded" />
+                                    <span t-field="line.price_reduce_taxinc" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}" groups="account.group_show_line_subtotals_tax_included" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <t t-call="website_sale.total">
+                        <t t-set='redirect' t-value="redirect or '/shop/payment'"></t>
+                    </t>
+                </div>
+            </div>
+        </div>
+        </xpath>
+    </template>
+    <template id="address_form_inherit" inherit_id="website_sale.address" name="Address Inherit">
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="class">address_class</attribute>
+        </xpath>
+         <xpath expr="//h2[hasclass('o_page_header')]" position="attributes">
+             <attribute name="class">o_page_header d-none mt8</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('container')]" position="attributes">
+            <attribute name="class">container oe_website_sale py-2 address_container</attribute>
+        </xpath>
+        <xpath expr="//form[hasclass('checkout_autoformat')]" position="replace">
+            <p class="text-center address_head mt-5">Kasse</p>
+            <form action="/shop/address" method="post" class="checkout_autoformat">
+                <div class="">
+                    <div class="row">
+                        <div class="">
+                            <p class="add_content1">1.</p>
+                        </div>
+                        <div class="col">
+                            <p class="add_content1">Kontaktinformationen</p>
+                            <p class="add_content2">Wir nutzen diese E-Mail-Adresse, um dir Details und Aktualisierungen zu deiner Bestellung zu senden.</p>
+                            <div t-attf-class="form-group div_form #{error.get('email') and 'o_has_error' or ''} col-lg-12 bg-white" id="div_email">
+                                <label t-attf-class="col-form-label label_form #{mode[1] == 'shipping' and 'label-optional' or ''}" for="email">E-Mail-Adresse</label>
+                                <input type="email" name="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" t-att-value="'email' in checkout and checkout['email']" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-100"/>
+                    <div class="row">
+                        <div class="">
+                            <p class="add_content1">2.</p><br></br>
+                        </div>
+                        <div class="col">
+                            <p class="add_content1">Lieferanschrift</p><br></br>
+                            <p class="add_content2">Gib die Adresse ein, an die deine Bestellung gesendet werden soll.</p>
+                            <div t-attf-class="form-group div_form #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name bg-white">
+                                <label class="col-form-label label_form" for="name">Vorname</label>
+                                <input type="text" name="name" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}" t-att-value="'name' in checkout and checkout['name']" />
+                            </div>
+                            <div class="w-100"/>
+                            <div t-attf-class="form-group div_form #{error.get('street') and 'o_has_error' or ''} col-lg-12 div_street bg-white">
+                                <label class="col-form-label label_form" for="street">Adresse <span class="d-none d-md-inline"> and Number</span></label>
+                                <input type="text" name="street" t-attf-class="form-control #{error.get('street') and 'is-invalid' or ''}" t-att-value="'street' in checkout and checkout['street']" />
+                            </div>
+                            <div t-attf-class="form-group div_form #{error.get('street2') and 'o_has_error' or ''} col-lg-12 div_street2 bg-white">
+                                <label class="col-form-label label_form" for="street2">Gebäude, Wohnung, usw. (optional)</label>
+                                <input type="text" name="street2" t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}" t-att-value="'street2' in checkout and checkout['street2']" />
+                            </div>
+                            <div class="w-100"/>
+                            <t t-set='zip_city' t-value='country and [x for x in country.get_address_fields() if x in ["zip", "city"]] or ["city", "zip"]'/>
+                            <div class="row col-12">
+                               <div t-attf-class="form-group div_form #{error.get('country_id') and 'o_has_error' or ''} col-md-6 div_country bg-white">
+                                    <label class="col-form-label label_form" for="country_id">Land/Region</label>
+                                    <select id="country_id" name="country_id" t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}" t-att-mode="mode[1]">
+                                        <option value="">Land/Region</option>
+                                        <t t-foreach="countries" t-as="c">
+                                            <option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
+                                                <t t-esc="c.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <t t-if="'zip' in zip_city and zip_city.index('zip') &gt; zip_city.index('city')">
+                                    <div t-attf-class="form-group div_form #{error.get('zip') and 'o_has_error' or ''} col-md-6 div_zip bg-white">
+                                        <label class="col-form-label label_form" for="zip">Postleitzahl</label>
+                                        <input type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="'zip' in checkout and checkout['zip']" />
+                                    </div>
+                                </t>
+                            </div>
+                            <div t-attf-class="form-group div_form #{error.get('city') and 'o_has_error' or ''} col-md-12 div_city bg-white">
+                                <label class="col-form-label label_form" for="city">Stadt</label>
+                                <input type="text" name="city" t-attf-class="form-control #{error.get('city') and 'is-invalid' or ''}" t-att-value="'city' in checkout and checkout['city']" />
+                            </div>
+
+                            <div class="w-100"/>
+                            <div t-attf-class="form-group div_form #{error.get('state_id') and 'o_has_error' or ''} col-lg-6 div_state" t-att-style="(not country or not country.state_ids) and 'display: none'">
+                                <label class="col-form-label label_form" for="state_id">State / Province</label>
+                                <select name="state_id" t-attf-class="form-control #{error.get('state_id') and 'is-invalid' or ''}" data-init="1">
+                                    <option value="">State / Province...</option>
+                                    <t t-foreach="country_states" t-as="s">
+                                        <option t-att-value="s.id" t-att-selected="s.id == ('state_id' in checkout and country and checkout['state_id'] != '' and int(checkout['state_id']))">
+                                            <t t-esc="s.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="w-100"/>
+                            <div t-attf-class="col-lg-12 bg-white div_form form-group #{error.get('phone') and 'o_has_error' or ''}" id="div_phone">
+                                <label class="col-form-label label_form" for="phone">Phone</label>
+                                <input type="tel" name="phone" t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}" t-att-value="'phone' in checkout and checkout['phone']" />
+                            </div>
+                            <div class="w-100"/>
+                            <t t-if="mode == ('new', 'billing') and not only_services">
+                                <div class="">
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" id='shipping_use_same' class="mr8" name='use_same' value="1" checked='checked'/>Gleiche Adresse als Rechnungsadresse verwenden
+                                        <span class='ship_to_other' style="display: none">&amp;nbsp;(<i>Your shipping address will be requested later) </i></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    </div>
+
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <input type="hidden" name="submitted" value="1" />
+                    <input type="hidden" name="partner_id" t-att-value="partner_id or '0'" />
+                    <input type="hidden" name="callback" t-att-value="callback" />
+                    <input type="hidden" name="field_required" t-att-value="'phone,name'" />
+                    <div class="row">
+                        <div class="">
+                            <p class="add_content1">3.</p><br></br>
+                        </div>
+                        <div class="col">
+                            <p class="add_content1">Versandoptionen</p><br></br>
+                            <p style="font-size:16px;">Versandoptionen werden angezeigt, sobald du deine vollständige Lieferadresse angegeben hast.</p><br></br>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="">
+                                <p class="add_content1">4.</p><br></br>
+                            </div>
+                            <div class="col">
+                                <p class="add_content1">Zahlungsoptionen</p><br></br>
+                            </div>
+                        </div>
+
+                        <div class="wc-block-components-checkout-step__container">
+                            <div class="wc-block-components-checkout-step__content">
+                                <div class="wc-block-components-radio-control disable-radio-control">
+                                    <div class="wc-block-components-radio-control-accordion-option">
+                                        <label class="wc-block-components-radio-control__option wc-block-components-radio-control__option-checked" for="radio-control-wc-payment-method-options-woocommerce_payments">
+                                            <input id="radio-control-wc-payment-method-options-woocommerce_payments" class="wc-block-components-radio-control__input d-none" type="radio" name="radio-control-wc-payment-method-options" aria-describedby="radio-control-wc-payment-method-options-woocommerce_payments__label" value="woocommerce_payments" checked=""/>
+                                            <div class="wc-block-components-radio-control__option-layout">
+                                                <div class="wc-block-components-radio-control__label-group">
+                                                    <span id="radio-control-wc-payment-method-options-woocommerce_payments__label" class="wc-block-components-radio-control__label">Beliebte Zahlungsmethoden</span>
+                                                </div>
+                                                <div class="wc-block-components-radio-control__description-group">
+
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <div class="wc-block-components-radio-control-accordion-content">
+                                            <p><strong>Test mode:</strong> use the test VISA card 4242424242424242 with any expiry date and CVC.</p>
+                                        <div class="wcpay-payment-element StripeElement">
+                                        <div class="__PrivateStripeElement" style="margin: -4px 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important; clear: both !important; transition: height 0.35s ease 0s !important;">
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                        <input id="add_note" type="checkbox" class="attribe_checkbox add_note" name="add_note" value="add_note">
+                            <label class="term-label" for="add_note">Einen Hinweis zu deiner Bestellung hinzufügen</label>
+                        </input>
+                        <div class="mb56">
+                            <textarea type="text" name="message"
+                                   class="form-control"
+                                   required="1" id="message" placeholder="Hinweise zu deiner Bestellung, z. B. besondere Hinweise zur Zustellung.">
+                            </textarea>
+                        </div>
+                        <p class="d-inline">Wenn du den Einkauf fortsetzt, stimmst du unseren</p>
+                            <a href="#" class="para_a_link">Allgemeine Geschäftsbedingungen</a>
+                            <p class="d-inline"> und </p><a href="#" class="para_a_link">Datenschutzerklärung </a>zu
+                    </div>
+                    <div class="d-flex justify-content-between mt96">
+                        <a role="button" t-att-href="mode == ('new', 'billing') and '/shop/cart' or '/shop/checkout'" class="btn mb32">
+                            <i class="fa fa-arrow-left"/>
+                            <span>Zurück zum Warenkorb</span>
+                        </a>
+                        <a role="button" href="#" class="btn btn-primary mb32 a-submit a-submit-disable a-submit-loading order_fee">
+                            <span>Kostenpflichtig bestellen</span>
+                        </a>
+                    </div>
+                </form>
+        </xpath>
+    </template>
+</odoo>

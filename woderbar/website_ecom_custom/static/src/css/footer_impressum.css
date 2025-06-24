@@ -1,0 +1,8 @@
+.footer_impressum_section{
+    padding:4rem 0;
+}
+@media (min-width: 1400px){
+    .footer_impressum_content{
+        max-width: 1320px;
+    }
+}

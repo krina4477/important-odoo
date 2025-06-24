@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_form_inherit" model="ir.ui.view">
+        <field name="name">product.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="public_categ_ids" position="after">
+                <field name="manufacture_name"/>
+                <field name="manufacture_year_id" widget="many2many_tags"/>
+                <field name="vehicle_model_id" widget="many2many_tags"/>
+                <field name="feature_id"/>
+            </field>
+
+            <group name="description" position="after">
+                <break/>
+                <group string="Technical Specification" name="technical_specification">
+                    <field name="technical_specification" nolabel="1" placeholder="Add Technical Specification of Product Here."/>
+                </group>
+            </group>
+        </field>
+    </record>
+    <record id="action_product_feature" model="ir.actions.act_window">
+            <field name="name">Product Special Features</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.feature</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> Feature Create Here! </p>
+            </field>
+    </record>
+    <menuitem id="product_feature_menu"
+        name="Special Features"
+        parent="stock.menu_product_in_config_stock"
+        action="action_product_feature"
+        sequence="30"/>
+</odoo>

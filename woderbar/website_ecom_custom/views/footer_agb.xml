@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="footer_agb_template" name="AGB | WUNDERBAR Custom Radio Shop">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="footer_agb_section" id='footer_agb_section'>
+                    <div class="container footer_agb_content">
+                        <p class="p_has_black_color_content"><strong>Allgemeine Geschäftsbedingungen</strong></p>
+                        <p class="p_has_black_color_content list-group">WUNDERBAR Custom Radio Shop GmbH</p>
+                        <p class="p_has_black_color_content list-group">Vertreten durch den Geschäftsführer Timo Gschwendtner</p>
+                        <p class="p_has_black_color_content list-group">Bodelshofer Weg 1</p>
+                        <p class="p_has_black_color_content list-group">73230 Kirchheim unter Teck</p>
+                        <div style="height:50px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>1. Geltungsbereich und Definitionen</strong></h3>
+                        <ol>
+                            <li>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge, die unter
+                                <a class="li_has_gold_color" href="/">https://www.customradioshop.de/</a> mit uns geschlossen werden. Entgegenstehende oder von unseren Allgemeinen Geschäftsbedingungen abweichende Vertragsbedingungen des Kunden gelten nur, wenn wir diesen ausdrücklich zugestimmt haben
+                            </li>
+                            <li>Verbraucher im Sinne dieser Allgemeinen Geschäftsbedingungen ist jede natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können.
+                            </li>
+                            <li>Unternehmer im Sinne dieser Geschäftsbedingungen sind natürliche oder juristische Personen oder rechtsfähige Personengesellschaften, die bei Vertragsschluss mit uns in Ausübung ihrer gewerblichen oder selbständigen beruflichen Tätigkeit handeln.
+                            </li>
+                        </ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>2. ANGEBOT UND VERTRAGSSCHLUSS</strong></h3>
+                        <ol start="2"><li>Unsere Angebote richten sich ausschließlich an volljährige und voll geschäftsfähige Personen.</li><li>Unsere Angebote stellen kein verbindliches Angebot, sondern eine Aufforderung zur Abgabe eines Angebotes durch den Kunden dar.</li><li>Die Bestellung des Kunden stellt ein bindendes Angebot zum Abschluss eines Vertrages dar. Die Annahme erfolgt durch ausdrückliche Erklärung gegenüber dem Kunden.</li><li>Die im Anschluss an die Bestellung des Kunden automatisch erzeugte E-Mail, die den Zugang der Bestellung bestätigt, stellt noch keine Vertragsannahme dar, sondern dient lediglich der Information des Kunden und der Erfüllung gesetzlicher Informationspflichten.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>3. Lieferung</strong></h3>
+                        <ol start="3"><li>Die Lieferung erfolgt an die vom Kunden angegebene Lieferanschrift.</li><li>Wenn der Kunde zur Vorleistung verpflichtet ist, hängen die in Angeboten genannten Leistungszeiten/Liefertermine davon ab, dass der Kunde die Zahlung unverzüglich nach Vertragsschluss geleistet hat.</li><li>Die Lieferung erfolgt nach Möglichkeit in einer Sendung. Wir sind aber zu Teillieferungen und Teilleistungen berechtigt, soweit diese für den Kunden zumutbar sind. Durch Teillieferungen entstehende Mehrkosten werden von uns getragen.</li><li>Genannte Liefertermine sind keine Fixtermine, es sei denn wir haben einen solchen Termin ausdrücklich als Fixtermin bestätigt.</li><li>Lieferverzögerungen, die bei uns oder bei einem unserer Unterlieferanten/Subunternehmer aufgrund höherer Gewalt oder aufgrund von Umständen entstehen, die höherer Gewalt gleichstehen (wie z.B. währungs- und handelspolitische oder sonstige hoheitliche Maßnahmen, Streiks, Betriebsstörungen wie bspw. Feuer, Maschinendefekte, Bruch, Rohstoff- oder Energiemangel) berechtigen uns, die Lieferung um die Dauer der Behinderung hinauszuschieben. Sofern die Durchführung des Vertrages aufgrund der Verzögerung für den Kunden unzumutbar wird, so ist dieser zum Rücktritt berechtigt. Bei nicht nur vorübergehenden Leistungshindernissen sind wir berechtigt, vom Vertrag zurücktreten.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>4. Nichtverfügbarkeit der Leistung</strong></h3>
+                        <ol start="4"><li>Jedes Angebot steht unter dem Vorbehalt der Selbstbelieferung; Wenn die bestellte Ware nicht verfügbar ist, weil wir bei Vertragsschluss nicht vorhersehbar und unverschuldet von unserem Lieferanten nicht beliefert werden, haben wir das Recht, uns von dem Vertrag zu lösen. In diesem Falle werden wir den Kunden unverzüglich darüber informieren, dass eine Lieferung nicht möglich ist, und ihm den evtl. bereits gezahlten Kaufpreis unverzüglich erstatten. Gegenüber Verbrauchern besteht dieses Recht nur, sofern wir ein konkretes Deckungsgeschäft abgeschlossen haben und von dem Lieferanten überraschend nicht beliefert wurden.</li><li>Eine Schadensersatzhaftung wegen Nichterfüllung ist ausgeschlossen, sofern wir hinsichtlich der mangelnden Verfügbarkeit weder grob fahrlässig noch vorsätzlich gehandelt haben, eine etwaige Haftung wegen vorvertraglichen Verschuldens bleibt unberührt.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>5. Preise und Versandkosten</strong></h3>
+                        <ol start="5"><li>Die von uns genannten Preise verstehen sich einschließlich der jeweils gültigen Umsatzsteuer.</li><li>Anfallende Versandkosten werden im Bestellvorgang ausgewiesen. Eine Übersicht der Versandkosten finden Sie unter <a href="https://customradioshop.de/startseite/versandkosten/">https://customradioshop.de/startseite/versandkosten/</a>.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>6. Zahlung, Fälligkeit und Verzug</strong></h3>
+                        <ol start="6"><li>Wir akzeptieren grundsätzlich nur die im Rahmen unseres Angebots aufgeführten Zahlungsweisen.</li><li>Der Kunde ist, außer bei Zahlung per Nachnahme oder auf Rechnung, zur Vorleistung verpflichtet. In diesem Fall wird die Zahlung mit Vertragsschluss und Erhalt der Rechnung oder Rechnungsaufstellung fällig. Bei Zahlung per Nachnahme oder auf Rechnung wird die Zahlung mit Erhalt der Ware und der Rechnung oder Rechnungsaufstellung fällig.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>7. Zurückbehaltungsrecht und Eigentumsvorbehalt</strong></h3>
+                        <ol start="7"><li>Zur Ausübung eines Zurückbehaltungsrechts ist der Kunde nur insoweit befugt, als sein Gegenanspruch auf demselben Vertragsverhältnis beruht.</li><li>Die gelieferte Ware bleibt bis zur vollständigen Bezahlung unser Eigentum. Bei Zugriffen Dritter auf die Vorbehaltsware wird der Kunde auf unser Eigentum hinweisen und uns unverzüglich benachrichtigen.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>8. Haftung</strong></h3>
+                        <ol start="8"><li>Wir haften für grob fahrlässig und vorsätzlich begangene Pflichtverletzungen.</li><li> Ist der Kunde Unternehmer, ist unsere Haftung bei nicht vorsätzlichen Handlungen auf den bei Vertragsschluss typischerweise voraussehbaren Schaden begrenzt. Im Falle leichter Fahrlässigkeit haften wir nur bei der Verletzung vertragswesentlicher Pflichten und beschränkt auf den bei Vertragsschluss typischerweise vorhersehbaren Schaden. Für sonstige leicht fahrlässig verursachte Schäden haften wir nicht. Diese Beschränkungen gelten nicht bei der Verletzung von Leben, Körper und Gesundheit. Eine etwaige Haftung wegen vorvertraglichen Verschuldens, wegen Verstößen gegen Datenschutzrecht oder nach dem Produkthaftungsgesetz sowie Rückgriffsansprüche gemäß §§ 478, 445a BGB bleiben von diesen Haftungsbeschränkungen unberührt.</li><li>Ist der Kunde Verbraucher, haften wir im Falle leichter Fahrlässigkeit nur bei der Verletzung vertragswesentlicher Pflichten und beschränkt auf den bei Vertragsschluss typischerweise vorhersehbaren Schaden. Für sonstige leicht fahrlässig verursachte Schäden haften wir nicht. Diese Beschränkungen gelten nicht bei der Verletzung von Leben, Körper und Gesundheit. Eine etwaige Haftung wegen vorvertraglichen Verschuldens, wegen Verstößen gegen Datenschutzrecht oder nach dem Produkthaftungsgesetz bleibt von diesen Haftungsbeschränkungen unberührt.</li><li>Unabhängig von einem Verschulden haften wir nur bei arglistigem Verschweigen eines Mangels oder aus der Übernahme einer Garantie oder Zusicherung. Eine Herstellergarantie ist eine Garantie des Herstellers und stellt keine Übernahme einer Garantie durch uns dar.</li><li>Wir sind auch für die während des Verzugs durch Zufall eintretende Unmöglichkeit der Lieferung verantwortlich, es sei denn, dass der Schaden auch bei rechtzeitiger Lieferung eingetreten wäre.</li><li>Soweit die Schadensersatzhaftung gegenüber uns ausgeschlossen oder eingeschränkt ist, gilt dies auch im Hinblick auf die persönliche Schadensersatzhaftung unserer Angestellten, Arbeitnehmer, Mitarbeiter, Vertreter und Erfüllungsgehilfen.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>9. Alternative Streitbeilegung</strong></h3>
+                        <ol start="9"><li>Wir nehmen an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nicht teil.</li></ol>
+                        <div style="height:25px" class="wp-block-spacer"></div>
+                        <h3 class="abg_heading"><strong>10. Schlussbestimmungen</strong></h3>
+                        <ol start="9"><li>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Ist der Kunde Verbraucher und hat seinen Wohnsitz nicht in Deutschland, bleiben zwingende Vorschriften des Landes, in dem der Verbraucher seinen Wohnsitz hat, von dieser Rechtswahl unberührt.</li><li>Ist der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, wird als Gerichtsstand für alle Streitigkeiten aus diesem Vertragsverhältnis Stuttgart vereinbart.</li><li>Sollten einzelne Bestimmungen dieses Vertrages ganz oder teilweise unwirksam sein, so wird die Wirksamkeit der übrigen Klauseln oder Klauselteile hiervon nicht berührt.</li></ol>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
+

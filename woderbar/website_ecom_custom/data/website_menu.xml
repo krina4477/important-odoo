@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    
+        <record id="wunderbar_website_root_menu" model="website.menu">
+            <field name="name">Wunder Website Root Menu</field>
+            <field name="url">/default-main-menu</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+
+        <record id="menu_finde_dein_radio" model="website.menu">
+            <field name="name">Finde dein Radio</field>
+            <field name="url">/</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="parent_id" ref="website_ecom_custom.wunderbar_website_root_menu"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+
+        <record id="menu_radio_nachrustem" model="website.menu">
+            <field name="name">Radio Nachrüsten</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="parent_id" ref="website_ecom_custom.wunderbar_website_root_menu"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+
+        <record id="menu_dab+im_oldtimer" model="website.menu">
+            <field name="name">DAB+ im Oldtimer</field>
+            <field name="url">/dab-empfang-wird-kommen-bleibt-das-radio-in-meinem-oldtimer-jetzt-stumm</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="parent_id" ref="website_ecom_custom.menu_radio_nachrustem"/>
+            <field name="sequence" type="int">60</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="menu_sendersuchlauf" model="website.menu">
+            <field name="name">Sendersuchlauf in alten Radios</field>
+            <field name="url">/startseite/sendersuchlauf-oldtimer-radio</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="parent_id" ref="website_ecom_custom.menu_radio_nachrustem"/>
+            <field name="sequence" type="int">1</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="shop_menu" model="website.menu">
+            <field name="name">Shop</field>
+            <field name="url">/shop</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="parent_id" ref="website_ecom_custom.wunderbar_website_root_menu"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+
+        <record id="contact_us_menu" model="website.menu">
+            <field name="name">Contact us</field>
+            <field name="url">/</field>
+            <field name="page_id" ref="website.homepage_page"/>
+            <field name="parent_id" ref="website_ecom_custom.wunderbar_website_root_menu"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="sequence" type="int">5</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,119 @@
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid black;
+    padding:1.5rem;
+}
+#cart_products{
+    padding-left:6%;
+}
+.add_cart_head{
+    font-size: 2.5rem;
+    padding-top: 10.5rem;
+    padding-bottom: 6.5rem;
+}
+.process_checkout{
+    background: black;
+    text-transform:uppercase;
+    width: -webkit-fill-available;
+    border-radius: 30px 30px 30px 30px;
+    font-weight:300;
+}
+.paypal_class{
+    background-color: #b09b5f;
+    border-color: #b09b5f;
+    border-radius: 2rem;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: -webkit-fill-available;
+    max-height: 36px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.process_checkout:hover{
+    background: black;
+    width: -webkit-fill-available;
+    border-radius: 30px 30px 30px 30px;
+}
+.paypal_class:hover{
+    background: #2C2E2F;
+    width: -webkit-fill-available;
+}
+#o_cart_summary{
+    padding-right:6%;
+    padding-bottom:6%;
+}
+.oe_cart{
+    padding-bottom:6%;
+}
+.update_cart{
+    background: #b09b5f;
+    border-color: #b09b5f;
+    color:black;
+    width:38%;
+    height:40px;
+    float:right;
+    text-transform:uppercase;
+    border-radius: 30px 30px 30px 30px;
+    font-weight:300;
+    cursor:pointer;
+}
+.js_cart_class{
+    max-width:1320px;
+}
+
+.product_cart_details_in_mobile_view{
+    display: none;
+}
+
+@media (max-width: 767.98px){
+    .mobile_view_hide_column{
+        display: none;
+    }
+
+    .d-xl-none{
+        display: none;
+    }
+
+    .update_cart{
+        background: #b09b5f;
+        border-color: #b09b5f;
+        color:black;
+        width: auto;
+        height:40px;
+        float:none !important;
+        text-transform:uppercase;
+        border-radius: 30px 30px 30px 30px;
+        font-weight:300;
+        cursor:pointer;
+    }
+
+    .product_cart_details_in_mobile_view{
+        display:inline-table ;
+    }
+
+    .for_mobile_view{
+        display: block !important;
+    }
+
+    .for_normal_view{
+        display: none !important;
+    }
+}
+
+.continue_shopping{
+    background: black;
+    width: auto;
+    height: 40px !important;
+    border-radius: 30px 30px 30px 30px;
+    font-weight: 300;
+    margin-top: 10px;
+    padding: 6px 38px;
+}
+
+.update_cart_btn .btn {
+    background: #E9ECEF;
+    color: #35979c;
+    font-weight: normal;
+    border: none;
+    padding: 6px 13px;
+}

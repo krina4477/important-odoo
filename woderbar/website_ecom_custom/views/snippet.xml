@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="home_snippet" inherit_id="website.snippets" name="album">
+        <xpath expr="//div[@id='snippet_structure']" position="inside">
+            <div class="o_panel_body">
+                <t t-snippet="website_ecom_custom.s_homepage_1"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_2"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_3"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_4"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.homepage_project"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_6"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_7"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_8"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_9"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_10"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_11"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_homepage_12"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_classic_station_search_template"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_classic_station_search_content"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+                <t t-snippet="website_ecom_custom.s_search_filter"
+                   t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="shop_snippets" inherit_id="website.snippets" name="Shop Cover">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="website_ecom_custom.shop_cover_image_snippet"
+               t-thumbnail="/website_ecom_custom/static/img/icon.png"/>
+        </xpath>
+    </template>
+</odoo>

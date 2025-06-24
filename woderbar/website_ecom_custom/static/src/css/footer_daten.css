@@ -1,0 +1,40 @@
+.footer_daten_section{
+    padding:4rem 0;
+}
+:root {
+    --bs-font-sans-serif: "Inter", sans-serif;
+    --bs-body-font-family: var(--bs-font-sans-serif);
+}
+.daten_heading_h2{
+    font-weight:500;
+    font-family: sans-serif;
+}
+.daten_heading_h3{
+    font-weight:500;
+    font-family: sans-serif;
+    font-size: 1.75rem!important;
+}
+
+.li_has_gold_color{
+    color:#b09b5f;
+    text-decoration: underline;
+}
+.li_has_gold_color:hover{
+    color:#8d7c4c;
+}
+.daten_heading_h4{
+    font-weight:500;
+    font-family: sans-serif;
+}
+#datenschutzerklarung{
+    text-transform:uppercase;
+    font-family: var(--bs-body-font-family);
+}
+.footer_daten_content{
+        font-family: sans-serif;
+    }
+@media (min-width: 1400px){
+    .footer_daten_content{
+        max-width: 1320px;
+    }
+}

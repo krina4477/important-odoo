@@ -1,0 +1,1160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_product_custom_fields
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.1alpha1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-10 10:03+0000\n"
+"PO-Revision-Date: 2020-10-10 10:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\" groups=\"%s\" widget=\"%s\"/></field></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\" groups=\"%s\" widget=\"%s\"/></field></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\" groups=\"%s\"/></field></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\" groups=\"%s\"/></field></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\" widget=\"%s\"/></field></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\" widget=\"%s\"/></field></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\"/></field></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><field name=\"%s\" position=\"%s\"><field "
+"name=\"%s\"/></field></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath expr=\"//form/sheet/notebook\" "
+"position=\"inside\"><page name=\"%s\" groups=\"%s\"  "
+"string=\"%s\"><group></group></page></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath expr=\"//form/sheet/notebook\" "
+"position=\"inside\"><page name=\"%s\" groups=\"%s\"  "
+"string=\"%s\"><group></group></page></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath expr=\"//form/sheet/notebook\" "
+"position=\"inside\"><page name=\"%s\" "
+"string=\"%s\"><group></group></page></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath expr=\"//form/sheet/notebook\" "
+"position=\"inside\"><page name=\"%s\" "
+"string=\"%s\"><group></group></page></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']\" position=\"%s\"><page "
+"name=\"%s\" groups=\"%s\"  "
+"string=\"%s\"><group></group></page></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']\" position=\"%s\"><page "
+"name=\"%s\" groups=\"%s\"  "
+"string=\"%s\"><group></group></page></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/product_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']\" position=\"%s\"><page "
+"name=\"%s\" string=\"%s\"><group></group></page></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']\" position=\"%s\"><page "
+"name=\"%s\" string=\"%s\"><group></group></page></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" groups=\"%s\" "
+"/></group></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" groups=\"%s\" "
+"/></group></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" groups=\"%s\" "
+"widget=\"%s\"/></group></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" groups=\"%s\" "
+"widget=\"%s\"/></group></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" "
+"groups=\"%s\"/></group></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" "
+"groups=\"%s\"/></group></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" "
+"widget=\"%s\"/></group></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\" "
+"widget=\"%s\"/></group></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\"/></group></xpath></data>"
+msgstr ""
+"<?xml version=\"1.0\"?><data><xpath "
+"expr=\"//form/sheet/notebook/page[@name='%s']/group\" "
+"position=\"inside\"><group><field name=\"%s\"/></group></xpath></data>"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Access Rights"
+msgstr "Zugangsrechte"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_fields_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_fields_form_view_inherit
+msgid "Add Custom Field"
+msgstr "Benutzerdefiniertes Feld hinzufügen"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_fields_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_fields_form_view_inherit
+msgid "Add Custom Tab"
+msgstr "Benutzerdefinierte Registerkarte hinzufügen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__sh_position__after
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__sh_position__after
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_tab_product__sh_position__after
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_tab_template__sh_position__after
+msgid "After"
+msgstr "Nach"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__sh_position__before
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__sh_position__before
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_tab_product__sh_position__before
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_tab_template__sh_position__before
+msgid "Before"
+msgstr "Vor"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_m2m_selection__many2many_binary
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_m2m_selection__many2many_binary
+msgid "Binary"
+msgstr "Binär"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__website_form_blacklisted
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__website_form_blacklisted
+msgid "Blacklist this field for web forms"
+msgstr "Dieses Feld für Webformulare auf die schwarze Liste setzen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__website_form_blacklisted
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__website_form_blacklisted
+msgid "Blacklisted in web forms"
+msgstr "In Webformularen auf die schwarze Liste gesetzt"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_order_custom_tab_wizrd_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_template_order_custom_tab_wizrd_view
+msgid "Cancel"
+msgstr "Stornieren"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_m2m_selection__many2many_checkboxes
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_m2m_selection__many2many_checkboxes
+msgid "Checkboxes"
+msgstr "Kontrollkästchen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__compute
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__compute
+msgid ""
+"Code to compute the value of the field.\n"
+"Iterate on the recordset 'self' and assign the field's value:\n"
+"\n"
+"    for record in self:\n"
+"        record['size'] = len(record.name)\n"
+"\n"
+"Modules time, datetime, dateutil are available."
+msgstr ""
+"Code zum Berechnen des Feldwerts. \ N"
+"Iterieren Sie auf dem Recordset 'self' und weisen Sie den Wert des Feldes zu: \ n"
+"\ n"
+"zur Aufzeichnung in sich selbst: \ n"
+"record ['size'] = len (record.name) \ n"
+"\ n"
+"Module time, datetime, dateutil sind verfügbar."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__column1
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__column1
+msgid "Column 1"
+msgstr "Spalte 1"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__column2
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__column2
+msgid "Column 2"
+msgstr "Spalte 2"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__column2
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__column2
+msgid "Column referring to the record in the comodel table"
+msgstr "Spalte, die sich auf den Datensatz in der Comodel-Tabelle bezieht"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__column1
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__column1
+msgid "Column referring to the record in the model table"
+msgstr "Spalte, die sich auf den Datensatz in der Modelltabelle bezieht"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__complete_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__complete_name
+msgid "Complete Name"
+msgstr "Vollständiger Name"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__compute
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__compute
+msgid "Compute"
+msgstr "Berechnen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_product__prod_var
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_template__prod_var
+msgid "Compute Product Variant"
+msgstr "Produktvariante berechnen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__copied
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__copied
+msgid "Copied"
+msgstr "Kopiert"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Create Fields"
+msgstr "Felder erstellen"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_product_product_dynamic_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_product_template_dynamic_fields
+msgid "Create Product Custom Fields"
+msgstr "Erstellen Sie benutzerdefinierte Produktfelder"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_order_custom_tab_wizrd_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_template_order_custom_tab_wizrd_view
+msgid "Create Tab"
+msgstr "Registerkarte erstellen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__create_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__create_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__create_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__create_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__create_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__create_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__create_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__create_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__create_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__create_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Custom Fields"
+msgstr "Benutzerdefinierte Felder"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_sh_custom_model_product_product
+msgid "Custom Model Product Product"
+msgstr "Benutzerdefiniertes Modell Produkt Produkt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_sh_custom_model_product_template
+msgid "Custom Model Product template"
+msgstr "Benutzerdefinierte Modellproduktvorlage"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_order_custom_tab_wizrd_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_template_order_custom_tab_wizrd_view
+msgid "Custom Tab"
+msgstr "Benutzerdefinierte Registerkarte"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_sh_custom_tab_product
+msgid "Custom Tab product"
+msgstr "Benutzerdefiniertes Tab-Produkt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_sh_custom_tab_template
+msgid "Custom Tab template"
+msgstr "Benutzerdefinierte Registerkarte Vorlage"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_order_form_custom_tab_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_template_order_form_custom_tab_form_view
+msgid "Custom Tabs"
+msgstr "Benutzerdefinierte Registerkarten"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__depends
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__depends
+msgid "Dependencies"
+msgstr "Abhängigkeiten"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__depends
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__depends
+msgid ""
+"Dependencies of compute method; a list of comma-separated field names, like\n"
+"\n"
+"    name, partner_id.name"
+msgstr ""
+"Abhängigkeiten der Berechnungsmethode; eine Liste von durch Kommas getrennten Feldnamen wie \ n"
+"\ n"
+"name, partner_id.name"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_product__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_template__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__display_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__domain
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__task_domain
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__domain
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__task_domain
+msgid "Domain"
+msgstr "Domain"
+
+#. module: sh_product_custom_fields
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Domains"
+msgstr "Domänen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__tracking
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__tracking
+msgid "Enable Ordered Tracking"
+msgstr "Bestellte Nachverfolgung aktivieren"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__group_expand
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__group_expand
+msgid "Expand Groups"
+msgstr "Gruppen erweitern"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__position_selection__fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__position_selection__fields
+msgid "Field"
+msgstr "Feld"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__help
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__help
+msgid "Field Help"
+msgstr "Feldhilfe"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__field_description
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__field_description
+msgid "Field Label"
+msgstr "Feldbezeichnung"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_sh_model_fields_product_selection
+#: model:ir.model,name:sh_product_custom_fields.model_sh_model_fields_product_template_selection
+msgid "Field Selection"
+msgstr "Feldauswahl"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__field_type
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__ttype
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__field_type
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__ttype
+msgid "Field Type"
+msgstr "Feldtyp"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_float_selection__float_time
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_float_selection__float_time
+msgid "Float"
+msgstr "Schweben"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__relation_field
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__relation_field
+msgid ""
+"For one2many fields, the field on the target model that implement the "
+"opposite many2one relationship"
+msgstr ""
+"Für one2many-Felder das Feld im Zielmodell, das das implementiert."
+"gegenüber many2one Beziehung"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__relation
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__relation
+msgid "For relationship fields, the technical name of the target model"
+msgstr "Für Beziehungsfelder der technische Name des Zielmodells"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__groups
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__groups
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__groups
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__groups
+msgid "Groups"
+msgstr "Gruppen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__field_help
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__field_help
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Help"
+msgstr "Hilfe"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_text_selection__html
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_text_selection__html
+msgid "Html"
+msgstr "Html"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_product__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_template__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__id
+msgid "ID"
+msgstr "ICH WÜRDE"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__group_expand
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__group_expand
+msgid ""
+"If checked, all the records of the target model will be included\n"
+"in a grouped result (e.g. 'Group By' filters, Kanban columns, etc.).\n"
+"Note that it can significantly reduce performance if the target model\n"
+"of the field contains a lot of records; usually used on models with\n"
+"few records (e.g. Stages, Job Positions, Event Types, etc.)."
+msgstr ""
+"Wenn diese Option aktiviert ist, werden alle Datensätze des Zielmodells eingeschlossen. \ N"
+"in einem gruppierten Ergebnis (z. B. 'Gruppieren nach' Filter, Kanban-Spalten usw.) \ n"
+"Beachten Sie, dass die Leistung erheblich reduziert werden kann, wenn das Zielmodell \ n"
+"des Feldes enthält viele Datensätze; wird normalerweise für Modelle mit \ n verwendet."
+"wenige Datensätze (z. B. Stufen, Jobpositionen, Ereignistypen usw.)."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__tracking
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__tracking_visibility
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__tracking
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__tracking_visibility
+msgid ""
+"If set every modification done to this field is tracked in the chatter. "
+"Value is used to order tracking values."
+msgstr ""
+"Wenn festgelegt, wird jede an diesem Feld vorgenommene Änderung im Chatter verfolgt."
+"Wert wird verwendet, um Tracking-Werte zu bestellen."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__modules
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__modules
+msgid "In Apps"
+msgstr "In Apps"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__index
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__index
+msgid "Indexed"
+msgstr "Indiziert"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__inherit_view_obj
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__inherit_view_obj
+msgid "Inherited UI View Saved Object"
+msgstr "Geerbtes UI View Gespeichertes Objekt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__label
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__label
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_fields_tree_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_fields_tree_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Label"
+msgstr "Etikette"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_product____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_product_template____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection____last_update
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__write_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__write_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__write_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__write_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__write_uid
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__write_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__write_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__write_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__write_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__write_date
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__modules
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__modules
+msgid "List of modules in which the field is defined"
+msgstr "Liste der Module, in denen das Feld definiert ist"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__ref_model_id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__ref_model_id
+msgid "Model"
+msgstr "Modell"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__model_id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__model_id
+msgid "Model Belongs"
+msgstr "Modell gehört"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__model
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__model
+msgid "Model Name"
+msgstr "Modellname"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__ir_model_fields_obj
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__ir_model_fields_obj
+msgid "Models Fields Saved Object"
+msgstr "Modelle Felder Gespeichertes Objekt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__name
+msgid "Name"
+msgstr "Name"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__on_delete
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__on_delete
+msgid "On Delete"
+msgstr "Beim Löschen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__on_delete
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__on_delete
+msgid "On delete property for many2one fields"
+msgstr "Beim Löschen der Eigenschaft für many2one-Felder"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid "Please Select Position !"
+msgstr "Bitte Position auswählen!"
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#: code:addons/sh_product_custom_fields/models/template_tab.py:0
+#, python-format
+msgid "Please Select Position."
+msgstr "Bitte wählen Sie Position."
+
+#. module: sh_product_custom_fields
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_product.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#: code:addons/sh_product_custom_fields/models/product_template.py:0
+#, python-format
+msgid "Please Select Tab or Field !"
+msgstr "Bitte Tab oder Feld auswählen!"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__sh_position
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__sh_position
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__sh_position
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__sh_position
+msgid "Position"
+msgstr "Position"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__position_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__position_selection
+msgid "Position Based on"
+msgstr "Position basierend auf"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__sh_position_field
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__sh_position_field
+msgid "Position Field"
+msgstr "Positionsfeld"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model,name:sh_product_custom_fields.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: sh_product_custom_fields
+#: model:res.groups,name:sh_product_custom_fields.group_product_template_custom_field
+msgid "Product Template Custom Field"
+msgstr "Benutzerdefiniertes Feld für Produktvorlage"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_action_product_template_custom_fields
+#: model:ir.ui.menu,name:sh_product_custom_fields.sh_product_template_custom_fields_menu
+msgid "Product Template Custom Fields"
+msgstr "Benutzerdefinierte Felder für Produktvorlagen"
+
+#. module: sh_product_custom_fields
+#: model:ir.ui.menu,name:sh_product_custom_fields.sh_template_custom_tab_action_menu
+msgid "Product Template Custom Tabs"
+msgstr "Benutzerdefinierte Registerkarten für Produktvorlagen"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_action_template_order_custom_tab_form
+msgid "Product Template Order Custom Tab"
+msgstr "Registerkarte "Benutzerdefinierte Bestellung von Produktvorlagen""
+
+#. module: sh_product_custom_fields
+#: model:res.groups,name:sh_product_custom_fields.group_product_variant_custom_field
+msgid "Product Variant Custom Field"
+msgstr "Benutzerdefiniertes Feld für Produktvarianten"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_action_product_product_custom_fields
+#: model:ir.ui.menu,name:sh_product_custom_fields.sh_product_product_custom_fields_menu
+msgid "Product Variant Custom Fields"
+msgstr "Benutzerdefinierte Felder für Produktvarianten"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_action_product_order_custom_tab_form
+msgid "Product Variant Custom Tab"
+msgstr "Registerkarte "Benutzerdefinierte Produktvariante""
+
+#. module: sh_product_custom_fields
+#: model:ir.ui.menu,name:sh_product_custom_fields.sh_product_custom_tab_action_menu
+msgid "Product Variant Custom Tabs"
+msgstr "Benutzerdefinierte Registerkarten für Produktvarianten"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__readonly
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__readonly
+msgid "Readonly"
+msgstr "Schreibgeschützt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__related
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__related
+msgid "Related Field"
+msgstr "Verwandtes Gebiet"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__relation
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__relation
+msgid "Related Model"
+msgstr "Verwandte Modell"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__related_field_id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__related_field_id
+msgid "Related field"
+msgstr "Verwandtes Gebiet"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__relation_field
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__relation_field
+msgid "Relation Field"
+msgstr "Beziehungsfeld"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__relation_table
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__relation_table
+msgid "Relation Table"
+msgstr "Beziehungstabelle"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__relation_field_id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__relation_field_id
+msgid "Relation field"
+msgstr "Beziehungsfeld"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__required
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__required
+msgid "Required"
+msgstr "Erforderlich"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__sh_field_id
+msgid "SH Custom Product"
+msgstr "SH Kundenspezifisches Produkt"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__sh_field_product_template_id
+msgid "SH Custom Product Template"
+msgstr "SH Benutzerdefinierte Produktvorlage"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__selectable
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__selectable
+msgid "Selectable"
+msgstr "Wählbar"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__selection_ids
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__sh_selection_ids
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__selection_ids
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__sh_selection_ids
+msgid "Selection Options"
+msgstr "Auswahloptionen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__selection
+msgid "Selection Options (Deprecated)"
+msgstr "Auswahloptionen (veraltet)"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__sequence
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__sequence
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__sequence
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__sequence
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__size
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__size
+msgid "Size"
+msgstr "Größe"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__store
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__store
+msgid "Stored"
+msgstr "Gelagert"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__position_selection__tab
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__position_selection__tab
+msgid "Tab"
+msgstr "Tab"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__invisible_tab
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__invisible_tab
+msgid "Tab Invisible"
+msgstr "Tab Unsichtbar"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__tab_list
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__tab_list
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__tab_list
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__tab_list
+msgid "Tab List"
+msgstr "Registerkartenliste"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_m2m_selection__many2many_tags
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_m2m_selection__many2many_tags
+msgid "Tags"
+msgstr "Stichworte"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__task_model_name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__task_model_name
+msgid "Task Model Name"
+msgstr "Name des Aufgabenmodells"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__name
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__name
+msgid "Technical Field Name"
+msgstr "Technischer Feldname"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__related
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__related
+msgid ""
+"The corresponding related field, if any. This must be a dot-separated list "
+"of field names."
+msgstr ""
+"Das entsprechende verwandte Feld, falls vorhanden. Dies muss eine durch Punkte getrennte Liste sein."
+"von Feldnamen."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__model_id
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__model_id
+msgid "The model this field belongs to"
+msgstr "Das Modell, zu dem dieses Feld gehört"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.constraint,message:sh_product_custom_fields.constraint_sh_custom_tab_product_name_uniq
+#: model:ir.model.constraint,message:sh_product_custom_fields.constraint_sh_custom_tab_template_name_uniq
+msgid "The name must be unique !"
+msgstr "Der Name muss eindeutig sein!"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__domain
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__domain
+msgid ""
+"The optional domain to restrict possible values for relationship fields, "
+"specified as a Python expression defining a list of triplets. For example: "
+"[('color','=','red')]"
+msgstr ""
+"Die optionale Domäne zum Einschränken möglicher Werte für Beziehungsfelder."
+"Wird als Python-Ausdruck angegeben, der eine Liste von Triplets definiert. Beispiel:"
+"[('Farbe', '=', 'Rot')]"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__model
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__model
+msgid "The technical name of the model this field belongs to"
+msgstr "Der technische Name des Modells, zu dem dieses Feld gehört"
+
+#. module: sh_product_custom_fields
+#: model:res.groups,comment:sh_product_custom_fields.group_product_template_custom_field
+msgid "This user will be able to create custom field for product template"
+msgstr "Dieser Benutzer kann ein benutzerdefiniertes Feld für die Produktvorlage erstellen"
+
+#. module: sh_product_custom_fields
+#: model:res.groups,comment:sh_product_custom_fields.group_product_variant_custom_field
+msgid "This user will be able to create custom field for product variant"
+msgstr "Dieser Benutzer kann ein benutzerdefiniertes Feld für die Produktvariante erstellen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__tracking_visibility
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__tracking_visibility
+msgid "Tracking"
+msgstr "Verfolgung"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__translate
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__translate
+msgid "Translatable"
+msgstr "Übersetzbar"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__state
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__state
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_fields_tree_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_fields_tree_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Type"
+msgstr "Art"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__ir_ui_view_obj
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__ir_ui_view_obj
+msgid "UI View Saved Object"
+msgstr "Gespeichertes Objekt in der Benutzeroberfläche anzeigen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__relation_table
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__relation_table
+msgid ""
+"Used for custom many2many fields to define a custom relation table name"
+msgstr ""
+"Wird für benutzerdefinierte many2many-Felder verwendet, um einen benutzerdefinierten Beziehungstabellennamen zu definieren."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_selection__value
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_model_fields_product_template_selection__value
+msgid "Value"
+msgstr "Wert"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_product__view_id
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_tab_template__view_id
+msgid "View"
+msgstr "Aussicht"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__copied
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__copied
+msgid "Whether the value is copied when duplicating a record."
+msgstr "Gibt an, ob der Wert beim Duplizieren eines Datensatzes kopiert wird."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__store
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__store
+msgid "Whether the value is stored in the database."
+msgstr "Gibt an, ob der Wert in der Datenbank gespeichert ist."
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_product__translate
+#: model:ir.model.fields,help:sh_product_custom_fields.field_sh_custom_model_product_template__translate
+msgid ""
+"Whether values for this field can be translated (enables the translation "
+"mechanism for that field)"
+msgstr ""
+"Ob Werte für dieses Feld übersetzt werden können (ermöglicht die Übersetzung"
+"Mechanismus für dieses Feld)"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_float_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_text_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_float_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_text_selection
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_product_dynamic_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_custom_models_form_view
+#: model_terms:ir.ui.view,arch_db:sh_product_custom_fields.sh_product_template_dynamic_models_form_view
+msgid "Widget"
+msgstr "Widget"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_binary_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_binary_selection
+msgid "Widget Binary"
+msgstr "Widget Binär"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_char_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_char_selection
+msgid "Widget Char"
+msgstr "Widget Char"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_m2m_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_m2m_selection
+msgid "Widget M2M"
+msgstr "Widget M2M"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_m2o_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_m2o_selection
+msgid "Widget M2O"
+msgstr "Widget M2O"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_product__widget_selctn_selection
+#: model:ir.model.fields,field_description:sh_product_custom_fields.field_sh_custom_model_product_template__widget_selctn_selection
+msgid "Widget Selection"
+msgstr "Widget-Auswahl"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_char_selection__email
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_char_selection__email
+msgid "email"
+msgstr "Email"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_binary_selection__image
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_binary_selection__image
+msgid "image"
+msgstr "Bild"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_char_selection__phone
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_char_selection__phone
+msgid "phone"
+msgstr "Telefon"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_selctn_selection__priority
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_selctn_selection__priority
+msgid "priority"
+msgstr "Priorität"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_action_product_order_custom_tab
+msgid "product Order Custom Tab"
+msgstr "Produkt Bestellung Benutzerdefinierte Registerkarte"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_selctn_selection__radio
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_selctn_selection__radio
+msgid "radio"
+msgstr "Radio"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_m2o_selection__selection
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_m2o_selection__selection
+msgid "selection"
+msgstr "Auswahl"
+
+#. module: sh_product_custom_fields
+#: model:ir.actions.act_window,name:sh_product_custom_fields.sh_action_template_order_custom_tab
+msgid "template Order Custom Tab"
+msgstr "Vorlage Benutzerdefinierte Registerkarte bestellen"
+
+#. module: sh_product_custom_fields
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_product__widget_char_selection__url
+#: model:ir.model.fields.selection,name:sh_product_custom_fields.selection__sh_custom_model_product_template__widget_char_selection__url
+msgid "url"
+msgstr "URL"

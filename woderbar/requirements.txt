@@ -1,0 +1,2 @@
+woocommerce==2.1.1
+geoip2

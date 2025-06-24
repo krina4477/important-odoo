@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_menus_form_view_inh" model="ir.ui.view">
+        <field name="name">website.menu.view.form.inh</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.website_menus_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="website_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <template id="header" priority="87" inherit_id="website.layout" name="Header Menu FAQ">
+        <xpath expr="//header" position="replace">
+            <header id="top" class="o_header_standard">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand text-black" href="/">
+                            <span class=""><strong>WUNDERBAR</strong> CUSTOM RADIO SHOP</span>
+                            <img src="/website_ecom_custom/static/img/wunderbar-logo.svg" alt="WUNDERBAR Custom Radio Shop"/>
+                        </a>
+                        <button class="navbar-toggler btn_navbar collapsed" type="button" data-toggle="collapse" data-target="#top_menu_collapse"
+                                aria-controls="nav" aria-expanded="false" aria-label="Navigation umschalten">
+                            <span class="navbar-toggler-icon o_not_editable"></span>
+                        </button>
+                        <t t-set="is_connected" t-value="not user_id._is_public()"/>
+                        <div class="collapse navbar-collapse flex-grow-0" id="top_menu_collapse">
+                            <ul class="navbar-nav ms-auto" id="top_menu">
+                                <t t-foreach="website.menu_id.child_id" t-as="menu">
+                                    <t t-if="not menu.child_id">
+                                        <li id="menu-item-3135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-17 current_page_item menu-item-3135 active nav-item">
+                                            <a t-att-href="menu.url" aria-current="page" class="nav-link find_dein_radio_li_logout"><span t-esc="menu.name"/></a>
+                                        </li>
+                                    </t>
+                                     <t t-if="menu.child_id">
+                                         <li id="menu-item-3148" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3148 dropdown nav-item">
+                                             <a class="nav-link dropdown-toggle" data-toggle="dropdown"><span t-esc="menu.name"/></a>
+                                             <ul class="dropdown-menu">
+                                                <t t-foreach="menu.child_id" t-as="child">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8155">
+                                                        <a t-att-href="child.url" class="dropdown-item"><span t-esc="child.name"/></a>
+                                                    </li>
+                                                </t>
+                                             </ul>
+                                         </li>
+                                     </t>
+                                </t>
+                                <li id="menu-item-7946" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7946 nav-item o_no_autohide_item">
+                                    <a href="/shop/cart" class="nav-link">
+                                        <t t-set="website_sale_order" t-value="website.sale_get_order()" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-shopping-cart">
+                                            <circle cx="9" cy="21" r="1"></circle>
+                                            <circle cx="20" cy="21" r="1"></circle>
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                        </svg>
+                                        <sup class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or '0'" t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
+                                    </a>
+                                </li>
+                                <t t-if="is_connected">
+                                    <li t-attf-class="#{_item_class} nav-link o_no_autohide_item">
+                                        <a href="#" role="button" data-toggle="dropdown" t-attf-class="dropdown-toggle user_class #{_link_class}">
+<!--                                            <span><t t-esc="user_id.name"/></span>-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                        </a>
+                                        <div t-attf-class="dropdown-menu js_usermenu #{_dropdown_menu_class}" role="menu">
+                                            <a href="/my/home" role="menuitem" class="dropdown-item">My Account</a>
+                                            <div id="o_logout_divider" class="dropdown-divider"/>
+                                            <a t-attf-href="/web/session/logout?redirect=/" role="menuitem" id="o_logout" class="dropdown-item">Logout</a>
+                                        </div>
+                                    </li>
+                                </t>
+                                <t t-else="">
+                                    <li id="menu-item-7947" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7947 nav-item o_no_autohide_item">
+                                        <a href="/web/login" class="nav-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="website_categ_inherit" inherit_id="website_sale.categorie_link">
+        <xpath expr="//div[hasclass('custom-radio')]" position="replace">
+            <div t-att-data-link-href="keep('/shop/category/' + slug(c), category=0)" class="custom-control-categ custom-radio mb-1 d-inline-block">
+                <input type="checkbox" style="pointer-events:none;" class="categ_checkbox" t-att-id="c.id" t-att-value="c.id" t-att-checked="'checked' if c.id == category.id else None"/>
+                <label class=" term-label font-weight-normal" t-att-for="c.id" t-field="c.name"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="shop_cover_image_snippet" name="Shop Cover Image">
+        <section class="s_shop_cover_image parallax s_parallax_is_fixed" data-scroll-background-ratio="1">
+            <div id="js-product-list-header">
+                <div class="block-category">
+                    <div class="category-cover mb-5">
+                        <img class="img-fluid o_we_custom_image float-right" src="/website_ecom_custom/static/img/Website_Bilder_Ersatzteile.jpg" />
+                        <br/>
+                        <strong>
+                            <font style="color: rgb(176, 155, 95);">
+                            </font>
+                        </strong>
+                    </div>
+                    <strong>
+                        <font style="color: rgb(176, 155, 95);">
+                        </font>
+                    </strong>
+                    <div class="top-left">
+                        <strong>
+                            <font style="color: rgb(176, 155, 95);">ALLE ERSATZTEILE FÜR DEIN RADIO UND DEIN PROJEKT&amp;nbsp;</font>
+                        </strong>
+                        <h2 class="top_2">
+                            <strong>
+                                <font class="text-o-color-5">
+                                    <br/>
+                                    ANTENNEN<br/>
+                                    <strong style="font-weight: bolder;color: rgb(176, 155, 95);font-size: 60px;background-color: rgb(242, 242, 243)">
+                                        <font class="text-o-color-5" style="color: rgb(56, 62, 69) !important">LAUTSPRECHER</font>
+                                    </strong>&amp;nbsp;<br/>
+                                    <strong style="font-weight: bolder;color: rgb(176, 155, 95);font-size: 60px;background-color: rgb(242, 242, 243)">
+                                        <font class="text-o-color-5" style="color: rgb(56, 62, 69) !important">KNÖPFE</font>
+                                    </strong>
+                                </font>
+                        </strong>
+                        </h2>&amp;nbsp;
+                        <h2 class="top_3">
+                            <strong></strong>
+                        </h2>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="shop_nav_upper_block" inherit_id="website_sale.products">
+        <xpath expr="//div[@id='products_grid_before']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')]" position="attributes">
+            <attribute name="id">hide_main_shop_pager</attribute>
+            <attribute name="class">products_pager form-inline</attribute>
+        </xpath>
+        <xpath expr="//div[@id='products_grid']/t[@t-else='']/div" position="replace">
+            <div class="tp-hook-no-search">
+                <div t-if="not search" class="not_search">
+                <!-- <t t-call="website_ecom_custom.shop_cover_image_snippet" /> -->
+                    <div class="product-list container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <form>
+                                    <div style="background-color:#f2f2f3 !important;">
+
+                                    <h4 class="facet-title">HERSTELLER</h4>
+
+                                    <t t-foreach = 'hertesellar_filter' t-as="hertesellar">
+                                        <t t-if="hertesellar">
+                                            <div>
+                                                <input t-att-id="'attrib_manufacturer_' + hertesellar" type="checkbox" class="attribe_checkbox manufacturer_class" t-att-name="'attrib_manufacturer_' + hertesellar" 
+                                                    t-att-value="hertesellar" t-att-checked="'checked' if hertesellar in manufacturer_values else None">
+                                                    <span class="term-label" t-out="hertesellar" />
+                                                </input>
+                                            </div>
+                                        </t>
+                                    </t>
+
+                                    <h4 class="facet-title mt-4">BAUJAHR</h4>
+                                    <t t-set="model_year" t-value="manufact_year_filter"/>
+
+                                    <!-- Drop down filter added on the product page -->
+                                    <div class="home_year" id="year_id">
+                                         <select size="1" class="select_class manufact_year_filter_class" name="model_year">
+                                             <option value="" class="option_manu">manufact_year_filter11</option>
+                                              <t t-foreach="model_year" t-as="model_yr">
+                                                    <option t-att-value="model_yr.x_name" class="option_manu"><t t-esc="model_yr.x_name"/></option>
+                                              </t>
+                                         </select>
+                                    </div>
+                                    <!-- END OF Drop down filter added on the product page -->
+
+                                    <t t-foreach="model_year" t-as="model_yr">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="attribe_checkbox modal_year_class" name="attrib_model_year" t-att-id="'%s' % (model_yr.id)" t-att-value="'%s' % (model_yr.id)" t-att-checked="'checked' if model_yr.id in model_year_values else None"/>
+                                            <label class="term-label" t-att-for="'%s' % (model_yr.id)" t-field="model_yr.x_name"/>
+                                        </div>
+                                    </t>
+
+                                    <h4 class="facet-title mt-4">ERSATZTEIL</h4>
+                                    <t t-set="fahrzeug_modell" t-value="model_year_filter"/>
+                                    <t t-foreach = 'fahrzeug_modell' t-as="modell">
+                                        <t t-if="modell">
+                                            <div class="row ml-0">
+                                                <label class="label_class">
+                                                    <input id="attrib_fahrzeug_modell" type="checkbox" class="attribe_checkbox categ_class" name="attrib_fahrzeug_modell"
+                                                        t-att-value="'%s' % (modell.id)" t-att-checked="'checked' if modell.id in category_values else None"/>
+                                                    <span class="term-label" t-field="modell.x_name" />
+                                                </label>
+                                            </div>
+                                        </t>
+                                    </t>
+
+                                    <h4 class="facet-title mt-4 ">Categories</h4>
+                                    <t t-set="product_category" t-value="categ_filter"/>
+                                    <t t-foreach = 'product_category' t-as="categ">
+                                        <t t-if="categ">
+                                            <div class="row ml-0">
+                                                <label class="label_class">
+                                                    <input id="attrib_category" type="checkbox" class="attribe_checkbox categ_class" name="attrib_category"
+                                                        t-att-value="'%s' % (categ.id)" t-att-checked="'checked' if categ.id in category_values else None"/>
+                                                    <span class="term-label" t-field="categ.name" />
+                                                </label>
+                                            </div>
+                                        </t>
+                                    </t>
+
+                                    <!-- <h4 class="facet-title mt-4">FEATURES</h4>
+                                    <t t-set="model_features" t-value="request.env['product.feature'].sudo().search([])"/>
+                                    <t t-foreach = 'model_features' t-as="feature">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="attribe_checkbox feature_class" name="attrib_feature" t-att-id="'%s' % (feature.id)" t-att-value="'%s' % (feature.id)" t-att-checked="'checked' if feature.id in feature_values else None"/>
+                                            <label class="term-label" t-att-for="'%s' % (feature.id)" t-field="feature.name"/>
+                                        </div>
+                                    </t> -->
+                                </div>
+                                </form>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <p class="text-center not_search_content">No Product Found</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('o_wsale_products_grid_table_wrapper')]" position="before">
+            <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_cover_snippet">
+                <section class="s_shop_cover_image parallax s_parallax_is_fixed" data-scroll-background-ratio="1">
+                    <div id="js-product-list-header">
+                        <div class="block-category">
+                            <div class="category-cover mb-5">
+                                <img class="img-fluid o_we_custom_image float-right" src="/website_ecom_custom/static/img/Website_Bilder_Ersatzteile.jpg" />
+                                <br/>
+                                <strong>
+                                    <font style="color: rgb(176, 155, 95);">
+                                    </font>
+                                </strong>
+                            </div>
+                            <strong>
+                                <font style="color: rgb(176, 155, 95);">
+                                </font>
+                            </strong>
+                            <div class="top-left">
+                                <strong>
+                                    <font style="color: rgb(176, 155, 95);">ALLE ERSATZTEILE FÜR DEIN RADIO UND DEIN PROJEKT&amp;nbsp;</font>
+                                </strong>
+                                <h2 class="top_2">
+                                <strong>
+                                    <font class="text-o-color-5">
+                                        <br/>
+                                        ANTENNEN<br/>
+                                    <strong style="font-weight: bolder;color: rgb(176, 155, 95);font-size: 60px;background-color: rgb(242, 242, 243)">
+                                        <font class="text-o-color-5" style="color: rgb(56, 62, 69) !important">LAUTSPRECHER</font>
+                                    </strong>&amp;nbsp;<br/>
+                                    <strong style="font-weight: bolder;color: rgb(176, 155, 95);font-size: 60px;background-color: rgb(242, 242, 243)">
+                                        <font class="text-o-color-5" style="color: rgb(56, 62, 69) !important">KNÖPFE</font>
+                                    </strong>
+                                    </font>
+                                </strong>
+                                </h2>&amp;nbsp;
+                                <h2 class="top_3">
+                                <strong></strong>
+                                </h2>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>   
+        </xpath>
+    </template>
+
+    <template id="product_item_inherit" inherit_id="website_sale.products_item">
+        <xpath expr="//form" position="replace">
+            <form action="/shop/cart/update" method="post" class="card oe_product_cart"
+                  t-att-data-publish="product.website_published and 'on' or 'off'"
+                  itemscope="itemscope" itemtype="http://schema.org/Product">
+                <div class="card-body p-1 p-sm-0 oe_product_image">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <a t-att-href="product_href" class="d-block h-100" itemprop="url">
+                        <span t-field="product.image_1920"
+                              t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256'}"
+                              class="d-flex h-100 justify-content-center align-items-center product_display_image"/>
+                    </a>
+                </div>
+                <div class="o_wsale_product_information">
+                    <div class="main_div">
+                       <div class="review-product mt-2">
+                        <h2 class="product-title" itemprop="name">
+                            <a class="font-weight-bold" t-attf-href="/shop/product/#{slug(product)}">
+                                <t t-esc="product.name"/>
+                            </a>
+                        </h2>
+                        <div class="prod_descript">
+<!--                            <p><t t-esc="product.description_sale"/> </p>-->
+                            <p>
+                                <t t-if="product.description_sale"><t t-esc="product.description_sale[:150]"/></t>
+                                <t t-if="product.description_sale and len(product.description_sale) > 150">...</t>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="sub_div">
+                            <div class="price-cart">
+                            <div class="product_price font-weight-bold" itemprop="offers" itemscope="itemscope"
+                                 itemtype="http://schema.org/Offer">
+                                <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
+                                     style="white-space: nowrap;" t-esc="combination_info['list_price']"
+                                     t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                <span t-if="combination_info['price']" t-esc="combination_info['price']"
+                                      t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                                <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                            </div>
+                            <div class="product-action-btn float-right">
+                                <form action="/shop/cart/update" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <input name="product_id" t-att-value="product.product_variant_id.id" type="hidden"/>
+                                    <button class="button btn btn-cart btn-md btn-primary add-to-cart-carousel">
+                                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="incl_shopping"><span>incl. VAT plus <a href="#" class="shipping_link">shipping costs</a></span></div>
+                        </div>
+                    </div>
+            </form>
+        </xpath>
+    </template>
+
+    <template id="shop_template_changes11" inherit_id="website_sale.products" name="Shop">
+        <xpath expr="//div[hasclass('container')]" position="attributes">
+            <attribute name="style">max-width:100%</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='products_grid']//table" position="before">
+
+            <div class="product-list container">
+                <div class="categ_link_class">
+                    <ol class="breadcrumb mb-2 header_link_1">
+                        <li class="breadcrumb-item o_not_editable">
+                            <a class="home_link font-weight-light" t-att-href="keep(category=0)">Home /</a>
+                        </li>
+                        <li t-if="category" class="cat_class">
+                            &amp;nbsp;<a class="home_link font-weight-light" t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name" /> /
+                        </li>
+                    </ol>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <form>
+                            <div style="background-color:#f2f2f3 !important;">
+                            <h4 class="facet-title">HERSTELLER</h4>
+                            <t t-foreach = 'hertesellar_filter' t-as="hertesellar">
+                                <t t-if="hertesellar">
+                                    <div>
+                                        <input t-att-id="'attrib_manufacturer_' + hertesellar" type="checkbox" class="attribe_checkbox manufacturer_class" t-att-name="'attrib_manufacturer_' + hertesellar" 
+                                            t-att-value="hertesellar" t-att-checked="'checked' if hertesellar in manufacturer_values else None">
+                                            <span class="term-label" t-out="hertesellar" />
+                                        </input>
+                                    </div>
+                                </t>
+                            </t>
+
+                            <h4 class="facet-title mt-4">BAUJAHR</h4>
+                            <t t-set="model_year" t-value="manufact_year_filter"/>
+                             <!-- Drop down filter added on the product page -->
+                            <div class="home_year" id="year_id">
+                                 <select size="1" class="select_class modal_year_class" name="attrib_model_year">
+                                     <option name="attrib_model_year" class="option_manu">Select Year</option>
+                                      <t t-foreach="model_year" t-as="model_yr">
+                                            <option t-att-selected="model_yr.id in model_year_values" t-att-value="model_yr.id" class="option_manu"><t t-esc="model_yr.x_name"/></option>
+                                      </t>
+                                 </select>
+                            </div>
+<!--                            <t t-foreach="model_year" t-as="model_yr">-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="attribe_checkbox modal_year_class" name="attrib_model_year" t-att-id="'%s' % (model_yr.id)" t-att-value="'%s' % (model_yr.id)" t-att-checked="'checked' if model_yr.id in model_year_values else None"/>-->
+<!--                                    <label class="term-label" t-att-for="'%s' % (model_yr.id)" t-field="model_yr.x_name"/>-->
+<!--                                </div>-->
+<!--                            </t>-->
+                            <h4 class="facet-title mt-4">ERSATZTEIL</h4>
+                            <t t-set="fahrzeug_modell" t-value="model_year_filter"/>
+                            <div class="home_year" id="model_id">
+                                 <select size="1" class="select_class model_class" name="attrib_fahrzeug_modell">
+                                     <option name="attrib_fahrzeug_modell" class="option_manu">Select Model</option>
+                                      <t t-foreach="fahrzeug_modell" t-as="f_model">
+                                            <option t-att-selected="f_model.id in fahrzeug_modell_values" t-att-value="f_model.id" class="option_manu"><t t-esc="f_model.x_name"/></option>
+                                      </t>
+                                 </select>
+                            </div>
+<!--                            <t t-foreach = 'fahrzeug_modell' t-as="modell">-->
+<!--                                <t t-if="modell">-->
+<!--                                    <div class="row ml-0">-->
+<!--                                        <label class="label_class">-->
+<!--                                            <input id="attrib_fahrzeug_modell" type="checkbox" class="attribe_checkbox model_class" name="attrib_fahrzeug_modell"-->
+<!--                                                t-att-value="'%s' % (modell.id)" t-att-checked="'checked' if modell.id in category_values else None"/>-->
+<!--                                            <span class="term-label" t-field="modell.x_name" />-->
+<!--                                        </label>-->
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                            </t>-->
+
+                            <h4 class="facet-title mt-4">Categories</h4>
+                            <t t-set="product_category" t-value="public_categ_filter"/>
+                            <t t-foreach = 'product_category' t-as="categ">
+                                <t t-if="categ">
+                                    <div class="row ml-0">
+                                        <label class="label_class">
+                                            <input id="attrib_category" type="checkbox" class="attribe_checkbox categ_class" name="attrib_category"
+                                                t-att-value="'%s' % (categ.id)" t-att-checked="'checked' if categ.id in category_values else None"/>
+                                            <span class="term-label" t-field="categ.name" />
+                                        </label>
+                                    </div>
+                                </t>
+                            </t>
+
+                            <!-- <h4 class="facet-title mt-4">FEATURES</h4>
+                            <t t-set="model_features" t-value="request.env['product.feature'].sudo().search([])"/>
+                            <t t-foreach = 'model_features' t-as="feature">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="attribe_checkbox feature_class" name="attrib_feature" t-att-id="'%s' % (feature.id)" t-att-value="'%s' % (feature.id)" t-att-checked="'checked' if feature.id in feature_values else None"/>
+                                    <label class="term-label" t-att-for="'%s' % (feature.id)" t-field="feature.name"/>
+                                </div>
+                            </t> -->
+                        </div>
+                        </form>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <t t-if="products">
+                               <t t-foreach="products" t-as="product">
+                                    <div class="product_view_change mb-5 col-md-4">
+                                        <t t-call="website_sale.products_item"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='products_grid']//table" position="replace">
+            <table></table>
+        </xpath>
+    </template>
+
+    <template id="description_for_delivery_order" inherit_id="website_sale.cart_line_description_following_lines">
+        <xpath expr="//div" position="replace">
+            <div t-if="line.get_delivery_description()" t-attf-class="text-muted {{div_class}} small">
+                <t t-set="delivery_order_description" t-value="line.get_delivery_description()" />
+                <t t-esc="delivery_order_description[:150]" />
+                <t t-if="delivery_order_description and len(delivery_order_description) > 150">...</t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Merchant Center Configuration-->
+    <menuitem id="menu_google_merchant_center" name="Google Merchant Center"
+        parent="website.menu_website_global_configuration" sequence="60" groups="website_google_merchant_center.group_google_merchant_center"/>
+
+    <menuitem id="action_menu_merchant_center" name="Merchant Center"
+        sequence="0" parent="menu_google_merchant_center" action="product_merchant_center_action_form"/>
+
+    <menuitem id="action_menu_merchant_brand" name="Brand"
+        sequence="1" parent="menu_google_merchant_center" action="product_merchant_brand_action_form"/>
+
+    <menuitem id="action_menu_merchant_category" name="Category"
+        sequence="1" parent="menu_google_merchant_center" action="product_merchant_category_action_form"/>
+
+    <menuitem id="action_menu_merchant_color" name="Color"
+        sequence="2" parent="menu_google_merchant_center" action="product_merchant_color_action_form"/>
+
+    <menuitem id="action_menu_merchant_size" name="Size"
+        sequence="3" parent="menu_google_merchant_center" action="product_merchant_size_action_form"/>
+
+</odoo>

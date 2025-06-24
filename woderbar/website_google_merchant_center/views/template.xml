@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="google_success">
+        <html>
+            <body>
+               <div class="oe_structure oe_empty">
+                   <div id="wrap">
+                        <div class="oe_structure">
+                            <div class="container">
+                                Authorization successful. 
+                                Please Close This window manually if do not get closed automatically.
+                                <div>
+                                    <span id="download"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </template>
+
+    <template id="google_fail">
+        <html>
+            <body>
+               <div class="oe_structure oe_empty">
+                   <div id="wrap">
+                        <div class="oe_structure">
+                            <div class="container">
+                                Authorization unsuccessful.
+                                Close This Window Manually.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </template>
+</odoo>

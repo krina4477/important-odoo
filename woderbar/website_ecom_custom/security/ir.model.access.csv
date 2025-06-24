@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_feature,product.feature,model_product_feature,,1,1,1,1
+acess_website_footer_menu,website.footer.menu,model_website_footer_menu,,1,1,1,1
+access_x_fahrzeug_modell,access.x_fahrzeug_modell,studio_customization.fahrzeug_modell_4dea628d-a90a-4006-94e3-ca6441c50ce0,,1,0,0,0
+access_x_fahrzeug_baujahr,access.x_fahrzeug_baujahr,studio_customization.fahrzeug_baujahr_46c65c97-7287-4323-9544-9142f6cb769b,,1,0,0,0

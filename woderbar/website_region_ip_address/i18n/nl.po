@@ -1,0 +1,206 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_region_ip_address
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-10 10:31+0000\n"
+"PO-Revision-Date: 2022-10-10 16:04+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: website_region_ip_address
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.cart_inherit
+msgid ""
+"<span class=\"\">Process Checkout</span>\n"
+"                                        <span class=\"fa fa-chevron-right\"/>"
+msgstr ""
+"<span class=\"\">Afrekenen verwerken</span>\n"
+"                                        <span class=\"fa fa-chevron-right\"/>"
+
+#. module: website_region_ip_address
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.short_cart_summary_inherit
+msgid "<span>Process Checkout</span>"
+msgstr "<span>Afrekenen verwerken</span>"
+
+#. module: website_region_ip_address
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.cart_inherit
+msgid ""
+"<strong>Wraning!</strong>\n"
+"\t\t                Please set the pricelists for regions you have created."
+msgstr ""
+"<strong>Waarschuwing!</strong>\n"
+"Stel de prijslijsten in voor de regio's die u heeft aangemaakt."
+
+#. module: website_region_ip_address
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.res_config_inherit_view_form
+msgid "Allow or disallow GOIP setup."
+msgstr "Sta GOIP-configuratie toe of verbied het."
+
+#. module: website_region_ip_address
+#: model:ir.model.fields.selection,name:website_region_ip_address.selection__res_config_settings__goip_setup__allow
+msgid "Allow to change country after GEOIP setup."
+msgstr "Sta toe om van land te veranderen na GEOIP-configuratie."
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_country__company_id
+#: model:ir.model.fields,field_description:website_region_ip_address.field_sale_order__company_id
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: website_region_ip_address
+#: model:ir.model,name:website_region_ip_address.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
+
+#. module: website_region_ip_address
+#: model:ir.model,name:website_region_ip_address.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_partner__l10n_in_country_code
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_users__l10n_in_country_code
+msgid "Country code"
+msgstr "Landcode"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__create_uid
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__create_date
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields.selection,name:website_region_ip_address.selection__res_config_settings__goip_setup__disallow
+msgid "Do not allow to change country after GEOIP setup"
+msgstr "Sta niet toe om van land te veranderen na het instellen van GEOIP"
+
+#. module: website_region_ip_address
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.res_config_inherit_view_form
+msgid "GOIP Setup"
+msgstr "GOIP-configuratie"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_config_settings__goip_setup
+msgid "Goip Setup"
+msgstr "Goip-configuratie"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__id
+msgid "ID"
+msgstr "ID kaart"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_country__lang
+msgid "Language"
+msgstr "Taal"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__write_date
+msgid "Last Updated on"
+msgstr "Laatst geupdate op"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_country__pricelist_id
+msgid "Pricelist"
+msgstr "Prijslijst"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_res_country__region_id
+#: model:ir.ui.menu,name:website_region_ip_address.region
+msgid "Region"
+msgstr "Regio"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_website_region__name
+msgid "Region Name"
+msgstr "Regio naam"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,field_description:website_region_ip_address.field_sale_order__region_country_id
+msgid "Region/Country"
+msgstr "Regio/Land"
+
+#. module: website_region_ip_address
+#: model:ir.model,name:website_region_ip_address.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: website_region_ip_address
+#: code:addons/website_region_ip_address/models/sale_order.py:0
+#, python-format
+msgid "The GSTIN [%s] for partner [%s] should be 15 characters only."
+msgstr "De GSTIN [%s] voor partner [%s] mag slechts 15 tekens lang zijn."
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,help:website_region_ip_address.field_res_partner__l10n_in_country_code
+#: model:ir.model.fields,help:website_region_ip_address.field_res_users__l10n_in_country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+"De ISO-landcode in twee tekens.\n"
+"U kunt dit veld gebruiken om snel te zoeken."
+
+#. module: website_region_ip_address
+#: model:ir.model,name:website_region_ip_address.model_website
+msgid "Website"
+msgstr "Website"
+
+#. module: website_region_ip_address
+#: model:ir.actions.act_window,name:website_region_ip_address.website_region
+#: model:ir.ui.menu,name:website_region_ip_address.menu_website_region
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.website_region_form_view
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.website_region_tree_view
+msgid "Website Region"
+msgstr "Website Regio"
+
+#. module: website_region_ip_address
+#: model:ir.actions.act_window,name:website_region_ip_address.website_region_country_pricelist_inherit
+#: model:ir.ui.menu,name:website_region_ip_address.menu_website_region_country_pricelist_inherit
+#: model_terms:ir.ui.view,arch_db:website_region_ip_address.website_region_country_pricelist_tree_view
+msgid "Website Region Country"
+msgstr "Website Regio Land"
+
+#. module: website_region_ip_address
+#: model:ir.model,name:website_region_ip_address.model_res_country
+#: model:ir.model,name:website_region_ip_address.model_website_region
+msgid ""
+"When region has been selected that particular pricelist has been applied on "
+"webshop, and once order has been placed this price-list linked to webshop"
+msgstr ""
+"Wanneer regio is geselecteerd, is die bepaalde prijslijst toegepast op de "
+"webshop, en zodra de bestelling is geplaatst is deze prijslijst gekoppeld "
+"aan de webshop"
+
+#. module: website_region_ip_address
+#: model:ir.model.fields,help:website_region_ip_address.field_sale_order__region_country_id
+msgid "region for current sales order."
+msgstr "regio voor de huidige verkooporder."

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Dynamic Pricelist with Region wise from backend -->
+		<template id="region_header_page" name="Website Region">
+			<li class="nav-item dropdown show">
+				<t t-set="website_region" t-value="website.get_region_available(show_visible=True)" />
+				<t t-set="curr_reg" t-value="website.get_current_region()" />
+
+				 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+					 <span style="width: 25px; height: 25px; display: inline-block;" t-field="curr_reg.image_url" t-options="{'widget': 'image_url', 'class': 'country_flag', 'resize': '20x20'}"/>
+					<span class="Text">
+						<span t-esc="curr_reg and curr_reg.name or ' - '" />
+					</span>
+					<span class="caret"></span>
+
+				</a>
+				<t t-set="region_category" t-value="website.get_region_category()"></t>
+				<ul t-if="region_category" class="dropdown-menu js_usermenu" role="menu" style="padding: 14px 5px;">
+					<t t-foreach="region_category" t-as="category">
+						<li>
+							<span>
+								<span class="Text">
+									<t t-esc="category.name" />
+								</span>
+							</span>
+							<li style="padding: 0 20px;">
+								<t t-set="a" t-value="request.env['res.country'].search([('region_id', '=', category.id)])"></t>
+								<t t-foreach="a" t-as="c">
+									<a t-att-href="'/shop/change_region/%s' % c.id" t-att-data-pl_id="c.id" style="display: block;">
+										<span class="Text">
+											<t t-esc="c.name" />
+										</span>
+									</a>
+								</t>
+							</li>
+						</li>
+
+					</t>
+				</ul>
+			</li>
+		</template>
+
+
+		<!-- Add wallet menu in all header styles-->
+		<template id="currency_menu_template_header_default" inherit_id="website.template_header_default">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_hamburger" inherit_id="website.template_header_hamburger">
+			<xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_vertical" inherit_id="website.template_header_vertical">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_sidebar" inherit_id="website.template_header_sidebar">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_slogan" inherit_id="website.template_header_slogan">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_contact" inherit_id="website.template_header_contact">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<!-- <template id="currency_menu_template_header_minimalist" inherit_id="website.template_header_minimalist">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template> -->
+
+		<template id="currency_menu_template_header_boxed" inherit_id="website.template_header_boxed">
+			<xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="before">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_centered_logo" inherit_id="website.template_header_centered_logo">
+			<xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="before">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_image" inherit_id="website.template_header_image">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_hamburger_full" inherit_id="website.template_header_hamburger_full">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<template id="currency_menu_template_header_magazine" inherit_id="website.template_header_magazine">
+			<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+				<t t-call="website_region_ip_address.region_header_page"></t>
+			</xpath>
+		</template>
+
+		<!-- <template id="cart_inherit" inherit_id="website_sale.cart">
+			<xpath expr="//a[@href='/shop/checkout?express=1']" position="replace">
+				<t t-if="len(website_sale_order.company_id) &gt; 0">
+					<a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-primary float-right d-none d-xl-inline-block" href="/shop/checkout?express=1">
+                                        <span class="">Process Checkout</span>
+                                        <span class="fa fa-chevron-right" />
+                                    </a>
+				</t>
+				<t t-else="">
+					<div class="alert alert-danger">
+		                <strong>Wraning!</strong>
+		                Please set the pricelists for regions you have created.
+		            </div>	
+				</t>
+			</xpath>
+		</template> -->
+
+		<template id="priceList_id" inherit_id="website_sale.cart_lines">
+			<xpath expr="//table[@id='cart_products']//td[@name='price']/t[3]" position="replace">
+				<t t-if="len(website_sale_order.company_id) &gt; 0">
+					<t t-set="list_price_converted" t-value="website.currency_id._convert(combination_info['list_price'], website_sale_order.currency_id, website_sale_order.company_id, date)"/>
+				</t>
+				
+			</xpath>
+		</template>
+
+		<!-- <template id="short_cart_summary_inherit" inherit_id="website_sale.short_cart_summary">
+			<xpath expr="//a[@role='button']" position="replace">
+				<t t-if="len(website_sale_order.company_id) &gt; 0">
+					<a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-secondary float-right d-none d-xl-inline-block" href="/shop/checkout?express=1">
+                        <span>Process Checkout</span>
+                    </a>
+				</t>
+			</xpath>
+		</template> -->
+
+	</data>
+</openerp>
+

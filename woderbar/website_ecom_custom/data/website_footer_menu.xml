@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="footer_menu_agb" model="website.footer.menu">
+            <field name="name">AGB</field>
+            <field name="url">/ersatzteile-fur-dein-radio/agb/</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="footer_menu_impressum" model="website.footer.menu">
+            <field name="name">Impressum</field>
+            <field name="url">/startseite/impressum/</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="footer_menu_datenschutzerklärung" model="website.footer.menu">
+            <field name="name">Datenschutzerklärung</field>
+            <field name="url">/startseite/datenschutz/</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="footer_menu_installations_und_bedienungsanleitung" model="website.footer.menu">
+            <field name="name">Installations- und Bedienungsanleitung</field>
+            <field name="url">/startseite/installations-und-bedienungsanleitung/</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+    </data>
+</odoo>

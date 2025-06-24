@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="classic_station_search_template" name="Der elektromechanische Sendersuchlauf in alten Autoradios | WUNDERBAR Custom Radio Shop">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <t t-call="website_ecom_custom.s_classic_station_search_content"/>
+                <div class="oe_structure oe_empty"/>
+                <t t-call="website_ecom_custom.s_classic_station_search_template"/>
+                <div class="oe_structure oe_empty"/>
+                <div style="height:100px;" class="wp-block-spacer"></div>
+                <form class="search-form" action="/search_radio" method="post">
+                    <div class="container home_content_class">
+                        <p class="subhead_search">FINDE DEIN RADIO</p>
+                            <div class="ct">
+                            <div class="row change_row">
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col home_manufacturer" id="manufac_id">
+                                            <select class="select_class manufact_select_class" name="manufacturer">
+                                                <option value="ACADIAN" t-att-selected="'selected' if manufacturer_val=='ACADIAN' else None">ACADIAN</option>
+                                                <option value="BEAUMONT" t-att-selected="'selected' if manufacturer_val=='BEAUMONT' else None">BEAUMONT</option>
+                                                <option value="BUICK" t-att-selected="'selected' if manufacturer_val=='BUICK' else None">BUICK</option>
+                                                <option value="CADILLAC" t-att-selected="'selected' if manufacturer_val=='CADILLAC' else None">CADILLAC</option>
+                                                <option value="CHEVROLET" t-att-selected="'selected' if manufacturer_val=='CHEVROLET' else None">CHEVROLET</option>
+                                                <option value="CHRYSLER" t-att-selected="'selected' if manufacturer_val=='CHRYSLER' else None">CHRYSLER</option>
+                                                <option value="GENERAL MOTORS" t-att-selected="'selected' if manufacturer_val=='GENERAL MOTORS' else None">GENERAL MOTORS</option>
+                                                <option value="GM" t-att-selected="'selected' if manufacturer_val=='GM' else None">GM</option>
+                                                <option value="GMC" t-att-selected="'selected' if manufacturer_val=='GMC' else None">GMC</option>
+                                                <option value="LINCOLN" t-att-selected="'selected' if manufacturer_val=='LINCOLN' else None">LINCOLN</option>
+                                                <option value="OLDSMOBILE" t-att-selected="'selected' if manufacturer_val=='OLDSMOBILE' else None">OLDSMOBILE</option>
+                                                <option value="PACKARD" t-att-selected="'selected' if manufacturer_val=='PACKARD' else None">PACKARD</option>
+                                                <option value="PONTIAC" t-att-selected="'selected' if manufacturer_val=='PONTIAC' else None">PONTIAC</option>
+                                                <option value="STUDEBAKER" t-att-selected="'selected' if manufacturer_val=='STUDEBAKER' else None">STUDEBAKER</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col home_year" id="year_id">
+                                            <select size="1" class="select_class year_select_class" name="model_year">
+                                                <option value="" class="option_manu">Baujahr</option>
+                                            </select>
+                                        </div>
+                                        <div class="col home_name" id="model_name_id">
+                                            <select size="1" class="select_class model_select_class" name="model_name">
+                                                <option class="option_manu" value="">Modell</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-4 text-center">
+                                    <button class="btn btn-primary" id="find_now" type="submit">
+                                        Jetzt finden
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div style="height:100px;" class="wp-block-spacer"></div>
+            </div>
+            <div class="oe_structure oe_empty"/>
+        </t>
+    </template>
+
+    <template id="s_classic_station_search_template" name="Station Search Old Radio">
+        <section class="s_text_image mt96">
+            <div class="container" style="max-width:100%;">
+                <div class="row align-items-center text_img_class">
+                    <div class="col-lg-5">
+                        <img src="/website_ecom_custom/static/img/7266505.png" class="img img-fluid img_class" alt="Our Team"/>
+                    </div>
+                    <div class="col-lg-7 pt16 pb16 text_class">
+                        <p class="p_has_gold_color_head"><strong>DELCO CORPORATION (USA)</strong></p>
+
+                        <p class="text_block_heading">
+                            DER WONDERBAR-SENDERSUCHLAUF
+                        </p>
+                        <p class="para_text_image">
+                            Der WONDERBAR-Sendersuchlauf wurde Ende der 1940er Jahre von General Motors entwickelt und war der erste automatische „Sendersuchlauf“-Radiotuner seiner Art. In seinem Funktionsprinzip ähnlich wie ein moderner Sendersuchlauf, stellt der Fahrer einfach die gewünschte Sender-Empfindlichkeit ein und drückt dann die WONDERBAR-Taste am Radio. Der Skalenzeiger beginnt dann die Radioskala von links nach rechts abzufahren und stoppt beim nächsten empfangen Sender, der der eingestellten Signalstärke entspricht. Der gesamte Mechanismus ist durch eine starke Feder angetrieben und wird in seiner Bewegung von links nach rechts über die Skala durch eine Schleppkupplung gebremst. Sobald ein ausreichend starkes Signal gefunden ist, wird der Mechanismus durch ein kleines Relais gestoppt, das die Schleppkupplung verriegelt und den Skalenzeiger beziehungsweise den Mechanismus damit stoppt. Sobald der Skalenzeiger das rechte Ende der Skala erreicht, wird der WONDERBAR-Mechanismus durch eine Magnetspule wieder von links nach aufgezogen, die Feder wieder gespannt und der Suchlauf beginnt von Neuem.</p>
+                        <a href="https://customradioshop.de/radio/delco-7266505-fuer-cadillac-baujahr-1956/" class="li_has_gold_color_link font-weight-bold" style="text-decoration:underline;"><strong><span class="fa fa-arrow-left"></span>DELCO 7266505 FÜR CADILLAC BAUJAHR 1956</strong></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_classic_station_search_content" name="Station Search Content">
+        <section class="classic_station_section" id='classic_station_section'>
+            <div class="container station_radio_class">
+                <p class="p_has_gold_color text-center"><strong>Wie die alten Autoradios zu Opa’s Zeiten die Radiosender fanden</strong></p>
+                <p class="station_content_1 text-center">Der elektromechanische Sendersuchlauf</p>
+                <p class="station_content_2 text-center">Viele Leute meinen, der Sendersuchlauf in Autoradios hat erst mit dem digitalen Zeitalter seinen Einzug gehalten. Doch auch schon Opa und Papa hatten einen Sendersuchlauf in Ihren Autoradios. Damals wohlgemerkt elektromechanisch umgesetzt und in den meisten Fällen mit Federkraft betrieben, war es zwar ein absoluter Luxus – aber es war möglich und das schon ab den 1940er Jahren.</p>
+            </div>
+        </section>
+    </template>
+</odoo>

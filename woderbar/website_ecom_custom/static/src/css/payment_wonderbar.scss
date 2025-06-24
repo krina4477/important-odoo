@@ -1,0 +1,239 @@
+.payment_wonderbar_div{
+    width: 84%;
+    margin-left: 8%;
+    .main_row{
+        padding-right: 5%;
+    }
+    .one_count{
+        border: 1px solid #000;
+        border-radius: 18px;
+        font-size: 75%;
+        text-align: center;
+        padding: 4px 11px;
+    }
+    .one_count.c_activate{
+        color: #FFF;
+        background: #000;
+    }
+
+    #address_on_payment{
+        .header_delivery{
+            font-size: 1.8em !important;
+            font-weight: 600;
+            width: 100%;
+            a{
+                text-decoration: underline;
+                font-size: 55%;
+            }
+        }
+        .str_address{
+            width: 90%;
+            float: right;
+            font-size: 1rem;
+        }
+        #shipping_and_billing{
+            width: 90%;
+            float: right;
+            .delivery_address{
+                h6{
+                    color: #b09b5f;
+                }
+                input{
+                    border-radius: 0 !important;
+                    background-color: #f0f0f0;
+                    border-color: #000;
+                }
+                select{
+                    border-radius: 0 !important;
+                    background-color: #f0f0f0;
+                    border-color: #000;
+                }
+            }
+            .billing_address{
+                h6{
+                    color: #b09b5f;
+                }
+                input{
+                    border-radius: 0 !important;
+                    background-color: #f0f0f0;
+                    border-color: #000;
+                }
+                select{
+                    border-radius: 0 !important;
+                    background-color: #f0f0f0;
+                    border-color: #000;
+                }
+            }
+            .email_address{
+                h6{
+                    color: #b09b5f;
+                }
+                input{
+                    border-radius: 0 !important;
+                    background-color: #f0f0f0;
+                    border-color: #000;
+                }
+                select{
+                    border-radius: 0 !important;
+                    background-color: #f0f0f0;
+                    border-color: #000;
+                }
+            }
+            .delivery_address_btn{
+                a{
+                    background-color: #b09b5f;
+                    border-color: #b09b5f;
+                    border-radius: 2rem;
+                    padding-left: 4%;
+                    padding-right: 4%;
+                }
+            }
+        }
+        .is_portal_user, .is_new_so{
+            display: block !important;
+        }
+    }
+
+    #delivery_and_carrier{
+        border-top: 1px solid grey;
+        .header_delivery{
+            font-size: 1.8em !important;
+            font-weight: 600;
+            width: 100%;
+            a{
+                text-decoration: underline;
+                font-size: 55%;
+            }
+        }
+        .str_options{
+            width: 90%;
+            float: right;
+            font-size: 12px;
+        }
+        #delivery_carrier{
+            width: 90%;
+            float: right;
+        }
+        #delivery_method{
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0;
+                margin: 0;
+            }
+            .o_delivery_carrier_select{
+                width: 50%;
+                text-align: center;
+                background: #f0f0f0;
+            }
+        }
+        .delivery_method_btn{
+            a{
+                background-color: #b09b5f;
+                border-color: #b09b5f;
+                border-radius: 2rem;
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+        }
+    }
+
+    #payment_and_method{
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        div.o_payment_option_card{
+            background-color: #f0f0f0 !important;
+        }
+        .header_delivery{
+            font-size: 1.8em !important;
+            font-weight: 600;
+            width: 100%;
+            a{
+                text-decoration: underline;
+                font-size: 55%;
+            }
+        }
+        .str_payment{
+        }
+        #payment_method{
+            width: 90%;
+            float: right;
+        }
+    }
+
+    #cart_summary_wonderbar{
+        .cart_express_text{
+            text-align: center;
+            color: #b09b5f;
+        }
+        .cart_express_btn{
+            text-align: center;
+            a{
+                background-color: #b09b5f;
+                border-color: #b09b5f;
+                border-radius: 2rem;
+                padding-left: 4%;
+                padding-right: 4%;
+                width: 80%;
+            }
+        }
+        .cart_express_card{
+            // border-top: 1px solid grey;
+            padding: 0;
+            margin: 0;
+            .cart_express_div{
+                background: #FFF;
+                padding: 5%;
+                .toggle_summary_div{
+                    background: #FFF;
+                    table#cart_products{
+                        td{
+                            border-top: unset;
+                            border-bottom: 1px solid gray;
+                        }
+                    }
+                    #order_delivery{
+                        td.text-right{
+                            padding-top: 2rem;
+                            padding-bottom: 2rem;
+                            text-align: left !important;
+                            color: #000 !important;
+                        }
+                        td.text-xl-right{
+                            padding-top: 2rem;
+                            padding-bottom: 2rem;
+                            color: #000 !important;
+                        }
+                    }
+                    #order_total_untaxed{
+                        td{
+                            padding-top: 2rem;
+                            border-top: 1px solid grey !important;
+                        }
+                    }
+                    #cart_total{
+                        td{
+                            border-top: unset;
+                        }
+                    }
+                }
+                .td-img sup{
+                    position: sticky;
+                    float: right;
+                    color: #FFFFFF;
+                    background-color: #000;
+                    border-radius: 18px;
+                }
+                .td-img img{
+                    margin-top: -20%;
+                }
+                .td-product_name{
+                    font-size: 12px;
+                }
+            }
+        }
+        .order_summary{
+            color: #b09b5f;
+        }
+    }
+}

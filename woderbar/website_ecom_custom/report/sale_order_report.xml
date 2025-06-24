@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="inherit_external_layout_din5008" name="Sale Order Report" inherit_id="l10n_de.external_layout_din5008">
+        <xpath expr="//t[@t-foreach='o.l10n_de_addresses']/td" position="attributes">
+            <attribute name="colspan">12</attribute>
+        </xpath>
+
+        <xpath expr="//div[hasclass('shipping_address')]" position="attributes">
+            <attribute name="style">width: 100% !important;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@t-esc='doc_address[1]']" position="replace">
+            <span t-esc="doc_address[1].name" />
+            <span t-esc="doc_address[1].contact_address" />
+        </xpath>
+
+        <xpath expr="//div[hasclass('company_details')]" position="replace">
+            <div class="company_details">
+                <table>
+                    <tr>
+                        <td>
+                            <ul style="margin-bottom:0; padding:0;">
+                                <t t-if="company.name">
+                                    <span t-field="company.name"/>
+                                </t>
+                                <t t-if="company.street">
+                                    <span t-field="company.street"/>
+                                </t>
+                                <t t-if="company.street2">
+                                    <span t-field="company.street2"/>
+                                </t>
+                                <t>
+                                    <span t-if="company.zip" t-field="company.zip"/>
+                                    <span t-if="company.city" t-field="company.city"/>
+                                </t>
+                                <t t-if="company.country_id">
+                                    <span t-field="company.country_id.name"/>
+                                </t>
+                                <br/>    
+                                <t t-if="company.vat">
+                                    <t t-esc="company.account_fiscal_country_id.vat_label or 'Tax ID'"/>
+                                    <span t-field="company.vat"/>
+                                </t>
+                                <t>HRB Nr: <span t-field="company.company_registry"/>
+                                </t>
+                                <span t-field="company.report_footer" />
+                            </ul>
+
+                            <ul t-if="company.partner_id.bank_ids"  style="margin-bottom:0; margin-top: -10px; padding:0;">
+                                <t t-foreach="company.partner_id.bank_ids[:1]" t-as="bank">
+                                    <t><span t-field="bank.bank_id.name"/></t>
+                                    <t>IBAN: <span t-field="bank.acc_number"/></t>
+                                    <t>BIC: <span t-field="bank.bank_id.bic"/></t>
+                                </t>
+                            </ul>
+
+                            <ul style="padding: 0;">
+                                <t t-if="company.phone">
+                                    <span t-field="company.phone"/>
+                                </t>
+                                <t t-if="company.email">
+                                    <span t-field="company.email"/>
+                                </t>
+                                <t t-if="company.website">
+                                    <span t-field="company.website"/>
+                                </t>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </xpath>
+
+    </template>
+
+    <template id="report_saleorder_document_inherit_sale_management_cr" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//h4[@name='h_optional_products']" position="attributes">
+             <attribute name="style">margin-top: 20px !important;</attribute>
+        </xpath>
+    </template>
+
+</odoo>
+

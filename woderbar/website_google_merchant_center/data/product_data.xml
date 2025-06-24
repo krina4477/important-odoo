@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record forcecreate="True" id="ir_cron_gmc" model="ir.cron">
+        <field name="name">Google Merchant Center scheduler</field>
+        <field eval="True" name="active"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="state">code</field>
+        <field eval="False" name="doall"/>
+        <field ref="product.model_product_product" name="model_id"/>
+        <field eval="'model.resync_products_with_gmc()'" name="code"/>
+    </record>
+
+    <!-- Resource: merchant.center.category -->
+    <record id="product_merchant_category_sports" model="merchant.center.category">
+        <field name="name">Sporting Goods</field>
+    </record>
+
+    <record id="product_merchant_category_sports_athletics" model="merchant.center.category">
+        <field name="parent_id" ref="product_merchant_category_sports"/>
+        <field name="name">Athletics</field>
+    </record>
+
+    <record id="product_merchant_category_sports_athletics_cricket" model="merchant.center.category">
+        <field name="parent_id" ref="product_merchant_category_sports_athletics"/>
+        <field name="name">Cricket</field>
+    </record>
+
+    <!-- Resource: merchant.center.brand -->
+    <record id="product_merchant_brand_puma" model="merchant.center.brand">
+        <field name="name">Puma</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="products_item" inherit_id="website_ecom_custom.product_item_inherit">
+        <xpath expr="//div[hasclass('product-action-btn')]/form/input" position="after">
+            <input name="product_template_id" t-att-value="product.id" type="hidden"/>
+        </xpath>
+    </template>
+
+    <template id="confirmation" inherit_id="website_ecom_custom.confirmation">
+        <xpath expr="//div[@id='subtotal_excluding_delivery']" position="attributes">
+            <attribute name="t-att-data-order-id">order.id</attribute>
+        </xpath>
+    </template>
+
+</odoo>

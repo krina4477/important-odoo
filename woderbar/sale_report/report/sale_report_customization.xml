@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_customization" inherit_id="sale.report_saleorder_document">
+
+        <xpath expr="//table[hasclass('o_main_table')]" position="attributes">
+            <attribute name="style">margin-top: 46px;</attribute>
+        </xpath>
+
+        <xpath expr="//table[hasclass('o_main_table')]/thead/tr" position="attributes">
+            <attribute name="style">font-size: 10px;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_description']" position="attributes">
+            <attribute name="string">Name</attribute>
+            <attribute name="style">width:100px; padding-top: 14px; padding-bottom: 14px; padding-left: 12px;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_quantity']" position="attributes">
+            <attribute name="string">Menge</attribute>
+            <attribute name="style">padding-top: 14px; padding-bottom: 14px; padding-left: 114px;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_quantity']" position="after">
+            <th name="th_Einheit" class="text-right" style="padding-top: 14px; padding-bottom: 14px; padding-left: 20px; padding-right: 14px;">Einheit</th>
+        </xpath>
+
+        <xpath expr="//th[@name='th_priceunit']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_discount']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_taxes']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_subtotal']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@name='td_name']" position="attributes">
+            <attribute name="style">display: inline-block;width: 430px;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@name='td_quantity']" position="attributes">
+            <attribute name="style">padding-right: 16px; vertical-align: top;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@name='td_quantity']/span[2]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@name='td_quantity']" position="after">
+            <td name="td_product_uom_name" class="text-right" style="padding-right: 16px; vertical-align: top;">
+                <span t-field="line.product_uom.display_name"/>
+            </td>
+        </xpath>
+
+        <xpath expr="//td[@name='td_priceunit']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@t-if='display_discount']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@name='td_taxes']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//td[@name='td_subtotal']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@name='so_total_summary']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+    </template>
+</odoo>

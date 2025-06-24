@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="classic_car_template" name="DAB-Empfang wird kommen. Bleibt das Radio in meinem Oldtimer jetzt stumm? | WUNDERBAR Custom Radio Shop">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="classic_car_section" id='classic_car_section'>
+            <div class="container classic_car_content">
+                <p class="p_has_gold_color"><strong>DAB+ NACHRÜSTUNG IM OLDTIMER</strong></p>
+                <p class="content_h1"><strong>DAB-Empfang ist die Zukunft.</strong></p>
+                <p class="content_h2"><strong>Bleibt das originale Radio in meinem Oldtimer jetzt stumm?</strong></p>
+                <p class="h4 mt-5"><strong>Die Schweiz und Norwegen preschen voran und schalten das analoge Ultrakurzwellen-Signal in 2024 ab. Auch wenn Deutschland noch kein Datum genannt hat, so machen ARD und ZDF ebenfalls Druck UKW endgültig abzuschalten. Bleibt damit das originales Radio in meinem Oldtimer zukünftig stumm?</strong></p>
+                <p class="mt-5">BECKER, BLAUPUNKT, DELCO und Bendix sind nur einige der wohlklingenden Namen von Herstellern der vielen originalen Radios die in Oldtimern verbaut sind. Optisch an das Armaturenbrett angepasst, sind die Radios kleine Schmuckstücke aus Chrom mit schwarzen und elfenbeinfarbenen Tasten. Und auch wenn die Radio eine Zierde ist, so gibt es doch ein Problem: Mit der DAB+ Einführung ergeht es den UKW-Geräten genau so wie den vielen originalen Mittelwelle-Geräten: sie werden stumm bleiben. Welche Optionen gibt es nun also um in seinem Klassiker DAB+ empfangen zu können?</p>
+                <p class="p_has_black_color_content"><strong>Neues Radio im Retro-Design</strong></p>
+                <p>Es gibt einige Anbieter von Autoradios, die in einem nostalgischen Design gehalten sind. Einige wenige Hersteller bieten zusätzlich verschieden Blenden, Knöpfe und Taster an, um die Front an das Design des jeweiligen Armaturenbrett anzupassen. Eigentlich immer das gleiche Grundgerät sind die Achsen des Radio verschiebbar oder können ganz umgebaut werden, um an das jeweilige Armaturenbrett angepasst zu werden. Ein moderner DAB+-Empfänger ist natürlich an Bord. Die Preise bewegen sich zwischen 399,00 EUR und 599,00 EUR zuzüglich neuer Lautsprecher und Antenne wenn notwendig.</p>
+                <p class="p_has_black_color_content">
+                    <strong>Das originale Radio auf ein modernes Innenleben umrüsten</strong>
+                </p>
+                <p>Eine zweite Option die besteht, ist die Umrüstung des originalen Gerätes durch einen Spezialisten. Hier werden die originalen Geräte zerlegt und die alte Verstärker- und Empfangstechnik durch eine moderne digitale Variante ersetzt, die die verbleibende Technik steuern kann. Hierzu verbleibt das Gehäuse, alle Schalter und Knöpfe, der originale Tuner mit Mechanik und – sofern vorhanden – auch der originale elektromechanische Sendersuchlauf. Die DAB+ Sender lassen sich wie gewohnt über das Drehen des Stationsknopf einstellen und die Sendereinstellung bei DAB+ funktioniert auch über den originalen Sendersuchlauf, wie er bei BECKER, BLAUPUNKT und in vielen amerikanischen Radios zum Einsatz kam. Eine neue separate neue Antenne ist nicht notwendig – unter der Voraussetzung, dass die Antenne in einem guten Zustand ist kann die originale Antenne auch für DAB+ weiterverwendet werden Vollständig eingebaut in das originale Gehäuse sieht man dem Radio die Umrüstung nicht an. Mit Ausnahme der neuen modernen Anschlüsse auf der Rückseite des Gerätes. Die Leistung des Gerätes entspricht einem modernen Radio. Die Umrüstung erfolgt je einzelnes Radio und liegt je nach Gerät und Aufwand zwischen 950,00 EUR und höher für Radio die einen originalen Sendersuchlauf beinhalten. Anbieter dieser Umrüstungen ist die Firma
+                    <a href="/" class="para_a_link">WUNDERBAR Custom Radio Shop GmbH</a>
+                    bei Stuttgart.</p>
+                <p class="p_has_black_color_content"><strong>Original restaurieren und ein Adapterkabel verwenden</strong></p>
+                <p>Während die beiden anderen genannten Optionen, in die Geräte integriert sind und eine Bedienung von der Geräte-Frontseite erlauben, ist es auch möglich, das Radio vollständig zu restaurieren und ein Adapterkabel zu verwenden. Hierfür kommt bei den deutschen Geräten in aller Regel der originale Tonband-Anschluss zum Einsatz, den BLAUPUNKT und BECKER vielen ihrer Geräte mit gegeben hat. Bei amerikanischen Autoradios aus den 1950er – 1970er Jahren sieht es hier etwas dürftiger aus. DELCO, BENDIX, MoPar und Co. besitzen in aller Regel so einen Anschluss nicht und er muss nachgerüstet werden. An diesen Anschluss lässt sich dann einen kleines DAB+ Radio anschließen und im Handschuhfach verstecken. Ein der bekanntesten Anbieter ist die Firma KÖNIG KLASSIK Radio bei Frankfurt.</p>
+                <p class="p_has_gold_color mt64"><strong>KONTAKT</strong></p>
+                <span class="p_has_gold_color"><strong>WUNDERBAR Custom Radio Shop GmbH</strong></span>
+                <span class="p_has_gold_color_content list-group">Bodelshofer Weg 1</span>
+                <span class="p_has_gold_color_content list-group">73230 Kirchheim</span>
+                <span class="p_has_gold_color_content list-group">+49 (0) 176 21227455</span>
+                <span class="p_has_gold_color_content list-group mb96">sales@customradioshop.de</span>
+            </div>
+        </section>
+            </div>
+        </t>
+    </template>
+</odoo>
